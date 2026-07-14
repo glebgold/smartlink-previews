@@ -80,15 +80,13 @@
   .hero-media{position:absolute;inset:0;z-index:0}
   .hero-media img{
     width:100%;height:100%;object-fit:cover;
-    /* сильное размытие превращает вшитый в обложку текст в абстрактный фон — заголовок читается чисто */
-    filter:blur(24px) saturate(1.15) brightness(.5);
-    transform:scale(1.2);
+    filter:grayscale(.35) contrast(1.05) brightness(.62);
   }
   .hero-tint{
     position:absolute;inset:0;z-index:1;
     background:
-      linear-gradient(180deg, rgba(10,12,14,.62) 0%, rgba(10,12,14,.5) 42%, rgba(10,12,14,.9) 100%),
-      linear-gradient(105deg, color-mix(in srgb, var(--accent) 62%, transparent) 0%, transparent 66%);
+      linear-gradient(180deg, rgba(10,12,14,.55) 0%, rgba(10,12,14,.35) 42%, rgba(10,12,14,.86) 100%),
+      linear-gradient(105deg, color-mix(in srgb, var(--accent) 58%, transparent) 0%, transparent 62%);
   }
   .hero-plain{
     position:absolute;inset:0;z-index:0;
@@ -296,8 +294,8 @@
   <div class="hero-inner">
     <div class="hero-content">
       <p class="eyebrow">Чапаевск · клининг «Чистое Наследие»</p>
-      <h1 class="hero-h1">Сияющий дом без усилий</h1>
-      <p class="hero-sub">Профессиональная уборка квартир и офисов в Чапаевске</p>
+      <h1 class="hero-h1">Чистота без усилий для вас</h1>
+      <p class="hero-sub">Профессиональный клининг квартир и офисов в Чапаевске</p>
       <div class="hero-actions">
         <a class="btn btn-light" href="#contact">Оставить заявку
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
@@ -350,7 +348,7 @@
         <span class="svc-num">01</span>
         <div>
           <div class="svc-title">Генеральная уборка</div>
-          <div class="svc-desc">Идеальная чистота в каждом уголке вашего дома.</div>
+          <div class="svc-desc">Полное очищение вашего пространства от грязи.</div>
         </div>
         <span class="svc-arrow">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
@@ -361,7 +359,7 @@
         <span class="svc-num">02</span>
         <div>
           <div class="svc-title">Поддерживающая уборка</div>
-          <div class="svc-desc">Регулярная чистота без лишних забот.</div>
+          <div class="svc-desc">Регулярная чистота без лишних усилий.</div>
         </div>
         <span class="svc-arrow">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
@@ -372,7 +370,7 @@
         <span class="svc-num">03</span>
         <div>
           <div class="svc-title">Уборка после ремонта</div>
-          <div class="svc-desc">Быстро и качественно уберем строительный беспорядок.</div>
+          <div class="svc-desc">Скорее вернитесь в свой обновленный дом.</div>
         </div>
         <span class="svc-arrow">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
@@ -382,8 +380,8 @@
       <div class="svc">
         <span class="svc-num">04</span>
         <div>
-          <div class="svc-title">Мытьё окон</div>
-          <div class="svc-desc">Чистые окна — залог яркого света в вашем доме.</div>
+          <div class="svc-title">Мытьё окон и балконов</div>
+          <div class="svc-desc">Чистые окна — яркие впечатления от вида.</div>
         </div>
         <span class="svc-arrow">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
@@ -443,7 +441,7 @@
       </div>
       <div>
         <div class="about-rule"></div>
-        <p class="about-body">Чистое Наследие — это команда профессионалов, готовых сделать ваш дом идеальным. Мы заботимся о вашем комфорте и гарантируем высокое качество уборки.</p>
+        <p class="about-body">Чистое Наследие — ваш надежный партнер в мире клининга. Мы заботимся о вашем комфорте и создаем чистоту, чтобы вы могли наслаждаться жизнью.</p>
         <div class="about-side" style="border:none;padding:0;margin-top:34px">
           
           <div class="row"><div class="k">Город</div><div class="v">Чапаевск</div></div>

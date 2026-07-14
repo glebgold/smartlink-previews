@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>клининг «Чистое Наследие» — Чапаевск</title>
+<style>
+  :root{
+    --accent: #137a6e;
+    --ink: #14100c;
+    --ink-soft: #5c554d;
+    --line: #e0dcd4;
+    --line-strong:#14100c;
+    --paper: #fbfaf7;
+    --paper-2:#f2efe9;
+    --maxw: 1200px;
+    --gut: 24px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+    background:var(--paper);
+    color:var(--ink);
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+  }
+  img{display:block;max-width:100%}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--gut)}
+
+  .label{
+    font-size:11px;
+    letter-spacing:.24em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    font-weight:600;
+  }
+  .label--accent{color:var(--accent)}
+
+  /* ---------- HEADER ---------- */
+  header.site{
+    position:sticky;top:0;z-index:50;
+    background:rgba(251,250,247,.86);
+    backdrop-filter:saturate(140%) blur(10px);
+    -webkit-backdrop-filter:saturate(140%) blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .hdr{
+    display:flex;align-items:center;justify-content:space-between;
+    height:66px;gap:16px;
+  }
+  .brand{display:flex;align-items:center;gap:12px;min-width:0}
+  .brand img{height:30px;width:auto;object-fit:contain}
+  .brand .nm{
+    font-size:15px;font-weight:600;letter-spacing:.01em;
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:52vw;
+  }
+  .hdr-right{display:flex;align-items:center;gap:22px}
+  .hdr-tel{font-size:14px;font-weight:500;letter-spacing:.01em;white-space:nowrap}
+  .hdr-tel:hover{color:var(--accent)}
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;
+    height:44px;padding:0 22px;
+    font-size:13px;font-weight:600;letter-spacing:.04em;
+    border:1px solid var(--line-strong);
+    background:var(--ink);color:var(--paper);
+    border-radius:0;
+    transition:background .2s ease,color .2s ease;
+    cursor:pointer;
+  }
+  .btn:hover{background:var(--accent);border-color:var(--accent);color:#fff}
+  .btn--ghost{background:transparent;color:var(--ink)}
+  .btn--ghost:hover{background:var(--ink);color:var(--paper)}
+  .hdr .btn{height:40px}
+  @media (max-width:820px){
+    .hdr-tel{display:none}
+    .hdr .btn{display:none}
+    .brand .nm{max-width:62vw}
+  }
+
+  /* ---------- HERO (typographic) ---------- */
+  .hero{
+    border-bottom:1px solid var(--line);
+    padding:88px 0 72px;
+  }
+  .hero-grid{
+    display:grid;grid-template-columns:1fr;gap:40px;
+  }
+  .hero-top{
+    display:flex;justify-content:space-between;align-items:baseline;
+    flex-wrap:wrap;gap:16px;
+    padding-bottom:34px;border-bottom:1px solid var(--line);
+  }
+  .hero-top .meta{
+    font-size:12px;letter-spacing:.08em;color:var(--ink-soft);
+    text-transform:uppercase;
+  }
+  .hero h1{
+    font-size:clamp(44px,9vw,120px);
+    line-height:.98;
+    letter-spacing:-0.03em;
+    font-weight:600;
+    max-width:14ch;
+  }
+  .hero h1 .accent-word{color:var(--accent)}
+  .hero-lead{
+    display:grid;grid-template-columns:1fr;gap:28px;
+    align-items:end;
+  }
+  .hero-sub{
+    font-size:clamp(16px,2.1vw,20px);
+    color:var(--ink-soft);
+    max-width:46ch;
+    line-height:1.55;
+  }
+  .hero-actions{display:flex;flex-wrap:wrap;align-items:center;gap:18px}
+  .hero-tel{
+    font-size:15px;font-weight:500;letter-spacing:.01em;
+    padding-bottom:2px;border-bottom:1px solid var(--line-strong);
+  }
+  .hero-tel:hover{color:var(--accent);border-color:var(--accent)}
+  @media (min-width:821px){
+    .hero-lead{grid-template-columns:1.1fr .9fr;gap:60px}
+  }
+
+  /* ---------- USPS ---------- */
+  .usps{border-bottom:1px solid var(--line)}
+  .usps-grid{
+    display:grid;grid-template-columns:1fr;
+  }
+  .usp{
+    padding:36px 0;border-top:1px solid var(--line);
+  }
+  .usps-grid .usp:first-child{border-top:none}
+  .usp .n{
+    font-size:12px;letter-spacing:.14em;color:var(--accent);
+    font-weight:600;margin-bottom:14px;font-variant-numeric:tabular-nums;
+  }
+  .usp p{
+    font-size:clamp(18px,2.4vw,24px);
+    letter-spacing:-0.01em;line-height:1.25;
+    max-width:22ch;
+  }
+  @media (min-width:821px){
+    .usps-grid{grid-template-columns:repeat(3,1fr);gap:0}
+    .usp{border-top:none;border-left:1px solid var(--line);padding:52px 40px 52px 0;padding-left:34px}
+    .usps-grid .usp:first-child{padding-left:0;border-left:none}
+  }
+
+  /* ---------- SECTION HEAD ---------- */
+  .sec{padding:88px 0}
+  .sec--tight{padding:72px 0}
+  .sechead{
+    display:grid;grid-template-columns:1fr;gap:16px;
+    padding-bottom:40px;margin-bottom:52px;
+    border-bottom:1px solid var(--line-strong);
+  }
+  .sechead h2{
+    font-size:clamp(30px,5vw,56px);
+    letter-spacing:-0.025em;line-height:1.02;font-weight:600;
+    max-width:16ch;
+  }
+  .sechead .idx{
+    font-size:12px;letter-spacing:.2em;color:var(--ink-soft);
+    text-transform:uppercase;font-variant-numeric:tabular-nums;
+  }
+  @media (min-width:821px){
+    .sechead{grid-template-columns:auto 1fr;align-items:end;gap:60px}
+  }
+
+  /* ---------- SERVICES ---------- */
+  .services{display:grid;grid-template-columns:1fr}
+  .svc{
+    display:grid;grid-template-columns:1fr;gap:8px;
+    padding:30px 0;border-top:1px solid var(--line);
+    transition:padding-left .25s ease;
+  }
+  .services .svc:first-child{border-top:none}
+  .svc .st{
+    display:flex;align-items:baseline;gap:16px;
+  }
+  .svc .st .num{
+    font-size:12px;color:var(--ink-soft);font-variant-numeric:tabular-nums;
+    letter-spacing:.1em;min-width:34px;
+  }
+  .svc h3{
+    font-size:clamp(20px,3vw,30px);
+    letter-spacing:-0.015em;font-weight:600;line-height:1.15;
+  }
+  .svc .sd{
+    color:var(--ink-soft);font-size:16px;line-height:1.55;
+    max-width:60ch;
+  }
+  @media (min-width:821px){
+    .svc{grid-template-columns:minmax(0,1fr) minmax(0,42ch);gap:60px;align-items:baseline}
+    .svc:hover{padding-left:14px}
+    .svc:hover h3{color:var(--accent)}
+    .svc .sd{padding-top:4px}
+  }
+
+  /* ---------- GALLERY ---------- */
+  .gallery-sec{background:var(--paper-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .gal{
+    display:grid;grid-template-columns:repeat(2,1fr);gap:14px;
+  }
+  .gal .cell{
+    position:relative;overflow:hidden;background:#ddd8cf;
+    aspect-ratio:4/5;
+  }
+  .gal .cell img{
+    width:100%;height:100%;object-fit:cover;
+    filter:saturate(.94) contrast(1.02);
+    transition:transform .6s ease;
+  }
+  .gal .cell:hover img{transform:scale(1.04)}
+  .gal .cell.wide{grid-column:span 2;aspect-ratio:16/9}
+  @media (min-width:821px){
+    .gal{grid-template-columns:repeat(6,1fr);grid-auto-flow:dense;gap:16px}
+    .gal .cell{aspect-ratio:3/4;grid-column:span 2}
+    .gal .cell.wide{grid-column:span 3;aspect-ratio:4/3}
+    .gal .cell.tall{grid-column:span 3;aspect-ratio:16/10}
+  }
+
+  /* ---------- ABOUT ---------- */
+  .about-grid{display:grid;grid-template-columns:1fr;gap:40px}
+  .about-body p{
+    font-size:clamp(19px,2.6vw,27px);
+    line-height:1.45;letter-spacing:-0.01em;
+    max-width:30ch;font-weight:400;
+  }
+  .about-meta{
+    display:grid;gap:0;align-self:start;
+  }
+  .about-meta .row{
+    display:flex;justify-content:space-between;gap:20px;
+    padding:18px 0;border-top:1px solid var(--line);
+    font-size:14px;
+  }
+  .about-meta .row:first-child{border-top:none}
+  .about-meta .row .k{color:var(--ink-soft);letter-spacing:.02em}
+  .about-meta .row .v{font-weight:600;text-align:right}
+  @media (min-width:821px){
+    .about-grid{grid-template-columns:1.3fr .7fr;gap:80px}
+  }
+
+  /* ---------- CONTACT ---------- */
+  .contact{background:var(--ink);color:var(--paper);border-top:1px solid var(--line-strong)}
+  .contact .label{color:rgba(251,250,247,.6)}
+  .contact .label--accent{color:var(--accent)}
+  .contact h2{
+    color:var(--paper);
+    font-size:clamp(30px,5vw,56px);letter-spacing:-0.025em;
+    line-height:1.03;font-weight:600;max-width:16ch;
+  }
+  .contact-grid{display:grid;grid-template-columns:1fr;gap:56px;margin-top:52px}
+  .cinfo{display:grid;gap:0}
+  .cinfo .crow{
+    padding:22px 0;border-top:1px solid rgba(251,250,247,.14);
+  }
+  .cinfo .crow:first-child{border-top:none}
+  .cinfo .crow .ck{
+    font-size:11px;letter-spacing:.2em;text-transform:uppercase;
+    color:rgba(251,250,247,.55);margin-bottom:8px;
+  }
+  .cinfo .crow a,.cinfo .crow .cv{
+    font-size:clamp(20px,3vw,30px);letter-spacing:-0.01em;font-weight:500;
+    color:var(--paper);
+  }
+  .cinfo .crow a:hover{color:var(--accent)}
+
+  form.lead{display:grid;gap:0}
+  form.lead .fld{
+    display:flex;flex-direction:column;gap:8px;
+    padding:16px 0;border-bottom:1px solid rgba(251,250,247,.16);
+  }
+  form.lead label{
+    font-size:11px;letter-spacing:.2em;text-transform:uppercase;
+    color:rgba(251,250,247,.55);
+  }
+  form.lead input,form.lead textarea{
+    font-family:inherit;font-size:16px;color:var(--paper);
+    background:transparent;border:none;outline:none;padding:4px 0;
+  }
+  form.lead input::placeholder,form.lead textarea::placeholder{color:rgba(251,250,247,.4)}
+  form.lead textarea{resize:vertical;min-height:52px}
+  form.lead .submit{
+    margin-top:28px;
+    height:52px;border:1px solid var(--paper);background:var(--paper);color:var(--ink);
+    font-size:13px;font-weight:600;letter-spacing:.06em;cursor:pointer;
+    transition:background .2s,color .2s,border-color .2s;
+  }
+  form.lead .submit:hover{background:var(--accent);border-color:var(--accent);color:#fff}
+  form.lead .note{
+    margin-top:14px;font-size:12px;color:rgba(251,250,247,.42);letter-spacing:.02em;
+  }
+  @media (min-width:821px){
+    .contact-grid{grid-template-columns:.9fr 1.1fr;gap:80px}
+  }
+
+  /* ---------- FOOTER ---------- */
+  footer.site{
+    background:var(--ink);color:rgba(251,250,247,.6);
+    border-top:1px solid rgba(251,250,247,.14);
+    padding:34px 0;
+  }
+  .foot{
+    display:flex;justify-content:space-between;align-items:center;
+    flex-wrap:wrap;gap:12px;font-size:12px;letter-spacing:.04em;
+  }
+  .foot a:hover{color:var(--accent)}
+
+  /* ---------- MOBILE STICKY CALL ---------- */
+  .mcall{display:none}
+  @media (max-width:820px){
+    .mcall{
+      display:flex;position:fixed;left:0;right:0;bottom:0;z-index:60;
+      border-top:1px solid var(--line-strong);
+      background:var(--paper);
+    }
+    .mcall a{
+      flex:1;display:flex;align-items:center;justify-content:center;gap:9px;
+      height:56px;font-size:14px;font-weight:600;letter-spacing:.03em;
+    }
+    .mcall a.call{background:var(--ink);color:var(--paper)}
+    .mcall a.req{color:var(--ink)}
+    .mcall svg{width:17px;height:17px}
+    body{padding-bottom:56px}
+  }
+
+  .accent-rule{height:2px;background:var(--accent);width:44px}
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap hdr">
+    <a href="#top" class="brand">
+      <img src="assets/logo.jpg" alt="клининг «Чистое Наследие»">
+      <span class="nm">клининг «Чистое Наследие»</span>
+    </a>
+    <div class="hdr-right">
+      <a class="hdr-tel" href="tel:+79967253235">+7 (996) 725-32-35</a>
+      <a class="btn" href="#contact">Оставить заявку</a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div class="hero-top">
+        <span class="label label--accent">Профессиональный клининг · Чапаевск</span>
+        <span class="meta">Est. 2026 · SmartLink Studio</span>
+      </div>
+      <h1>Чистота без усилий для вас</h1>
+      <div class="hero-lead">
+        <p class="hero-sub">Профессиональный клининг квартир и офисов в Чапаевске</p>
+        <div class="hero-actions">
+          <a class="btn" href="#contact">Оставить заявку</a>
+          <a class="hero-tel" href="tel:+79967253235">+7 (996) 725-32-35</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- USPS -->
+  
+  <section class="usps">
+    <div class="wrap">
+      <div class="usps-grid">
+        
+        <div class="usp">
+          <div class="n">01</div>
+          <p>Выезд в день обращения</p>
+        </div>
+        
+        <div class="usp">
+          <div class="n">02</div>
+          <p>Фикс. цена</p>
+        </div>
+        
+        <div class="usp">
+          <div class="n">03</div>
+          <p>Гарантия качества</p>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+  
+
+  <!-- SERVICES -->
+  
+  <section class="sec" id="services">
+    <div class="wrap">
+      <div class="sechead">
+        <span class="idx">[ Услуги ]</span>
+        <h2>Что мы делаем</h2>
+      </div>
+      <div class="services">
+        
+        <div class="svc">
+          <div class="st">
+            <span class="num">01</span>
+            <h3>Генеральная уборка</h3>
+          </div>
+          <p class="sd">Полное очищение вашего пространства от грязи.</p>
+        </div>
+        
+        <div class="svc">
+          <div class="st">
+            <span class="num">02</span>
+            <h3>Поддерживающая уборка</h3>
+          </div>
+          <p class="sd">Регулярная чистота без лишних усилий.</p>
+        </div>
+        
+        <div class="svc">
+          <div class="st">
+            <span class="num">03</span>
+            <h3>Уборка после ремонта</h3>
+          </div>
+          <p class="sd">Скорее вернитесь в свой обновленный дом.</p>
+        </div>
+        
+        <div class="svc">
+          <div class="st">
+            <span class="num">04</span>
+            <h3>Мытьё окон и балконов</h3>
+          </div>
+          <p class="sd">Чистые окна — яркие впечатления от вида.</p>
+        </div>
+        
+        <div class="svc">
+          <div class="st">
+            <span class="num">05</span>
+            <h3>Уборка перед сдачей</h3>
+          </div>
+          <p class="sd">Подготовим ваше жилье к новым жильцам.</p>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+  
+
+  <!-- GALLERY -->
+  
+  <section class="gallery-sec">
+    <div class="wrap sec sec--tight">
+      <div class="sechead">
+        <span class="idx">[ Работы ]</span>
+        <h2>Результат в деталях</h2>
+      </div>
+      <div class="gal">
+        
+        <div class="cell wide">
+          <img src="assets/g0.jpg" alt="Пример работы клининг «Чистое Наследие» — 1" loading="lazy">
+        </div>
+        
+        <div class="cell ">
+          <img src="assets/g1.jpg" alt="Пример работы клининг «Чистое Наследие» — 2" loading="lazy">
+        </div>
+        
+        <div class="cell ">
+          <img src="assets/g2.jpg" alt="Пример работы клининг «Чистое Наследие» — 3" loading="lazy">
+        </div>
+        
+        <div class="cell tall">
+          <img src="assets/g3.jpg" alt="Пример работы клининг «Чистое Наследие» — 4" loading="lazy">
+        </div>
+        
+        <div class="cell ">
+          <img src="assets/g4.jpg" alt="Пример работы клининг «Чистое Наследие» — 5" loading="lazy">
+        </div>
+        
+        <div class="cell ">
+          <img src="assets/g5.jpg" alt="Пример работы клининг «Чистое Наследие» — 6" loading="lazy">
+        </div>
+        
+      </div>
+    </div>
+  </section>
+  
+
+  <!-- ABOUT -->
+  
+  <section class="sec" id="about">
+    <div class="wrap">
+      <div class="sechead">
+        <span class="idx">[ О компании ]</span>
+        <h2>Кто мы</h2>
+      </div>
+      <div class="about-grid">
+        <div class="about-body">
+          <div class="accent-rule" style="margin-bottom:28px"></div>
+          <p>Чистое Наследие — ваш надежный партнер в мире клининга. Мы заботимся о вашем комфорте и создаем чистоту, чтобы вы могли наслаждаться жизнью.</p>
+        </div>
+        <div class="about-meta">
+          <div class="row"><span class="k">Направление</span><span class="v">Клининг</span></div>
+          <div class="row"><span class="k">Город</span><span class="v">Чапаевск</span></div>
+          <div class="row"><span class="k">Телефон</span><span class="v"><a href="tel:+79967253235">+7 (996) 725-32-35</a></span></div>
+          <div class="row"><span class="k">Соцсети</span><span class="v"><a href="https://vk.com/legacyclean" target="_blank" rel="noopener">ВКонтакте</a></span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <div class="wrap sec">
+      <div class="sechead" style="border-bottom-color:rgba(251,250,247,.2)">
+        <span class="idx" style="color:rgba(251,250,247,.55)">[ Контакты ]</span>
+        <h2>Оставьте заявку —<br>перезвоним и рассчитаем</h2>
+      </div>
+      <div class="contact-grid">
+        <div class="cinfo">
+          
+          <div class="crow">
+            <div class="ck">Телефон</div>
+            <a href="tel:+79967253235">+7 (996) 725-32-35</a>
+          </div>
+          
+          
+          <div class="crow">
+            <div class="ck">ВКонтакте</div>
+            <a href="https://vk.com/legacyclean" target="_blank" rel="noopener">Написать в сообщения</a>
+          </div>
+          
+          
+          <div class="crow">
+            <div class="ck">Регион работы</div>
+            <span class="cv">Чапаевск и область</span>
+          </div>
+          
+          <div class="crow">
+            <div class="ck">Режим</div>
+            <span class="cv">Ежедневно, по записи</span>
+          </div>
+        </div>
+
+        <form class="lead" onsubmit="alert('Это демо-макет. На готовом сайте заявка придёт вам.');return false">
+          <div class="fld">
+            <label for="f-name">Ваше имя</label>
+            <input id="f-name" name="name" type="text" placeholder="Как к вам обращаться" required>
+          </div>
+          <div class="fld">
+            <label for="f-phone">Телефон</label>
+            <input id="f-phone" name="phone" type="tel" placeholder="+7 (___) ___-__-__" required>
+          </div>
+          <div class="fld">
+            <label for="f-task">Что нужно убрать</label>
+            <textarea id="f-task" name="task" placeholder="Квартира, офис, после ремонта…"></textarea>
+          </div>
+          <button class="submit" type="submit">Оставить заявку</button>
+          <p class="note">Нажимая кнопку, вы соглашаетесь на обработку данных. Это демонстрационный макет.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site">
+  <div class="wrap foot">
+    <span>клининг «Чистое Наследие» · Чапаевск</span>
+    <span>Макет подготовлен студией <a href="#top">SmartLink</a> · 2026</span>
+  </div>
+</footer>
+
+<!-- MOBILE STICKY CALL -->
+<nav class="mcall">
+  
+  <a class="call" href="tel:+79967253235">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.5 2.1L8.1 9.6a16 16 0 0 0 6 6l1.2-1.1a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2z"/></svg>
+    Позвонить
+  </a>
+  
+  <a class="req" href="#contact">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v12H7l-3 3z"/></svg>
+    Оставить заявку
+  </a>
+</nav>
+
+</body>
+</html>
