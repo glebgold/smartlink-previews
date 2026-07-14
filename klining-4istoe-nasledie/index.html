@@ -1,247 +1,535 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>клининг «Чистое Наследие» — Чапаевск</title>
-<meta name="description" content="Профессиональная уборка для вашего комфорта и уюта">
 <style>
-:root{
-  --accent:#137a6e;
-  --ink:#141414; --ink2:#3a3a3a; --muted:#8c8c8c; --line:#ececec;
-  --paper:#ffffff; --soft:#f6f5f3;
-}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
-  color:var(--ink);background:var(--paper);line-height:1.65;font-size:17px;
-  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
-img{max-width:100%;display:block}
-a{color:inherit;text-decoration:none}
-.wrap{max-width:1080px;margin:0 auto;padding:0 28px}
-.eyebrow{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);font-weight:600}
-h2{font-size:clamp(26px,3.6vw,40px);font-weight:600;letter-spacing:-.03em;line-height:1.1}
+  :root{
+    --accent: #137a6e;
+    --ink: #14161a;
+    --ink-soft: #52585f;
+    --line: #e6e5e1;
+    --paper: #ffffff;
+    --paper-dim: #f6f5f1;
+    --maxw: 1180px;
+    --font: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:var(--font);
+    color:var(--ink);
+    background:var(--paper);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+  }
+  img{display:block;max-width:100%}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  .eyebrow{
+    font-size:12px;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--ink-soft);font-weight:600;
+  }
 
-.btn{display:inline-flex;align-items:center;gap:9px;padding:15px 30px;border-radius:8px;
-  font-weight:600;font-size:15px;cursor:pointer;border:0;transition:.18s;white-space:nowrap}
-.btn-ink{background:var(--ink);color:#fff}
-.btn-ink:hover{background:#000;transform:translateY(-1px)}
-.btn-out{border:1px solid var(--line);color:var(--ink);background:transparent}
-.btn-out:hover{border-color:var(--ink)}
+  /* ---------- Buttons ---------- */
+  .btn{
+    display:inline-flex;align-items:center;gap:9px;
+    font-size:15px;font-weight:600;line-height:1;
+    padding:15px 26px;border-radius:2px;cursor:pointer;
+    border:1px solid var(--accent);background:var(--accent);color:#fff;
+    transition:transform .15s ease, opacity .2s ease;white-space:nowrap;
+  }
+  .btn:hover{opacity:.9;transform:translateY(-1px)}
+  .btn-ghost{
+    background:transparent;color:var(--ink);border:1px solid var(--line);
+  }
+  .btn-ghost:hover{border-color:var(--ink);opacity:1}
+  .btn-light{background:#fff;border-color:#fff;color:var(--ink)}
+  .btn svg{width:16px;height:16px}
 
-/* header */
-header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.82);
-  backdrop-filter:saturate(180%) blur(14px);border-bottom:1px solid var(--line)}
-.nav{display:flex;align-items:center;justify-content:space-between;height:72px;gap:20px}
-.brand{display:flex;align-items:center;gap:13px;font-weight:600;font-size:17px;letter-spacing:-.01em}
-.brand img{width:38px;height:38px;border-radius:9px;object-fit:cover}
-.nav-right{display:flex;align-items:center;gap:26px}
-.nav-links{display:flex;gap:30px}
-.nav-links a{color:var(--ink2);font-weight:500;font-size:15px;transition:.15s}
-.nav-links a:hover{color:var(--accent)}
-.nav-phone{font-weight:600;font-size:16px}
+  /* ---------- Header ---------- */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(255,255,255,.86);backdrop-filter:saturate(180%) blur(12px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{display:flex;align-items:center;justify-content:space-between;height:72px}
+  .brand{display:flex;align-items:center;gap:13px;min-width:0}
+  .brand img{height:34px;width:auto;object-fit:contain}
+  .brand-mark{
+    width:34px;height:34px;flex:none;border-radius:50%;
+    background:var(--accent);color:#fff;display:flex;align-items:center;
+    justify-content:center;font-weight:700;font-size:15px;
+  }
+  .brand-name{font-weight:600;font-size:16px;letter-spacing:-.01em;
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:46vw}
+  .nav-right{display:flex;align-items:center;gap:22px}
+  .nav-phone{font-weight:600;font-size:15px;letter-spacing:-.01em;white-space:nowrap}
+  .nav-phone:hover{color:var(--accent)}
+  .nav .btn{padding:11px 20px;font-size:14px}
+  @media(max-width:820px){
+    .nav-phone{display:none}
+    .nav .btn{padding:10px 16px;font-size:13px}
+    .brand-name{max-width:38vw}
+  }
 
-/* hero */
-.hero{padding:78px 0 84px}
-.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
-.hero .tag{display:inline-block;color:var(--accent);font-weight:600;font-size:14px;
-  letter-spacing:.02em;margin-bottom:20px}
-.hero h1{font-size:clamp(38px,5.6vw,62px);font-weight:600;line-height:1.03;letter-spacing:-.045em}
-.hero p.sub{font-size:clamp(17px,1.6vw,20px);color:var(--ink2);margin-top:24px;max-width:480px}
-.hero-cta{display:flex;gap:14px;margin-top:36px;flex-wrap:wrap}
-.hero-usps{display:flex;gap:26px;margin-top:40px;flex-wrap:wrap;padding-top:28px;border-top:1px solid var(--line)}
-.hero-usps div{font-size:14.5px;color:var(--ink2);font-weight:500}
-.hero-usps b{display:block;color:var(--accent);font-size:13px;letter-spacing:.02em;margin-bottom:2px;font-weight:600}
-.hero-media{position:relative;aspect-ratio:4/5;border-radius:18px;overflow:hidden;background:var(--soft)}
-.hero-media img{width:100%;height:100%;object-fit:cover}
-.hero-media.nofoto{display:grid;place-items:center;background:color-mix(in srgb,var(--accent) 9%,#fff)}
-.hero-media.nofoto img{width:46%;height:auto;border-radius:16px}
+  /* ---------- Hero (bold full-bleed) ---------- */
+  .hero{position:relative;overflow:hidden;background:#0e1013}
+  .hero-media{position:absolute;inset:0;z-index:0}
+  .hero-media img{
+    width:100%;height:100%;object-fit:cover;
+    filter:grayscale(.35) contrast(1.05) brightness(.62);
+  }
+  .hero-tint{
+    position:absolute;inset:0;z-index:1;
+    background:
+      linear-gradient(180deg, rgba(10,12,14,.55) 0%, rgba(10,12,14,.35) 42%, rgba(10,12,14,.86) 100%),
+      linear-gradient(105deg, color-mix(in srgb, var(--accent) 58%, transparent) 0%, transparent 62%);
+  }
+  .hero-plain{
+    position:absolute;inset:0;z-index:0;
+    background:
+      radial-gradient(120% 90% at 82% 8%, color-mix(in srgb, var(--accent) 20%, transparent), transparent 60%),
+      #0e1013;
+  }
+  .hero-inner{
+    position:relative;z-index:2;
+    max-width:var(--maxw);margin:0 auto;padding:118px 24px 104px;
+  }
+  .hero-content{max-width:760px}
+  .hero .eyebrow{color:rgba(255,255,255,.72)}
+  .hero-h1{
+    color:#fff;font-weight:600;letter-spacing:-.03em;line-height:1.02;
+    font-size:clamp(42px,7.4vw,84px);margin:22px 0 0;
+    text-wrap:balance;
+  }
+  .hero-sub{
+    color:rgba(255,255,255,.82);font-size:clamp(17px,2.1vw,21px);
+    line-height:1.5;margin:24px 0 0;max-width:560px;
+  }
+  .hero-actions{display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin-top:40px}
+  .hero-tel{
+    color:#fff;font-weight:600;font-size:16px;display:inline-flex;
+    align-items:center;gap:9px;padding:14px 4px;
+  }
+  .hero-tel svg{width:17px;height:17px;opacity:.85}
+  .hero-tel:hover{opacity:.85}
+  .hero-usps{
+    position:relative;z-index:2;border-top:1px solid rgba(255,255,255,.14);
+    max-width:var(--maxw);margin:0 auto;
+  }
+  .hero-usps-grid{
+    display:grid;grid-template-columns:repeat(3,1fr);
+    padding:0 24px;
+  }
+  .hero-usp{
+    padding:26px 26px 30px;color:rgba(255,255,255,.9);
+    border-left:1px solid rgba(255,255,255,.14);
+    font-size:15px;font-weight:500;line-height:1.45;
+    display:flex;gap:13px;align-items:flex-start;
+  }
+  .hero-usp:first-child{border-left:none;padding-left:0}
+  .hero-usp svg{width:19px;height:19px;flex:none;stroke:var(--accent);margin-top:1px}
+  @media(max-width:820px){
+    .hero-inner{padding:82px 24px 64px}
+    .hero-usps-grid{grid-template-columns:1fr;padding:0}
+    .hero-usp{border-left:none;border-top:1px solid rgba(255,255,255,.14);
+      padding:20px 24px}
+    .hero-usp:first-child{border-top:none;padding-left:24px}
+  }
 
-/* services */
-.services{padding:70px 0;border-top:1px solid var(--line)}
-.sec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:46px}
-.sec-head p{color:var(--muted);max-width:340px;font-size:15.5px;margin-top:14px}
-.svc{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--line);
-  border:1px solid var(--line);border-radius:16px;overflow:hidden}
-.svc .it{background:var(--paper);padding:34px 30px;transition:.2s}
-.svc .it:hover{background:var(--soft)}
-.svc .it.filler,.svc .it.filler:hover{background:var(--paper);cursor:default}
-.svc .dot{width:8px;height:8px;border-radius:50%;background:var(--accent);margin-bottom:20px}
-.svc h3{font-size:18px;font-weight:600;letter-spacing:-.01em;margin-bottom:8px}
-.svc p{color:var(--muted);font-size:14.5px;line-height:1.55}
+  /* ---------- Section scaffolding ---------- */
+  section{padding:104px 0}
+  .sec-head{max-width:640px;margin-bottom:56px}
+  .sec-title{
+    font-size:clamp(28px,4vw,42px);font-weight:600;letter-spacing:-.025em;
+    line-height:1.08;margin-top:16px;text-wrap:balance;
+  }
+  .sec-lead{color:var(--ink-soft);font-size:17px;margin-top:16px;line-height:1.6}
+  @media(max-width:820px){section{padding:70px 0}.sec-head{margin-bottom:38px}}
 
-/* gallery */
-.gallery{padding:70px 0;border-top:1px solid var(--line)}
-.gal{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:44px}
-.gal a{border-radius:14px;overflow:hidden;aspect-ratio:1;background:var(--soft)}
-.gal img{width:100%;height:100%;object-fit:cover;transition:.5s ease}
-.gal a:hover img{transform:scale(1.05)}
+  /* ---------- Services ---------- */
+  .services{background:var(--paper-dim);border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line)}
+  .svc-list{border-top:1px solid var(--line)}
+  .svc{
+    display:grid;grid-template-columns:56px 1fr auto;gap:28px;align-items:baseline;
+    padding:32px 4px;border-bottom:1px solid var(--line);
+    transition:padding-left .2s ease;
+  }
+  .svc:hover{padding-left:14px}
+  .svc-num{font-size:14px;color:var(--accent);font-weight:600;
+    font-variant-numeric:tabular-nums;letter-spacing:.02em}
+  .svc-title{font-size:clamp(20px,2.6vw,26px);font-weight:600;letter-spacing:-.02em}
+  .svc-desc{color:var(--ink-soft);font-size:16px;line-height:1.55;max-width:520px;margin-top:8px}
+  .svc-arrow{color:var(--ink-soft)}
+  .svc-arrow svg{width:22px;height:22px}
+  @media(max-width:820px){
+    .svc{grid-template-columns:38px 1fr;gap:14px;padding:26px 2px}
+    .svc-arrow{display:none}
+  }
 
-/* about */
-.about{padding:80px 0;border-top:1px solid var(--line)}
-.about-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:56px;align-items:start}
-.about p{color:var(--ink2);font-size:19px;line-height:1.7;max-width:620px}
+  /* ---------- Gallery ---------- */
+  .gal-grid{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:16px;
+  }
+  .gal-item{
+    position:relative;overflow:hidden;border-radius:3px;background:var(--paper-dim);
+    aspect-ratio:4/3;
+  }
+  .gal-item:first-child{grid-column:span 2;grid-row:span 2;aspect-ratio:auto}
+  .gal-item img{
+    width:100%;height:100%;object-fit:cover;
+    transition:transform .6s cubic-bezier(.2,.6,.2,1);
+  }
+  .gal-item:hover img{transform:scale(1.05)}
+  @media(max-width:820px){
+    .gal-grid{grid-template-columns:repeat(2,1fr);gap:10px}
+    .gal-item:first-child{grid-column:span 2;grid-row:auto;aspect-ratio:16/10}
+  }
 
-/* contact */
-.contact{padding:84px 0;border-top:1px solid var(--line);background:var(--ink);color:#fff}
-.contact h2{color:#fff}
-.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
-.contact .lead{color:rgba(255,255,255,.62);margin-top:16px;font-size:17px}
-.cc{margin-top:30px;display:flex;flex-direction:column;gap:14px}
-.cc a,.cc span{display:inline-flex;align-items:center;gap:12px;font-size:17px;color:#fff;font-weight:500}
-.cc .k{color:rgba(255,255,255,.5);font-size:13px;width:64px}
-.bigphone{font-size:clamp(24px,3vw,34px);font-weight:600;letter-spacing:-.02em;margin-top:6px}
-.form{background:#fff;border-radius:16px;padding:30px;color:var(--ink)}
-.form .ft{font-weight:600;font-size:17px;margin-bottom:6px}
-.form .fh{color:var(--muted);font-size:14px;margin-bottom:18px}
-.form input,.form textarea{width:100%;padding:13px 15px;border:1px solid var(--line);border-radius:9px;
-  font:inherit;font-size:15px;margin-bottom:12px;background:var(--soft)}
-.form input:focus,.form textarea:focus{outline:0;border-color:var(--accent);background:#fff}
-.form .btn-ink{width:100%;justify-content:center}
+  /* ---------- About ---------- */
+  .about{background:var(--ink);color:#fff}
+  .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
+  .about .sec-title{color:#fff}
+  .about .eyebrow{color:rgba(255,255,255,.6)}
+  .about-body{color:rgba(255,255,255,.78);font-size:18px;line-height:1.72}
+  .about-rule{width:60px;height:2px;background:var(--accent);margin:0 0 28px}
+  .about-side{border-left:1px solid rgba(255,255,255,.16);padding-left:40px}
+  .about-side .row{padding:20px 0;border-bottom:1px solid rgba(255,255,255,.12)}
+  .about-side .row:last-child{border-bottom:none}
+  .about-side .k{font-size:13px;letter-spacing:.14em;text-transform:uppercase;
+    color:rgba(255,255,255,.5);font-weight:600}
+  .about-side .v{font-size:17px;margin-top:6px;font-weight:500}
+  .about-side .v a:hover{color:var(--accent)}
+  @media(max-width:820px){
+    .about-grid{grid-template-columns:1fr;gap:36px}
+    .about-side{border-left:none;padding-left:0;
+      border-top:1px solid rgba(255,255,255,.16);padding-top:8px}
+  }
 
-footer{padding:40px 0;border-top:1px solid var(--line);color:var(--muted);font-size:14px}
-.foot{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
-.foot b{color:var(--ink);font-weight:600}
+  /* ---------- Contact / form ---------- */
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start}
+  .contact-lead{color:var(--ink-soft);font-size:18px;line-height:1.65;margin-top:18px}
+  .contact-links{margin-top:38px;border-top:1px solid var(--line)}
+  .contact-links a,.contact-links .li{
+    display:flex;align-items:center;gap:15px;padding:20px 0;
+    border-bottom:1px solid var(--line);font-size:17px;font-weight:500;
+  }
+  .contact-links a:hover{color:var(--accent)}
+  .contact-links svg{width:20px;height:20px;stroke:var(--accent);flex:none}
+  .form{background:var(--paper-dim);border:1px solid var(--line);
+    border-radius:4px;padding:40px}
+  .form h3{font-size:22px;font-weight:600;letter-spacing:-.02em;margin-bottom:6px}
+  .form p{color:var(--ink-soft);font-size:15px;margin-bottom:26px}
+  .field{margin-bottom:18px}
+  .field label{display:block;font-size:13px;font-weight:600;
+    letter-spacing:.02em;margin-bottom:8px;color:var(--ink)}
+  .field input,.field textarea{
+    width:100%;font-family:var(--font);font-size:16px;color:var(--ink);
+    background:#fff;border:1px solid var(--line);border-radius:3px;
+    padding:14px 15px;transition:border-color .18s ease;
+  }
+  .field input:focus,.field textarea:focus{outline:none;border-color:var(--accent)}
+  .field textarea{resize:vertical;min-height:96px}
+  .form .btn{width:100%;justify-content:center;margin-top:6px}
+  .form-note{font-size:12.5px;color:var(--ink-soft);text-align:center;margin-top:14px}
+  @media(max-width:820px){
+    .contact-grid{grid-template-columns:1fr;gap:40px}
+    .form{padding:28px 22px}
+  }
 
-.mcall{display:none}
-@media(max-width:820px){
-  .nav-links,.nav-phone{display:none}
-  .hero-grid,.about-grid,.contact-grid{grid-template-columns:1fr;gap:36px}
-  .hero-media{aspect-ratio:16/11;order:-1}
-  .svc{grid-template-columns:1fr}
-  .gal{grid-template-columns:repeat(2,1fr)}
-  .hero{padding:48px 0 56px}
-  .services,.gallery,.about,.contact{padding:56px 0}
-  .sec-head{flex-direction:column;align-items:flex-start}
-  .mcall{display:flex;position:fixed;bottom:0;left:0;right:0;z-index:60;gap:10px;padding:11px 16px;
-    background:rgba(255,255,255,.94);backdrop-filter:blur(12px);border-top:1px solid var(--line)}
-  .mcall .btn{flex:1;justify-content:center;padding:13px}
-  body{padding-bottom:70px}
-}
+  /* ---------- Footer ---------- */
+  footer{border-top:1px solid var(--line);padding:44px 0 108px}
+  .foot{display:flex;align-items:center;justify-content:space-between;
+    flex-wrap:wrap;gap:16px}
+  .foot-brand{display:flex;align-items:center;gap:11px;font-weight:600}
+  .foot-brand .brand-mark{width:28px;height:28px;font-size:13px}
+  .foot-meta{color:var(--ink-soft);font-size:13.5px}
+  .foot-vk:hover{color:var(--accent)}
+  @media(max-width:820px){footer{padding-bottom:96px}}
+
+  /* ---------- Sticky mobile call bar ---------- */
+  .callbar{
+    position:fixed;left:0;right:0;bottom:0;z-index:60;display:none;
+    background:rgba(255,255,255,.94);backdrop-filter:blur(10px);
+    border-top:1px solid var(--line);padding:10px 14px;
+    grid-template-columns:1fr 1fr;gap:10px;
+  }
+  .callbar a{
+    display:flex;align-items:center;justify-content:center;gap:8px;
+    padding:14px;border-radius:3px;font-weight:600;font-size:15px;
+  }
+  .callbar .cb-call{background:transparent;color:var(--ink);border:1px solid var(--line)}
+  .callbar .cb-cta{background:var(--accent);color:#fff}
+  .callbar svg{width:16px;height:16px}
+  @media(max-width:820px){.callbar{display:grid}}
 </style>
 </head>
 <body>
 
 <header>
   <div class="wrap nav">
-    <div class="brand">
+    <a class="brand" href="#top">
       <img src="assets/logo.jpg" alt="клининг «Чистое Наследие»">
-      <span>клининг «Чистое Наследие»</span>
-    </div>
+      <span class="brand-name">клининг «Чистое Наследие»</span>
+    </a>
     <div class="nav-right">
-      <nav class="nav-links">
-        <a href="#services">Услуги</a>
-        <a href="#work">Работы</a>
-        <a href="#about">О нас</a>
-      </nav>
       <a class="nav-phone" href="tel:+79967253235">+7 (996) 725-32-35</a>
-      <a href="#contact" class="btn btn-ink">Оставить заявку</a>
+      <a class="btn" href="#contact">Оставить заявку</a>
     </div>
   </div>
 </header>
 
-<section class="hero">
-  <div class="wrap hero-grid">
-    <div>
-      <span class="tag">Чапаевск</span>
-      <h1>Сияющий дом без усилий</h1>
-      <p class="sub">Профессиональная уборка для вашего комфорта и уюта</p>
-      <div class="hero-cta">
-        <a href="#contact" class="btn btn-ink">Оставить заявку</a>
-        <a href="tel:+79967253235" class="btn btn-out">+7 (996) 725-32-35</a>
+<div id="top"></div>
+
+<section class="hero" style="padding:0">
+  
+    <div class="hero-media"><img src="assets/cover.jpg" alt=""></div>
+    <div class="hero-tint"></div>
+  
+
+  <div class="hero-inner">
+    <div class="hero-content">
+      <p class="eyebrow">Чапаевск · клининг «Чистое Наследие»</p>
+      <h1 class="hero-h1">Чистота без забот!</h1>
+      <p class="hero-sub">Профессиональный клининг для вашего дома и офиса в Чапаевске.</p>
+      <div class="hero-actions">
+        <a class="btn btn-light" href="#contact">Оставить заявку
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        
+        <a class="hero-tel" href="tel:+79967253235">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
+          +7 (996) 725-32-35
+        </a>
+        
       </div>
-      
-      <div class="hero-usps">
-        <div><b>01</b>Выезд в день обращения</div><div><b>02</b>Фикс. цена</div><div><b>03</b>Гарантия качества</div>
-      </div>
-      
     </div>
-    <div class="hero-media ">
-      <img src="assets/cover.jpg" alt="клининг «Чистое Наследие»">
+  </div>
+
+  
+  <div class="hero-usps">
+    <div class="hero-usps-grid">
+      
+      <div class="hero-usp">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+        <span>Выезд в день обращения</span>
+      </div>
+      
+      <div class="hero-usp">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+        <span>Фикс. цена</span>
+      </div>
+      
+      <div class="hero-usp">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+        <span>Гарантия качества</span>
+      </div>
       
     </div>
   </div>
+  
 </section>
 
 
-<section class="services" id="services">
+<section class="services">
   <div class="wrap">
     <div class="sec-head">
-      <div><span class="eyebrow">Услуги</span><h2 style="margin-top:14px">Чем мы полезны</h2></div>
-      <p>Полный спектр работ под вашу задачу — с гарантией результата.</p>
+      <p class="eyebrow">Услуги</p>
+      <h2 class="sec-title">Что мы делаем</h2>
+      <p class="sec-lead">Каждую задачу ведём от первого контакта до результата, за который не стыдно.</p>
     </div>
-    <div class="svc">
+    <div class="svc-list">
       
-      <div class="it"><div class="dot"></div><h3>Генеральная уборка</h3><p>Полная чистота и порядок в вашем доме</p></div>
+      <div class="svc">
+        <span class="svc-num">01</span>
+        <div>
+          <div class="svc-title">Генеральная уборка</div>
+          <div class="svc-desc">Полная чистота и порядок в вашем помещении.</div>
+        </div>
+        <span class="svc-arrow">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
+        </span>
+      </div>
       
-      <div class="it"><div class="dot"></div><h3>Поддерживающая уборка</h3><p>Регулярный уход за вашим пространством</p></div>
+      <div class="svc">
+        <span class="svc-num">02</span>
+        <div>
+          <div class="svc-title">Поддерживающая уборка</div>
+          <div class="svc-desc">Регулярная чистота без лишних усилий.</div>
+        </div>
+        <span class="svc-arrow">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
+        </span>
+      </div>
       
-      <div class="it"><div class="dot"></div><h3>Уборка после ремонта</h3><p>Скорее вернитесь к привычной жизни</p></div>
+      <div class="svc">
+        <span class="svc-num">03</span>
+        <div>
+          <div class="svc-title">Уборка после ремонта</div>
+          <div class="svc-desc">Быстро и качественно уберем строительный беспорядок.</div>
+        </div>
+        <span class="svc-arrow">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
+        </span>
+      </div>
       
-      <div class="it"><div class="dot"></div><h3>Мытьё окон и балконов</h3><p>Чистота, которая радует глаз</p></div>
+      <div class="svc">
+        <span class="svc-num">04</span>
+        <div>
+          <div class="svc-title">Мытьё окон</div>
+          <div class="svc-desc">Чистые окна для ярких впечатлений.</div>
+        </div>
+        <span class="svc-arrow">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
+        </span>
+      </div>
       
-      <div class="it"><div class="dot"></div><h3>Уборка перед сдачей</h3><p>Идеальная подготовка вашего жилья</p></div>
+      <div class="svc">
+        <span class="svc-num">05</span>
+        <div>
+          <div class="svc-title">Уборка перед сдачей</div>
+          <div class="svc-desc">Идеальная чистота для новых жильцов.</div>
+        </div>
+        <span class="svc-arrow">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
+        </span>
+      </div>
       
-      
-      <div class="it filler"></div>
     </div>
   </div>
 </section>
 
 
 
-<section class="gallery" id="work">
+<section>
   <div class="wrap">
-    <span class="eyebrow">Портфолио</span><h2 style="margin-top:14px">Наши работы</h2>
-    <div class="gal">
-      <a href="assets/g0.jpg" target="_blank"><img src="assets/g0.jpg" alt="работа 1" loading="lazy"></a><a href="assets/g1.jpg" target="_blank"><img src="assets/g1.jpg" alt="работа 2" loading="lazy"></a><a href="assets/g2.jpg" target="_blank"><img src="assets/g2.jpg" alt="работа 3" loading="lazy"></a><a href="assets/g3.jpg" target="_blank"><img src="assets/g3.jpg" alt="работа 4" loading="lazy"></a><a href="assets/g4.jpg" target="_blank"><img src="assets/g4.jpg" alt="работа 5" loading="lazy"></a><a href="assets/g5.jpg" target="_blank"><img src="assets/g5.jpg" alt="работа 6" loading="lazy"></a>
+    <div class="sec-head">
+      <p class="eyebrow">Портфолио</p>
+      <h2 class="sec-title">Наши работы</h2>
+      <p class="sec-lead">Реальные объекты — без стоковых картинок и приукрашивания.</p>
+    </div>
+    <div class="gal-grid">
+      
+      <div class="gal-item"><img src="assets/g0.jpg" alt="Работа 1"></div>
+      
+      <div class="gal-item"><img src="assets/g1.jpg" alt="Работа 2"></div>
+      
+      <div class="gal-item"><img src="assets/g2.jpg" alt="Работа 3"></div>
+      
+      <div class="gal-item"><img src="assets/g3.jpg" alt="Работа 4"></div>
+      
+      <div class="gal-item"><img src="assets/g4.jpg" alt="Работа 5"></div>
+      
+      <div class="gal-item"><img src="assets/g5.jpg" alt="Работа 6"></div>
+      
     </div>
   </div>
 </section>
 
 
-<section class="about" id="about">
-  <div class="wrap about-grid">
-    <div><span class="eyebrow">О компании</span><h2 style="margin-top:14px">клининг «Чистое Наследие»</h2></div>
-    <p>Компания «Чистое Наследие» предлагает профессиональные услуги клининга в Чапаевске. Мы заботимся о вашем комфорте и гарантируем высокое качество уборки.</p>
-  </div>
-</section>
 
-<section class="contact" id="contact">
-  <div class="wrap contact-grid">
-    <div>
-      <h2>Обсудим ваш проект?</h2>
-      <p class="lead">Оставьте заявку или позвоните — ответим быстро и подберём решение под вас.</p>
-      <div class="cc">
-        <a class="bigphone" href="tel:+79967253235">+7 (996) 725-32-35</a>
-        <span><span class="k">Город</span>Чапаевск</span>
-        <a href="https://vk.com/legacyclean" target="_blank"><span class="k">ВКонтакте</span>Написать в сообщения</a>
+<section class="about">
+  <div class="wrap">
+    <div class="about-grid">
+      <div>
+        <p class="eyebrow">О компании</p>
+        <h2 class="sec-title">клининг «Чистое Наследие»</h2>
+      </div>
+      <div>
+        <div class="about-rule"></div>
+        <p class="about-body">Компания «Чистое Наследие» предлагает профессиональные услуги клининга в Чапаевске. Мы заботимся о вашем комфорте и создаем чистоту, чтобы вы могли наслаждаться отдыхом.</p>
+        <div class="about-side" style="border:none;padding:0;margin-top:34px">
+          
+          <div class="row"><div class="k">Город</div><div class="v">Чапаевск</div></div>
+          
+          
+          <div class="row"><div class="k">Телефон</div><div class="v"><a href="tel:+79967253235">+7 (996) 725-32-35</a></div></div>
+          
+          
+          <div class="row"><div class="k">ВКонтакте</div><div class="v"><a href="https://vk.com/legacyclean" target="_blank" rel="noopener">Наша страница</a></div></div>
+          
+        </div>
       </div>
     </div>
-    <form class="form" onsubmit="alert('Это демо-макет. На готовом сайте заявка придёт вам.');return false">
-      <div class="ft">Оставить заявку</div>
-      <div class="fh">Перезвоним в течение 15 минут</div>
-      <input placeholder="Ваше имя">
-      <input placeholder="Телефон">
-      <textarea rows="3" placeholder="Что вас интересует?"></textarea>
-      <button class="btn btn-ink" type="submit">Оставить заявку</button>
-    </form>
+  </div>
+</section>
+
+
+<section id="contact">
+  <div class="wrap">
+    <div class="contact-grid">
+      <div>
+        <p class="eyebrow">Контакты</p>
+        <h2 class="sec-title">Оставьте заявку</h2>
+        <p class="contact-lead">Ответим в течение рабочего дня, подберём решение под вашу задачу в городе Чапаевск и назовём стоимость.</p>
+        <div class="contact-links">
+          
+          <a href="tel:+79967253235">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
+            +7 (996) 725-32-35
+          </a>
+          
+          
+          <a href="https://vk.com/legacyclean" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M7 9c.5 3 2.4 5.5 5 5.5V12M12 12c1.6 0 2.8-1.2 3.4-3M12 14.5c1 0 1.8.6 2.4 1.6"/></svg>
+            Мы во ВКонтакте
+          </a>
+          
+          
+          <div class="li">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Чапаевск
+          </div>
+          
+        </div>
+      </div>
+
+      <form class="form" onsubmit="alert('Это демо-макет. На готовом сайте заявка придёт вам.');return false">
+        <h3>Форма заявки</h3>
+        <p>Заполните поля — мы свяжемся с вами.</p>
+        <div class="field">
+          <label for="f-name">Ваше имя</label>
+          <input id="f-name" type="text" placeholder="Как к вам обращаться" required>
+        </div>
+        <div class="field">
+          <label for="f-phone">Телефон</label>
+          <input id="f-phone" type="tel" placeholder="+7 900 000-00-00" required>
+        </div>
+        <div class="field">
+          <label for="f-msg">Комментарий</label>
+          <textarea id="f-msg" placeholder="Коротко о задаче"></textarea>
+        </div>
+        <button class="btn" type="submit">Оставить заявку</button>
+        <p class="form-note">Нажимая кнопку, вы соглашаетесь на обработку данных.</p>
+      </form>
+    </div>
   </div>
 </section>
 
 <footer>
   <div class="wrap foot">
-    <div><b>клининг «Чистое Наследие»</b> · Чапаевск · +7 (996) 725-32-35</div>
-    <div>Макет подготовлен студией SmartLink · 2026</div>
+    <div class="foot-brand">
+      <img src="assets/logo.jpg" alt="клининг «Чистое Наследие»" style="height:26px;width:auto;object-fit:contain">
+      <span>клининг «Чистое Наследие»</span>
+    </div>
+    <div class="foot-meta">Макет подготовлен студией SmartLink · 2026</div>
+    <a class="foot-vk foot-meta" href="https://vk.com/legacyclean" target="_blank" rel="noopener">ВКонтакте</a>
   </div>
 </footer>
 
-
-<div class="mcall">
-  <a href="tel:+79967253235" class="btn btn-out">Позвонить</a>
-  <a href="#contact" class="btn btn-ink">Оставить заявку</a>
+<div class="callbar">
+  
+  <a class="cb-call" href="tel:+79967253235">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
+    Позвонить
+  </a>
+  
+  <a class="cb-cta" href="#contact">Оставить заявку</a>
 </div>
-
 
 </body>
 </html>
