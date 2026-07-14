@@ -80,13 +80,15 @@
   .hero-media{position:absolute;inset:0;z-index:0}
   .hero-media img{
     width:100%;height:100%;object-fit:cover;
-    filter:grayscale(.35) contrast(1.05) brightness(.62);
+    /* сильное размытие превращает вшитый в обложку текст в абстрактный фон — заголовок читается чисто */
+    filter:blur(24px) saturate(1.15) brightness(.5);
+    transform:scale(1.2);
   }
   .hero-tint{
     position:absolute;inset:0;z-index:1;
     background:
-      linear-gradient(180deg, rgba(10,12,14,.55) 0%, rgba(10,12,14,.35) 42%, rgba(10,12,14,.86) 100%),
-      linear-gradient(105deg, color-mix(in srgb, var(--accent) 58%, transparent) 0%, transparent 62%);
+      linear-gradient(180deg, rgba(10,12,14,.62) 0%, rgba(10,12,14,.5) 42%, rgba(10,12,14,.9) 100%),
+      linear-gradient(105deg, color-mix(in srgb, var(--accent) 62%, transparent) 0%, transparent 66%);
   }
   .hero-plain{
     position:absolute;inset:0;z-index:0;
@@ -294,8 +296,8 @@
   <div class="hero-inner">
     <div class="hero-content">
       <p class="eyebrow">Цветы и букеты доставка г. Иваново</p>
-      <h1 class="hero-h1">Цветы, которые дарят радость</h1>
-      <p class="hero-sub">Индивидуальные букеты на любой случай жизни с доставкой</p>
+      <h1 class="hero-h1">Цветы, которые радуют глаз</h1>
+      <p class="hero-sub">Индивидуальные букеты на любой случай жизни от профессионалов</p>
       <div class="hero-actions">
         <a class="btn btn-light" href="#contact">Заказать букет
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
@@ -316,17 +318,17 @@
       
       <div class="hero-usp">
         <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
-        <span>Свежие цветы каждый день</span>
-      </div>
-      
-      <div class="hero-usp">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
-        <span>Индивидуальный подход</span>
+        <span>Свежие цветы</span>
       </div>
       
       <div class="hero-usp">
         <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
         <span>Доставка по городу</span>
+      </div>
+      
+      <div class="hero-usp">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+        <span>Индивидуальный подход</span>
       </div>
       
     </div>
@@ -348,7 +350,7 @@
         <span class="svc-num">01</span>
         <div>
           <div class="svc-title">Индивидуальные букеты</div>
-          <div class="svc-desc">Создадим уникальный букет по вашим пожеланиям</div>
+          <div class="svc-desc">Создадим букет по вашим пожеланиям</div>
         </div>
         <span class="svc-arrow">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
@@ -358,8 +360,8 @@
       <div class="svc">
         <span class="svc-num">02</span>
         <div>
-          <div class="svc-title">Букеты для невест</div>
-          <div class="svc-desc">Стильные букеты для самого важного дня</div>
+          <div class="svc-title">Доставка цветов</div>
+          <div class="svc-desc">Привезём в любую точку города</div>
         </div>
         <span class="svc-arrow">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
@@ -369,8 +371,8 @@
       <div class="svc">
         <span class="svc-num">03</span>
         <div>
-          <div class="svc-title">Цветочные боксы</div>
-          <div class="svc-desc">Элегантные решения для подарков и украшения</div>
+          <div class="svc-title">Букеты для невест</div>
+          <div class="svc-desc">Стильные решения для вашего важного дня</div>
         </div>
         <span class="svc-arrow">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
@@ -380,8 +382,8 @@
       <div class="svc">
         <span class="svc-num">04</span>
         <div>
-          <div class="svc-title">Монобукеты</div>
-          <div class="svc-desc">Яркие букеты из одного вида цветов</div>
+          <div class="svc-title">Цветочные боксы</div>
+          <div class="svc-desc">Элегантные подарки для любимых</div>
         </div>
         <span class="svc-arrow">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
@@ -392,7 +394,7 @@
         <span class="svc-num">05</span>
         <div>
           <div class="svc-title">Онлайн-заказ</div>
-          <div class="svc-desc">Удобный способ заказать цветы из дома</div>
+          <div class="svc-desc">Заказывайте цветы не выходя из дома</div>
         </div>
         <span class="svc-arrow">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
@@ -403,7 +405,7 @@
         <span class="svc-num">06</span>
         <div>
           <div class="svc-title">Предзаказ</div>
-          <div class="svc-desc">Забронируйте букет заранее для важного события</div>
+          <div class="svc-desc">Забронируйте букет заранее</div>
         </div>
         <span class="svc-arrow">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
@@ -452,7 +454,7 @@
       </div>
       <div>
         <div class="about-rule"></div>
-        <p class="about-body">Цветочный Хаос — это уютный магазин в Иваново, где вы найдете широкий ассортимент свежих цветов. Наши профессиональные флористы помогут создать идеальный букет и дадут советы по уходу за ним.</p>
+        <p class="about-body">Цветочный Хаос — это уютный магазин с большим выбором свежих цветов. Наши профессиональные флористы помогут создать идеальный букет и дадут советы по уходу за ним.</p>
         <div class="about-side" style="border:none;padding:0;margin-top:34px">
           
           

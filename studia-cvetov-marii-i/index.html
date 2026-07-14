@@ -80,13 +80,15 @@
   .hero-media{position:absolute;inset:0;z-index:0}
   .hero-media img{
     width:100%;height:100%;object-fit:cover;
-    filter:grayscale(.35) contrast(1.05) brightness(.62);
+    /* сильное размытие превращает вшитый в обложку текст в абстрактный фон — заголовок читается чисто */
+    filter:blur(24px) saturate(1.15) brightness(.5);
+    transform:scale(1.2);
   }
   .hero-tint{
     position:absolute;inset:0;z-index:1;
     background:
-      linear-gradient(180deg, rgba(10,12,14,.55) 0%, rgba(10,12,14,.35) 42%, rgba(10,12,14,.86) 100%),
-      linear-gradient(105deg, color-mix(in srgb, var(--accent) 58%, transparent) 0%, transparent 62%);
+      linear-gradient(180deg, rgba(10,12,14,.62) 0%, rgba(10,12,14,.5) 42%, rgba(10,12,14,.9) 100%),
+      linear-gradient(105deg, color-mix(in srgb, var(--accent) 62%, transparent) 0%, transparent 66%);
   }
   .hero-plain{
     position:absolute;inset:0;z-index:0;
@@ -294,8 +296,8 @@
   <div class="hero-inner">
     <div class="hero-content">
       <p class="eyebrow">Муром · Студия цветов Марии И.</p>
-      <h1 class="hero-h1">Цветы для любого повода</h1>
-      <p class="hero-sub">Индивидуальные букеты, которые подчеркнут вашу уникальность</p>
+      <h1 class="hero-h1">Цветы, которые говорят за вас</h1>
+      <p class="hero-sub">Идеальные букеты для любого повода от профессионалов</p>
       <div class="hero-actions">
         <a class="btn btn-light" href="#contact">Заказать букет
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
@@ -359,7 +361,7 @@
         <span class="svc-num">02</span>
         <div>
           <div class="svc-title">Авторские букеты</div>
-          <div class="svc-desc">Уникальные композиции, созданные с душой</div>
+          <div class="svc-desc">Индивидуальный подход к каждому заказу</div>
         </div>
         <span class="svc-arrow">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
@@ -370,7 +372,7 @@
         <span class="svc-num">03</span>
         <div>
           <div class="svc-title">Свадебная флористика</div>
-          <div class="svc-desc">Идеальные букеты для вашего важного дня</div>
+          <div class="svc-desc">Создание уникальных композиций для вашего дня</div>
         </div>
         <span class="svc-arrow">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
@@ -381,29 +383,7 @@
         <span class="svc-num">04</span>
         <div>
           <div class="svc-title">Доставка цветов</div>
-          <div class="svc-desc">Удобная доставка в любое время</div>
-        </div>
-        <span class="svc-arrow">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
-        </span>
-      </div>
-      
-      <div class="svc">
-        <span class="svc-num">05</span>
-        <div>
-          <div class="svc-title">Профессиональные консультации</div>
-          <div class="svc-desc">Поможем выбрать идеальные цветы</div>
-        </div>
-        <span class="svc-arrow">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
-        </span>
-      </div>
-      
-      <div class="svc">
-        <span class="svc-num">06</span>
-        <div>
-          <div class="svc-title">Тренды флористики</div>
-          <div class="svc-desc">Следим за модой и актуальными стилями</div>
+          <div class="svc-desc">Быстрая и надежная доставка по Мурому</div>
         </div>
         <span class="svc-arrow">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
@@ -452,7 +432,7 @@
       </div>
       <div>
         <div class="about-rule"></div>
-        <p class="about-body">Студия цветов Марии И. — это место, где цветы оживают. Мы создаем уникальные композиции, которые отражают вашу индивидуальность и стиль. Доверьтесь нашим мастерам, и мы превратим ваши идеи в настоящие произведения искусства.</p>
+        <p class="about-body">Студия цветов Марии И. — это место, где цветы оживают. Мы с любовью создаем букеты, которые подчеркивают вашу индивидуальность и стиль.</p>
         <div class="about-side" style="border:none;padding:0;margin-top:34px">
           
           <div class="row"><div class="k">Город</div><div class="v">Муром</div></div>

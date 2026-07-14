@@ -80,13 +80,15 @@
   .hero-media{position:absolute;inset:0;z-index:0}
   .hero-media img{
     width:100%;height:100%;object-fit:cover;
-    filter:grayscale(.35) contrast(1.05) brightness(.62);
+    /* сильное размытие превращает вшитый в обложку текст в абстрактный фон — заголовок читается чисто */
+    filter:blur(24px) saturate(1.15) brightness(.5);
+    transform:scale(1.2);
   }
   .hero-tint{
     position:absolute;inset:0;z-index:1;
     background:
-      linear-gradient(180deg, rgba(10,12,14,.55) 0%, rgba(10,12,14,.35) 42%, rgba(10,12,14,.86) 100%),
-      linear-gradient(105deg, color-mix(in srgb, var(--accent) 58%, transparent) 0%, transparent 62%);
+      linear-gradient(180deg, rgba(10,12,14,.62) 0%, rgba(10,12,14,.5) 42%, rgba(10,12,14,.9) 100%),
+      linear-gradient(105deg, color-mix(in srgb, var(--accent) 62%, transparent) 0%, transparent 66%);
   }
   .hero-plain{
     position:absolute;inset:0;z-index:0;
@@ -294,8 +296,8 @@
   <div class="hero-inner">
     <div class="hero-content">
       <p class="eyebrow">МАНИКЮР | РЕСНИЦЫ | КОСМЕТОЛОГИЯ | ПРОКОЛ УШЕЙ</p>
-      <h1 class="hero-h1">Преобразите свою красоту с нами!</h1>
-      <p class="hero-sub">Уникальные процедуры для вашего безупречного образа и здоровья.</p>
+      <h1 class="hero-h1">Преобразите свою красоту сегодня!</h1>
+      <p class="hero-sub">Индивидуальный подход к каждому клиенту и высокое качество услуг.</p>
       <div class="hero-actions">
         <a class="btn btn-light" href="#contact">Записаться
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
@@ -311,7 +313,7 @@
       
       <div class="hero-usp">
         <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
-        <span>Качественные услуги</span>
+        <span>Безопасные процедуры</span>
       </div>
       
       <div class="hero-usp">
@@ -321,7 +323,7 @@
       
       <div class="hero-usp">
         <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
-        <span>Безопасность и гигиена</span>
+        <span>Комфортная атмосфера</span>
       </div>
       
     </div>
@@ -354,7 +356,7 @@
         <span class="svc-num">02</span>
         <div>
           <div class="svc-title">Наращивание ресниц</div>
-          <div class="svc-desc">Объемные ресницы, которые восхищают.</div>
+          <div class="svc-desc">Объем и длина, которые вам понравятся.</div>
         </div>
         <span class="svc-arrow">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
@@ -365,7 +367,7 @@
         <span class="svc-num">03</span>
         <div>
           <div class="svc-title">Прокол ушей</div>
-          <div class="svc-desc">Безопасный прокол для детей от 1 года.</div>
+          <div class="svc-desc">Безопасно и безболезненно для детей.</div>
         </div>
         <span class="svc-arrow">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
@@ -375,8 +377,8 @@
       <div class="svc">
         <span class="svc-num">04</span>
         <div>
-          <div class="svc-title">Ламинирование бровей</div>
-          <div class="svc-desc">Естественные и ухоженные брови на долго.</div>
+          <div class="svc-title">Фотоэпиляция</div>
+          <div class="svc-desc">Долговременное решение для гладкой кожи.</div>
         </div>
         <span class="svc-arrow">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
@@ -386,8 +388,8 @@
       <div class="svc">
         <span class="svc-num">05</span>
         <div>
-          <div class="svc-title">Фотоэпиляция</div>
-          <div class="svc-desc">Эффективное решение для гладкой кожи.</div>
+          <div class="svc-title">Ламинирование бровей</div>
+          <div class="svc-desc">Идеальная форма и ухоженный вид.</div>
         </div>
         <span class="svc-arrow">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
@@ -436,7 +438,7 @@
       </div>
       <div>
         <div class="about-rule"></div>
-        <p class="about-body">В студии красоты «особа» мы заботимся о вашей красоте и здоровье. Наши мастера используют только качественные материалы и современные технологии, чтобы вы чувствовали себя уверенно и привлекательно.</p>
+        <p class="about-body">Добро пожаловать в студию красоты &#39;особа&#39;! Мы заботимся о вашей красоте и комфорте, предлагая широкий спектр услуг и индивидуальный подход к каждому клиенту.</p>
         <div class="about-side" style="border:none;padding:0;margin-top:34px">
           
           

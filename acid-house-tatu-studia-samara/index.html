@@ -80,13 +80,15 @@
   .hero-media{position:absolute;inset:0;z-index:0}
   .hero-media img{
     width:100%;height:100%;object-fit:cover;
-    filter:grayscale(.35) contrast(1.05) brightness(.62);
+    /* сильное размытие превращает вшитый в обложку текст в абстрактный фон — заголовок читается чисто */
+    filter:blur(24px) saturate(1.15) brightness(.5);
+    transform:scale(1.2);
   }
   .hero-tint{
     position:absolute;inset:0;z-index:1;
     background:
-      linear-gradient(180deg, rgba(10,12,14,.55) 0%, rgba(10,12,14,.35) 42%, rgba(10,12,14,.86) 100%),
-      linear-gradient(105deg, color-mix(in srgb, var(--accent) 58%, transparent) 0%, transparent 62%);
+      linear-gradient(180deg, rgba(10,12,14,.62) 0%, rgba(10,12,14,.5) 42%, rgba(10,12,14,.9) 100%),
+      linear-gradient(105deg, color-mix(in srgb, var(--accent) 62%, transparent) 0%, transparent 66%);
   }
   .hero-plain{
     position:absolute;inset:0;z-index:0;
@@ -294,8 +296,8 @@
   <div class="hero-inner">
     <div class="hero-content">
       <p class="eyebrow">Самара · Acid House © Тату студия.Самара</p>
-      <h1 class="hero-h1">Татуировка, которая привлечет взгляды</h1>
-      <p class="hero-sub">Качественные татуировки с индивидуальным подходом в Самаре</p>
+      <h1 class="hero-h1">Татуировка, которая привлекает взгляды</h1>
+      <p class="hero-sub">Профессиональные татуировки с индивидуальным подходом в Самаре</p>
       <div class="hero-actions">
         <a class="btn btn-light" href="#contact">Записаться
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
@@ -316,7 +318,7 @@
       
       <div class="hero-usp">
         <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
-        <span>Бесплатный эскиз</span>
+        <span>Бесплатная разработка эскиза</span>
       </div>
       
       <div class="hero-usp">
@@ -326,7 +328,7 @@
       
       <div class="hero-usp">
         <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
-        <span>Профессиональное оборудование</span>
+        <span>Одноразовые материалы</span>
       </div>
       
     </div>
@@ -359,7 +361,7 @@
         <span class="svc-num">02</span>
         <div>
           <div class="svc-title">Консультации</div>
-          <div class="svc-desc">Поможем выбрать идеальный вариант татуировки</div>
+          <div class="svc-desc">Поможем выбрать идеальный рисунок и место</div>
         </div>
         <span class="svc-arrow">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
@@ -369,8 +371,8 @@
       <div class="svc">
         <span class="svc-num">03</span>
         <div>
-          <div class="svc-title">Заживление</div>
-          <div class="svc-desc">Даем рекомендации для быстрого и безопасного заживления</div>
+          <div class="svc-title">Качественная работа</div>
+          <div class="svc-desc">Только лучшие мастера и оборудование</div>
         </div>
         <span class="svc-arrow">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
@@ -380,8 +382,19 @@
       <div class="svc">
         <span class="svc-num">04</span>
         <div>
-          <div class="svc-title">Стерильные материалы</div>
-          <div class="svc-desc">Работаем только с одноразовыми расходниками</div>
+          <div class="svc-title">Рекомендации по заживлению</div>
+          <div class="svc-desc">Поддержим вас на каждом этапе</div>
+        </div>
+        <span class="svc-arrow">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
+        </span>
+      </div>
+      
+      <div class="svc">
+        <span class="svc-num">05</span>
+        <div>
+          <div class="svc-title">Чистота и стерилизация</div>
+          <div class="svc-desc">Забота о здоровье клиентов — наш приоритет</div>
         </div>
         <span class="svc-arrow">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
@@ -430,7 +443,7 @@
       </div>
       <div>
         <div class="about-rule"></div>
-        <p class="about-body">Студия художественной татуировки Acid House в Самаре предлагает качественные татуировки, за которые не стыдно. Мы ценим время и здоровье наших клиентов, обеспечивая высокий уровень сервиса.</p>
+        <p class="about-body">Студия художественной татуировки Acid House в Самаре предлагает качественные татуировки, за которые не стыдно. Мы ценим каждого клиента и гарантируем индивидуальный подход.</p>
         <div class="about-side" style="border:none;padding:0;margin-top:34px">
           
           <div class="row"><div class="k">Город</div><div class="v">Самара</div></div>
