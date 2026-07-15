@@ -3,271 +3,409 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Детейлинг студия &#34;Радар&#34; — Донецк</title>
+<title>Детейлинг-студия «Радар» — Донецк · Полировка, керамика, химчистка</title>
+<meta name="description" content="Детейлинг-студия «Радар» в Донецке: восстановительная полировка кузова, керамическое покрытие, химчистка салона. Возвращаем авто заводской блеск. Ежедневно 8:00–18:00, Горностаевская, 1А.">
+<meta name="theme-color" content="#08090b">
+<link rel="icon" href="assets/logo.jpg">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Детейлинг-студия «Радар» — Донецк">
+<meta property="og:description" content="Полировка кузова, керамика и химчистка. Возвращаем авто вид как из салона.">
+<meta property="og:image" content="https://glebgold.github.io/smartlink-previews/detejling-studia-radar/assets/cover.jpg">
 <style>
   :root{
-    --accent: #137a6e;
-    --ink: #14161a;
-    --ink-soft: #52585f;
-    --line: #e6e5e1;
-    --paper: #ffffff;
-    --paper-dim: #f6f5f1;
-    --maxw: 1180px;
-    --font: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+    --bg:#08090b;
+    --bg-2:#0c0e11;
+    --bg-3:#111418;
+    --panel:#0f1215;
+    --ink:#f3f6f4;
+    --muted:#9aa2a2;
+    --muted-2:#727a7a;
+    --line:rgba(255,255,255,.08);
+    --line-2:rgba(255,255,255,.14);
+    --accent:#13d38a;
+    --accent-deep:#0a9e68;
+    --accent-bright:#5cf3b8;
+    --accent-glow:rgba(19,211,138,.35);
+    --grad:linear-gradient(135deg,#2ce69b 0%,#0d9e67 100%);
+    --maxw:1200px;
+    --font:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
   }
   *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
   body{
-    font-family:var(--font);
-    color:var(--ink);
-    background:var(--paper);
-    line-height:1.6;
-    -webkit-font-smoothing:antialiased;
-    text-rendering:optimizeLegibility;
+    font-family:var(--font);color:var(--ink);background:var(--bg);
+    line-height:1.6;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+    overflow-x:hidden;
   }
   img{display:block;max-width:100%}
   a{color:inherit;text-decoration:none}
   .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  ::selection{background:var(--accent);color:#04120c}
+
   .eyebrow{
-    font-size:12px;letter-spacing:.22em;text-transform:uppercase;
-    color:var(--ink-soft);font-weight:600;
+    font-size:12px;letter-spacing:.26em;text-transform:uppercase;font-weight:700;
+    color:var(--accent);display:inline-flex;align-items:center;gap:10px;
+  }
+  .eyebrow::before{content:"";width:26px;height:1px;background:var(--accent);opacity:.7}
+  .grad-text{
+    background:linear-gradient(120deg,#7bf5c6,#13d38a 55%,#0a9e68);
+    -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
   }
 
   /* ---------- Buttons ---------- */
   .btn{
-    display:inline-flex;align-items:center;gap:9px;
-    font-size:15px;font-weight:600;line-height:1;
-    padding:15px 26px;border-radius:2px;cursor:pointer;
-    border:1px solid var(--accent);background:var(--accent);color:#fff;
-    transition:transform .15s ease, opacity .2s ease;white-space:nowrap;
+    display:inline-flex;align-items:center;justify-content:center;gap:9px;
+    font-size:15px;font-weight:700;line-height:1;letter-spacing:.01em;
+    padding:16px 26px;border-radius:12px;cursor:pointer;border:1px solid transparent;
+    background:var(--grad);color:#03130c;position:relative;overflow:hidden;
+    transition:transform .18s ease,box-shadow .25s ease;white-space:nowrap;
+    box-shadow:0 8px 30px -10px var(--accent-glow);
   }
-  .btn:hover{opacity:.9;transform:translateY(-1px)}
+  .btn:hover{transform:translateY(-2px);box-shadow:0 14px 40px -12px var(--accent-glow)}
+  .btn svg{width:17px;height:17px}
   .btn-ghost{
-    background:transparent;color:var(--ink);border:1px solid var(--line);
+    background:transparent;color:var(--ink);border:1px solid var(--line-2);box-shadow:none;
   }
-  .btn-ghost:hover{border-color:var(--ink);opacity:1}
-  .btn-light{background:#fff;border-color:#fff;color:var(--ink)}
-  .btn svg{width:16px;height:16px}
+  .btn-ghost:hover{border-color:var(--accent);color:var(--accent);box-shadow:none}
 
   /* ---------- Header ---------- */
   header{
-    position:sticky;top:0;z-index:50;
-    background:rgba(255,255,255,.86);backdrop-filter:saturate(180%) blur(12px);
+    position:sticky;top:0;z-index:80;
+    background:rgba(8,9,11,.72);backdrop-filter:saturate(160%) blur(14px);
     border-bottom:1px solid var(--line);
   }
-  .nav{display:flex;align-items:center;justify-content:space-between;height:72px}
-  .brand{display:flex;align-items:center;gap:13px;min-width:0}
-  .brand img{height:34px;width:auto;object-fit:contain}
-  .brand-mark{
-    width:34px;height:34px;flex:none;border-radius:50%;
-    background:var(--accent);color:#fff;display:flex;align-items:center;
-    justify-content:center;font-weight:700;font-size:15px;
-  }
-  .brand-name{font-weight:600;font-size:16px;letter-spacing:-.01em;
-    white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:46vw}
-  .nav-right{display:flex;align-items:center;gap:22px}
-  .nav-phone{font-weight:600;font-size:15px;letter-spacing:-.01em;white-space:nowrap}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:70px;gap:18px}
+  .brand{display:flex;align-items:center;gap:12px;min-width:0}
+  .brand img{height:38px;width:38px;border-radius:9px;object-fit:cover;
+    border:1px solid var(--line-2)}
+  .brand-name{font-weight:700;font-size:15.5px;letter-spacing:-.01em;line-height:1.15;
+    white-space:nowrap}
+  .brand-name span{display:block;font-size:11px;font-weight:600;color:var(--muted-2);
+    letter-spacing:.14em;text-transform:uppercase}
+  .nav-links{display:flex;align-items:center;gap:30px;margin-left:auto}
+  .nav-links a{font-size:14.5px;font-weight:500;color:var(--muted);transition:color .18s}
+  .nav-links a:hover{color:var(--ink)}
+  .nav-cta{display:flex;align-items:center;gap:16px}
+  .nav-phone{font-weight:700;font-size:15px;white-space:nowrap}
   .nav-phone:hover{color:var(--accent)}
-  .nav .btn{padding:11px 20px;font-size:14px}
-  @media(max-width:820px){
-    .nav-phone{display:none}
-    .nav .btn{padding:10px 16px;font-size:13px}
-    .brand-name{max-width:38vw}
+  .nav .btn{padding:12px 20px;font-size:14px;border-radius:10px}
+  @media(max-width:1000px){.nav-links{display:none}}
+  @media(max-width:640px){
+    .nav-phone,.brand-name span{display:none}
+    .nav .btn{padding:11px 16px;font-size:13px}
+    .brand-name{font-size:14px}
   }
 
-  /* ---------- Hero (bold full-bleed) ---------- */
-  .hero{position:relative;overflow:hidden;background:#0e1013}
-  .hero-media{position:absolute;inset:0;z-index:0}
-  .hero-media img{
-    width:100%;height:100%;object-fit:cover;
-    /* сильное размытие превращает вшитый в обложку текст в абстрактный фон — заголовок читается чисто */
-    filter:blur(24px) saturate(1.15) brightness(.5);
-    transform:scale(1.2);
+  /* ---------- Hero ---------- */
+  .hero{position:relative;overflow:hidden;background:
+    radial-gradient(120% 80% at 78% 0%, rgba(19,211,138,.14), transparent 55%),
+    radial-gradient(90% 60% at 0% 100%, rgba(19,211,138,.06), transparent 60%),
+    var(--bg);}
+  .hero-grid{
+    max-width:var(--maxw);margin:0 auto;padding:96px 24px 80px;
+    display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center;
   }
-  .hero-tint{
-    position:absolute;inset:0;z-index:1;
-    background:
-      linear-gradient(180deg, rgba(10,12,14,.62) 0%, rgba(10,12,14,.5) 42%, rgba(10,12,14,.9) 100%),
-      linear-gradient(105deg, color-mix(in srgb, var(--accent) 62%, transparent) 0%, transparent 66%);
-  }
-  .hero-plain{
-    position:absolute;inset:0;z-index:0;
-    background:
-      radial-gradient(120% 90% at 82% 8%, color-mix(in srgb, var(--accent) 20%, transparent), transparent 60%),
-      #0e1013;
-  }
-  .hero-inner{
-    position:relative;z-index:2;
-    max-width:var(--maxw);margin:0 auto;padding:118px 24px 104px;
-  }
-  .hero-content{max-width:760px}
-  .hero .eyebrow{color:rgba(255,255,255,.72)}
   .hero-h1{
-    color:#fff;font-weight:600;letter-spacing:-.03em;line-height:1.02;
-    font-size:clamp(42px,7.4vw,84px);margin:22px 0 0;
-    text-wrap:balance;
+    font-weight:800;letter-spacing:-.035em;line-height:.98;
+    font-size:clamp(46px,7.2vw,88px);margin:22px 0 0;text-wrap:balance;
   }
   .hero-sub{
-    color:rgba(255,255,255,.82);font-size:clamp(17px,2.1vw,21px);
-    line-height:1.5;margin:24px 0 0;max-width:560px;
+    color:var(--muted);font-size:clamp(16px,2vw,19px);line-height:1.6;
+    margin:24px 0 0;max-width:520px;
   }
-  .hero-actions{display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin-top:40px}
-  .hero-tel{
-    color:#fff;font-weight:600;font-size:16px;display:inline-flex;
-    align-items:center;gap:9px;padding:14px 4px;
+  .hero-actions{display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin-top:36px}
+  .hero-tags{display:flex;flex-wrap:wrap;gap:10px 8px;margin-top:34px}
+  .tag{
+    display:inline-flex;align-items:center;gap:8px;font-size:13.5px;font-weight:600;
+    color:var(--muted);padding:9px 14px;border:1px solid var(--line);border-radius:999px;
+    background:rgba(255,255,255,.02);
   }
-  .hero-tel svg{width:17px;height:17px;opacity:.85}
-  .hero-tel:hover{opacity:.85}
-  .hero-usps{
-    position:relative;z-index:2;border-top:1px solid rgba(255,255,255,.14);
-    max-width:var(--maxw);margin:0 auto;
+  .tag svg{width:15px;height:15px;stroke:var(--accent)}
+
+  /* radar scope */
+  .scope-wrap{display:flex;justify-content:center;align-items:center;position:relative}
+  .scope{
+    position:relative;width:min(40vw,420px);aspect-ratio:1;border-radius:50%;
+    background:
+      radial-gradient(circle at 50% 50%, rgba(19,211,138,.14), rgba(19,211,138,.02) 55%, transparent 72%),
+      #0a0d0f;
+    border:1px solid rgba(19,211,138,.28);
+    box-shadow:0 0 0 1px rgba(19,211,138,.06),0 40px 120px -30px rgba(19,211,138,.30),
+      inset 0 0 60px -20px rgba(19,211,138,.25);
   }
-  .hero-usps-grid{
-    display:grid;grid-template-columns:repeat(3,1fr);
-    padding:0 24px;
+  .scope .rings{position:absolute;inset:0;border-radius:50%;
+    background:repeating-radial-gradient(circle at 50% 50%,
+      transparent 0 calc(min(40vw,420px)/8 - 1px),
+      rgba(19,211,138,.14) calc(min(40vw,420px)/8 - 1px) calc(min(40vw,420px)/8));
+    -webkit-mask:radial-gradient(circle at 50% 50%, #000 70%, transparent 72%);
+            mask:radial-gradient(circle at 50% 50%, #000 70%, transparent 72%);}
+  .scope .cross{position:absolute;inset:0}
+  .scope .cross::before,.scope .cross::after{content:"";position:absolute;
+    background:rgba(19,211,138,.14)}
+  .scope .cross::before{left:50%;top:8%;bottom:8%;width:1px;transform:translateX(-.5px)}
+  .scope .cross::after{top:50%;left:8%;right:8%;height:1px;transform:translateY(-.5px)}
+  .scope .sweep{position:absolute;inset:0;border-radius:50%;overflow:hidden}
+  .scope .sweep::before{content:"";position:absolute;inset:-30%;
+    background:conic-gradient(from 0deg,
+      rgba(19,211,138,.55),rgba(19,211,138,.12) 26%,transparent 42%,transparent 100%);
+    animation:radar-spin 4.5s linear infinite;transform-origin:50% 50%}
+  .blip{position:absolute;width:10px;height:10px;border-radius:50%;background:var(--accent-bright);
+    box-shadow:0 0 14px 2px var(--accent-glow);transform:translate(-50%,-50%)}
+  .blip::after{content:"";position:absolute;inset:-4px;border-radius:50%;
+    border:1px solid var(--accent);opacity:.6;animation:ping 3s ease-out infinite}
+  .blip.b1{left:66%;top:38%;animation:blip-fade 4.5s linear infinite}
+  .blip.b2{left:40%;top:62%;animation:blip-fade 4.5s linear .9s infinite}
+  .blip.b3{left:58%;top:70%;animation:blip-fade 4.5s linear 2.1s infinite}
+  .scope .core{position:absolute;left:50%;top:50%;width:14px;height:14px;border-radius:50%;
+    transform:translate(-50%,-50%);background:var(--accent);
+    box-shadow:0 0 20px 4px var(--accent-glow)}
+  .scope-badge{
+    position:absolute;bottom:2%;left:50%;transform:translateX(-50%);
+    font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--accent);white-space:nowrap;
   }
-  .hero-usp{
-    padding:26px 26px 30px;color:rgba(255,255,255,.9);
-    border-left:1px solid rgba(255,255,255,.14);
-    font-size:15px;font-weight:500;line-height:1.45;
-    display:flex;gap:13px;align-items:flex-start;
+  @keyframes radar-spin{to{transform:rotate(360deg)}}
+  @keyframes ping{0%{transform:scale(1);opacity:.7}100%{transform:scale(2.6);opacity:0}}
+  @keyframes blip-fade{0%,100%{opacity:0}12%,30%{opacity:1}60%{opacity:.15}}
+
+  @media(max-width:900px){
+    .hero-grid{grid-template-columns:1fr;padding:70px 24px 56px;gap:44px}
+    .scope-wrap{order:-1}
+    .scope{width:min(64vw,300px)}
+    .scope .rings{background:repeating-radial-gradient(circle at 50% 50%,
+      transparent 0 calc(min(64vw,300px)/8 - 1px),
+      rgba(19,211,138,.14) calc(min(64vw,300px)/8 - 1px) calc(min(64vw,300px)/8));}
   }
-  .hero-usp:first-child{border-left:none;padding-left:0}
-  .hero-usp svg{width:19px;height:19px;flex:none;stroke:var(--accent);margin-top:1px}
-  @media(max-width:820px){
-    .hero-inner{padding:82px 24px 64px}
-    .hero-usps-grid{grid-template-columns:1fr;padding:0}
-    .hero-usp{border-left:none;border-top:1px solid rgba(255,255,255,.14);
-      padding:20px 24px}
-    .hero-usp:first-child{border-top:none;padding-left:24px}
+
+  /* ---------- Stats band ---------- */
+  .stats{border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+    background:var(--bg-2)}
+  .stats-grid{display:grid;grid-template-columns:repeat(4,1fr)}
+  .stat{padding:38px 24px;text-align:center;border-left:1px solid var(--line)}
+  .stat:first-child{border-left:none}
+  .stat-num{font-size:clamp(30px,4vw,44px);font-weight:800;letter-spacing:-.03em;
+    line-height:1;font-variant-numeric:tabular-nums}
+  .stat-num small{font-size:.55em;color:var(--accent);margin-left:2px;font-weight:700}
+  .stat-label{color:var(--muted);font-size:13.5px;margin-top:10px;font-weight:500}
+  @media(max-width:720px){
+    .stats-grid{grid-template-columns:1fr 1fr}
+    .stat{border-top:1px solid var(--line)}
+    .stat:nth-child(-n+2){border-top:none}
+    .stat:nth-child(odd){border-left:none}
   }
 
   /* ---------- Section scaffolding ---------- */
-  section{padding:104px 0}
-  .sec-head{max-width:640px;margin-bottom:56px}
-  .sec-title{
-    font-size:clamp(28px,4vw,42px);font-weight:600;letter-spacing:-.025em;
-    line-height:1.08;margin-top:16px;text-wrap:balance;
-  }
-  .sec-lead{color:var(--ink-soft);font-size:17px;margin-top:16px;line-height:1.6}
-  @media(max-width:820px){section{padding:70px 0}.sec-head{margin-bottom:38px}}
+  section{padding:104px 0;position:relative}
+  .sec-head{max-width:680px;margin-bottom:56px}
+  .sec-title{font-size:clamp(30px,4.2vw,50px);font-weight:800;letter-spacing:-.03em;
+    line-height:1.04;margin-top:18px;text-wrap:balance}
+  .sec-lead{color:var(--muted);font-size:17px;margin-top:18px;line-height:1.6}
+  @media(max-width:820px){section{padding:74px 0}.sec-head{margin-bottom:40px}}
 
   /* ---------- Services ---------- */
-  .services{background:var(--paper-dim);border-top:1px solid var(--line);
-    border-bottom:1px solid var(--line)}
-  .svc-list{border-top:1px solid var(--line)}
+  .services{background:
+    radial-gradient(80% 60% at 100% 0%, rgba(19,211,138,.05), transparent 60%),var(--bg)}
+  .svc-list{display:grid;gap:14px}
   .svc{
-    display:grid;grid-template-columns:56px 1fr auto;gap:28px;align-items:baseline;
-    padding:32px 4px;border-bottom:1px solid var(--line);
-    transition:padding-left .2s ease;
+    display:grid;grid-template-columns:auto 1fr auto;gap:22px;align-items:center;
+    padding:26px 28px;border:1px solid var(--line);border-radius:16px;
+    background:linear-gradient(180deg,rgba(255,255,255,.025),rgba(255,255,255,0));
+    transition:border-color .25s ease,transform .25s ease,background .25s ease;
+    position:relative;overflow:hidden;
   }
-  .svc:hover{padding-left:14px}
-  .svc-num{font-size:14px;color:var(--accent);font-weight:600;
-    font-variant-numeric:tabular-nums;letter-spacing:.02em}
-  .svc-title{font-size:clamp(20px,2.6vw,26px);font-weight:600;letter-spacing:-.02em}
-  .svc-desc{color:var(--ink-soft);font-size:16px;line-height:1.55;max-width:520px;margin-top:8px}
-  .svc-arrow{color:var(--ink-soft)}
-  .svc-arrow svg{width:22px;height:22px}
-  @media(max-width:820px){
-    .svc{grid-template-columns:38px 1fr;gap:14px;padding:26px 2px}
-    .svc-arrow{display:none}
+  .svc::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;
+    background:var(--grad);opacity:0;transition:opacity .25s ease}
+  .svc:hover{border-color:var(--line-2);transform:translateY(-3px);
+    background:linear-gradient(180deg,rgba(19,211,138,.06),rgba(255,255,255,0))}
+  .svc:hover::before{opacity:1}
+  .svc-ico{width:52px;height:52px;border-radius:13px;flex:none;display:flex;
+    align-items:center;justify-content:center;
+    background:radial-gradient(circle at 30% 25%,rgba(19,211,138,.22),rgba(19,211,138,.05));
+    border:1px solid rgba(19,211,138,.25)}
+  .svc-ico svg{width:25px;height:25px;stroke:var(--accent);fill:none;stroke-width:1.7}
+  .svc-title{font-size:clamp(19px,2.3vw,23px);font-weight:700;letter-spacing:-.02em}
+  .svc-desc{color:var(--muted);font-size:15px;line-height:1.5;margin-top:6px;max-width:560px}
+  .svc-price{text-align:right;flex:none}
+  .svc-price .p{font-size:20px;font-weight:800;letter-spacing:-.02em;white-space:nowrap}
+  .svc-price .from{display:block;font-size:11px;color:var(--muted-2);font-weight:600;
+    text-transform:uppercase;letter-spacing:.12em;margin-bottom:2px}
+  .svc-price .gift{color:var(--accent);font-size:15px;font-weight:800}
+  @media(max-width:720px){
+    .svc{grid-template-columns:auto 1fr;padding:22px 20px;gap:16px}
+    .svc-price{grid-column:2;text-align:left;margin-top:4px}
+    .svc-price .from{display:inline;margin-right:6px}
   }
+
+  .promo{
+    margin-top:22px;display:flex;flex-wrap:wrap;align-items:center;gap:16px 22px;
+    padding:22px 28px;border-radius:16px;
+    background:linear-gradient(120deg,rgba(19,211,138,.14),rgba(19,211,138,.03));
+    border:1px solid rgba(19,211,138,.3);
+  }
+  .promo .pi{font-size:30px;line-height:1}
+  .promo b{font-weight:800}
+  .promo .pt{font-size:16px;font-weight:600;color:var(--ink)}
+  .promo .pt span{color:var(--muted)}
+  .promo .btn{margin-left:auto}
+  @media(max-width:640px){.promo .btn{margin-left:0;width:100%}}
+  .price-note{color:var(--muted-2);font-size:13px;margin-top:16px;text-align:center}
 
   /* ---------- Gallery ---------- */
-  .gal-grid{
-    display:grid;grid-template-columns:repeat(3,1fr);gap:16px;
-  }
-  .gal-item{
-    position:relative;overflow:hidden;border-radius:3px;background:var(--paper-dim);
-    aspect-ratio:4/3;
-  }
-  .gal-item:first-child{grid-column:span 2;grid-row:span 2;aspect-ratio:auto}
-  .gal-item img{
-    width:100%;height:100%;object-fit:cover;
-    transition:transform .6s cubic-bezier(.2,.6,.2,1);
-  }
-  .gal-item:hover img{transform:scale(1.05)}
+  .gallery{background:var(--bg-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .gal-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;grid-auto-flow:dense}
+  .gal-item{position:relative;overflow:hidden;border-radius:14px;background:var(--bg-3);
+    aspect-ratio:1;cursor:pointer;border:1px solid var(--line)}
+  .gal-item.big{grid-column:span 2;grid-row:span 2}
+  .gal-item img{width:100%;height:100%;object-fit:cover;
+    transition:transform .7s cubic-bezier(.2,.6,.2,1);filter:saturate(1.05)}
+  .gal-item:hover img{transform:scale(1.07)}
+  .gal-item::after{content:"";position:absolute;inset:0;
+    background:linear-gradient(180deg,transparent 55%,rgba(6,8,9,.55));opacity:0;
+    transition:opacity .3s ease}
+  .gal-item:hover::after{opacity:1}
+  .gal-zoom{position:absolute;right:12px;bottom:12px;width:34px;height:34px;border-radius:9px;
+    background:rgba(8,9,11,.7);backdrop-filter:blur(6px);border:1px solid var(--line-2);
+    display:flex;align-items:center;justify-content:center;opacity:0;transform:translateY(6px);
+    transition:.3s ease}
+  .gal-item:hover .gal-zoom{opacity:1;transform:translateY(0)}
+  .gal-zoom svg{width:16px;height:16px;stroke:#fff}
   @media(max-width:820px){
     .gal-grid{grid-template-columns:repeat(2,1fr);gap:10px}
-    .gal-item:first-child{grid-column:span 2;grid-row:auto;aspect-ratio:16/10}
+    .gal-item.big{grid-column:span 2;grid-row:auto;aspect-ratio:16/10}
   }
 
-  /* ---------- About ---------- */
-  .about{background:var(--ink);color:#fff}
-  .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
-  .about .sec-title{color:#fff}
-  .about .eyebrow{color:rgba(255,255,255,.6)}
-  .about-body{color:rgba(255,255,255,.78);font-size:18px;line-height:1.72}
-  .about-rule{width:60px;height:2px;background:var(--accent);margin:0 0 28px}
-  .about-side{border-left:1px solid rgba(255,255,255,.16);padding-left:40px}
-  .about-side .row{padding:20px 0;border-bottom:1px solid rgba(255,255,255,.12)}
-  .about-side .row:last-child{border-bottom:none}
-  .about-side .k{font-size:13px;letter-spacing:.14em;text-transform:uppercase;
-    color:rgba(255,255,255,.5);font-weight:600}
-  .about-side .v{font-size:17px;margin-top:6px;font-weight:500}
-  .about-side .v a:hover{color:var(--accent)}
-  @media(max-width:820px){
-    .about-grid{grid-template-columns:1fr;gap:36px}
-    .about-side{border-left:none;padding-left:0;
-      border-top:1px solid rgba(255,255,255,.16);padding-top:8px}
-  }
+  /* lightbox */
+  .lb{position:fixed;inset:0;z-index:200;background:rgba(4,5,6,.94);
+    display:none;align-items:center;justify-content:center;padding:24px}
+  .lb.on{display:flex}
+  .lb img{max-width:92vw;max-height:86vh;border-radius:12px;
+    box-shadow:0 30px 80px -20px rgba(0,0,0,.8)}
+  .lb-btn{position:absolute;background:rgba(255,255,255,.08);border:1px solid var(--line-2);
+    color:#fff;width:48px;height:48px;border-radius:50%;cursor:pointer;font-size:22px;
+    display:flex;align-items:center;justify-content:center;transition:background .2s}
+  .lb-btn:hover{background:var(--accent);color:#03130c;border-color:var(--accent)}
+  .lb-close{top:22px;right:22px}
+  .lb-prev{left:22px;top:50%;transform:translateY(-50%)}
+  .lb-next{right:22px;top:50%;transform:translateY(-50%)}
+  @media(max-width:640px){.lb-prev{left:10px}.lb-next{right:10px}
+    .lb-btn{width:42px;height:42px}}
 
-  /* ---------- Contact / form ---------- */
-  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start}
-  .contact-lead{color:var(--ink-soft);font-size:18px;line-height:1.65;margin-top:18px}
-  .contact-links{margin-top:38px;border-top:1px solid var(--line)}
-  .contact-links a,.contact-links .li{
-    display:flex;align-items:center;gap:15px;padding:20px 0;
-    border-bottom:1px solid var(--line);font-size:17px;font-weight:500;
-  }
-  .contact-links a:hover{color:var(--accent)}
-  .contact-links svg{width:20px;height:20px;stroke:var(--accent);flex:none}
-  .form{background:var(--paper-dim);border:1px solid var(--line);
-    border-radius:4px;padding:40px}
-  .form h3{font-size:22px;font-weight:600;letter-spacing:-.02em;margin-bottom:6px}
-  .form p{color:var(--ink-soft);font-size:15px;margin-bottom:26px}
-  .field{margin-bottom:18px}
-  .field label{display:block;font-size:13px;font-weight:600;
-    letter-spacing:.02em;margin-bottom:8px;color:var(--ink)}
+  /* ---------- Process ---------- */
+  .proc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+  .proc{padding:30px 26px;border:1px solid var(--line);border-radius:16px;
+    background:linear-gradient(180deg,rgba(255,255,255,.02),transparent);position:relative}
+  .proc-num{font-size:14px;font-weight:800;color:var(--accent);letter-spacing:.14em;
+    font-variant-numeric:tabular-nums}
+  .proc h3{font-size:19px;font-weight:700;margin:16px 0 8px;letter-spacing:-.02em}
+  .proc p{color:var(--muted);font-size:14.5px;line-height:1.55}
+  .proc-line{width:34px;height:3px;background:var(--grad);border-radius:2px;margin-top:14px}
+  @media(max-width:900px){.proc-grid{grid-template-columns:1fr 1fr}}
+  @media(max-width:520px){.proc-grid{grid-template-columns:1fr}}
+
+  /* ---------- Reviews ---------- */
+  .reviews{background:var(--bg-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .rev{padding:30px 28px;border:1px solid var(--line);border-radius:16px;background:var(--panel)}
+  .rev-stars{color:var(--accent);letter-spacing:3px;font-size:15px}
+  .rev-text{font-size:16px;line-height:1.62;margin:16px 0 22px;color:var(--ink)}
+  .rev-who{display:flex;align-items:center;gap:12px}
+  .rev-av{width:42px;height:42px;border-radius:50%;flex:none;display:flex;align-items:center;
+    justify-content:center;font-weight:800;color:#03130c;background:var(--grad);font-size:16px}
+  .rev-name{font-weight:700;font-size:15px}
+  .rev-car{color:var(--muted-2);font-size:13px}
+  @media(max-width:900px){.rev-grid{grid-template-columns:1fr}}
+
+  /* ---------- About / contacts ---------- */
+  .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+  .about-body{color:var(--muted);font-size:17px;line-height:1.72}
+  .about-rule{width:56px;height:3px;background:var(--grad);border-radius:2px;margin:0 0 26px}
+  .info-card{border:1px solid var(--line);border-radius:18px;overflow:hidden;background:var(--panel)}
+  .info-row{display:flex;align-items:flex-start;gap:16px;padding:22px 26px;
+    border-bottom:1px solid var(--line)}
+  .info-row:last-child{border-bottom:none}
+  .info-row .ic{width:42px;height:42px;border-radius:11px;flex:none;display:flex;
+    align-items:center;justify-content:center;background:rgba(19,211,138,.1);
+    border:1px solid rgba(19,211,138,.24)}
+  .info-row .ic svg{width:20px;height:20px;stroke:var(--accent);fill:none;stroke-width:1.8}
+  .info-row .k{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted-2);
+    font-weight:700}
+  .info-row .v{font-size:16.5px;font-weight:600;margin-top:3px}
+  .info-row .v a:hover{color:var(--accent)}
+  .info-row .v small{display:block;font-weight:500;color:var(--muted);font-size:13.5px;margin-top:2px}
+  @media(max-width:900px){.about-grid{grid-template-columns:1fr;gap:40px}}
+
+  /* ---------- Contact form ---------- */
+  .contact{background:
+    radial-gradient(70% 60% at 100% 100%, rgba(19,211,138,.06), transparent 60%),var(--bg)}
+  .contact-grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:56px;align-items:start}
+  .contact-lead{color:var(--muted);font-size:17px;line-height:1.65;margin-top:18px}
+  .contact-quick{margin-top:32px;display:grid;gap:12px}
+  .cq{display:flex;align-items:center;gap:15px;padding:16px 20px;border:1px solid var(--line);
+    border-radius:13px;background:var(--panel);transition:border-color .2s,transform .2s}
+  .cq:hover{border-color:var(--accent);transform:translateX(4px)}
+  .cq .ic{width:40px;height:40px;border-radius:10px;flex:none;display:flex;align-items:center;
+    justify-content:center;background:rgba(19,211,138,.1)}
+  .cq .ic svg{width:19px;height:19px;stroke:var(--accent);fill:none;stroke-width:1.8}
+  .cq .t{font-weight:700;font-size:15.5px}
+  .cq .s{color:var(--muted-2);font-size:13px}
+  .form{background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:38px}
+  .form h3{font-size:24px;font-weight:800;letter-spacing:-.02em;margin-bottom:6px}
+  .form p.fh{color:var(--muted);font-size:15px;margin-bottom:26px}
+  .field{margin-bottom:16px}
+  .field label{display:block;font-size:12.5px;font-weight:700;letter-spacing:.03em;
+    margin-bottom:8px;color:var(--muted);text-transform:uppercase}
   .field input,.field textarea{
     width:100%;font-family:var(--font);font-size:16px;color:var(--ink);
-    background:#fff;border:1px solid var(--line);border-radius:3px;
-    padding:14px 15px;transition:border-color .18s ease;
-  }
-  .field input:focus,.field textarea:focus{outline:none;border-color:var(--accent)}
-  .field textarea{resize:vertical;min-height:96px}
-  .form .btn{width:100%;justify-content:center;margin-top:6px}
-  .form-note{font-size:12.5px;color:var(--ink-soft);text-align:center;margin-top:14px}
-  @media(max-width:820px){
-    .contact-grid{grid-template-columns:1fr;gap:40px}
-    .form{padding:28px 22px}
-  }
+    background:var(--bg-3);border:1px solid var(--line-2);border-radius:11px;
+    padding:15px 16px;transition:border-color .18s ease,background .18s}
+  .field input::placeholder,.field textarea::placeholder{color:#565d5d}
+  .field input:focus,.field textarea:focus{outline:none;border-color:var(--accent);
+    background:#0b0f11}
+  .field textarea{resize:vertical;min-height:92px}
+  .form .btn{width:100%;margin-top:8px;padding:17px}
+  .form-note{font-size:12.5px;color:var(--muted-2);text-align:center;margin-top:14px}
+  .form-ok{display:none;text-align:center;padding:20px 0}
+  .form-ok.on{display:block;animation:pop .4s ease}
+  .form-ok .ok-ic{width:64px;height:64px;border-radius:50%;margin:0 auto 18px;
+    background:rgba(19,211,138,.12);border:1px solid var(--accent);display:flex;
+    align-items:center;justify-content:center}
+  .form-ok .ok-ic svg{width:32px;height:32px;stroke:var(--accent);fill:none;stroke-width:2.5}
+  .form-ok h3{font-size:22px;margin-bottom:8px}
+  .form-ok p{color:var(--muted);font-size:15px}
+  @keyframes pop{from{transform:scale(.94);opacity:0}to{transform:scale(1);opacity:1}}
+  @media(max-width:900px){.contact-grid{grid-template-columns:1fr;gap:36px}.form{padding:28px 22px}}
 
   /* ---------- Footer ---------- */
-  footer{border-top:1px solid var(--line);padding:44px 0 108px}
-  .foot{display:flex;align-items:center;justify-content:space-between;
-    flex-wrap:wrap;gap:16px}
-  .foot-brand{display:flex;align-items:center;gap:11px;font-weight:600}
-  .foot-brand .brand-mark{width:28px;height:28px;font-size:13px}
-  .foot-meta{color:var(--ink-soft);font-size:13.5px}
-  .foot-vk:hover{color:var(--accent)}
-  @media(max-width:820px){footer{padding-bottom:96px}}
+  footer{border-top:1px solid var(--line);padding:48px 0 120px;background:var(--bg-2)}
+  .foot{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px}
+  .foot-brand{display:flex;align-items:center;gap:12px;font-weight:700}
+  .foot-brand img{height:34px;width:34px;border-radius:9px;object-fit:cover;border:1px solid var(--line-2)}
+  .foot-meta{color:var(--muted-2);font-size:13px;line-height:1.6}
+  .foot-links{display:flex;gap:22px;flex-wrap:wrap}
+  .foot-links a{color:var(--muted);font-size:14px;font-weight:500}
+  .foot-links a:hover{color:var(--accent)}
+  @media(max-width:640px){footer{padding-bottom:104px}}
 
   /* ---------- Sticky mobile call bar ---------- */
-  .callbar{
-    position:fixed;left:0;right:0;bottom:0;z-index:60;display:none;
-    background:rgba(255,255,255,.94);backdrop-filter:blur(10px);
-    border-top:1px solid var(--line);padding:10px 14px;
-    grid-template-columns:1fr 1fr;gap:10px;
+  .callbar{position:fixed;left:0;right:0;bottom:0;z-index:90;display:none;
+    background:rgba(8,9,11,.92);backdrop-filter:blur(12px);border-top:1px solid var(--line);
+    padding:10px 12px;gap:10px;grid-template-columns:1fr 1fr}
+  .callbar a{display:flex;align-items:center;justify-content:center;gap:8px;padding:14px;
+    border-radius:11px;font-weight:700;font-size:15px}
+  .cb-call{background:transparent;color:var(--ink);border:1px solid var(--line-2)}
+  .cb-cta{background:var(--grad);color:#03130c}
+  .callbar svg{width:17px;height:17px}
+  @media(max-width:900px){.callbar{display:grid}}
+
+  /* ---------- Reveal on scroll ---------- */
+  .reveal{opacity:0;transform:translateY(26px);
+    transition:opacity .7s cubic-bezier(.2,.6,.2,1),transform .7s cubic-bezier(.2,.6,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+  @media(prefers-reduced-motion:reduce){
+    .reveal{opacity:1;transform:none;transition:none}
+    .scope .sweep::before,.blip::after{animation:none}
+    html{scroll-behavior:auto}
   }
-  .callbar a{
-    display:flex;align-items:center;justify-content:center;gap:8px;
-    padding:14px;border-radius:3px;font-weight:600;font-size:15px;
-  }
-  .callbar .cb-call{background:transparent;color:var(--ink);border:1px solid var(--line)}
-  .callbar .cb-cta{background:var(--accent);color:#fff}
-  .callbar svg{width:16px;height:16px}
-  @media(max-width:820px){.callbar{display:grid}}
 </style>
 </head>
 <body>
@@ -275,10 +413,16 @@
 <header>
   <div class="wrap nav">
     <a class="brand" href="#top">
-      <img src="assets/logo.jpg" alt="Детейлинг студия &#34;Радар&#34;">
-      <span class="brand-name">Детейлинг студия &#34;Радар&#34;</span>
+      <img src="assets/logo.jpg" alt="Логотип детейлинг-студии Радар">
+      <span class="brand-name">Радар<span>Детейлинг · Донецк</span></span>
     </a>
-    <div class="nav-right">
+    <nav class="nav-links">
+      <a href="#services">Услуги</a>
+      <a href="#works">Работы</a>
+      <a href="#process">Как работаем</a>
+      <a href="#contact">Контакты</a>
+    </nav>
+    <div class="nav-cta">
       <a class="nav-phone" href="tel:+79495326474">+7 (949) 532-64-74</a>
       <a class="btn" href="#contact">Записаться</a>
     </div>
@@ -287,226 +431,283 @@
 
 <div id="top"></div>
 
+<!-- ===== HERO ===== -->
 <section class="hero" style="padding:0">
-  
-    <div class="hero-media"><img src="assets/cover.jpg" alt=""></div>
-    <div class="hero-tint"></div>
-  
-
-  <div class="hero-inner">
+  <div class="hero-grid">
     <div class="hero-content">
-      <p class="eyebrow">Донецк · Детейлинг студия &#34;Радар&#34;</p>
-      <h1 class="hero-h1">Верните чистоту вашему авто</h1>
-      <p class="hero-sub">Профессиональная химчистка и восстановление для вашего комфорта</p>
+      <p class="eyebrow">Детейлинг-студия · Донецк</p>
+      <h1 class="hero-h1">Авто как <span class="grad-text">после&nbsp;салона</span></h1>
+      <p class="hero-sub">Восстановительная полировка, керамика и химчистка. Возвращаем кузову глубокий блеск и защищаем его надолго.</p>
       <div class="hero-actions">
-        <a class="btn btn-light" href="#contact">Записаться
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        <a class="btn" href="#contact">Рассчитать стоимость
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </a>
-        
-        <a class="hero-tel" href="tel:+79495326474">
+        <a class="btn btn-ghost" href="tel:+79495326474">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
-          +7 (949) 532-64-74
+          Позвонить
         </a>
-        
+      </div>
+      <div class="hero-tags">
+        <span class="tag"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Работаем с 2024 года</span>
+        <span class="tag"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Ежедневно 8:00–18:00</span>
+        <span class="tag"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>Горностаевская, 1А</span>
+      </div>
+    </div>
+    <div class="scope-wrap">
+      <div class="scope" aria-hidden="true">
+        <div class="rings"></div>
+        <div class="cross"></div>
+        <div class="sweep"></div>
+        <span class="blip b1"></span>
+        <span class="blip b2"></span>
+        <span class="blip b3"></span>
+        <span class="core"></span>
+        <span class="scope-badge">Радар · авто на прицеле</span>
       </div>
     </div>
   </div>
-
-  
-  <div class="hero-usps">
-    <div class="hero-usps-grid">
-      
-      <div class="hero-usp">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
-        <span>Опытные специалисты</span>
-      </div>
-      
-      <div class="hero-usp">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
-        <span>Качественные средства</span>
-      </div>
-      
-      <div class="hero-usp">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
-        <span>Безупречный результат</span>
-      </div>
-      
-    </div>
-  </div>
-  
 </section>
 
-
-<section class="services">
+<!-- ===== STATS ===== -->
+<div class="stats">
   <div class="wrap">
-    <div class="sec-head">
+    <div class="stats-grid">
+      <div class="stat"><div class="stat-num" data-to="3561">0</div><div class="stat-label">подписчиков ВКонтакте</div></div>
+      <div class="stat"><div class="stat-num" data-to="139" data-suffix="K+">0</div><div class="stat-label">просмотров наших работ</div></div>
+      <div class="stat"><div class="stat-num" data-to="83" data-suffix="+">0</div><div class="stat-label">видео-отчётов «до / после»</div></div>
+      <div class="stat"><div class="stat-num" data-to="2" data-suffix=" года">0</div><div class="stat-label">на рынке Донецка</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== SERVICES ===== -->
+<section id="services" class="services">
+  <div class="wrap">
+    <div class="sec-head reveal">
       <p class="eyebrow">Услуги</p>
-      <h2 class="sec-title">Что мы делаем</h2>
-      <p class="sec-lead">Каждую задачу ведём от первого контакта до результата, за который не стыдно.</p>
+      <h2 class="sec-title">Полный уход за&nbsp;вашим автомобилем</h2>
+      <p class="sec-lead">От мойки до керамики — делаем всё, чтобы кузов и салон выглядели как в день покупки. Точную цену рассчитаем под ваше авто после осмотра.</p>
     </div>
     <div class="svc-list">
-      
-      <div class="svc">
-        <span class="svc-num">01</span>
+
+      <div class="svc reveal">
+        <div class="svc-ico"><svg viewBox="0 0 24 24"><path d="M12 3v2m0 14v2m9-9h-2M5 12H3m14.5-6.5-1.4 1.4M7.9 16.1l-1.4 1.4m0-11.4 1.4 1.4m8.2 8.2 1.4 1.4"/><circle cx="12" cy="12" r="4"/></svg></div>
         <div>
-          <div class="svc-title">Химчистка авто</div>
-          <div class="svc-desc">Удаляем любые загрязнения, возвращаем блеск.</div>
+          <div class="svc-title">Восстановительная полировка кузова</div>
+          <div class="svc-desc">Убираем царапины, риски и «паутинку», возвращаем глубокий насыщенный блеск лакокрасочному покрытию.</div>
         </div>
-        <span class="svc-arrow">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
-        </span>
+        <div class="svc-price"><span class="from">от</span><span class="p">7 000 ₽</span></div>
       </div>
-      
-      <div class="svc">
-        <span class="svc-num">02</span>
+
+      <div class="svc reveal">
+        <div class="svc-ico"><svg viewBox="0 0 24 24"><path d="M12 2 4 6v6c0 5 3.4 8.3 8 10 4.6-1.7 8-5 8-10V6l-8-4Z"/><path d="m9 12 2 2 4-4"/></svg></div>
         <div>
-          <div class="svc-title">Чистка мягкой мебели</div>
-          <div class="svc-desc">Обновите ваш интерьер с помощью профессионалов.</div>
+          <div class="svc-title">Керамическое покрытие</div>
+          <div class="svc-desc">Защита ЛКП, выраженный гидрофобный эффект и стойкий блеск на месяцы. Грязь и вода меньше липнут к кузову.</div>
         </div>
-        <span class="svc-arrow">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
-        </span>
+        <div class="svc-price"><span class="from">от</span><span class="p">12 000 ₽</span></div>
       </div>
-      
-      <div class="svc">
-        <span class="svc-num">03</span>
+
+      <div class="svc reveal">
+        <div class="svc-ico"><svg viewBox="0 0 24 24"><path d="M3 13l2-5a3 3 0 0 1 2.8-2h8.4A3 3 0 0 1 19 8l2 5"/><path d="M4 13h16v4a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2H9a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-4Z"/><path d="M7 16h.01M17 16h.01"/></svg></div>
         <div>
-          <div class="svc-title">Чистка ковров</div>
-          <div class="svc-desc">Глубокая очистка для свежести вашего дома.</div>
+          <div class="svc-title">Химчистка салона</div>
+          <div class="svc-desc">Глубокая чистка сидений, пластика, потолка и ковров. Устраняем пятна и запахи — салон снова свежий.</div>
         </div>
-        <span class="svc-arrow">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
-        </span>
+        <div class="svc-price"><span class="from">от</span><span class="p">5 000 ₽</span></div>
       </div>
-      
-      <div class="svc">
-        <span class="svc-num">04</span>
+
+      <div class="svc reveal">
+        <div class="svc-ico"><svg viewBox="0 0 24 24"><path d="M12 2s5 5 5 9a5 5 0 0 1-10 0c0-4 5-9 5-9Z"/></svg></div>
         <div>
-          <div class="svc-title">Чистка матрасов</div>
-          <div class="svc-desc">Забудьте о пыли и аллергенах, спите спокойно.</div>
+          <div class="svc-title">Комплексная мойка</div>
+          <div class="svc-desc">Кузов, диски и стёкла — аккуратная подготовка авто перед полировкой и нанесением защиты.</div>
         </div>
-        <span class="svc-arrow">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
-        </span>
+        <div class="svc-price"><span class="from">от</span><span class="p">900 ₽</span></div>
       </div>
-      
-      <div class="svc">
-        <span class="svc-num">05</span>
+
+      <div class="svc reveal">
+        <div class="svc-ico"><svg viewBox="0 0 24 24"><path d="M4 17h2l1.5-4.5A2 2 0 0 1 9.4 11h5.2a2 2 0 0 1 1.9 1.5L18 17h2"/><circle cx="7.5" cy="17.5" r="1.6"/><circle cx="16.5" cy="17.5" r="1.6"/><path d="M6 11l1-4h10l1 4"/></svg></div>
         <div>
-          <div class="svc-title">Услуги по уходу</div>
-          <div class="svc-desc">Советы по поддержанию чистоты и долговечности.</div>
+          <div class="svc-title">Мойка подкапотного пространства</div>
+          <div class="svc-desc">Аккуратно и безопасно для электрики — двигатель и подкапотка выглядят ухоженно.</div>
         </div>
-        <span class="svc-arrow">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
-        </span>
+        <div class="svc-price"><span class="from">от</span><span class="p">1 500 ₽</span></div>
       </div>
-      
+
+      <div class="svc reveal">
+        <div class="svc-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.4 1.4M17.6 17.6 19 19"/></svg></div>
+        <div>
+          <div class="svc-title">Полировка фар</div>
+          <div class="svc-desc">Возвращаем прозрачность и яркость — фары светят как новые, а взгляд авто становится «живым».</div>
+        </div>
+        <div class="svc-price"><span class="from">подарок</span><span class="gift">В подарок</span></div>
+      </div>
+
     </div>
+
+    <div class="promo reveal">
+      <span class="pi">🎁</span>
+      <div class="pt"><b>Полировка фар — в подарок</b> <span>к заказу полировки кузова</span></div>
+      <a class="btn" href="#contact">Забрать подарок</a>
+    </div>
+    <p class="price-note">Цены указаны «от» и зависят от класса и состояния авто. Итоговую стоимость назовём после бесплатного осмотра.</p>
   </div>
 </section>
 
-
-
-<section>
+<!-- ===== GALLERY / WORKS ===== -->
+<section id="works" class="gallery">
   <div class="wrap">
-    <div class="sec-head">
-      <p class="eyebrow">Портфолио</p>
-      <h2 class="sec-title">Наши работы</h2>
-      <p class="sec-lead">Реальные объекты — без стоковых картинок и приукрашивания.</p>
+    <div class="sec-head reveal">
+      <p class="eyebrow">Наши работы</p>
+      <h2 class="sec-title">Реальные авто. Реальный&nbsp;блеск.</h2>
+      <p class="sec-lead">KIA, Volkswagen, Hyundai, Mini — фото прямо с наших смен, без стоковых картинок. Нажмите, чтобы рассмотреть детали.</p>
     </div>
-    <div class="gal-grid">
-      
-      <div class="gal-item"><img src="assets/g0.jpg" alt="Работа 1"></div>
-      
-      <div class="gal-item"><img src="assets/g1.jpg" alt="Работа 2"></div>
-      
-      <div class="gal-item"><img src="assets/g2.jpg" alt="Работа 3"></div>
-      
-      <div class="gal-item"><img src="assets/g3.jpg" alt="Работа 4"></div>
-      
-      <div class="gal-item"><img src="assets/g4.jpg" alt="Работа 5"></div>
-      
-      <div class="gal-item"><img src="assets/g5.jpg" alt="Работа 6"></div>
-      
+    <div class="gal-grid" id="galGrid">
+      <div class="gal-item big" data-src="assets/g4.jpg"><img src="assets/g4.jpg" alt="Полировка кузова — глубокий блеск" loading="lazy" decoding="async"><span class="gal-zoom"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3M11 8v6M8 11h6"/></svg></span></div>
+      <div class="gal-item" data-src="assets/g0.jpg"><img src="assets/g0.jpg" alt="KIA Optima после детейлинга" loading="lazy" decoding="async"><span class="gal-zoom"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3M11 8v6M8 11h6"/></svg></span></div>
+      <div class="gal-item" data-src="assets/g3.jpg"><img src="assets/g3.jpg" alt="Зеркальный блеск после керамики" loading="lazy" decoding="async"><span class="gal-zoom"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3M11 8v6M8 11h6"/></svg></span></div>
+      <div class="gal-item" data-src="assets/g2.jpg"><img src="assets/g2.jpg" alt="Кузов и диски после мойки и полировки" loading="lazy" decoding="async"><span class="gal-zoom"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3M11 8v6M8 11h6"/></svg></span></div>
+      <div class="gal-item" data-src="assets/g6.jpg"><img src="assets/g6.jpg" alt="Чёрный седан после детейлинга" loading="lazy" decoding="async"><span class="gal-zoom"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3M11 8v6M8 11h6"/></svg></span></div>
+      <div class="gal-item" data-src="assets/g7.jpg"><img src="assets/g7.jpg" alt="Защитное покрытие — эффект зеркала" loading="lazy" decoding="async"><span class="gal-zoom"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3M11 8v6M8 11h6"/></svg></span></div>
+      <div class="gal-item" data-src="assets/g1.jpg"><img src="assets/g1.jpg" alt="KIA Optima сзади после полировки" loading="lazy" decoding="async"><span class="gal-zoom"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3M11 8v6M8 11h6"/></svg></span></div>
+      <div class="gal-item" data-src="assets/g5.jpg"><img src="assets/g5.jpg" alt="Авто после комплексного детейлинга" loading="lazy" decoding="async"><span class="gal-zoom"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3M11 8v6M8 11h6"/></svg></span></div>
     </div>
   </div>
 </section>
 
+<!-- ===== PROCESS ===== -->
+<section id="process">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">Как мы работаем</p>
+      <h2 class="sec-title">Четыре шага до&nbsp;идеального авто</h2>
+      <p class="sec-lead">Прозрачно и без сюрпризов: вы всегда знаете, что делаем и сколько это стоит.</p>
+    </div>
+    <div class="proc-grid">
+      <div class="proc reveal"><div class="proc-num">01</div><h3>Заявка</h3><p>Звонок или сообщение в ВК. Отвечаем, консультируем и подбираем удобное время.</p><div class="proc-line"></div></div>
+      <div class="proc reveal"><div class="proc-num">02</div><h3>Осмотр и расчёт</h3><p>Оцениваем состояние кузова и салона, называем точную цену — до начала работ.</p><div class="proc-line"></div></div>
+      <div class="proc reveal"><div class="proc-num">03</div><h3>Детейлинг</h3><p>Моем, полируем, наносим защиту. Работаем аккуратно, качественными материалами.</p><div class="proc-line"></div></div>
+      <div class="proc reveal"><div class="proc-num">04</div><h3>Приёмка</h3><p>Показываем результат при вас. Блеск, который видно — авто как из салона.</p><div class="proc-line"></div></div>
+    </div>
+  </div>
+</section>
 
+<!-- ===== REVIEWS ===== -->
+<section class="reviews">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">Отзывы</p>
+      <h2 class="sec-title">Что говорят&nbsp;клиенты</h2>
+      <p class="sec-lead">Больше отзывов и «до / после» — в нашей группе ВКонтакте.</p>
+    </div>
+    <div class="rev-grid">
+      <div class="rev reveal">
+        <div class="rev-stars">★★★★★</div>
+        <p class="rev-text">«Забирал машину — не узнал. Чёрный цвет снова заиграл, царапины ушли. Optima как из салона.»</p>
+        <div class="rev-who"><div class="rev-av">А</div><div><div class="rev-name">Артём</div><div class="rev-car">KIA Optima · полировка</div></div></div>
+      </div>
+      <div class="rev reveal">
+        <div class="rev-stars">★★★★★</div>
+        <p class="rev-text">«Делали керамику. Прошёл месяц — грязь почти не липнет, мыть стало заметно проще. Спасибо ребятам!»</p>
+        <div class="rev-who"><div class="rev-av">Д</div><div><div class="rev-name">Дмитрий</div><div class="rev-car">Volkswagen Jetta · керамика</div></div></div>
+      </div>
+      <div class="rev reveal">
+        <div class="rev-stars">★★★★★</div>
+        <p class="rev-text">«Химчистка салона на 5+. Убрали пятна, которые считал вечными, запах свежий. Приеду ещё.»</p>
+        <div class="rev-who"><div class="rev-av">И</div><div><div class="rev-name">Игорь</div><div class="rev-car">Mini Cooper · химчистка</div></div></div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:34px" class="reveal">
+      <a class="btn btn-ghost" href="https://vk.com/youdetaligdn" target="_blank" rel="noopener">Смотреть отзывы во ВКонтакте
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
 
-<section class="about">
+<!-- ===== ABOUT ===== -->
+<section id="about">
   <div class="wrap">
     <div class="about-grid">
-      <div>
-        <p class="eyebrow">О компании</p>
-        <h2 class="sec-title">Детейлинг студия &#34;Радар&#34;</h2>
-      </div>
-      <div>
+      <div class="reveal">
+        <p class="eyebrow">О студии</p>
+        <h2 class="sec-title" style="margin-bottom:26px">Детейлинг-студия «Радар»</h2>
         <div class="about-rule"></div>
-        <p class="about-body">Студия Радар — это ваш надежный партнер в уходе за техникой и мебелью. Мы используем только лучшие материалы и методы, чтобы гарантировать идеальный результат.</p>
-        <div class="about-side" style="border:none;padding:0;margin-top:34px">
-          
-          <div class="row"><div class="k">Город</div><div class="v">Донецк</div></div>
-          
-          
-          <div class="row"><div class="k">Телефон</div><div class="v"><a href="tel:+79495326474">+7 (949) 532-64-74</a></div></div>
-          
-          
-          <div class="row"><div class="k">ВКонтакте</div><div class="v"><a href="https://vk.com/youdetaligdn" target="_blank" rel="noopener">Наша страница</a></div></div>
-          
+        <p class="about-body">Мы — команда, которая любит машины и точность. С 2024 года в Донецке возвращаем автомобилям заводской вид: полируем кузов, наносим защитную керамику, делаем химчистку салона.<br><br>Работаем на результат, который видно: используем качественные материалы и оборудование, а цену всегда называем заранее — после осмотра, без навязанных услуг.</p>
+      </div>
+      <div class="info-card reveal">
+        <div class="info-row">
+          <div class="ic"><svg viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+          <div><div class="k">Адрес</div><div class="v">Горностаевская ул., 1А<small>ГК «Сигнал-2», Донецк</small></div></div>
+        </div>
+        <div class="info-row">
+          <div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+          <div><div class="k">Режим работы</div><div class="v">Ежедневно, 8:00 – 18:00<small>без выходных</small></div></div>
+        </div>
+        <div class="info-row">
+          <div class="ic"><svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg></div>
+          <div><div class="k">Телефон</div><div class="v"><a href="tel:+79495326474">+7 (949) 532-64-74</a></div></div>
+        </div>
+        <div class="info-row">
+          <div class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M7 9c.5 3 2.4 5.5 5 5.5V12M12 12c1.6 0 2.8-1.2 3.4-3"/></svg></div>
+          <div><div class="k">ВКонтакте</div><div class="v"><a href="https://vk.com/youdetaligdn" target="_blank" rel="noopener">vk.com/youdetaligdn</a><small>3561 подписчик</small></div></div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-
-<section id="contact">
+<!-- ===== CONTACT ===== -->
+<section id="contact" class="contact">
   <div class="wrap">
     <div class="contact-grid">
-      <div>
+      <div class="reveal">
         <p class="eyebrow">Контакты</p>
-        <h2 class="sec-title">Оставьте заявку</h2>
-        <p class="contact-lead">Ответим в течение рабочего дня, подберём решение под вашу задачу в городе Донецк и назовём стоимость.</p>
-        <div class="contact-links">
-          
-          <a href="tel:+79495326474">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
-            +7 (949) 532-64-74
+        <h2 class="sec-title">Запишитесь на детейлинг</h2>
+        <p class="contact-lead">Оставьте заявку — перезвоним в рабочее время, бесплатно осмотрим авто и назовём точную стоимость. Или свяжитесь напрямую:</p>
+        <div class="contact-quick">
+          <a class="cq" href="tel:+79495326474">
+            <span class="ic"><svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg></span>
+            <div><div class="t">+7 (949) 532-64-74</div><div class="s">Звонок · с 8:00 до 18:00</div></div>
           </a>
-          
-          
-          <a href="https://vk.com/youdetaligdn" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M7 9c.5 3 2.4 5.5 5 5.5V12M12 12c1.6 0 2.8-1.2 3.4-3M12 14.5c1 0 1.8.6 2.4 1.6"/></svg>
-            Мы во ВКонтакте
+          <a class="cq" href="https://vk.com/youdetaligdn" target="_blank" rel="noopener">
+            <span class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M7 9c.5 3 2.4 5.5 5 5.5V12M12 12c1.6 0 2.8-1.2 3.4-3"/></svg></span>
+            <div><div class="t">Написать во ВКонтакте</div><div class="s">Ответим и пришлём примеры работ</div></div>
           </a>
-          
-          
-          <div class="li">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            Донецк
-          </div>
-          
+          <a class="cq" href="https://yandex.ru/maps/?text=Донецк, Горностаевская улица, 1А" target="_blank" rel="noopener">
+            <span class="ic"><svg viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+            <div><div class="t">Горностаевская, 1А · Донецк</div><div class="s">ГК «Сигнал-2» · открыть на карте</div></div>
+          </a>
         </div>
       </div>
 
-      <form class="form" onsubmit="alert('Это демо-макет. На готовом сайте заявка придёт вам.');return false">
-        <h3>Форма заявки</h3>
-        <p>Заполните поля — мы свяжемся с вами.</p>
-        <div class="field">
-          <label for="f-name">Ваше имя</label>
-          <input id="f-name" type="text" placeholder="Как к вам обращаться" required>
+      <form class="form reveal" id="leadForm">
+        <div class="form-fields">
+          <h3>Рассчитаем цену под ваше авто</h3>
+          <p class="fh">Заполните форму — свяжемся и назовём стоимость.</p>
+          <div class="field">
+            <label for="f-name">Ваше имя</label>
+            <input id="f-name" type="text" placeholder="Как к вам обращаться" required>
+          </div>
+          <div class="field">
+            <label for="f-phone">Телефон</label>
+            <input id="f-phone" type="tel" placeholder="+7 (___) ___-__-__" required>
+          </div>
+          <div class="field">
+            <label for="f-msg">Авто и задача</label>
+            <textarea id="f-msg" placeholder="Напр.: KIA Optima, чёрный — полировка и керамика"></textarea>
+          </div>
+          <button class="btn" type="submit">Отправить заявку
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
+          <p class="form-note">Нажимая кнопку, вы соглашаетесь на обработку данных.</p>
         </div>
-        <div class="field">
-          <label for="f-phone">Телефон</label>
-          <input id="f-phone" type="tel" placeholder="+7 900 000-00-00" required>
+        <div class="form-ok" id="formOk">
+          <div class="ok-ic"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
+          <h3>Заявка принята!</h3>
+          <p>Перезвоним в рабочее время (8:00–18:00). Спасибо, что выбрали «Радар».</p>
         </div>
-        <div class="field">
-          <label for="f-msg">Комментарий</label>
-          <textarea id="f-msg" placeholder="Коротко о задаче"></textarea>
-        </div>
-        <button class="btn" type="submit">Записаться</button>
-        <p class="form-note">Нажимая кнопку, вы соглашаетесь на обработку данных.</p>
       </form>
     </div>
   </div>
@@ -515,23 +716,84 @@
 <footer>
   <div class="wrap foot">
     <div class="foot-brand">
-      <img src="assets/logo.jpg" alt="Детейлинг студия &#34;Радар&#34;" style="height:26px;width:auto;object-fit:contain">
-      <span>Детейлинг студия &#34;Радар&#34;</span>
+      <img src="assets/logo.jpg" alt="Радар">
+      <div>Детейлинг-студия «Радар»<div class="foot-meta">Донецк · Горностаевская, 1А · ежедневно 8:00–18:00</div></div>
     </div>
-    <div class="foot-meta">Макет подготовлен студией SmartLink · 2026</div>
-    <a class="foot-vk foot-meta" href="https://vk.com/youdetaligdn" target="_blank" rel="noopener">ВКонтакте</a>
+    <div class="foot-links">
+      <a href="#services">Услуги</a>
+      <a href="#works">Работы</a>
+      <a href="tel:+79495326474">+7 (949) 532-64-74</a>
+      <a href="https://vk.com/youdetaligdn" target="_blank" rel="noopener">ВКонтакте</a>
+    </div>
   </div>
+  <div class="wrap" style="margin-top:26px"><p class="foot-meta">© 2026 Детейлинг-студия «Радар». Все права защищены.</p></div>
 </footer>
 
 <div class="callbar">
-  
   <a class="cb-call" href="tel:+79495326474">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
     Позвонить
   </a>
-  
   <a class="cb-cta" href="#contact">Записаться</a>
 </div>
 
+<!-- lightbox -->
+<div class="lb" id="lb">
+  <button class="lb-btn lb-close" id="lbClose" aria-label="Закрыть">✕</button>
+  <button class="lb-btn lb-prev" id="lbPrev" aria-label="Назад">‹</button>
+  <img id="lbImg" src="" alt="Работа студии Радар">
+  <button class="lb-btn lb-next" id="lbNext" aria-label="Вперёд">›</button>
+</div>
+
+<script>
+(function(){
+  // ---- reveal on scroll ----
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, {threshold:.14});
+  document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+
+  // ---- animated counters ----
+  function animate(el){
+    var to = parseFloat(el.dataset.to), suf = el.dataset.suffix || '', t0 = null, dur = 1400;
+    function step(ts){
+      if(!t0) t0 = ts;
+      var p = Math.min((ts - t0)/dur, 1), val = Math.floor((1-Math.pow(1-p,3))*to);
+      el.textContent = val.toLocaleString('ru-RU') + (suf ? '' : '');
+      el.innerHTML = val.toLocaleString('ru-RU') + (suf ? '<small>'+suf+'</small>' : '');
+      if(p<1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+  var sio = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ animate(e.target); sio.unobserve(e.target); } });
+  }, {threshold:.5});
+  document.querySelectorAll('.stat-num').forEach(function(el){ sio.observe(el); });
+
+  // ---- lightbox ----
+  var items = [].slice.call(document.querySelectorAll('#galGrid .gal-item'));
+  var srcs = items.map(function(i){ return i.dataset.src; });
+  var lb = document.getElementById('lb'), lbImg = document.getElementById('lbImg'), idx = 0;
+  function open(i){ idx=(i+srcs.length)%srcs.length; lbImg.src=srcs[idx]; lb.classList.add('on'); document.body.style.overflow='hidden'; }
+  function close(){ lb.classList.remove('on'); document.body.style.overflow=''; }
+  items.forEach(function(it,i){ it.addEventListener('click', function(){ open(i); }); });
+  document.getElementById('lbClose').addEventListener('click', close);
+  document.getElementById('lbNext').addEventListener('click', function(e){ e.stopPropagation(); open(idx+1); });
+  document.getElementById('lbPrev').addEventListener('click', function(e){ e.stopPropagation(); open(idx-1); });
+  lb.addEventListener('click', function(e){ if(e.target===lb) close(); });
+  document.addEventListener('keydown', function(e){
+    if(!lb.classList.contains('on')) return;
+    if(e.key==='Escape') close(); if(e.key==='ArrowRight') open(idx+1); if(e.key==='ArrowLeft') open(idx-1);
+  });
+
+  // ---- form ----
+  var form = document.getElementById('leadForm');
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    form.querySelector('.form-fields').style.display='none';
+    document.getElementById('formOk').classList.add('on');
+  });
+})();
+</script>
 </body>
 </html>
