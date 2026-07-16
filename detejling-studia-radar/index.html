@@ -14,9 +14,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <!-- шрифты грузим НЕ блокируя отрисовку: если Google недоступен (бывает в РФ/ДНР), сайт всё равно
-     мгновенно рисуется системными шрифтами и подхватывает Playfair/Manrope, когда они догрузятся -->
-<link rel="stylesheet" media="print" onload="this.media='all'" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Manrope:wght@400;500;600;700;800&display=swap">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Manrope:wght@400;500;600;700;800&display=swap"></noscript>
+     мгновенно рисуется системными шрифтами и подхватывает Oswald/Manrope, когда они догрузятся -->
+<link rel="stylesheet" media="print" onload="this.media='all'" href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"></noscript>
 <style>
 /* ============================================================
    РАДАР — Детейлинг-студия · Донецк
@@ -34,7 +34,7 @@
   --gut:clamp(20px,5vw,72px);
   --r:16px;
   --ease:cubic-bezier(.22,1,.36,1);
-  --serif:"Playfair Display",Georgia,serif;
+  --serif:"Oswald",system-ui,-apple-system,"Segoe UI",sans-serif;
   --sans:"Manrope",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
 }
 *{box-sizing:border-box;margin:0;padding:0}
@@ -62,13 +62,13 @@ body::after{
 section{position:relative}
 [id]{scroll-margin-top:88px}
 .eyebrow{font-size:11.5px;font-weight:600;letter-spacing:.28em;text-transform:uppercase;color:var(--muted);display:inline-flex;align-items:center;gap:.7em}
-.eyebrow::before{content:"";width:26px;height:1px;background:var(--acc);box-shadow:0 0 8px var(--glow)}
-h1,h2,h3,.serif{font-family:var(--serif);font-weight:500;line-height:1.02;letter-spacing:-.01em}
-h2.head{font-size:clamp(1.9rem,4.3vw,3.5rem);line-height:1.06;margin:.5rem 0 0}
+.eyebrow::before{content:"";width:9px;height:9px;border-radius:2px;background:var(--acc);box-shadow:0 0 10px var(--glow);transform:rotate(45deg)}
+h1,h2,h3,.serif{font-family:var(--serif);font-weight:600;line-height:1.03;letter-spacing:.005em}
+h2.head{font-size:clamp(2rem,4.8vw,3.9rem);line-height:1.02;margin:.5rem 0 0;text-transform:uppercase;letter-spacing:.012em;font-weight:700}
 .lead{color:var(--muted-2);font-size:clamp(1rem,1.4vw,1.18rem);max-width:60ch;font-weight:400}
 .sec-head{display:flex;flex-direction:column;gap:.4rem;margin-bottom:clamp(2.4rem,5vw,4.2rem)}
 .accent{color:var(--acc)}
-em.acc{font-style:italic;color:var(--pearl)}
+em.acc{font-style:normal;color:var(--acc)}
 
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:.6em;font-family:var(--sans);font-weight:600;font-size:.95rem;letter-spacing:.01em;padding:1.05em 1.7em;border-radius:100px;position:relative;transition:transform .5s var(--ease),background .35s,box-shadow .45s,color .35s;will-change:transform;white-space:nowrap}
 .btn-primary{background:var(--acc);color:#04130c;box-shadow:0 0 0 rgba(22,217,146,0)}
@@ -115,17 +115,17 @@ body.nav-open .mobile-menu{transform:translateY(0)}
 @keyframes breathe{0%,100%{opacity:.8;transform:scale(1)}50%{opacity:1;transform:scale(1.08)}}
 .hero-inner{width:100%;max-width:var(--maxw);margin:0 auto;padding:0 var(--gut) clamp(46px,7vw,92px);position:relative;z-index:2}
 .hero-eyebrow{margin-bottom:1.6rem;opacity:0;animation:rise .9s var(--ease) .2s forwards}
-.hero h1{font-size:clamp(2.9rem,7.6vw,6.6rem);font-weight:600;line-height:.99;max-width:16ch}
+.hero h1{font-size:clamp(3rem,8.2vw,7rem);font-weight:700;line-height:.98;max-width:18ch;letter-spacing:.006em;text-transform:uppercase}
 .hero h1 .l{display:block;opacity:0;transform:translateY(28px);animation:rise 1s var(--ease) forwards}
 .hero h1 .l:nth-child(1){animation-delay:.32s}
 .hero h1 .l:nth-child(2){animation-delay:.46s}
-.hero h1 em{font-style:italic;color:var(--acc);text-shadow:0 0 40px rgba(22,217,146,.45)}
+.hero h1 em{font-style:normal;color:var(--acc);text-shadow:0 0 40px rgba(22,217,146,.45)}
 .hero-sub{margin-top:1.6rem;max-width:52ch;color:var(--muted-2);font-size:clamp(1rem,1.5vw,1.2rem);opacity:0;animation:rise 1s var(--ease) .7s forwards}
 .hero-cta{margin-top:2.4rem;display:flex;gap:1rem;flex-wrap:wrap;opacity:0;animation:rise 1s var(--ease) .88s forwards}
-.hero-meta{margin-top:clamp(2.4rem,5vw,3.4rem);display:flex;gap:clamp(1.4rem,4vw,3rem);flex-wrap:wrap;padding-top:1.7rem;border-top:1px solid var(--line);opacity:0;animation:rise 1s var(--ease) 1.05s forwards}
-.hero-meta .mi{display:flex;flex-direction:column;gap:.15rem}
-.hero-meta .mi .k{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
-.hero-meta .mi .v{font-weight:600;color:var(--text);font-size:1.02rem}
+.hero-meta{margin-top:clamp(2rem,4vw,2.8rem);display:flex;gap:.7rem;flex-wrap:wrap;opacity:0;animation:rise 1s var(--ease) 1.05s forwards}
+.hero-meta .mi{display:flex;flex-direction:column;gap:.1rem;padding:.7rem 1.15rem;border:1px solid var(--line-strong);border-radius:12px;background:rgba(8,9,11,.4);backdrop-filter:blur(6px)}
+.hero-meta .mi .k{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--acc)}
+.hero-meta .mi .v{font-weight:600;color:var(--text);font-size:.98rem}
 .hero-meta .mi .v a:hover{color:var(--acc)}
 @keyframes rise{to{opacity:1;transform:translateY(0)}}
 .hero-dots{position:absolute;right:var(--gut);bottom:clamp(46px,7vw,92px);z-index:3;display:flex;gap:.5rem}
@@ -141,7 +141,7 @@ body.nav-open .mobile-menu{transform:translateY(0)}
 .marquee::after{right:0;background:linear-gradient(270deg,var(--bg-2),transparent)}
 .mq-track{display:flex;width:max-content;animation:mq 34s linear infinite}
 .marquee:hover .mq-track{animation-play-state:paused}
-.mq-track span{font-family:var(--serif);font-style:italic;font-size:clamp(1.1rem,2.2vw,1.7rem);color:var(--pearl);padding:0 1.4rem;display:flex;align-items:center;gap:2.8rem;white-space:nowrap}
+.mq-track span{font-family:var(--serif);font-style:normal;text-transform:uppercase;letter-spacing:.05em;font-size:clamp(1rem,2vw,1.5rem);color:var(--pearl);padding:0 1.4rem;display:flex;align-items:center;gap:2.8rem;white-space:nowrap}
 .mq-track span::after{content:"";width:6px;height:6px;border-radius:50%;background:var(--acc);box-shadow:0 0 8px var(--glow)}
 @keyframes mq{to{transform:translateX(-50%)}}
 
@@ -186,16 +186,19 @@ body.nav-open .mobile-menu{transform:translateY(0)}
 .srv.open::before,.srv:hover::before{width:100%}
 .srv-head{display:grid;grid-template-columns:auto 1fr auto auto;gap:clamp(1rem,3vw,2.4rem);align-items:center;padding:clamp(1.3rem,2.6vw,1.9rem) clamp(.2rem,1vw,.6rem);cursor:pointer;transition:padding-left .4s var(--ease)}
 .srv:hover .srv-head{padding-left:clamp(.6rem,1.6vw,1.1rem)}
-.srv-no{font-family:var(--serif);font-size:.95rem;color:var(--muted);font-style:italic;min-width:2.4ch}
+.srv-no{font-family:var(--serif);font-size:1.05rem;color:var(--acc);font-weight:600;min-width:2.4ch}
 .srv-name{font-family:var(--serif);font-size:clamp(1.25rem,2.7vw,1.85rem);color:var(--text);font-weight:500;transition:color .35s}
 .srv:hover .srv-name,.srv.open .srv-name{color:#fff}
 .srv-price{font-family:var(--serif);font-size:clamp(1.05rem,2vw,1.4rem);color:var(--pearl);white-space:nowrap}
 .srv-price span{font-size:.7em;color:var(--muted);font-family:var(--sans);font-style:normal}
 .srv-price.gift{color:var(--acc)}
 .srv-toggle{position:relative;width:34px;height:34px;border-radius:50%;border:1px solid var(--line-strong);display:flex;align-items:center;justify-content:center;transition:.4s var(--ease);flex-shrink:0}
-.srv-toggle::before{content:"";width:8px;height:8px;border-right:1.7px solid var(--text);border-bottom:1.7px solid var(--text);transform:translateY(-2px) rotate(45deg);transition:transform .45s var(--ease),border-color .4s}
+.srv-toggle::before,.srv-toggle::after{content:"";position:absolute;background:var(--text);transition:transform .45s var(--ease),background .4s;border-radius:2px}
+.srv-toggle::before{width:12px;height:2px}
+.srv-toggle::after{width:2px;height:12px}
+.srv.open .srv-toggle::after{transform:scaleY(0)}
 .srv.open .srv-toggle{background:var(--acc);border-color:var(--acc);box-shadow:0 0 20px -4px var(--glow)}
-.srv.open .srv-toggle::before{border-color:#04130c;transform:translateY(2px) rotate(-135deg)}
+.srv.open .srv-toggle::before,.srv.open .srv-toggle::after{background:#04130c}
 .srv-body{max-height:0;overflow:hidden;transition:max-height .55s var(--ease)}
 .srv-body-inner{padding:0 clamp(.2rem,1vw,.6rem) clamp(1.4rem,2.6vw,1.9rem) calc(2.4ch + clamp(1rem,3vw,2.4rem));color:var(--muted-2);max-width:70ch}
 .ledger-foot{margin-top:1.6rem;font-size:.86rem;color:var(--muted);display:flex;align-items:center;gap:.7em}
@@ -209,28 +212,20 @@ body.nav-open .mobile-menu{transform:translateY(0)}
 /* SIGNATURE (керамика) */
 .signature{padding:var(--pad-y) 0}
 .sig-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2.4rem,5vw,5rem);align-items:center}
-.bead-stage{position:relative;aspect-ratio:1/1;border-radius:var(--r);overflow:hidden;background:radial-gradient(120% 120% at 30% 20%,#141a18,#0a0d0c 70%);border:1px solid var(--line)}
-.bead-stage .panel{position:absolute;inset:0;background:linear-gradient(148deg,rgba(255,255,255,.055) 0%,transparent 20%,transparent 66%,rgba(255,255,255,.02) 100%),radial-gradient(140% 90% at 80% 6%,rgba(120,138,130,.16),transparent 46%),radial-gradient(130% 120% at 28% 22%,#141b18,#0a0d0c 74%)}
-.bead-stage .panel::after{content:"";position:absolute;inset:0;opacity:.5;background:repeating-linear-gradient(148deg,rgba(255,255,255,.012) 0 2px,transparent 2px 32px)}
-.wet-glow{position:absolute;left:0;right:0;bottom:0;height:24%;pointer-events:none;background:linear-gradient(0deg,rgba(22,217,146,.12),transparent)}
-.flow{position:absolute;inset:-12%;transform:rotate(-13deg)}
-.drop{position:absolute;aspect-ratio:1;border-radius:50%;background:radial-gradient(32% 24% at 34% 22%,rgba(255,255,255,.95),transparent 46%),radial-gradient(64% 46% at 54% 86%,rgba(255,255,255,.32),transparent 58%),radial-gradient(120% 120% at 50% 42%,rgba(96,110,102,.4),rgba(10,13,12,.6) 72%),radial-gradient(circle,rgba(22,217,146,.12),transparent 62%);box-shadow:inset 0 -5px 9px -3px rgba(0,0,0,.6),inset 0 3px 6px rgba(255,255,255,.3),0 7px 13px -5px rgba(0,0,0,.7);border:1px solid rgba(255,255,255,.05)}
-.drop::before{content:"";position:absolute;left:24%;top:14%;width:17%;height:13%;border-radius:50%;background:#fff;opacity:.9;filter:blur(.4px)}
-.drop.moving::after{content:"";position:absolute;bottom:96%;left:50%;transform:translateX(-50%);width:38%;height:340%;border-radius:100px;filter:blur(2px);opacity:.45;background:linear-gradient(180deg,transparent,rgba(255,255,255,.09) 55%,rgba(22,217,146,.16))}
-.drop.moving{animation:roll linear infinite}
-@keyframes roll{0%{transform:translateY(-40%);opacity:0}10%{opacity:1}86%{opacity:1}100%{transform:translateY(280%);opacity:0}}
-.wd1{left:24%;top:24%;width:15%}.wd2{left:62%;top:16%;width:9%}
-.wd3{left:40%;top:2%;width:17%;animation-duration:8s}.wd4{left:69%;top:6%;width:10%;animation-duration:10s;animation-delay:2.4s}
-.wd5{left:20%;top:56%;width:7%}.wd6{left:31%;top:16%;width:8%;animation-duration:6.5s;animation-delay:1s}.wd7{left:55%;top:60%;width:12%}
-.stage-tag{position:absolute;z-index:3;font-family:var(--sans);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted-2);background:rgba(8,9,11,.5);border:1px solid var(--line);padding:.4em .8em;border-radius:100px;backdrop-filter:blur(4px)}
-.stage-tag.brand{color:#fff;background:rgba(22,217,146,.14);border-color:rgba(22,217,146,.42)}
+.sig-photo{position:relative;border-radius:var(--r);overflow:hidden;border:1px solid var(--line-strong);aspect-ratio:4/5;box-shadow:0 40px 90px -50px #000}
+.sig-photo img{width:100%;height:100%;object-fit:cover;filter:contrast(1.06) saturate(1.06) brightness(.96);transition:transform 1.2s var(--ease)}
+.sig-photo:hover img{transform:scale(1.04)}
+.sig-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 42%,rgba(8,9,11,.72)),linear-gradient(115deg,rgba(22,217,146,.16),transparent 46%)}
+.sig-sheen{position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(115deg,transparent 34%,rgba(255,255,255,.08) 46%,transparent 58%)}
+.sig-badge{position:absolute;z-index:2;top:18px;left:18px;font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#04130c;background:var(--acc);padding:.55em .95em;border-radius:100px;box-shadow:0 0 24px -4px var(--glow)}
+.sig-cap{position:absolute;z-index:2;left:20px;right:20px;bottom:18px;font-family:var(--sans);font-weight:600;color:#fff;font-size:1.02rem}
 .sig-copy h2{margin-bottom:1.3rem}
 .sig-copy p{color:var(--muted-2);max-width:50ch;margin-bottom:1.4rem}
 .sig-list{display:flex;flex-direction:column;gap:.9rem;margin-top:1.6rem}
 .sig-list li{list-style:none;display:flex;gap:.9rem;align-items:flex-start;font-size:.98rem;color:var(--muted-2)}
 .sig-list li svg{width:20px;height:20px;color:var(--acc);flex-shrink:0;margin-top:2px}
 .sig-list li b{color:var(--text);font-weight:600}
-@media(max-width:880px){.sig-grid{grid-template-columns:1fr;gap:3rem}.bead-stage{max-width:420px;margin-inline:auto;width:100%}}
+@media(max-width:880px){.sig-grid{grid-template-columns:1fr;gap:2.6rem}.sig-photo{max-width:440px;margin-inline:auto;width:100%}}
 
 /* PROCESS */
 .process{padding:var(--pad-y) 0;background:var(--bg-2);border-block:1px solid var(--line)}
@@ -238,7 +233,7 @@ body.nav-open .mobile-menu{transform:translateY(0)}
 .step{position:relative;padding:2.4rem 1.4rem 0;border-top:1px solid var(--line)}
 .step::before{content:"";position:absolute;top:-1px;left:0;width:0;height:1px;background:var(--acc);box-shadow:0 0 8px var(--glow);transition:width .8s var(--ease)}
 .step.in::before{width:100%;transition-delay:calc(var(--i)*.12s)}
-.step .sn{font-family:var(--serif);font-size:2.6rem;color:var(--acc);line-height:1;font-style:italic}
+.step .sn{font-family:var(--serif);font-size:2.9rem;font-weight:700;color:var(--acc);line-height:1}
 .step h4{font-family:var(--sans);font-weight:700;font-size:1.08rem;margin:1rem 0 .6rem}
 .step p{font-size:.88rem;color:var(--muted);line-height:1.55}
 @media(max-width:980px){.steps{grid-template-columns:repeat(2,1fr);gap:2px}}
@@ -383,7 +378,7 @@ body.nav-open .mobile-menu{transform:translateY(0)}
 .socials a:hover{border-color:var(--acc);background:rgba(22,217,146,.08)}
 .socials svg{width:17px;height:17px;color:var(--muted-2)}.socials a:hover svg{color:var(--acc)}
 .foot-bot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;padding-top:2rem;color:var(--muted);font-size:.84rem}
-.foot-bot .made{font-style:italic;font-family:var(--serif)}
+.foot-bot .made{font-family:var(--serif);text-transform:uppercase;letter-spacing:.08em;font-size:.78rem}
 @media(max-width:820px){.foot-top{grid-template-columns:1fr 1fr}.foot-brand{grid-column:1/-1}}
 @media(max-width:520px){.foot-top{grid-template-columns:1fr}}
 
@@ -575,15 +570,11 @@ body.nav-open .mobile-menu{transform:translateY(0)}
 <section class="signature" id="signature">
   <div class="wrap">
     <div class="sig-grid">
-      <div class="bead-stage reveal">
-        <div class="panel"></div>
-        <div class="flow">
-          <span class="drop wd1"></span><span class="drop wd2"></span><span class="drop wd3 moving"></span>
-          <span class="drop wd4 moving"></span><span class="drop wd5"></span><span class="drop wd6 moving"></span><span class="drop wd7"></span>
-        </div>
-        <div class="wet-glow"></div>
-        <span class="stage-tag brand" style="left:22px;top:22px">Эффект гидрофоба</span>
-        <span class="stage-tag" style="left:22px;bottom:22px">Капли скатываются, унося грязь</span>
+      <div class="sig-photo reveal">
+        <img src="assets/g2.jpg" alt="Кузов после керамического покрытия — глубокий блеск и защита">
+        <div class="sig-sheen"></div>
+        <span class="sig-badge">Эффект гидрофоба</span>
+        <span class="sig-cap">Глубокий глянец и защита после керамики</span>
       </div>
       <div class="sig-copy">
         <span class="eyebrow reveal">Керамическое покрытие</span>
