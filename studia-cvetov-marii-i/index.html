@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Студия цветов Марии И. — авторские букеты и доставка в Муроме</title>
-<meta name="description" content="Авторские букеты, свадебная флористика и цветочные композиции ручной работы. Доставка по Мурому в день заказа. Свежие цветы, стильное оформление, забота о каждой детали.">
+<meta name="description" content="Каталог авторских букетов, монобукетов и композиций. Добавляйте в корзину и оформляйте заказ на сайте. Доставка по Мурому в день заказа.">
 <link rel="icon" href="assets/logo.jpg">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,19 +13,12 @@
 
 <style>
   :root{
-    --cream:#FCF8F3;      /* основной фон — тёплая слоновая кость */
-    --cream2:#F5EDE3;     /* песочная секция */
-    --blush:#F9ECEC;      /* пудрово-розовая секция */
-    --lilacbg:#F0EBF7;    /* сиреневый отклик обложки */
-    --ink:#3B2E33;        /* текст / заголовки */
-    --ink-soft:#6E5B61;   /* приглушённый текст */
-    --rose:#9E5C68;       /* основное действие (пыльная роза) */
-    --rose-dk:#864C57;    /* ховер */
-    --gold:#B08A57;       /* декоративное золото (линии, иконки) */
-    --gold-tx:#8A6A3C;    /* золото для текста (контрастнее) */
-    --lilac:#9E86C4;      /* акцент-сирень */
-    --line:#EBE0D4;       /* волосяные линии */
-    --white:#ffffff;
+    --cream:#FCF8F3; --cream2:#F5EDE3; --blush:#F9ECEC; --lilacbg:#F0EBF7;
+    --ink:#3B2E33; --ink-soft:#6E5B61;
+    --rose:#9E5C68; --rose-dk:#864C57;
+    --gold:#B0895A; --gold-tx:#8A6A3C; --lilac:#9E86C4;
+    --line:#EBE0D4; --white:#ffffff;
+    --wa:#25a35a; --wa-dk:#1e8c4c;
     --maxw:1200px;
     --serif:"Cormorant Garamond",Georgia,"Times New Roman",serif;
     --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
@@ -33,134 +26,103 @@
     --shadow-s:0 14px 30px -18px rgba(59,46,51,.28);
   }
   *{box-sizing:border-box;margin:0;padding:0}
+  [hidden]{display:none!important}
   html{scroll-behavior:smooth}
-  body{
-    font-family:var(--sans);color:var(--ink);background:var(--cream);
-    line-height:1.65;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
-    overflow-x:hidden;
-  }
+  body{font-family:var(--sans);color:var(--ink);background:var(--cream);line-height:1.65;
+    -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:hidden}
+  body.no-scroll{overflow:hidden}
   img{display:block;max-width:100%}
   a{color:inherit;text-decoration:none}
+  button{font-family:inherit}
   .wrap{max-width:var(--maxw);margin:0 auto;padding:0 26px}
-
-  .eyebrow{
-    font-family:var(--sans);font-size:12px;letter-spacing:.26em;text-transform:uppercase;
-    color:var(--gold-tx);font-weight:700;display:inline-flex;align-items:center;gap:11px;
-  }
+  .eyebrow{font-size:12px;letter-spacing:.26em;text-transform:uppercase;color:var(--gold-tx);
+    font-weight:700;display:inline-flex;align-items:center;gap:11px}
   .eyebrow::before{content:"";width:26px;height:1px;background:var(--gold);opacity:.7}
 
-  .serif{font-family:var(--serif)}
-
   /* ---------- Кнопки ---------- */
-  .btn{
-    display:inline-flex;align-items:center;justify-content:center;gap:10px;
-    font-family:var(--sans);font-size:15px;font-weight:600;line-height:1;
-    padding:16px 30px;border-radius:999px;cursor:pointer;
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-size:15px;
+    font-weight:600;line-height:1;padding:16px 30px;border-radius:999px;cursor:pointer;
     border:1px solid var(--rose);background:var(--rose);color:#fff;
-    transition:transform .18s ease, background .2s ease, box-shadow .25s ease, color .2s ease;
-    white-space:nowrap;
-  }
-  .btn:hover{background:var(--rose-dk);border-color:var(--rose-dk);transform:translateY(-2px);box-shadow:0 16px 26px -14px rgba(158,92,104,.6)}
+    transition:transform .18s ease, background .2s ease, box-shadow .25s ease, color .2s ease;white-space:nowrap}
+  .btn:hover{background:var(--rose-dk);border-color:var(--rose-dk);transform:translateY(-2px);
+    box-shadow:0 16px 26px -14px rgba(158,92,104,.6)}
   .btn svg{width:17px;height:17px}
   .btn-ghost{background:transparent;color:var(--ink);border:1px solid var(--gold)}
   .btn-ghost:hover{background:transparent;color:var(--gold-tx);border-color:var(--gold-tx);box-shadow:none}
-  .btn-wa{background:#25a35a;border-color:#25a35a}
-  .btn-wa:hover{background:#1e8c4c;border-color:#1e8c4c;box-shadow:0 16px 26px -14px rgba(37,163,90,.55)}
+  .btn-wa{background:var(--wa);border-color:var(--wa)}
+  .btn-wa:hover{background:var(--wa-dk);border-color:var(--wa-dk);box-shadow:0 16px 26px -14px rgba(37,163,90,.55)}
 
   /* ---------- Хедер ---------- */
-  header{
-    position:sticky;top:0;z-index:70;
-    background:rgba(252,248,243,.82);backdrop-filter:saturate(160%) blur(14px);
-    border-bottom:1px solid var(--line);
-  }
-  .nav{display:flex;align-items:center;justify-content:space-between;height:76px;gap:18px}
+  header{position:sticky;top:0;z-index:70;background:rgba(252,248,243,.82);
+    backdrop-filter:saturate(160%) blur(14px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:76px;gap:16px}
   .brand{display:flex;align-items:center;gap:13px;min-width:0}
-  .brand img{height:42px;width:42px;border-radius:50%;object-fit:cover;
-    box-shadow:0 0 0 1px var(--line)}
-  .brand-name{font-family:var(--serif);font-weight:600;font-size:21px;letter-spacing:.01em;
-    line-height:1.05;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .brand img{height:42px;width:42px;border-radius:50%;object-fit:cover;box-shadow:0 0 0 1px var(--line)}
+  .brand-name{font-family:var(--serif);font-weight:600;font-size:21px;letter-spacing:.01em;line-height:1.05;
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
   .brand-name small{display:block;font-family:var(--sans);font-size:10.5px;font-weight:600;
     letter-spacing:.22em;text-transform:uppercase;color:var(--gold-tx);margin-top:2px}
-  .nav-links{display:flex;align-items:center;gap:30px}
+  .nav-links{display:flex;align-items:center;gap:28px}
   .nav-links a{font-size:14.5px;font-weight:500;color:var(--ink-soft);transition:color .18s ease}
   .nav-links a:hover{color:var(--rose)}
-  .nav-right{display:flex;align-items:center;gap:20px}
+  .nav-right{display:flex;align-items:center;gap:16px}
   .nav-phone{font-weight:600;font-size:15px;white-space:nowrap}
   .nav-phone:hover{color:var(--rose)}
+  .cart-btn{position:relative;width:46px;height:46px;border-radius:50%;border:1px solid var(--line);
+    background:var(--white);cursor:pointer;display:flex;align-items:center;justify-content:center;
+    transition:border-color .2s ease, transform .15s ease}
+  .cart-btn:hover{border-color:var(--rose);transform:translateY(-1px)}
+  .cart-btn svg{width:21px;height:21px;stroke:var(--ink)}
+  .cart-count{position:absolute;top:-5px;right:-5px;min-width:20px;height:20px;padding:0 5px;border-radius:999px;
+    background:var(--rose);color:#fff;font-size:11px;font-weight:700;display:none;align-items:center;
+    justify-content:center;line-height:1;box-shadow:0 0 0 2px var(--cream)}
+  .cart-count.show{display:flex}
   .nav .btn{padding:12px 22px;font-size:14px}
-  @media(max-width:1000px){.nav-links{display:none}}
+  @media(max-width:1080px){.nav-links{display:none}}
   @media(max-width:720px){
-    .nav-phone{display:none}
-    .brand img{height:38px;width:38px}
-    .brand-name{font-size:18px}
-    .nav .btn{padding:11px 18px;font-size:13px}
+    .nav-phone{display:none}.brand img{height:38px;width:38px}.brand-name{font-size:17px}
+    .nav-right .btn{display:none}.cart-btn{width:44px;height:44px}
   }
 
   /* ---------- Герой ---------- */
   .hero{position:relative;overflow:hidden}
-  .hero::before{ /* мягкое сияние — отклик сиреневой обложки */
-    content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
-    background:
-      radial-gradient(46% 55% at 88% 12%, rgba(158,134,196,.20), transparent 62%),
-      radial-gradient(50% 55% at 6% 92%, rgba(216,150,158,.20), transparent 60%);
-  }
-  .hero-inner{
-    position:relative;z-index:2;max-width:var(--maxw);margin:0 auto;
-    padding:76px 26px 90px;display:grid;grid-template-columns:1.02fr .98fr;
-    gap:64px;align-items:center;
-  }
-  .hero-h1{
-    font-family:var(--serif);color:var(--ink);font-weight:600;
-    font-size:clamp(44px,6.6vw,80px);line-height:1.02;letter-spacing:-.005em;
-    margin:22px 0 0;text-wrap:balance;
-  }
+  .hero::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+    background:radial-gradient(46% 55% at 88% 12%, rgba(158,134,196,.20), transparent 62%),
+      radial-gradient(50% 55% at 6% 92%, rgba(216,150,158,.20), transparent 60%)}
+  .hero-inner{position:relative;z-index:2;max-width:var(--maxw);margin:0 auto;padding:76px 26px 90px;
+    display:grid;grid-template-columns:1.02fr .98fr;gap:64px;align-items:center}
+  .hero-h1{font-family:var(--serif);color:var(--ink);font-weight:600;font-size:clamp(44px,6.6vw,80px);
+    line-height:1.02;letter-spacing:-.005em;margin:22px 0 0;text-wrap:balance}
   .hero-h1 em{font-style:italic;color:var(--rose)}
-  .hero-sub{
-    color:var(--ink-soft);font-size:clamp(16.5px,1.9vw,19px);line-height:1.62;
-    margin:24px 0 0;max-width:490px;
-  }
+  .hero-sub{color:var(--ink-soft);font-size:clamp(16.5px,1.9vw,19px);line-height:1.62;margin:24px 0 0;max-width:500px}
   .hero-actions{display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin-top:36px}
-  .hero-tel{font-weight:600;font-size:15.5px;display:inline-flex;align-items:center;gap:9px;
-    padding:12px 6px;color:var(--ink)}
+  .hero-tel{font-weight:600;font-size:15.5px;display:inline-flex;align-items:center;gap:9px;padding:12px 6px;color:var(--ink)}
   .hero-tel svg{width:17px;height:17px;stroke:var(--gold);opacity:.9}
   .hero-tel:hover{color:var(--rose)}
   .hero-trust{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:34px}
-  .hero-trust span{display:inline-flex;align-items:center;gap:9px;font-size:13.5px;
-    color:var(--ink-soft);font-weight:500}
-  .hero-trust span::before{content:"";width:6px;height:6px;border-radius:50%;
-    background:var(--gold);flex:none}
-
+  .hero-trust span{display:inline-flex;align-items:center;gap:9px;font-size:13.5px;color:var(--ink-soft);font-weight:500}
+  .hero-trust span::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--gold);flex:none}
   .hero-media{position:relative}
-  .hero-photo{
-    position:relative;border-radius:220px 220px 18px 18px;overflow:hidden;
-    aspect-ratio:4/5;box-shadow:var(--shadow);background:var(--cream2);
-    border:1px solid rgba(255,255,255,.7);
-  }
+  .hero-photo{position:relative;border-radius:220px 220px 18px 18px;overflow:hidden;aspect-ratio:4/5;
+    box-shadow:var(--shadow);background:var(--cream2);border:1px solid rgba(255,255,255,.7)}
   .hero-photo img{width:100%;height:100%;object-fit:cover}
-  .hero-inset{
-    position:absolute;bottom:-22px;left:-26px;width:132px;height:132px;border-radius:50%;
-    overflow:hidden;border:5px solid var(--cream);box-shadow:var(--shadow-s);
-  }
+  .hero-inset{position:absolute;bottom:-22px;left:-26px;width:132px;height:132px;border-radius:50%;
+    overflow:hidden;border:5px solid var(--cream);box-shadow:var(--shadow-s)}
   .hero-inset img{width:100%;height:100%;object-fit:cover}
-  .hero-badge{
-    position:absolute;top:26px;right:-14px;background:var(--white);border-radius:14px;
-    padding:13px 18px;box-shadow:var(--shadow-s);display:flex;align-items:center;gap:12px;
-    border:1px solid var(--line);
-  }
+  .hero-badge{position:absolute;top:26px;right:-14px;background:var(--white);border-radius:14px;padding:13px 18px;
+    box-shadow:var(--shadow-s);display:flex;align-items:center;gap:12px;border:1px solid var(--line)}
   .hero-badge .stars{color:var(--gold);font-size:14px;letter-spacing:2px;line-height:1}
   .hero-badge b{font-family:var(--serif);font-size:20px;font-weight:600;line-height:1}
   .hero-badge small{display:block;font-size:11px;color:var(--ink-soft);margin-top:3px}
   @media(max-width:900px){
     .hero-inner{grid-template-columns:1fr;gap:52px;padding:52px 26px 72px}
-    .hero-media{max-width:440px;margin:0 auto}
-    .hero-photo{border-radius:180px 180px 16px 16px}
+    .hero-media{max-width:440px;margin:0 auto}.hero-photo{border-radius:180px 180px 16px 16px}
   }
 
-  /* ---------- Лента-полоса ---------- */
+  /* ---------- Лента преимуществ ---------- */
   .strip{background:var(--ink);color:#fff}
   .strip-grid{display:grid;grid-template-columns:repeat(4,1fr)}
-  .strip-item{padding:26px 26px;border-left:1px solid rgba(255,255,255,.12);
-    display:flex;gap:14px;align-items:flex-start}
+  .strip-item{padding:26px;border-left:1px solid rgba(255,255,255,.12);display:flex;gap:14px;align-items:flex-start}
   .strip-item:first-child{border-left:none}
   .strip-item svg{width:24px;height:24px;stroke:var(--gold);flex:none;margin-top:2px}
   .strip-item b{font-family:var(--serif);font-size:18px;font-weight:600;display:block;letter-spacing:.01em}
@@ -178,49 +140,66 @@
   }
 
   /* ---------- Секции ---------- */
-  section{padding:104px 0}
-  .sec-head{max-width:660px;margin:0 auto 60px;text-align:center}
-  .sec-head.left{margin-left:0;text-align:left}
-  .sec-title{font-family:var(--serif);font-size:clamp(32px,4.6vw,52px);font-weight:600;
-    line-height:1.06;letter-spacing:-.01em;margin-top:16px;text-wrap:balance}
+  section{padding:100px 0}
+  .sec-head{max-width:680px;margin:0 auto 46px;text-align:center}
+  .sec-title{font-family:var(--serif);font-size:clamp(32px,4.6vw,52px);font-weight:600;line-height:1.06;
+    letter-spacing:-.01em;margin-top:16px;text-wrap:balance}
   .sec-lead{color:var(--ink-soft);font-size:17px;margin-top:18px;line-height:1.66}
-  .sec-head:not(.left) .eyebrow::after{content:"";width:26px;height:1px;background:var(--gold);opacity:.7}
-  @media(max-width:820px){section{padding:72px 0}.sec-head{margin-bottom:42px}}
+  .sec-head .eyebrow::after{content:"";width:26px;height:1px;background:var(--gold);opacity:.7}
+  @media(max-width:820px){section{padding:70px 0}.sec-head{margin-bottom:34px}}
 
-  /* ---------- Каталог ---------- */
+  /* ---------- Магазин ---------- */
   .catalog{background:var(--cream2)}
-  .cat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
-  .card{
-    background:var(--white);border-radius:16px;overflow:hidden;border:1px solid var(--line);
-    display:flex;flex-direction:column;transition:transform .25s ease, box-shadow .25s ease;
-  }
-  .card:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
-  .card-img{position:relative;aspect-ratio:3/4;overflow:hidden;background:var(--cream2)}
-  .card-img img{width:100%;height:100%;object-fit:cover;transition:transform .7s cubic-bezier(.2,.6,.2,1)}
-  .card:hover .card-img img{transform:scale(1.06)}
-  .card-body{padding:22px 22px 24px;display:flex;flex-direction:column;flex:1}
-  .card-body h3{font-family:var(--serif);font-size:24px;font-weight:600;line-height:1.15}
-  .card-body p{color:var(--ink-soft);font-size:14px;margin-top:8px;line-height:1.55;flex:1}
-  .card-foot{display:flex;align-items:baseline;justify-content:space-between;margin-top:20px;
-    padding-top:18px;border-top:1px solid var(--line)}
-  .price{font-family:var(--serif);font-size:23px;font-weight:600;color:var(--ink)}
-  .price small{font-family:var(--sans);font-size:11px;font-weight:600;letter-spacing:.14em;
-    text-transform:uppercase;color:var(--gold-tx);display:block;margin-bottom:1px}
-  .card-link{font-size:14px;font-weight:600;color:var(--rose);display:inline-flex;align-items:center;gap:6px}
-  .card-link svg{width:15px;height:15px;transition:transform .2s ease}
-  .card:hover .card-link svg{transform:translateX(3px)}
+  .filters{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-bottom:40px}
+  .filter{padding:10px 20px;border-radius:999px;border:1px solid var(--line);background:var(--white);
+    color:var(--ink-soft);font-size:14px;font-weight:600;cursor:pointer;transition:all .18s ease}
+  .filter:hover{border-color:var(--rose);color:var(--rose)}
+  .filter.active{background:var(--ink);border-color:var(--ink);color:#fff}
+  .shop-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+  .p-card{background:var(--white);border-radius:16px;overflow:hidden;border:1px solid var(--line);
+    display:flex;flex-direction:column;transition:transform .25s ease, box-shadow .25s ease}
+  .p-card:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
+  .p-media{position:relative;aspect-ratio:3/4;overflow:hidden;background:var(--cream2);cursor:zoom-in}
+  .p-media img{width:100%;height:100%;object-fit:cover;transition:transform .7s cubic-bezier(.2,.6,.2,1)}
+  .p-card:hover .p-media img{transform:scale(1.05)}
+  .p-badge{position:absolute;top:12px;left:12px;background:var(--rose);color:#fff;font-size:11px;
+    font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:5px 11px;border-radius:999px}
+  .p-badge.gold{background:var(--gold)}
+  .p-zoom{position:absolute;right:12px;bottom:12px;width:34px;height:34px;border-radius:50%;
+    background:rgba(255,255,255,.92);display:flex;align-items:center;justify-content:center;
+    opacity:0;transform:translateY(6px);transition:all .3s ease;pointer-events:none}
+  .p-card:hover .p-zoom{opacity:1;transform:translateY(0)}
+  .p-zoom svg{width:16px;height:16px;stroke:var(--ink)}
+  .p-body{padding:18px 18px 20px;display:flex;flex-direction:column;flex:1}
+  .p-name{font-family:var(--serif);font-size:22px;font-weight:600;line-height:1.12}
+  .p-cat{font-size:12px;color:var(--ink-soft);margin-top:4px;letter-spacing:.02em}
+  .p-foot{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:16px;padding-top:14px;
+    border-top:1px solid var(--line)}
+  .p-price{font-family:var(--serif);font-size:23px;font-weight:600;white-space:nowrap}
+  .p-action{flex:none}
+  .add-btn{display:inline-flex;align-items:center;gap:7px;background:var(--rose);color:#fff;border:none;
+    border-radius:999px;padding:11px 16px;font-size:13.5px;font-weight:600;cursor:pointer;
+    transition:background .18s ease, transform .15s ease}
+  .add-btn:hover{background:var(--rose-dk);transform:translateY(-1px)}
+  .add-btn svg{width:15px;height:15px}
+  .stepper{display:inline-flex;align-items:center;gap:2px;background:var(--cream2);border-radius:999px;padding:3px}
+  .stepper button{width:32px;height:32px;border-radius:50%;border:none;background:var(--white);color:var(--ink);
+    font-size:18px;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;
+    box-shadow:0 1px 3px rgba(0,0,0,.08);transition:background .15s ease,color .15s ease;line-height:1}
+  .stepper button:hover{background:var(--rose);color:#fff}
+  .stepper span{min-width:26px;text-align:center;font-weight:700;font-size:15px;font-variant-numeric:tabular-nums}
   .cat-note{text-align:center;color:var(--ink-soft);font-size:14px;margin-top:34px}
   .cat-note b{color:var(--ink);font-weight:600}
-  @media(max-width:980px){.cat-grid{grid-template-columns:1fr 1fr}}
-  @media(max-width:520px){.cat-grid{grid-template-columns:1fr}.card{flex-direction:row}
-    .card-img{width:42%;aspect-ratio:auto}.card-body{padding:18px}}
+  @media(max-width:1080px){.shop-grid{grid-template-columns:repeat(3,1fr)}}
+  @media(max-width:760px){.shop-grid{grid-template-columns:repeat(2,1fr);gap:14px}
+    .p-body{padding:14px}.p-name{font-size:19px}.p-price{font-size:20px}
+    .add-btn{padding:10px 13px}.add-btn span{display:none}.add-btn svg{width:17px;height:17px}}
+  @media(max-width:380px){.shop-grid{grid-template-columns:1fr 1fr;gap:11px}}
 
-  /* ---------- Как заказать ---------- */
+  /* ---------- Как заказать + доставка ---------- */
   .steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
-  .step{padding:34px 30px;border-radius:16px;background:var(--cream);border:1px solid var(--line);
-    position:relative}
-  .step-n{font-family:var(--serif);font-size:52px;font-weight:600;color:var(--gold);
-    line-height:.9;opacity:.55}
+  .step{padding:34px 30px;border-radius:16px;background:var(--cream);border:1px solid var(--line)}
+  .step-n{font-family:var(--serif);font-size:52px;font-weight:600;color:var(--gold);line-height:.9;opacity:.55}
   .step h3{font-family:var(--serif);font-size:23px;font-weight:600;margin-top:14px}
   .step p{color:var(--ink-soft);font-size:15px;margin-top:10px;line-height:1.6}
   .deliver{margin-top:26px;display:grid;grid-template-columns:1fr 1fr;gap:22px}
@@ -233,40 +212,18 @@
   .deliver-card p{color:var(--ink-soft);font-size:14.5px;margin-top:6px;line-height:1.55}
   @media(max-width:820px){.steps-grid{grid-template-columns:1fr}.deliver{grid-template-columns:1fr}}
 
-  /* ---------- Галерея ---------- */
-  .gallery{background:var(--cream2)}
-  .gal-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:200px;gap:16px}
-  .gal-item{position:relative;overflow:hidden;border-radius:12px;background:var(--cream);cursor:pointer}
-  .gal-item img{width:100%;height:100%;object-fit:cover;transition:transform .7s cubic-bezier(.2,.6,.2,1)}
-  .gal-item:hover img{transform:scale(1.06)}
-  .gal-item::after{content:"";position:absolute;inset:0;background:rgba(59,46,51,0);transition:background .3s ease}
-  .gal-item:hover::after{background:rgba(59,46,51,.12)}
-  .gal-item .zoom{position:absolute;right:14px;bottom:14px;width:38px;height:38px;border-radius:50%;
-    background:rgba(255,255,255,.92);display:flex;align-items:center;justify-content:center;
-    opacity:0;transform:translateY(6px);transition:all .3s ease}
-  .gal-item:hover .zoom{opacity:1;transform:translateY(0)}
-  .gal-item .zoom svg{width:17px;height:17px;stroke:var(--ink)}
-  .g-tall{grid-row:span 2}
-  .g-wide{grid-column:span 2}
-  @media(max-width:820px){
-    .gal-grid{grid-template-columns:1fr 1fr;grid-auto-rows:160px;gap:10px}
-    .g-wide{grid-column:span 2}
-  }
-
   /* ---------- О студии ---------- */
   .about{background:var(--blush)}
   .about-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:70px;align-items:center}
   .about-body{color:var(--ink-soft);font-size:17.5px;line-height:1.8}
   .about-body p+p{margin-top:18px}
-  .about-quote{font-family:var(--serif);font-style:italic;font-size:clamp(22px,3vw,30px);
-    line-height:1.4;color:var(--ink);margin:0 0 26px;position:relative;padding-left:26px}
-  .about-quote::before{content:"";position:absolute;left:0;top:6px;bottom:6px;width:3px;
-    background:var(--gold);border-radius:2px}
-  .about-facts{margin-top:34px;display:grid;grid-template-columns:1fr 1fr;gap:1px;
-    background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+  .about-quote{font-family:var(--serif);font-style:italic;font-size:clamp(22px,3vw,30px);line-height:1.4;
+    color:var(--ink);margin:0 0 26px;position:relative;padding-left:26px}
+  .about-quote::before{content:"";position:absolute;left:0;top:6px;bottom:6px;width:3px;background:var(--gold);border-radius:2px}
+  .about-facts{margin-top:34px;display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);
+    border:1px solid var(--line);border-radius:14px;overflow:hidden}
   .about-facts .f{background:var(--blush);padding:20px 22px}
-  .about-facts .k{font-size:11px;letter-spacing:.16em;text-transform:uppercase;
-    color:var(--gold-tx);font-weight:700}
+  .about-facts .k{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-tx);font-weight:700}
   .about-facts .v{font-family:var(--serif);font-size:20px;font-weight:600;margin-top:5px}
   .about-facts .v a:hover{color:var(--rose)}
   .about-photo{border-radius:18px;overflow:hidden;box-shadow:var(--shadow);aspect-ratio:4/5}
@@ -281,16 +238,15 @@
   .review .qm{font-family:var(--serif);font-size:64px;line-height:.6;color:var(--gold);opacity:.5;height:34px}
   .review .stars{color:var(--gold);letter-spacing:3px;font-size:14px;margin:6px 0 14px}
   .review p{font-size:16px;line-height:1.66;color:var(--ink);flex:1}
-  .review .who{margin-top:22px;padding-top:18px;border-top:1px solid var(--line);
-    font-weight:600;font-size:15px}
+  .review .who{margin-top:22px;padding-top:18px;border-top:1px solid var(--line);font-weight:600;font-size:15px}
   .review .who span{display:block;font-weight:500;font-size:13px;color:var(--ink-soft);margin-top:2px}
   .rev-foot{text-align:center;margin-top:34px;color:var(--ink-soft);font-size:14.5px}
   .rev-foot a{color:var(--rose);font-weight:600}
   @media(max-width:900px){.rev-grid{grid-template-columns:1fr}}
 
-  /* ---------- Контакты / форма ---------- */
+  /* ---------- Контакты ---------- */
   .contact{background:var(--ink);color:#fff}
-  .contact .sec-title,.contact .about-quote{color:#fff}
+  .contact .sec-title{color:#fff}
   .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start}
   .contact-lead{color:rgba(255,255,255,.72);font-size:18px;line-height:1.7;margin-top:18px;max-width:440px}
   .contact-links{margin-top:36px}
@@ -303,13 +259,12 @@
   .form h3{font-family:var(--serif);font-size:27px;font-weight:600}
   .form p.fp{color:var(--ink-soft);font-size:14.5px;margin:6px 0 24px}
   .field{margin-bottom:16px}
-  .field label{display:block;font-size:12.5px;font-weight:600;letter-spacing:.04em;
-    margin-bottom:7px;text-transform:uppercase;color:var(--ink-soft)}
+  .field label{display:block;font-size:12.5px;font-weight:600;letter-spacing:.04em;margin-bottom:7px;
+    text-transform:uppercase;color:var(--ink-soft)}
   .field input,.field textarea{width:100%;font-family:var(--sans);font-size:16px;color:var(--ink);
     background:var(--white);border:1px solid var(--line);border-radius:10px;padding:14px 15px;
     transition:border-color .18s ease, box-shadow .18s ease}
-  .field input:focus,.field textarea:focus{outline:none;border-color:var(--rose);
-    box-shadow:0 0 0 3px rgba(158,92,104,.13)}
+  .field input:focus,.field textarea:focus{outline:none;border-color:var(--rose);box-shadow:0 0 0 3px rgba(158,92,104,.13)}
   .field textarea{resize:vertical;min-height:92px}
   .form .btn{width:100%;margin-top:6px}
   .form-note{font-size:12px;color:var(--ink-soft);text-align:center;margin-top:14px;line-height:1.5}
@@ -327,25 +282,74 @@
   @media(max-width:640px){.foot{flex-direction:column;align-items:flex-start}
     .foot-meta{text-align:left}footer{padding-bottom:100px}}
 
-  /* ---------- Мобильная нижняя панель ---------- */
-  .callbar{position:fixed;left:0;right:0;bottom:0;z-index:80;display:none;
-    background:rgba(252,248,243,.95);backdrop-filter:blur(12px);border-top:1px solid var(--line);
-    padding:10px 14px;grid-template-columns:auto 1fr;gap:10px}
-  .callbar a{display:flex;align-items:center;justify-content:center;gap:8px;padding:14px;
-    border-radius:999px;font-weight:600;font-size:15px}
+  /* ---------- Мобильная панель ---------- */
+  .callbar{position:fixed;left:0;right:0;bottom:0;z-index:55;display:none;background:rgba(252,248,243,.95);
+    backdrop-filter:blur(12px);border-top:1px solid var(--line);padding:10px 14px;grid-template-columns:auto 1fr;gap:10px}
+  .callbar a{display:flex;align-items:center;justify-content:center;gap:8px;padding:14px;border-radius:999px;
+    font-weight:600;font-size:15px}
   .callbar .cb-call{background:transparent;color:var(--ink);border:1px solid var(--gold);padding:14px 20px}
   .callbar .cb-cta{background:var(--rose);color:#fff}
   .callbar svg{width:17px;height:17px}
-  @media(max-width:720px){.callbar{display:grid}}
+  @media(max-width:720px){.callbar{display:grid}footer{padding-bottom:96px}}
+
+  /* ---------- Корзина ---------- */
+  .cart-ov{position:fixed;inset:0;z-index:90;background:rgba(30,22,26,.5);backdrop-filter:blur(2px);
+    opacity:0;visibility:hidden;transition:opacity .3s ease, visibility .3s ease}
+  .cart-ov.open{opacity:1;visibility:visible}
+  .cart{position:fixed;top:0;right:0;bottom:0;z-index:95;width:420px;max-width:92vw;background:var(--cream);
+    box-shadow:-20px 0 60px -30px rgba(0,0,0,.5);transform:translateX(100%);transition:transform .32s cubic-bezier(.4,0,.2,1);
+    display:flex;flex-direction:column}
+  .cart.open{transform:none}
+  .cart-top{display:flex;align-items:center;gap:12px;padding:22px 24px;border-bottom:1px solid var(--line)}
+  .cart-top h3{font-family:var(--serif);font-size:24px;font-weight:600;flex:1}
+  .cart-x,.cart-back{width:38px;height:38px;border-radius:50%;border:1px solid var(--line);background:var(--white);
+    cursor:pointer;display:flex;align-items:center;justify-content:center;transition:border-color .2s ease}
+  .cart-x:hover,.cart-back:hover{border-color:var(--rose)}
+  .cart-x svg,.cart-back svg{width:18px;height:18px;stroke:var(--ink)}
+  .cart-scroll{flex:1;overflow-y:auto;padding:8px 24px}
+  .cart-empty{text-align:center;padding:70px 10px;color:var(--ink-soft)}
+  .cart-empty svg{width:54px;height:54px;stroke:var(--line);margin:0 auto 18px}
+  .cart-empty b{font-family:var(--serif);font-size:22px;color:var(--ink);font-weight:600;display:block;margin-bottom:8px}
+  .cart-item{display:grid;grid-template-columns:66px 1fr auto;gap:14px;padding:18px 0;border-bottom:1px solid var(--line)}
+  .cart-item img{width:66px;height:80px;object-fit:cover;border-radius:9px}
+  .ci-name{font-family:var(--serif);font-size:18px;font-weight:600;line-height:1.15}
+  .ci-price{font-size:13px;color:var(--ink-soft);margin-top:3px}
+  .ci-bottom{display:flex;align-items:center;gap:12px;margin-top:10px}
+  .ci-right{display:flex;flex-direction:column;align-items:flex-end;justify-content:space-between}
+  .ci-line{font-family:var(--serif);font-size:18px;font-weight:600;white-space:nowrap}
+  .ci-remove{background:none;border:none;color:var(--ink-soft);font-size:12px;cursor:pointer;padding:4px;text-decoration:underline}
+  .ci-remove:hover{color:var(--rose)}
+  .cart-foot{border-top:1px solid var(--line);padding:20px 24px;background:var(--cream)}
+  .cart-total-row{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:14px}
+  .cart-total-row span{font-size:15px;color:var(--ink-soft);font-weight:600}
+  .cart-total-row b{font-family:var(--serif);font-size:28px;font-weight:700}
+  .cart-foot .btn{width:100%}
+  .cart-note{font-size:12px;color:var(--ink-soft);text-align:center;margin-top:12px;line-height:1.5}
+  .checkout .field{margin-bottom:14px}
+  .checkout-radios{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px}
+  .radio-pill{position:relative;cursor:pointer}
+  .radio-pill input{position:absolute;opacity:0}
+  .radio-pill span{display:flex;align-items:center;justify-content:center;gap:8px;padding:13px;border-radius:10px;
+    border:1px solid var(--line);background:var(--white);font-weight:600;font-size:14px;transition:all .18s ease}
+  .radio-pill input:checked+span{border-color:var(--rose);background:#fbeef0;color:var(--rose)}
+  @media(max-width:520px){.cart{width:100%;max-width:100%}}
+
+  /* ---------- Тост ---------- */
+  .toast{position:fixed;left:50%;bottom:30px;transform:translateX(-50%) translateY(20px);z-index:120;
+    background:var(--ink);color:#fff;padding:14px 22px;border-radius:999px;font-size:14px;font-weight:600;
+    display:flex;align-items:center;gap:10px;box-shadow:0 20px 40px -16px rgba(0,0,0,.5);
+    opacity:0;visibility:hidden;transition:all .3s ease}
+  .toast.show{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
+  .toast svg{width:18px;height:18px;stroke:#7ee0a0}
+  @media(max-width:720px){.toast{bottom:86px}}
 
   /* ---------- Лайтбокс ---------- */
-  .lb{position:fixed;inset:0;z-index:100;background:rgba(30,22,26,.9);
-    display:none;align-items:center;justify-content:center;padding:24px}
+  .lb{position:fixed;inset:0;z-index:110;background:rgba(30,22,26,.9);display:none;align-items:center;
+    justify-content:center;padding:24px}
   .lb.open{display:flex}
   .lb img{max-width:92vw;max-height:88vh;border-radius:10px;box-shadow:0 30px 80px rgba(0,0,0,.5)}
-  .lb-btn{position:absolute;background:rgba(255,255,255,.14);border:none;color:#fff;
-    width:52px;height:52px;border-radius:50%;cursor:pointer;display:flex;align-items:center;
-    justify-content:center;transition:background .2s ease}
+  .lb-btn{position:absolute;background:rgba(255,255,255,.14);border:none;color:#fff;width:52px;height:52px;
+    border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s ease}
   .lb-btn:hover{background:rgba(255,255,255,.28)}
   .lb-btn svg{width:24px;height:24px;stroke:#fff}
   .lb-close{top:22px;right:22px}
@@ -369,15 +373,19 @@
       <span class="brand-name">Студия цветов<small>Марии И. · Муром</small></span>
     </a>
     <nav class="nav-links">
-      <a href="#catalog">Букеты</a>
+      <a href="#catalog">Каталог</a>
       <a href="#order">Как заказать</a>
-      <a href="#gallery">Работы</a>
+      <a href="#about">О студии</a>
       <a href="#reviews">Отзывы</a>
       <a href="#contact">Контакты</a>
     </nav>
     <div class="nav-right">
       <a class="nav-phone" href="tel:+79051421421">+7 (905) 142‑14‑21</a>
-      <a class="btn" href="#contact">Заказать</a>
+      <button class="cart-btn" id="open-cart" aria-label="Открыть корзину">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/><path d="M2 3h3l2.4 12.3a1.5 1.5 0 0 0 1.5 1.2h8.3a1.5 1.5 0 0 0 1.5-1.2L21 7H6"/></svg>
+        <span class="cart-count" id="cart-count">0</span>
+      </button>
+      <a class="btn" href="#catalog">Каталог</a>
     </div>
   </div>
 </header>
@@ -390,15 +398,14 @@
     <div class="hero-content reveal">
       <p class="eyebrow">Авторская флористика · Муром</p>
       <h1 class="hero-h1">Цветы, которые <em>говорят</em> за вас</h1>
-      <p class="hero-sub">Собираем нежные авторские букеты и композиции ручной работы —
-        с настроением, вкусом и доставкой по Мурому в день заказа.</p>
+      <p class="hero-sub">Более 30 готовых букетов и композиций ручной работы. Добавляйте в корзину и оформляйте заказ прямо на сайте — с доставкой по Мурому в день заказа.</p>
       <div class="hero-actions">
-        <a class="btn" href="#catalog">Выбрать букет
+        <a class="btn" href="#catalog">Смотреть каталог
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </a>
         <a class="btn btn-wa" href="https://wa.me/79051421421" data-wa>
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.5 15.3L2 22l4.8-1.5A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-2.8.9.9-2.8-.2-.3A8 8 0 1 1 12 20zm4.5-6c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1-.2.2-.6.8-.8 1-.1.1-.3.2-.5.1a6.6 6.6 0 0 1-3.2-2.8c-.2-.4.2-.4.6-1.2.1-.1 0-.3 0-.4l-.7-1.7c-.2-.5-.4-.4-.5-.4h-.5c-.2 0-.4.1-.6.3-.7.7-.9 1.8-.5 2.9a11 11 0 0 0 4.4 4.7c1.7.9 2.4.9 3.3.8.5-.1 1.4-.6 1.6-1.2.2-.6.2-1 .1-1.2z"/></svg>
-          Написать в WhatsApp
+          WhatsApp
         </a>
       </div>
       <a class="hero-tel" href="tel:+79051421421">
@@ -406,116 +413,38 @@
         +7 (905) 142‑14‑21
       </a>
       <div class="hero-trust">
-        <span>Свежие цветы</span>
-        <span>Ручная сборка</span>
-        <span>Доставка сегодня</span>
+        <span>Свежие цветы</span><span>Ручная сборка</span><span>Доставка сегодня</span>
       </div>
     </div>
-
     <div class="hero-media reveal">
-      <div class="hero-photo">
-        <img src="assets/g0.jpg" alt="Нежный авторский букет студии цветов Марии И." width="675" height="1012">
-      </div>
-      <div class="hero-inset">
-        <img src="assets/cover.jpg" alt="Душистый горошек" width="264" height="264">
-      </div>
-      <div class="hero-badge">
-        <div class="stars">★★★★★</div>
-        <div><b>С любовью</b><small>к каждому букету</small></div>
-      </div>
+      <div class="hero-photo"><img src="assets/g0.jpg" alt="Нежный авторский букет студии цветов Марии И." width="675" height="1012"></div>
+      <div class="hero-inset"><img src="assets/cover.jpg" alt="Душистый горошек" width="264" height="264"></div>
+      <div class="hero-badge"><div class="stars">★★★★★</div><div><b>С любовью</b><small>к каждому букету</small></div></div>
     </div>
   </div>
 </section>
 
 <!-- ---------- Полоса преимуществ ---------- -->
 <div class="strip">
-  <div class="wrap">
-    <div class="strip-grid">
-      <div class="strip-item">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C7 7 7 12 12 22 17 12 17 7 12 2z"/><path d="M12 8v14"/></svg>
-        <div><b>Авторские букеты</b><span>Индивидуальный подход к каждому заказу</span></div>
-      </div>
-      <div class="strip-item">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3"/><path d="M12 11v10M8 15c-2 0-4 1-4 4M16 15c2 0 4 1 4 4"/></svg>
-        <div><b>Свадебная флористика</b><span>Букет невесты и оформление торжества</span></div>
-      </div>
-      <div class="strip-item">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h11v8H3zM14 10h4l3 3v2h-7z"/><circle cx="7" cy="18" r="1.6"/><circle cx="17" cy="18" r="1.6"/></svg>
-        <div><b>Доставка по Мурому</b><span>Привезём в день заказа, бережно и вовремя</span></div>
-      </div>
-      <div class="strip-item">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
-        <div><b>Свежесть и стойкость</b><span>Отбираем лучшие цветы, радуют долго</span></div>
-      </div>
-    </div>
-  </div>
+  <div class="wrap"><div class="strip-grid">
+    <div class="strip-item"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C7 7 7 12 12 22 17 12 17 7 12 2z"/><path d="M12 8v14"/></svg><div><b>Авторские букеты</b><span>Индивидуальный подход к каждому заказу</span></div></div>
+    <div class="strip-item"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3"/><path d="M12 11v10M8 15c-2 0-4 1-4 4M16 15c2 0 4 1 4 4"/></svg><div><b>Свадебная флористика</b><span>Букет невесты и оформление торжества</span></div></div>
+    <div class="strip-item"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h11v8H3zM14 10h4l3 3v2h-7z"/><circle cx="7" cy="18" r="1.6"/><circle cx="17" cy="18" r="1.6"/></svg><div><b>Доставка по Мурому</b><span>Привезём в день заказа, бережно и вовремя</span></div></div>
+    <div class="strip-item"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><div><b>Свежесть и стойкость</b><span>Отбираем лучшие цветы, радуют долго</span></div></div>
+  </div></div>
 </div>
 
-<!-- ---------- Каталог ---------- -->
+<!-- ---------- Каталог / магазин ---------- -->
 <section class="catalog" id="catalog">
   <div class="wrap">
     <div class="sec-head reveal">
       <p class="eyebrow">Каталог</p>
-      <h2 class="sec-title">Букеты на любой повод</h2>
-      <p class="sec-lead">Соберём готовый вариант из каталога или создадим букет по вашей идее —
-        под настроение, повод и бюджет.</p>
+      <h2 class="sec-title">Выберите свой букет</h2>
+      <p class="sec-lead">30 готовых букетов и композиций — добавляйте в корзину и оформляйте заказ прямо на сайте. Не нашли нужное? Соберём по вашей идее.</p>
     </div>
-
-    <div class="cat-grid">
-      <article class="card reveal">
-        <div class="card-img"><img src="assets/g4.jpg" alt="Авторский пастельный букет" loading="lazy"></div>
-        <div class="card-body">
-          <h3>Авторские букеты</h3>
-          <p>Пастельные сочетания роз, гербер и сезонных цветов в фирменном оформлении.</p>
-          <div class="card-foot">
-            <div class="price"><small>от</small>3 500 ₽</div>
-            <a class="card-link" href="#contact">Заказать
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-          </div>
-        </div>
-      </article>
-
-      <article class="card reveal">
-        <div class="card-img"><img src="assets/g3.jpg" alt="Монобукет из белых роз" loading="lazy"></div>
-        <div class="card-body">
-          <h3>Монобукеты</h3>
-          <p>Розы, пионовидные и кустовые розы — лаконично, нежно и всегда уместно.</p>
-          <div class="card-foot">
-            <div class="price"><small>от</small>2 500 ₽</div>
-            <a class="card-link" href="#contact">Заказать
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-          </div>
-        </div>
-      </article>
-
-      <article class="card reveal">
-        <div class="card-img"><img src="assets/g5.jpg" alt="Пастельная цветочная композиция" loading="lazy"></div>
-        <div class="card-body">
-          <h3>Композиции</h3>
-          <p>Пудровые сборные букеты и композиции в стильном оформлении для подарка.</p>
-          <div class="card-foot">
-            <div class="price"><small>от</small>3 000 ₽</div>
-            <a class="card-link" href="#contact">Заказать
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-          </div>
-        </div>
-      </article>
-
-      <article class="card reveal">
-        <div class="card-img"><img src="assets/g1.jpg" alt="Свадебная флористика, букет невесты" loading="lazy"></div>
-        <div class="card-body">
-          <h3>Свадебная флористика</h3>
-          <p>Букет невесты и оформление торжества в единой нежной палитре.</p>
-          <div class="card-foot">
-            <div class="price"><small>от</small>5 000 ₽</div>
-            <a class="card-link" href="#contact">Обсудить
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-          </div>
-        </div>
-      </article>
-    </div>
-    <p class="cat-note">Цены указаны как ориентир — <b>итоговая стоимость зависит от состава и размера.</b>
-      Точную цену назовём при заказе.</p>
+    <div class="filters" id="filters"></div>
+    <div class="shop-grid" id="shop-grid"></div>
+    <p class="cat-note">Цены указаны как ориентир — <b>итоговая стоимость зависит от размера и состава.</b> Уточним при подтверждении заказа.</p>
   </div>
 </section>
 
@@ -525,92 +454,40 @@
     <div class="sec-head reveal">
       <p class="eyebrow">Как заказать</p>
       <h2 class="sec-title">Три шага до букета</h2>
-      <p class="sec-lead">Просто напишите или позвоните — остальное берём на себя.</p>
+      <p class="sec-lead">Добавьте букеты в корзину и оформите заказ — или напишите нам напрямую.</p>
     </div>
-
     <div class="steps-grid">
-      <div class="step reveal">
-        <div class="step-n">01</div>
-        <h3>Расскажите о поводе</h3>
-        <p>Напишите в WhatsApp или позвоните. Опишите повод, палитру и бюджет — или выберите букет из каталога.</p>
-      </div>
-      <div class="step reveal">
-        <div class="step-n">02</div>
-        <h3>Согласуем состав</h3>
-        <p>Подберём цветы, покажем варианты и назовём точную стоимость. Учтём все ваши пожелания.</p>
-      </div>
-      <div class="step reveal">
-        <div class="step-n">03</div>
-        <h3>Соберём и доставим</h3>
-        <p>Бережно соберём букет из свежих цветов и привезём по адресу — или подготовим к самовывозу.</p>
-      </div>
+      <div class="step reveal"><div class="step-n">01</div><h3>Соберите заказ</h3><p>Выбирайте букеты в каталоге и добавляйте в корзину. Меняйте количество как удобно.</p></div>
+      <div class="step reveal"><div class="step-n">02</div><h3>Оформите заявку</h3><p>Укажите имя, телефон и адрес — заказ придёт нам в WhatsApp. Подтвердим состав и цену.</p></div>
+      <div class="step reveal"><div class="step-n">03</div><h3>Получите букет</h3><p>Соберём из свежих цветов и доставим по Мурому в день заказа — или подготовим к самовывозу.</p></div>
     </div>
-
     <div class="deliver">
-      <div class="deliver-card reveal">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h11v8H3zM14 10h4l3 3v2h-7z"/><circle cx="7" cy="18" r="1.6"/><circle cx="17" cy="18" r="1.6"/></svg>
-        <div>
-          <h4>Доставка и самовывоз</h4>
-          <p>Курьерская доставка по Мурому в день заказа. Возможен самовывоз из студии — стоимость доставки уточним по адресу.</p>
-        </div>
-      </div>
-      <div class="deliver-card lilac reveal">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>
-        <div>
-          <h4>Удобная оплата</h4>
-          <p>Наличными, картой или переводом — как вам удобнее. Подтвердим заказ и согласуем время доставки.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ---------- Галерея ---------- -->
-<section class="gallery" id="gallery">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <p class="eyebrow">Наши работы</p>
-      <h2 class="sec-title">Букеты, собранные с любовью</h2>
-      <p class="sec-lead">Реальные работы студии — без стоковых картинок. Нажмите, чтобы рассмотреть ближе.</p>
-    </div>
-    <div class="gal-grid" id="gal">
-      <div class="gal-item g-tall reveal"><img src="assets/g0.jpg" alt="Кремово-розовый авторский букет" loading="lazy"><span class="zoom"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg></span></div>
-      <div class="gal-item reveal"><img src="assets/g2.jpg" alt="Букет из белых роз" loading="lazy"><span class="zoom"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg></span></div>
-      <div class="gal-item reveal"><img src="assets/g4.jpg" alt="Пастельная композиция с герберами" loading="lazy"><span class="zoom"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg></span></div>
-      <div class="gal-item g-wide reveal"><img src="assets/g1.jpg" alt="Невеста с букетом" loading="lazy"><span class="zoom"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg></span></div>
-      <div class="gal-item reveal"><img src="assets/g3.jpg" alt="Букет из белых и розовых роз" loading="lazy"><span class="zoom"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg></span></div>
-      <div class="gal-item reveal"><img src="assets/g5.jpg" alt="Пудровый букет с герберами и гвоздиками" loading="lazy"><span class="zoom"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg></span></div>
+      <div class="deliver-card reveal"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h11v8H3zM14 10h4l3 3v2h-7z"/><circle cx="7" cy="18" r="1.6"/><circle cx="17" cy="18" r="1.6"/></svg><div><h4>Доставка и самовывоз</h4><p>Курьерская доставка по Мурому в день заказа. Возможен самовывоз из студии — стоимость доставки уточним по адресу.</p></div></div>
+      <div class="deliver-card lilac reveal"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg><div><h4>Удобная оплата</h4><p>Наличными, картой или переводом — как вам удобнее. Подтвердим заказ и согласуем время доставки.</p></div></div>
     </div>
   </div>
 </section>
 
 <!-- ---------- О студии ---------- -->
 <section class="about" id="about">
-  <div class="wrap">
-    <div class="about-grid">
-      <div class="reveal">
-        <p class="eyebrow">О студии</p>
-        <h2 class="sec-title" style="margin-bottom:26px">Студия цветов Марии И.</h2>
-        <p class="about-quote">«Моя студия цветов — это про красоту, творчество и авторский стиль».</p>
-        <div class="about-body">
-          <p>Мы с любовью создаём букеты, которые подчёркивают вашу индивидуальность.
-            Многолетний опыт и профессионализм во флористике помогают собрать идеальный
-            букет для любого повода.</p>
-          <p>Мы знаем всё о гармонии цвета, стойкости растений и современных трендах —
-            и превратим вашу идею в изысканную цветочную композицию.</p>
-        </div>
-        <div class="about-facts">
-          <div class="f"><div class="k">Город</div><div class="v">Муром</div></div>
-          <div class="f"><div class="k">Телефон</div><div class="v"><a href="tel:+79051421421">+7 (905) 142‑14‑21</a></div></div>
-          <div class="f"><div class="k">Специализация</div><div class="v">Авторская флористика</div></div>
-          <div class="f"><div class="k">ВКонтакте</div><div class="v"><a href="https://vk.com/club235855259" target="_blank" rel="noopener">Наша группа</a></div></div>
-        </div>
+  <div class="wrap"><div class="about-grid">
+    <div class="reveal">
+      <p class="eyebrow">О студии</p>
+      <h2 class="sec-title" style="margin-bottom:26px">Студия цветов Марии И.</h2>
+      <p class="about-quote">«Моя студия цветов — это про красоту, творчество и авторский стиль».</p>
+      <div class="about-body">
+        <p>Мы с любовью создаём букеты, которые подчёркивают вашу индивидуальность. Многолетний опыт и профессионализм во флористике помогают собрать идеальный букет для любого повода.</p>
+        <p>Мы знаем всё о гармонии цвета, стойкости растений и современных трендах — и превратим вашу идею в изысканную цветочную композицию.</p>
       </div>
-      <div class="about-photo reveal">
-        <img src="assets/g5.jpg" alt="Букет ручной работы студии цветов Марии И." loading="lazy">
+      <div class="about-facts">
+        <div class="f"><div class="k">Город</div><div class="v">Муром</div></div>
+        <div class="f"><div class="k">Телефон</div><div class="v"><a href="tel:+79051421421">+7 (905) 142‑14‑21</a></div></div>
+        <div class="f"><div class="k">Специализация</div><div class="v">Авторская флористика</div></div>
+        <div class="f"><div class="k">ВКонтакте</div><div class="v"><a href="https://vk.com/club235855259" target="_blank" rel="noopener">Наша группа</a></div></div>
       </div>
     </div>
-  </div>
+    <div class="about-photo reveal"><img src="assets/g5.jpg" alt="Букет ручной работы студии цветов Марии И." loading="lazy"></div>
+  </div></div>
 </section>
 
 <!-- ---------- Отзывы ---------- -->
@@ -622,110 +499,84 @@
       <p class="sec-lead">Каждый букет — это чьё-то тёплое воспоминание. Вот что рассказывают те, кто выбрал нас.</p>
     </div>
     <div class="rev-grid">
-      <div class="review reveal">
-        <div class="qm">“</div>
-        <div class="stars">★★★★★</div>
-        <p>Заказывала букет на юбилей маме — собрали именно то, что представляла: нежно и стильно.
-          Доставили вовремя, мама была в восторге.</p>
-        <div class="who">Ольга<span>Муром</span></div>
-      </div>
-      <div class="review reveal">
-        <div class="qm">“</div>
-        <div class="stars">★★★★★</div>
-        <p>Букет невесты и оформление — выше всех ожиданий. Мария чувствует цвет и настроение,
-          всё было идеально до мелочей.</p>
-        <div class="who">Екатерина<span>Свадьба</span></div>
-      </div>
-      <div class="review reveal">
-        <div class="qm">“</div>
-        <div class="stars">★★★★★</div>
-        <p>Беру цветы здесь постоянно: всегда свежие, стоят долго, и каждый раз это маленькое
-          произведение искусства. Спасибо за настроение!</p>
-        <div class="who">Анна<span>Постоянный клиент</span></div>
-      </div>
+      <div class="review reveal"><div class="qm">“</div><div class="stars">★★★★★</div><p>Заказывала букет на юбилей маме — собрали именно то, что представляла: нежно и стильно. Доставили вовремя, мама была в восторге.</p><div class="who">Ольга<span>Муром</span></div></div>
+      <div class="review reveal"><div class="qm">“</div><div class="stars">★★★★★</div><p>Букет невесты и оформление — выше всех ожиданий. Мария чувствует цвет и настроение, всё было идеально до мелочей.</p><div class="who">Екатерина<span>Свадьба</span></div></div>
+      <div class="review reveal"><div class="qm">“</div><div class="stars">★★★★★</div><p>Беру цветы здесь постоянно: всегда свежие, стоят долго, и каждый раз это маленькое произведение искусства. Спасибо за настроение!</p><div class="who">Анна<span>Постоянный клиент</span></div></div>
     </div>
-    <p class="rev-foot">Больше живых отзывов и работ — в нашей
-      <a href="https://vk.com/club235855259" target="_blank" rel="noopener">группе ВКонтакте →</a></p>
+    <p class="rev-foot">Больше живых отзывов и работ — в нашей <a href="https://vk.com/club235855259" target="_blank" rel="noopener">группе ВКонтакте →</a></p>
   </div>
 </section>
 
 <!-- ---------- Контакты ---------- -->
 <section class="contact" id="contact">
-  <div class="wrap">
-    <div class="contact-grid">
-      <div class="reveal">
-        <p class="eyebrow" style="color:var(--gold)">Контакты</p>
-        <h2 class="sec-title">Соберём букет для вас</h2>
-        <p class="contact-lead">Напишите в WhatsApp или оставьте заявку — ответим, подберём вариант
-          под ваш повод и назовём стоимость.</p>
-        <div class="contact-links">
-          <a href="https://wa.me/79051421421" data-wa target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21l1.6-4A8.5 8.5 0 1 1 8 19.4L3 21z"/><path d="M9 10c.5 2.5 2.5 4.5 5 5"/></svg>
-            Написать в WhatsApp<small>+7 (905) 142‑14‑21 · ответим быстро</small>
-          </a>
-          <a href="tel:+79051421421">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
-            Позвонить<small>+7 (905) 142‑14‑21</small>
-          </a>
-          <a href="https://vk.com/club235855259" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M7 9c.5 3 2.4 5.5 5 5.5V12M12 12c1.6 0 2.8-1.2 3.4-3M12 14.5c1 0 1.8.6 2.4 1.6"/></svg>
-            Мы во ВКонтакте<small>Каталог, работы и отзывы</small>
-          </a>
-          <div class="li">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            Муром<small>Доставка по городу в день заказа</small>
-          </div>
-        </div>
+  <div class="wrap"><div class="contact-grid">
+    <div class="reveal">
+      <p class="eyebrow" style="color:var(--gold)">Контакты</p>
+      <h2 class="sec-title">Остались вопросы?</h2>
+      <p class="contact-lead">Не нашли нужный букет или хотите собрать что-то особенное? Напишите — поможем с выбором и назовём стоимость.</p>
+      <div class="contact-links">
+        <a href="https://wa.me/79051421421" data-wa target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21l1.6-4A8.5 8.5 0 1 1 8 19.4L3 21z"/><path d="M9 10c.5 2.5 2.5 4.5 5 5"/></svg>Написать в WhatsApp<small>+7 (905) 142‑14‑21 · ответим быстро</small></a>
+        <a href="tel:+79051421421"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>Позвонить<small>+7 (905) 142‑14‑21</small></a>
+        <a href="https://vk.com/club235855259" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M7 9c.5 3 2.4 5.5 5 5.5V12M12 12c1.6 0 2.8-1.2 3.4-3M12 14.5c1 0 1.8.6 2.4 1.6"/></svg>Мы во ВКонтакте<small>Каталог, работы и отзывы</small></a>
+        <div class="li"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>Муром<small>Доставка по городу в день заказа</small></div>
       </div>
-
-      <form class="form" id="lead-form">
-        <h3>Оставить заявку</h3>
-        <p class="fp">Заполните поля — свяжемся с вами и поможем с выбором.</p>
-        <div class="field">
-          <label for="f-name">Ваше имя</label>
-          <input id="f-name" name="name" type="text" placeholder="Как к вам обращаться" required>
-        </div>
-        <div class="field">
-          <label for="f-phone">Телефон</label>
-          <input id="f-phone" name="phone" type="tel" placeholder="+7 900 000‑00‑00" required>
-        </div>
-        <div class="field">
-          <label for="f-msg">Повод и пожелания</label>
-          <textarea id="f-msg" name="msg" placeholder="Например: букет на день рождения, пастельные тона, до 4000 ₽"></textarea>
-        </div>
-        <button class="btn btn-wa" type="submit">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.5 15.3L2 22l4.8-1.5A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-2.8.9.9-2.8-.2-.3A8 8 0 1 1 12 20zm4.5-6c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1-.2.2-.6.8-.8 1-.1.1-.3.2-.5.1a6.6 6.6 0 0 1-3.2-2.8c-.2-.4.2-.4.6-1.2.1-.1 0-.3 0-.4l-.7-1.7c-.2-.5-.4-.4-.5-.4h-.5c-.2 0-.4.1-.6.3-.7.7-.9 1.8-.5 2.9a11 11 0 0 0 4.4 4.7c1.7.9 2.4.9 3.3.8.5-.1 1.4-.6 1.6-1.2.2-.6.2-1 .1-1.2z"/></svg>
-          Отправить в WhatsApp
-        </button>
-        <p class="form-note">Нажимая кнопку, вы соглашаетесь на обработку данных.
-          Заявка откроется в WhatsApp — останется только отправить.</p>
-      </form>
     </div>
-  </div>
+    <form class="form" id="lead-form">
+      <h3>Собрать букет по вашей идее</h3>
+      <p class="fp">Опишите повод и пожелания — свяжемся и предложим варианты.</p>
+      <div class="field"><label for="f-name">Ваше имя</label><input id="f-name" name="name" type="text" placeholder="Как к вам обращаться" required></div>
+      <div class="field"><label for="f-phone">Телефон</label><input id="f-phone" name="phone" type="tel" placeholder="+7 900 000‑00‑00" required></div>
+      <div class="field"><label for="f-msg">Повод и пожелания</label><textarea id="f-msg" name="msg" placeholder="Например: букет на день рождения, пастельные тона, до 4000 ₽"></textarea></div>
+      <button class="btn btn-wa" type="submit"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.5 15.3L2 22l4.8-1.5A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-2.8.9.9-2.8-.2-.3A8 8 0 1 1 12 20zm4.5-6c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1-.2.2-.6.8-.8 1-.1.1-.3.2-.5.1a6.6 6.6 0 0 1-3.2-2.8c-.2-.4.2-.4.6-1.2.1-.1 0-.3 0-.4l-.7-1.7c-.2-.5-.4-.4-.5-.4h-.5c-.2 0-.4.1-.6.3-.7.7-.9 1.8-.5 2.9a11 11 0 0 0 4.4 4.7c1.7.9 2.4.9 3.3.8.5-.1 1.4-.6 1.6-1.2.2-.6.2-1 .1-1.2z"/></svg>Отправить в WhatsApp</button>
+      <p class="form-note">Нажимая кнопку, вы соглашаетесь на обработку данных.</p>
+    </form>
+  </div></div>
 </section>
 
 <footer>
   <div class="wrap foot">
-    <a class="foot-brand" href="#top">
-      <img src="assets/logo.jpg" alt="Студия цветов Марии И.">
-      <span><b>Студия цветов Марии И.</b><small>Авторская флористика · Муром</small></span>
-    </a>
-    <div class="foot-meta">
-      <a href="tel:+79051421421">+7 (905) 142‑14‑21</a> ·
-      <a href="https://vk.com/club235855259" target="_blank" rel="noopener">ВКонтакте</a><br>
-      © <span id="year">2026</span> Студия цветов Марии И.
-    </div>
+    <a class="foot-brand" href="#top"><img src="assets/logo.jpg" alt="Студия цветов Марии И."><span><b>Студия цветов Марии И.</b><small>Авторская флористика · Муром</small></span></a>
+    <div class="foot-meta"><a href="tel:+79051421421">+7 (905) 142‑14‑21</a> · <a href="https://vk.com/club235855259" target="_blank" rel="noopener">ВКонтакте</a><br>© <span id="year">2026</span> Студия цветов Марии И.</div>
   </div>
 </footer>
 
 <!-- ---------- Мобильная панель ---------- -->
 <div class="callbar">
-  <a class="cb-call" href="tel:+79051421421" aria-label="Позвонить">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
-    Позвонить
-  </a>
-  <a class="cb-cta" href="https://wa.me/79051421421" data-wa>Написать в WhatsApp</a>
+  <a class="cb-call" href="tel:+79051421421" aria-label="Позвонить"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>Позвонить</a>
+  <a class="cb-cta" href="#catalog">Выбрать букет</a>
 </div>
+
+<!-- ---------- Корзина ---------- -->
+<div class="cart-ov" id="cart-ov"></div>
+<aside class="cart" id="cart" aria-hidden="true" aria-label="Корзина">
+  <div class="cart-top">
+    <button class="cart-back" id="cart-back" hidden aria-label="Назад к корзине"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg></button>
+    <h3 id="cart-title">Корзина</h3>
+    <button class="cart-x" id="cart-x" aria-label="Закрыть"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  </div>
+  <div class="cart-scroll">
+    <div id="cart-items"></div>
+    <form class="checkout" id="checkout" hidden>
+      <div class="checkout-radios">
+        <label class="radio-pill"><input type="radio" name="ship" value="Доставка" checked><span>🚚 Доставка</span></label>
+        <label class="radio-pill"><input type="radio" name="ship" value="Самовывоз"><span>🏬 Самовывоз</span></label>
+      </div>
+      <div class="field"><label for="c-name">Ваше имя</label><input id="c-name" type="text" placeholder="Как к вам обращаться" required></div>
+      <div class="field"><label for="c-phone">Телефон</label><input id="c-phone" type="tel" placeholder="+7 900 000‑00‑00" required></div>
+      <div class="field" id="addr-field"><label for="c-addr">Адрес доставки</label><input id="c-addr" type="text" placeholder="Улица, дом, квартира"></div>
+      <div class="field"><label for="c-when">Дата и время</label><input id="c-when" type="text" placeholder="Например: сегодня к 15:00"></div>
+      <div class="field"><label for="c-note">Комментарий</label><textarea id="c-note" placeholder="Открытка, пожелания к букету"></textarea></div>
+    </form>
+  </div>
+  <div class="cart-foot" id="cart-foot">
+    <div class="cart-total-row"><span>Итого</span><b id="cart-total">0 ₽</b></div>
+    <button class="btn btn-wa" id="cart-primary">Оформить заказ</button>
+    <p class="cart-note" id="cart-note">Заказ придёт нам в WhatsApp — подтвердим состав и согласуем доставку.</p>
+  </div>
+</aside>
+
+<!-- ---------- Тост ---------- -->
+<div class="toast" id="toast"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span id="toast-msg">Добавлено в корзину</span></div>
 
 <!-- ---------- Лайтбокс ---------- -->
 <div class="lb" id="lb" aria-hidden="true">
@@ -736,55 +587,240 @@
 </div>
 
 <script>
-  document.documentElement.classList.remove('no-js');
   document.body.classList.add('js');
-
-  // текущий год
   document.getElementById('year').textContent = new Date().getFullYear();
 
-  // WhatsApp-ссылки с предзаполненным текстом
-  var WA_TEXT = 'Здравствуйте! Хочу заказать букет в Студии цветов Марии И.';
-  var waBase = 'https://wa.me/79051421421?text=' + encodeURIComponent(WA_TEXT);
-  document.querySelectorAll('[data-wa]').forEach(function(a){ a.href = waBase; });
+  var PHONE = '79051421421';
+  var WA = 'https://wa.me/' + PHONE;
 
-  // Форма → WhatsApp (работает без бэкенда)
-  var form = document.getElementById('lead-form');
-  if (form) form.addEventListener('submit', function(e){
-    e.preventDefault();
-    var name = (form.name.value || '').trim();
-    var phone = (form.phone.value || '').trim();
-    var msg = (form.msg.value || '').trim();
-    var text = 'Здравствуйте! Хочу заказать букет в Студии цветов Марии И.\n' +
-               'Имя: ' + name + '\nТелефон: ' + phone +
-               (msg ? '\nПожелания: ' + msg : '');
-    window.open('https://wa.me/79051421421?text=' + encodeURIComponent(text), '_blank');
-  });
+  /* ---------- Товары ---------- */
+  var CATS = [
+    {id:'all', label:'Все'}, {id:'avtor', label:'Авторские'}, {id:'mono', label:'Монобукеты'},
+    {id:'pastel', label:'Пастельные'}, {id:'bright', label:'Яркие'}, {id:'box', label:'Коробки и композиции'}
+  ];
+  var CATLABEL = {avtor:'Авторский букет', mono:'Монобукет', pastel:'Пастельный букет', bright:'Яркий букет', box:'Коробка / композиция'};
+  var PRODUCTS = [
+    {id:'p0', n:'Летнее настроение', c:'avtor', pr:3900, b:'хит'},
+    {id:'p1', n:'Розовый рассвет', c:'mono', pr:3500, b:''},
+    {id:'p2', n:'Яркий день', c:'bright', pr:4200, b:''},
+    {id:'p3', n:'Коробка радости', c:'box', pr:4500, b:''},
+    {id:'p4', n:'Нежный вечер', c:'pastel', pr:3700, b:''},
+    {id:'p5', n:'Пудра', c:'pastel', pr:3400, b:''},
+    {id:'p6', n:'Фейерверк', c:'bright', pr:4300, b:''},
+    {id:'p7', n:'Цветочная шкатулка', c:'box', pr:4800, b:''},
+    {id:'p8', n:'Карнавал', c:'bright', pr:4500, b:''},
+    {id:'p9', n:'Персиковый закат', c:'avtor', pr:3800, b:''},
+    {id:'p10', n:'Признание', c:'bright', pr:4900, b:'хит'},
+    {id:'p11', n:'Белое облако', c:'mono', pr:3900, b:''},
+    {id:'p24', n:'Морской бриз', c:'avtor', pr:4200, b:''},
+    {id:'p26', n:'Виноградный сад', c:'avtor', pr:5200, b:'премиум'},
+    {id:'p27', n:'Голубая лагуна', c:'avtor', pr:4700, b:''},
+    {id:'p28', n:'Черника со сливками', c:'avtor', pr:4400, b:''},
+    {id:'p29', n:'Зефир', c:'pastel', pr:3900, b:'новинка'},
+    {id:'p30', n:'Розовый пломбир', c:'pastel', pr:4100, b:''},
+    {id:'p31', n:'Незабудка', c:'avtor', pr:4300, b:''},
+    {id:'p32', n:'Лавандовое поле', c:'avtor', pr:4600, b:''},
+    {id:'p33', n:'Краски лета', c:'bright', pr:4400, b:''},
+    {id:'p34', n:'Балет', c:'mono', pr:3800, b:''},
+    {id:'p35', n:'Сирень', c:'pastel', pr:4200, b:''},
+    {id:'p36', n:'Аметист', c:'avtor', pr:4500, b:''},
+    {id:'p37', n:'Карамель', c:'box', pr:4300, b:''},
+    {id:'p38', n:'Нюдовая нежность', c:'box', pr:4700, b:''},
+    {id:'p39', n:'Белоснежка', c:'box', pr:4900, b:''},
+    {id:'p40', n:'Персиковый мусс', c:'pastel', pr:3700, b:''},
+    {id:'p41', n:'Первый снег', c:'mono', pr:4200, b:''},
+    {id:'p42', n:'Облако', c:'pastel', pr:3900, b:''}
+  ];
+  var BYID = {}; PRODUCTS.forEach(function(p){ BYID[p.id] = p; });
+  function rub(n){ return n.toLocaleString('ru-RU') + ' ₽'; }
 
-  // Плавное появление
-  if ('IntersectionObserver' in window) {
-    var io = new IntersectionObserver(function(entries){
-      entries.forEach(function(en){ if (en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } });
-    }, {rootMargin:'0px 0px -8% 0px', threshold:0.08});
-    document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
-  } else {
-    document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('in'); });
+  /* ---------- Корзина (localStorage) ---------- */
+  var CART = {};
+  try { CART = JSON.parse(localStorage.getItem('cvm_cart')) || {}; } catch(e){ CART = {}; }
+  function saveCart(){ try { localStorage.setItem('cvm_cart', JSON.stringify(CART)); } catch(e){} }
+  function cartCount(){ var n=0; for(var k in CART) n+=CART[k]; return n; }
+  function cartTotal(){ var t=0; for(var k in CART){ if(BYID[k]) t+=BYID[k].pr*CART[k]; } return t; }
+  function setQty(id,q){ if(q<=0) delete CART[id]; else CART[id]=q; saveCart(); syncAll(id); }
+  function addItem(id){ CART[id]=(CART[id]||0)+1; saveCart(); syncAll(id); toast('Добавлено в корзину'); }
+
+  /* ---------- Рендер каталога ---------- */
+  var grid = document.getElementById('shop-grid');
+  var filtersEl = document.getElementById('filters');
+  var activeCat = 'all';
+
+  function actionHTML(id){
+    var q = CART[id]||0;
+    if(!q) return '<button class="add-btn" data-add="'+id+'"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg><span>В корзину</span></button>';
+    return '<div class="stepper"><button data-dec="'+id+'" aria-label="минус">−</button><span>'+q+'</span><button data-inc="'+id+'" aria-label="плюс">+</button></div>';
+  }
+  function cardHTML(p){
+    var badge = p.b ? '<span class="p-badge'+(p.b==='премиум'?' gold':'')+'">'+p.b+'</span>' : '';
+    return '<article class="p-card" data-cat="'+p.c+'">'
+      + '<div class="p-media" data-zoom="assets/'+p.id+'.jpg">'
+      +   '<img src="assets/'+p.id+'.jpg" alt="Букет '+p.n+'" loading="lazy">'+badge
+      +   '<span class="p-zoom"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg></span>'
+      + '</div>'
+      + '<div class="p-body"><h3 class="p-name">'+p.n+'</h3><div class="p-cat">'+CATLABEL[p.c]+'</div>'
+      +   '<div class="p-foot"><div class="p-price">'+rub(p.pr)+'</div><div class="p-action" id="act-'+p.id+'">'+actionHTML(p.id)+'</div></div>'
+      + '</div></article>';
+  }
+  function renderGrid(){
+    var list = PRODUCTS.filter(function(p){ return activeCat==='all' || p.c===activeCat; });
+    grid.innerHTML = list.map(cardHTML).join('');
+    buildZoomList();
+  }
+  function renderFilters(){
+    filtersEl.innerHTML = CATS.map(function(c){
+      return '<button class="filter'+(c.id===activeCat?' active':'')+'" data-cat="'+c.id+'">'+c.label+'</button>';
+    }).join('');
   }
 
-  // Лайтбокс галереи
-  var imgs = Array.prototype.slice.call(document.querySelectorAll('#gal img'));
-  var lb = document.getElementById('lb'), lbImg = document.getElementById('lb-img'), cur = 0;
-  function openLb(i){ cur=i; lbImg.src=imgs[i].src; lbImg.alt=imgs[i].alt; lb.classList.add('open'); lb.setAttribute('aria-hidden','false'); }
-  function closeLb(){ lb.classList.remove('open'); lb.setAttribute('aria-hidden','true'); }
-  function step(d){ cur=(cur+d+imgs.length)%imgs.length; lbImg.src=imgs[cur].src; lbImg.alt=imgs[cur].alt; }
-  imgs.forEach(function(im,i){ im.parentElement.addEventListener('click', function(){ openLb(i); }); });
-  document.getElementById('lb-close').addEventListener('click', closeLb);
-  document.getElementById('lb-next').addEventListener('click', function(e){ e.stopPropagation(); step(1); });
-  document.getElementById('lb-prev').addEventListener('click', function(e){ e.stopPropagation(); step(-1); });
-  lb.addEventListener('click', function(e){ if (e.target===lb) closeLb(); });
-  document.addEventListener('keydown', function(e){
-    if (!lb.classList.contains('open')) return;
-    if (e.key==='Escape') closeLb(); if (e.key==='ArrowRight') step(1); if (e.key==='ArrowLeft') step(-1);
+  /* ---------- Синхронизация состояния ---------- */
+  function syncAll(changedId){
+    if(changedId){ var a=document.getElementById('act-'+changedId); if(a) a.innerHTML=actionHTML(changedId); }
+    var badge=document.getElementById('cart-count'), n=cartCount();
+    badge.textContent=n; badge.classList.toggle('show', n>0);
+    renderCart();
+  }
+
+  /* ---------- Рендер корзины ---------- */
+  var cart=document.getElementById('cart'), cartOv=document.getElementById('cart-ov');
+  var cartItems=document.getElementById('cart-items'), checkout=document.getElementById('checkout');
+  var cartFoot=document.getElementById('cart-foot'), cartTotalEl=document.getElementById('cart-total');
+  var cartPrimary=document.getElementById('cart-primary'), cartBack=document.getElementById('cart-back');
+  var cartTitle=document.getElementById('cart-title'), cartNote=document.getElementById('cart-note');
+  var step='items';
+
+  function renderCart(){
+    var ids=Object.keys(CART);
+    if(step==='checkout'){
+      cartTotalEl.textContent=rub(cartTotal());
+      return;
+    }
+    if(!ids.length){
+      cartItems.innerHTML='<div class="cart-empty"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/><path d="M2 3h3l2.4 12.3a1.5 1.5 0 0 0 1.5 1.2h8.3a1.5 1.5 0 0 0 1.5-1.2L21 7H6"/></svg><b>Корзина пуста</b>Добавьте букеты из каталога — они появятся здесь.</div>';
+      cartFoot.style.display='none';
+      return;
+    }
+    cartFoot.style.display='block';
+    cartItems.innerHTML=ids.map(function(id){
+      var p=BYID[id]; if(!p) return '';
+      var q=CART[id];
+      return '<div class="cart-item"><img src="assets/'+id+'.jpg" alt="'+p.n+'">'
+        +'<div><div class="ci-name">'+p.n+'</div><div class="ci-price">'+rub(p.pr)+' / шт</div>'
+        +'<div class="ci-bottom"><div class="stepper"><button data-dec="'+id+'">−</button><span>'+q+'</span><button data-inc="'+id+'">+</button></div></div></div>'
+        +'<div class="ci-right"><div class="ci-line">'+rub(p.pr*q)+'</div><button class="ci-remove" data-rm="'+id+'">убрать</button></div></div>';
+    }).join('');
+    cartTotalEl.textContent=rub(cartTotal());
+  }
+
+  function openCart(){ cart.classList.add('open'); cartOv.classList.add('open'); cart.setAttribute('aria-hidden','false'); document.body.classList.add('no-scroll'); }
+  function closeCart(){ cart.classList.remove('open'); cartOv.classList.remove('open'); cart.setAttribute('aria-hidden','true'); document.body.classList.remove('no-scroll'); goStep('items'); }
+
+  function goStep(s){
+    step=s;
+    if(s==='checkout'){
+      checkout.hidden=false; cartItems.style.display='none'; cartBack.hidden=false;
+      cartTitle.textContent='Оформление'; cartPrimary.textContent='Отправить заказ в WhatsApp';
+      cartNote.textContent='Заказ откроется в WhatsApp — останется отправить сообщение.';
+    } else {
+      checkout.hidden=true; cartItems.style.display='block'; cartBack.hidden=true;
+      cartTitle.textContent='Корзина'; cartPrimary.textContent='Оформить заказ';
+      cartNote.textContent='Заказ придёт нам в WhatsApp — подтвердим состав и согласуем доставку.';
+    }
+    renderCart();
+  }
+
+  function submitOrder(){
+    var name=document.getElementById('c-name').value.trim();
+    var phone=document.getElementById('c-phone').value.trim();
+    if(!name || !phone){ toast('Заполните имя и телефон'); (!name?document.getElementById('c-name'):document.getElementById('c-phone')).focus(); return; }
+    var ship=document.querySelector('input[name=ship]:checked').value;
+    var addr=document.getElementById('c-addr').value.trim();
+    var when=document.getElementById('c-when').value.trim();
+    var note=document.getElementById('c-note').value.trim();
+    var lines=Object.keys(CART).map(function(id){ var p=BYID[id]; return '• '+p.n+' ×'+CART[id]+' — '+rub(p.pr*CART[id]); });
+    var msg='🌸 Новый заказ — Студия цветов Марии И.\n————————————\n'+lines.join('\n')
+      +'\n————————————\nИтого: '+rub(cartTotal())
+      +'\n\n👤 Имя: '+name+'\n📞 Телефон: '+phone
+      +'\n📦 '+ship+(ship==='Доставка'&&addr?': '+addr:'')
+      +(when?'\n🕒 Когда: '+when:'')+(note?'\n💬 Комментарий: '+note:'');
+    window.open(WA+'?text='+encodeURIComponent(msg), '_blank');
+    toast('Заказ отправлен в WhatsApp');
+  }
+
+  /* переключение поля адреса */
+  document.querySelectorAll('input[name=ship]').forEach(function(r){
+    r.addEventListener('change', function(){ document.getElementById('addr-field').style.display = (document.querySelector('input[name=ship]:checked').value==='Доставка')?'block':'none'; });
   });
+
+  /* ---------- События ---------- */
+  filtersEl.addEventListener('click', function(e){
+    var b=e.target.closest('[data-cat]'); if(!b) return;
+    activeCat=b.getAttribute('data-cat'); renderFilters(); renderGrid();
+  });
+  grid.addEventListener('click', function(e){
+    var add=e.target.closest('[data-add]'), inc=e.target.closest('[data-inc]'), dec=e.target.closest('[data-dec]'), zoom=e.target.closest('[data-zoom]');
+    if(add){ addItem(add.getAttribute('data-add')); return; }
+    if(inc){ var i=inc.getAttribute('data-inc'); setQty(i,(CART[i]||0)+1); return; }
+    if(dec){ var d=dec.getAttribute('data-dec'); setQty(d,(CART[d]||0)-1); return; }
+    if(zoom){ openLb(zoom.getAttribute('data-zoom')); }
+  });
+  cartItems.addEventListener('click', function(e){
+    var inc=e.target.closest('[data-inc]'), dec=e.target.closest('[data-dec]'), rm=e.target.closest('[data-rm]');
+    if(inc){ var i=inc.getAttribute('data-inc'); setQty(i,(CART[i]||0)+1); }
+    else if(dec){ var d=dec.getAttribute('data-dec'); setQty(d,(CART[d]||0)-1); }
+    else if(rm){ setQty(rm.getAttribute('data-rm'),0); }
+  });
+  document.getElementById('open-cart').addEventListener('click', openCart);
+  document.getElementById('cart-x').addEventListener('click', closeCart);
+  cartOv.addEventListener('click', closeCart);
+  cartBack.addEventListener('click', function(){ goStep('items'); });
+  cartPrimary.addEventListener('click', function(){
+    if(!cartCount()){ toast('Корзина пуста'); return; }
+    if(step==='items') goStep('checkout'); else submitOrder();
+  });
+
+  /* ---------- Тост ---------- */
+  var toastEl=document.getElementById('toast'), toastMsg=document.getElementById('toast-msg'), toastT;
+  function toast(m){ toastMsg.textContent=m; toastEl.classList.add('show'); clearTimeout(toastT); toastT=setTimeout(function(){ toastEl.classList.remove('show'); },2200); }
+
+  /* ---------- Форма «собрать по идее» → WhatsApp ---------- */
+  var lead=document.getElementById('lead-form');
+  lead.addEventListener('submit', function(e){
+    e.preventDefault();
+    var text='Здравствуйте! Хочу собрать букет в Студии цветов Марии И.\nИмя: '+lead.name.value.trim()
+      +'\nТелефон: '+lead.phone.value.trim()+(lead.msg.value.trim()?'\nПожелания: '+lead.msg.value.trim():'');
+    window.open(WA+'?text='+encodeURIComponent(text), '_blank');
+  });
+
+  /* WhatsApp-ссылки с текстом по умолчанию */
+  var waText=encodeURIComponent('Здравствуйте! Пишу со студии цветов Марии И.');
+  document.querySelectorAll('[data-wa]').forEach(function(a){ a.href=WA+'?text='+waText; });
+
+  /* ---------- Лайтбокс ---------- */
+  var lb=document.getElementById('lb'), lbImg=document.getElementById('lb-img'), zoomList=[], zi=0;
+  function buildZoomList(){ zoomList=Array.prototype.map.call(document.querySelectorAll('#shop-grid [data-zoom]'), function(el){ return el.getAttribute('data-zoom'); }); }
+  function openLb(src){ zi=Math.max(0,zoomList.indexOf(src)); lbImg.src=src; lb.classList.add('open'); lb.setAttribute('aria-hidden','false'); }
+  function closeLb(){ lb.classList.remove('open'); lb.setAttribute('aria-hidden','true'); }
+  function stepLb(d){ if(!zoomList.length) return; zi=(zi+d+zoomList.length)%zoomList.length; lbImg.src=zoomList[zi]; }
+  document.getElementById('lb-close').addEventListener('click', closeLb);
+  document.getElementById('lb-next').addEventListener('click', function(e){ e.stopPropagation(); stepLb(1); });
+  document.getElementById('lb-prev').addEventListener('click', function(e){ e.stopPropagation(); stepLb(-1); });
+  lb.addEventListener('click', function(e){ if(e.target===lb) closeLb(); });
+  document.addEventListener('keydown', function(e){
+    if(e.key==='Escape'){ if(lb.classList.contains('open')) closeLb(); else if(cart.classList.contains('open')) closeCart(); }
+    if(lb.classList.contains('open')){ if(e.key==='ArrowRight') stepLb(1); if(e.key==='ArrowLeft') stepLb(-1); }
+  });
+
+  /* ---------- Плавное появление ---------- */
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(en){ en.forEach(function(x){ if(x.isIntersecting){ x.target.classList.add('in'); io.unobserve(x.target); } }); }, {rootMargin:'0px 0px -8% 0px', threshold:0.08});
+    document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+  } else { document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('in'); }); }
+
+  /* ---------- Старт ---------- */
+  renderFilters(); renderGrid(); syncAll();
 </script>
 </body>
 </html>
