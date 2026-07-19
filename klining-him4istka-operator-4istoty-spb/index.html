@@ -4,15 +4,15 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Клининг | Химчистка - «Оператор чистоты» СПБ — Санкт-Петербург</title>
-<meta name="description" content="Профессиональный клининг квартир, офисов и домов по СПБ">
+<meta name="description" content="Профессиональный клининг квартир, домов и офисов по СПБ и области">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Чистый дом за 24 часа — Клининг | Химчистка - «Оператор чистоты» СПБ">
-<meta property="og:description" content="Профессиональный клининг квартир, офисов и домов по СПБ">
+<meta property="og:description" content="Профессиональный клининг квартир, домов и офисов по СПБ и области">
 <meta property="og:image" content="assets/cover.jpg">
-<meta name="theme-color" content="#137a6e">
+<meta name="theme-color" content="#74c59f">
 <style>
 :root{
-  --accent:#137a6e;
+  --accent:#74c59f;
   --ink:#101216; --ink-soft:#565d68; --line:#e6e3dd;
   --bg:#faf9f6; --dark:#101216;
   --on-accent:#fff;
@@ -62,6 +62,9 @@ header.solid{background:rgba(16,18,22,.9);backdrop-filter:blur(14px);color:#fff}
   font-size:clamp(46px,8.6vw,118px);margin:22px 0 0;max-width:12ch}
 .hero .sub{font-size:clamp(17px,1.8vw,22px);margin-top:22px;max-width:52ch;color:color-mix(in srgb,#fff 88%,var(--accent))}
 .hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin:34px 0 0}
+.ptag{display:inline-flex;align-items:center;gap:10px;margin-top:26px;padding:10px 20px;border-radius:100px;
+  background:rgba(255,255,255,.14);border:1.5px solid rgba(255,255,255,.4);font-weight:800;font-size:15px;backdrop-filter:blur(6px)}
+.ptag::before{content:"₽";display:grid;place-items:center;width:24px;height:24px;border-radius:50%;background:#fff;color:var(--accent);font-size:14px}
 .hero-foot{margin-top:64px;border-top:1px solid rgba(255,255,255,.25)}
 /* бегущая строка УТП */
 .marq{overflow:hidden;white-space:nowrap;padding:18px 0}
@@ -120,6 +123,16 @@ header.solid{background:rgba(16,18,22,.9);backdrop-filter:blur(14px);color:#fff}
 .wgrid a:nth-child(3n+2){transform:translateY(22px)}
 .wgrid img{width:100%;height:100%;object-fit:cover;transition:.55s}
 .wgrid a:hover img{transform:scale(1.07)}
+
+/* ── ОТЗЫВЫ (реальные, из ВК) ── */
+.rev{background:var(--bg);padding-bottom:clamp(70px,9vw,120px)}
+.rev-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
+.rev-card{background:#fff;border:2px solid var(--ink);border-radius:22px;padding:30px 28px;position:relative;
+  box-shadow:8px 8px 0 var(--accent);transition:.3s}
+.rev-card:hover{transform:translate(-3px,-3px);box-shadow:12px 12px 0 var(--accent)}
+.rev-card .stars{color:var(--accent);font-size:17px;letter-spacing:3px}
+.rev-card p{margin-top:14px;font-size:15.5px;line-height:1.55;font-weight:500}
+.rev-card .src{margin-top:16px;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);font-weight:800}
 
 /* ── FAQ ── */
 .faq{background:#f1efe9;padding:clamp(70px,9vw,120px) 0}
@@ -203,16 +216,17 @@ footer{background:var(--dark);color:#b9bec7;padding:50px 0 38px;font-size:14px}
   <div class="wrap hero-in rv">
     <span class="hero-city">Клининг · Санкт-Петербург</span>
     <h1>Чистый дом за 24 часа</h1>
-    <p class="sub">Профессиональный клининг квартир, офисов и домов по СПБ</p>
+    <p class="sub">Профессиональный клининг квартир, домов и офисов по СПБ и области</p>
     <div class="hero-actions">
       <a class="btn btn-dark" href="#zayavka">Оставить заявку</a>
       <a class="btn btn-white" href="tel:+79995245163">☎ +7 (999) 524-51-63</a>
     </div>
+    
   </div>
   <div class="hero-foot">
     <div class="marq"><div class="marq-in">
       
-      <span><span class="st">✦</span>Работаем 24/7</span><span><span class="st">✦</span>Быстро и недорого</span><span><span class="st">✦</span>Опытные мастера</span><span><span class="st">✦</span>По СПБ и области</span><span><span class="st">✦</span>Работаем 24/7</span><span><span class="st">✦</span>Быстро и недорого</span><span><span class="st">✦</span>Опытные мастера</span><span><span class="st">✦</span>По СПБ и области</span><span><span class="st">✦</span>Работаем 24/7</span><span><span class="st">✦</span>Быстро и недорого</span><span><span class="st">✦</span>Опытные мастера</span><span><span class="st">✦</span>По СПБ и области</span><span><span class="st">✦</span>Работаем 24/7</span><span><span class="st">✦</span>Быстро и недорого</span><span><span class="st">✦</span>Опытные мастера</span><span><span class="st">✦</span>По СПБ и области</span>
+      <span><span class="st">✦</span>Работаем 24/7</span><span><span class="st">✦</span>Свои средства и инструменты</span><span><span class="st">✦</span>Опыт 8+ лет</span><span><span class="st">✦</span>Быстро и недорого</span><span><span class="st">✦</span>Работаем 24/7</span><span><span class="st">✦</span>Свои средства и инструменты</span><span><span class="st">✦</span>Опыт 8+ лет</span><span><span class="st">✦</span>Быстро и недорого</span><span><span class="st">✦</span>Работаем 24/7</span><span><span class="st">✦</span>Свои средства и инструменты</span><span><span class="st">✦</span>Опыт 8+ лет</span><span><span class="st">✦</span>Быстро и недорого</span><span><span class="st">✦</span>Работаем 24/7</span><span><span class="st">✦</span>Свои средства и инструменты</span><span><span class="st">✦</span>Опыт 8+ лет</span><span><span class="st">✦</span>Быстро и недорого</span>
     </div></div>
   </div>
 </section>
@@ -235,37 +249,37 @@ footer{background:var(--dark);color:#b9bec7;padding:50px 0 38px;font-size:14px}
       
       <div class="svc-row rv" style="transition-delay:0ms">
         <span class="idx">01</span>
-        <div><h3>Уборка квартир и домов</h3><p>Полная влажная уборка всех помещений до идеальной чистоты</p></div>
+        <div><h3>Генеральная уборка</h3><p>Полная чистка квартир, домов и офисов со всеми поверхностями</p></div>
         <span class="arr">→</span>
       </div>
       
       <div class="svc-row rv" style="transition-delay:40ms">
         <span class="idx">02</span>
-        <div><h3>Уборка после ремонта</h3><p>Избавим от пыли, грязи и строительного мусора за один день</p></div>
+        <div><h3>Уборка после ремонта</h3><p>Удаляем пыль, грязь и строительные остатки со всех поверхностей</p></div>
         <span class="arr">→</span>
       </div>
       
       <div class="svc-row rv" style="transition-delay:80ms">
         <span class="idx">03</span>
-        <div><h3>Чистка мебели и ковров</h3><p>Вернём мягкой мебели и коврам первоначальный вид и свежесть</p></div>
+        <div><h3>Мойка окон и лоджий</h3><p>Тщательная очистка стекла и рам без разводов и грязи</p></div>
         <span class="arr">→</span>
       </div>
       
       <div class="svc-row rv" style="transition-delay:120ms">
         <span class="idx">04</span>
-        <div><h3>Мойка окон и лоджий</h3><p>Идеально чистые окна без разводов и грязи на стёклах</p></div>
+        <div><h3>Чистка мебели и ковров</h3><p>Влажная и сухая уборка мягкой мебели, ковров, избавляем от пятен</p></div>
         <span class="arr">→</span>
       </div>
       
       <div class="svc-row rv" style="transition-delay:160ms">
         <span class="idx">05</span>
-        <div><h3>Уборка офисов</h3><p>Поддерживаем чистоту рабочего пространства для продуктивности</p></div>
+        <div><h3>Дополнительные услуги</h3><p>Мытье духовки, холодильника, стиральной машины, глажка белья</p></div>
         <span class="arr">→</span>
       </div>
       
       <div class="svc-row rv" style="transition-delay:200ms">
         <span class="idx">06</span>
-        <div><h3>Глажка белья</h3><p>Качественная глажка вещей с доставкой в удобное время</p></div>
+        <div><h3>Уборка санузлов и кухни</h3><p>Удаляем жирные пятна, известковый налет, отмываем до блеска</p></div>
         <span class="arr">→</span>
       </div>
       
@@ -283,25 +297,25 @@ footer{background:var(--dark);color:#b9bec7;padding:50px 0 38px;font-size:14px}
       <div class="stp rv" style="transition-delay:0ms">
         <b>01</b>
         <h3>Оставьте заявку</h3>
-        <p>Опишите объём работ и удобное время для визита</p>
+        <p>Напишите нам в ВК или позвоните, опишите объем работ</p>
       </div>
       
       <div class="stp rv" style="transition-delay:70ms">
         <b>02</b>
         <h3>Согласуем детали</h3>
-        <p>Уточним стоимость и подберём оптимальный способ уборки</p>
+        <p>Уточним площадь, тип загрязнений, подберем оптимальное время</p>
       </div>
       
       <div class="stp rv" style="transition-delay:140ms">
         <b>03</b>
-        <h3>Приедем и уберём</h3>
-        <p>Мастера выполнят работу профессионально и аккуратно</p>
+        <h3>Приезжаем и убираем</h3>
+        <p>Наша команда приносит свои средства и инструменты, работает профессионально</p>
       </div>
       
       <div class="stp rv" style="transition-delay:210ms">
         <b>04</b>
-        <h3>Получите результат</h3>
-        <p>Сияющая чистота в доме и ваша полная удовлетворённость</p>
+        <h3>Получаете чистоту</h3>
+        <p>Дом сияет чистотой, вы довольны результатом и рекомендуете нас друзьям</p>
       </div>
       
     </div>
@@ -323,7 +337,36 @@ footer{background:var(--dark);color:#b9bec7;padding:50px 0 38px;font-size:14px}
   <div class="wrap">
     <div class="sec-cap rv"><span class="n">03</span><h2>Наши работы</h2></div>
     <div class="wgrid rv">
-      <a href="assets/g0.jpg" target="_blank"><img src="assets/g0.jpg" alt="работа 1" loading="lazy"></a><a href="assets/g1.jpg" target="_blank"><img src="assets/g1.jpg" alt="работа 2" loading="lazy"></a><a href="assets/g2.jpg" target="_blank"><img src="assets/g2.jpg" alt="работа 3" loading="lazy"></a><a href="assets/g3.jpg" target="_blank"><img src="assets/g3.jpg" alt="работа 4" loading="lazy"></a><a href="assets/g4.jpg" target="_blank"><img src="assets/g4.jpg" alt="работа 5" loading="lazy"></a><a href="assets/g5.jpg" target="_blank"><img src="assets/g5.jpg" alt="работа 6" loading="lazy"></a>
+      <a href="assets/g6.jpg" target="_blank"><img src="assets/g6.jpg" alt="работа 1" loading="lazy"></a><a href="assets/g11.jpg" target="_blank"><img src="assets/g11.jpg" alt="работа 2" loading="lazy"></a><a href="assets/g2.jpg" target="_blank"><img src="assets/g2.jpg" alt="работа 3" loading="lazy"></a><a href="assets/g1.jpg" target="_blank"><img src="assets/g1.jpg" alt="работа 4" loading="lazy"></a><a href="assets/g7.jpg" target="_blank"><img src="assets/g7.jpg" alt="работа 5" loading="lazy"></a><a href="assets/g0.jpg" target="_blank"><img src="assets/g0.jpg" alt="работа 6" loading="lazy"></a>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="rev">
+  <div class="wrap">
+    <div class="sec-cap rv"><span class="n">✦</span><h2>Отзывы клиентов</h2></div>
+    <div class="rev-grid">
+      
+      <div class="rev-card rv" style="transition-delay:0ms">
+        <div class="stars">★★★★★</div>
+        <p>«Сегодня ко мне приезжала фея чистоты и такой чистой кухни я еще не видела! Заказала генеральную уборку кухни и Анастасия справилась великолепно. Кухня как новая, очень круто получилось!»</p>
+        <div class="src">Отзыв из ВКонтакте</div>
+      </div>
+      
+      <div class="rev-card rv" style="transition-delay:60ms">
+        <div class="stars">★★★★★</div>
+        <p>«Заказала уборку студии в новом доме — результат огонь! Все отмыто идеально, плитка в санузле была вся в строительных смесях, но теперь сияет. Рекомендую!»</p>
+        <div class="src">Отзыв из ВКонтакте</div>
+      </div>
+      
+      <div class="rev-card rv" style="transition-delay:120ms">
+        <div class="stars">★★★★★</div>
+        <p>«Заказывала уборку кухни и ванной. Как сориентировали по времени, так и вышло. Приходят со своими тряпками и средствами. Все чисто, спасибо!»</p>
+        <div class="src">Отзыв из ВКонтакте</div>
+      </div>
+      
     </div>
   </div>
 </section>
@@ -336,18 +379,18 @@ footer{background:var(--dark);color:#b9bec7;padding:50px 0 38px;font-size:14px}
     <div class="faq-list rv">
       
       <details class="qa" open>
-        <summary>Можете приехать срочно?<span class="pl">+</span></summary>
-        <div class="ans">Да, работаем 24 часа в сутки по Санкт-Петербургу и Ленинградской области. Позвоните или напишите — приедем в удобное вам время.</div>
+        <summary>Вы приносите свои средства и инструменты?<span class="pl">+</span></summary>
+        <div class="ans">Да, приходим со своими тряпками, швабрами и профессиональной химией. Вам ничего не нужно готовить.</div>
       </details>
       
       <details class="qa">
-        <summary>Какие средства вы используете?<span class="pl">+</span></summary>
-        <div class="ans">Только профессиональные и безопасные средства. Наши мастера определяют тип загрязнения и подбирают оптимальный способ очистки для каждой поверхности.</div>
+        <summary>Как быстро вы можете приехать?<span class="pl">+</span></summary>
+        <div class="ans">Работаем 24/7 по СПБ и Ленинградской области. Можем приехать в день обращения в удобное для вас время.</div>
       </details>
       
       <details class="qa">
-        <summary>Сколько стоит уборка?<span class="pl">+</span></summary>
-        <div class="ans">Цена зависит от объёма и типа помещения. Позвоните нам — рассчитаем стоимость бесплатно и без скрытых платежей.</div>
+        <summary>Справитесь ли вы с застарелыми пятнами и налетом?<span class="pl">+</span></summary>
+        <div class="ans">Да, наши мастера определяют тип загрязнения и подбирают нужное средство. Отмываем жирные пятна, известковый налет, строительную грязь.</div>
       </details>
       
     </div>
