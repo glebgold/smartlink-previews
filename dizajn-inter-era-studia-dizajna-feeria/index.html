@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Дизайн интерьера • Студия дизайна FEERIA — Москва</title>
-<meta name="description" content="Полный проект с чертежами, 3D и авторским надзором — фиксированная цена по договору">
+<meta name="description" content="Дизайн-проект, чертежи, визуализация и авторский надзор для вашей квартиры в Москве">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Интерьер под ключ за 40 дней — Дизайн интерьера • Студия дизайна FEERIA">
-<meta property="og:description" content="Полный проект с чертежами, 3D и авторским надзором — фиксированная цена по договору">
+<meta property="og:description" content="Дизайн-проект, чертежи, визуализация и авторский надзор для вашей квартиры в Москве">
 <meta property="og:image" content="assets/cover.jpg">
 <meta name="theme-color" content="#64aba3">
 <style>
@@ -66,7 +66,11 @@ header.solid{background:rgba(255,255,255,.9);backdrop-filter:blur(12px);box-shad
 /* траст-панель справа (без зависимости от качества их фото — всегда премиум) */
 .hero-media{position:relative}
 .tcard{background:#fff;border:1px solid var(--line);border-radius:24px;padding:32px 32px 30px;box-shadow:var(--shadow);position:relative;overflow:hidden}
-.tcard::before{content:"";position:absolute;left:0;top:0;right:0;height:5px;background:var(--accent)}
+.tcard::before{content:"";position:absolute;left:0;top:0;right:0;height:5px;background:var(--accent);z-index:2}
+/* фото-обложка карточки: живой кадр бизнеса над цифрами (ставит арт-директор по содержимому) */
+.tphoto{margin:-32px -32px 24px;height:210px;overflow:hidden;position:relative}
+.tphoto img{width:100%;height:100%;object-fit:cover}
+.tphoto::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(255,255,255,.9) 96%,#fff 100%)}
 .tcard-top{display:flex;align-items:center;gap:14px}
 .tcard-top img,.tcard-top .mk{height:54px;width:54px;border-radius:15px;object-fit:cover;flex:none;box-shadow:0 0 0 1px var(--line)}
 .tcard-top .mk{display:grid;place-items:center;background:var(--accent);color:#fff;font-weight:850;font-size:23px}
@@ -238,7 +242,7 @@ footer{background:var(--ink);color:#c5c8cf;padding:52px 0 38px;font-size:14px}
     <div class="hero-copy rv">
       <span class="h-badge"><b>✓</b> Дизайн-студия · Москва</span>
       <h1>Интерьер под ключ за 40 дней</h1>
-      <p class="sub">Полный проект с чертежами, 3D и авторским надзором — фиксированная цена по договору</p>
+      <p class="sub">Дизайн-проект, чертежи, визуализация и авторский надзор для вашей квартиры в Москве</p>
       <div class="hero-actions">
         <a class="btn btn-accent" href="#zayavka">Получить консультацию</a>
         
@@ -251,6 +255,7 @@ footer{background:var(--ink);color:#c5c8cf;padding:52px 0 38px;font-size:14px}
     </div>
     <div class="hero-media rv">
       <div class="tcard">
+        <div class="tphoto"><img src="assets/g6.jpg" alt="Дизайн интерьера • Студия дизайна FEERIA"></div>
         <div class="tcard-top">
           <img src="assets/logo.jpg" alt="Дизайн интерьера • Студия дизайна FEERIA">
           <div><b>Дизайн интерьера • Студия дизайна FEERIA</b><small>Дизайн-студия · Москва</small></div>
@@ -380,7 +385,7 @@ footer{background:var(--ink);color:#c5c8cf;padding:52px 0 38px;font-size:14px}
       <h2>Результат, который видно</h2>
     </div>
     <div class="wgal rv">
-      <a href="assets/g4.jpg" target="_blank"><img src="assets/g4.jpg" alt="работа 1" loading="lazy"></a><a href="assets/g18.jpg" target="_blank"><img src="assets/g18.jpg" alt="работа 2" loading="lazy"></a><a href="assets/g19.jpg" target="_blank"><img src="assets/g19.jpg" alt="работа 3" loading="lazy"></a><a href="assets/g6.jpg" target="_blank"><img src="assets/g6.jpg" alt="работа 4" loading="lazy"></a><a href="assets/g21.jpg" target="_blank"><img src="assets/g21.jpg" alt="работа 5" loading="lazy"></a><a href="assets/g12.jpg" target="_blank"><img src="assets/g12.jpg" alt="работа 6" loading="lazy"></a>
+      <a href="assets/g6.jpg" target="_blank"><img src="assets/g6.jpg" alt="работа 1" loading="lazy"></a><a href="assets/g4.jpg" target="_blank"><img src="assets/g4.jpg" alt="работа 2" loading="lazy"></a><a href="assets/g18.jpg" target="_blank"><img src="assets/g18.jpg" alt="работа 3" loading="lazy"></a><a href="assets/g19.jpg" target="_blank"><img src="assets/g19.jpg" alt="работа 4" loading="lazy"></a><a href="assets/g21.jpg" target="_blank"><img src="assets/g21.jpg" alt="работа 5" loading="lazy"></a><a href="assets/g12.jpg" target="_blank"><img src="assets/g12.jpg" alt="работа 6" loading="lazy"></a>
     </div>
   </div>
 </section>
