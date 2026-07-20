@@ -1,0 +1,463 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Тату СПб | Олеся Грейвошик — Санкт-Петербург</title>
+<meta name="description" content="Графика, реализм и гравюра — адаптирую каждый эскиз под ваше тело в Петербурге">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Тату, которое создано для тебя — Тату СПб | Олеся Грейвошик">
+<meta property="og:description" content="Графика, реализм и гравюра — адаптирую каждый эскиз под ваше тело в Петербурге">
+<meta property="og:image" content="assets/cover.jpg">
+<meta name="theme-color" content="#7500e9">
+<style>
+:root{
+  --accent:#7500e9;
+  --ink:#101216; --ink-soft:#565d68; --line:#e6e3dd;
+  --bg:#faf9f6; --dark:#101216;
+  --on-accent:#fff;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  color:var(--ink);background:var(--bg);line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1240px;margin:0 auto;padding:0 28px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:17px 32px;border-radius:100px;
+  font-weight:800;font-size:16px;transition:.25s;cursor:pointer;border:0;letter-spacing:.01em;white-space:nowrap}
+.btn-dark{background:var(--dark);color:#fff}
+.btn-dark:hover{transform:translateY(-3px);box-shadow:0 18px 36px -16px rgba(0,0,0,.5)}
+.btn-white{background:#fff;color:var(--ink)}
+.btn-white:hover{transform:translateY(-3px);box-shadow:0 18px 36px -16px rgba(0,0,0,.35)}
+.btn-accent{background:var(--accent);color:var(--on-accent)}
+.btn-accent:hover{transform:translateY(-3px);box-shadow:0 18px 40px -14px var(--accent)}
+
+/* ── header поверх акцентного героя ── */
+header{position:fixed;top:0;left:0;right:0;z-index:50;transition:.3s;color:#fff}
+.hd{display:flex;align-items:center;justify-content:space-between;height:76px}
+.brand{display:flex;align-items:center;gap:12px;font-weight:850}
+.brand img{height:42px;width:42px;border-radius:12px;object-fit:cover;background:#fff;box-shadow:0 0 0 2px rgba(255,255,255,.35)}
+.brand .mark{height:42px;width:42px;border-radius:12px;display:grid;place-items:center;background:#fff;color:var(--accent);font-weight:850;font-size:20px}
+.brand b{font-size:16px;line-height:1.15;max-width:250px}
+header.solid{background:rgba(16,18,22,.9);backdrop-filter:blur(14px);color:#fff}
+.nav-cta{padding:11px 22px;border-radius:100px;background:#fff;color:var(--ink);font-weight:800;font-size:14px;transition:.25s;white-space:nowrap}
+.nav-cta:hover{transform:translateY(-2px)}
+
+/* ── АКЦЕНТНЫЙ ГЕРОЙ-ПОСТЕР ── */
+.hero{position:relative;min-height:96svh;display:flex;flex-direction:column;justify-content:flex-end;
+  background:
+    radial-gradient(1000px 600px at 85% -10%,color-mix(in srgb,#fff 22%,transparent),transparent 55%),
+    radial-gradient(800px 500px at -5% 110%,color-mix(in srgb,#000 26%,transparent),transparent 60%),
+    var(--accent);
+  color:var(--on-accent);overflow:hidden}
+.hero-deco{position:absolute;right:-120px;top:-120px;width:520px;height:520px;border-radius:50%;
+  border:2px dashed rgba(255,255,255,.28);animation:spin 60s linear infinite}
+.hero-deco::after{content:"";position:absolute;inset:70px;border-radius:50%;border:2px solid rgba(255,255,255,.16)}
+@keyframes spin{to{transform:rotate(360deg)}}
+.hero-in{padding:130px 0 0}
+/* герой с ФОТО: сплит, справа кадр в большой арке (ставится только если арт-директор
+   нашёл достойное фото по содержимому; иначе — чистый типографический постер) */
+.hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:48px;align-items:center}
+.hero-grid h1{font-size:clamp(40px,6vw,84px)}
+.hero-ph{position:relative;justify-self:end;width:min(100%,430px)}
+.hero-ph .arch{aspect-ratio:3/4;border-radius:999px 999px 30px 30px;overflow:hidden;
+  box-shadow:0 0 0 9px rgba(255,255,255,.16),0 46px 90px -38px rgba(0,0,0,.55)}
+.hero-ph .arch img{width:100%;height:100%;object-fit:cover}
+.hero-ph .tag{position:absolute;left:-16px;bottom:24px;display:flex;align-items:center;gap:10px;
+  background:#fff;color:var(--ink);border-radius:14px;padding:12px 16px;max-width:250px;
+  box-shadow:0 22px 44px -18px rgba(0,0,0,.5);font-weight:800;font-size:13.5px;line-height:1.3}
+.hero-ph .tag .ic{display:grid;place-items:center;width:34px;height:34px;border-radius:10px;flex:none;
+  background:color-mix(in srgb,var(--accent) 16%,#fff);color:var(--accent);font-size:17px}
+.hero-city{display:inline-flex;align-items:center;gap:10px;font-size:14px;font-weight:800;letter-spacing:.22em;text-transform:uppercase;opacity:.9}
+.hero-city::before{content:"";width:34px;height:2px;background:#fff;display:inline-block}
+.hero h1{font-weight:800;letter-spacing:-.03em;line-height:1.02;text-transform:uppercase;
+  font-size:clamp(44px,8.2vw,112px);margin:22px 0 0;max-width:12ch}
+.hero .sub{font-size:clamp(17px,1.8vw,22px);margin-top:22px;max-width:52ch;color:color-mix(in srgb,#fff 88%,var(--accent))}
+.hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin:34px 0 0}
+.ptag{display:inline-flex;align-items:center;gap:10px;margin-top:26px;padding:10px 20px;border-radius:100px;
+  background:rgba(255,255,255,.14);border:1.5px solid rgba(255,255,255,.4);font-weight:800;font-size:15px;backdrop-filter:blur(6px)}
+.ptag::before{content:"₽";display:grid;place-items:center;width:24px;height:24px;border-radius:50%;background:#fff;color:var(--accent);font-size:14px}
+.hero-foot{margin-top:64px;border-top:1px solid rgba(255,255,255,.25)}
+/* бегущая строка УТП */
+.marq{overflow:hidden;white-space:nowrap;padding:18px 0}
+.marq-in{display:inline-block;animation:mq 26s linear infinite}
+.marq span{display:inline-flex;align-items:center;gap:14px;margin-right:46px;font-weight:800;font-size:15px;
+  letter-spacing:.12em;text-transform:uppercase}
+.marq .st{font-size:19px}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+/* ── ЦИФРЫ-ПЛАКАТ ── */
+.stats{background:var(--bg);padding:clamp(64px,8vw,104px) 0}
+.stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.stat b{display:block;font-weight:900;letter-spacing:-.04em;line-height:.9;font-size:clamp(52px,7vw,96px);color:var(--ink)}
+.stat b em{font-style:normal;color:var(--accent)}
+.stat span{display:block;margin-top:10px;font-size:15px;color:var(--ink-soft);font-weight:600;max-width:24ch}
+.stat{padding-top:22px;border-top:3px solid var(--ink)}
+
+/* ── УСЛУГИ строками ── */
+.svc{background:var(--bg);padding-bottom:clamp(70px,9vw,120px)}
+.sec-cap{display:flex;align-items:baseline;gap:18px;margin-bottom:40px}
+.sec-cap .n{font-weight:900;font-size:15px;color:var(--accent);letter-spacing:.08em}
+.sec-cap h2{font-weight:900;letter-spacing:-.03em;text-transform:uppercase;font-size:clamp(30px,4.6vw,56px);line-height:.98}
+.svc-row{display:grid;grid-template-columns:64px 1fr auto;gap:20px;align-items:center;
+  padding:26px 6px;border-top:1px solid var(--line);transition:.3s;position:relative}
+.svc-row:last-child{border-bottom:1px solid var(--line)}
+.svc-row .idx{font-weight:900;font-size:15px;color:var(--ink-soft)}
+.svc-row h3{font-weight:850;font-size:clamp(19px,2.4vw,27px);letter-spacing:-.015em;transition:.3s}
+.svc-row p{grid-column:2;color:var(--ink-soft);font-size:15px;max-width:60ch;margin-top:2px}
+.svc-row .arr{display:grid;place-items:center;width:46px;height:46px;border-radius:50%;border:1.5px solid var(--line);
+  font-size:18px;transition:.3s;grid-row:span 2}
+.svc-row:hover{background:#fff;padding-left:18px}
+.svc-row:hover h3{color:var(--accent)}
+.svc-row:hover .arr{background:var(--accent);border-color:var(--accent);color:#fff;transform:rotate(-45deg)}
+
+/* ── ШАГИ лентой ── */
+.steps{background:var(--dark);color:#fff;padding:clamp(70px,9vw,120px) 0}
+.steps .sec-cap h2{color:#fff}
+.steps-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:26px;margin-top:14px}
+.stp b{display:block;font-weight:900;font-size:clamp(44px,5vw,72px);line-height:.9;letter-spacing:-.04em;
+  color:transparent;-webkit-text-stroke:2px var(--accent)}
+.stp h3{font-size:18px;font-weight:800;margin-top:16px}
+.stp p{color:#9aa1ac;font-size:14.5px;margin-top:7px}
+
+/* ── ГАРАНТИЯ-ПЛАКАТ ── */
+.guar{background:var(--bg);padding:clamp(70px,9vw,120px) 0;text-align:center}
+.guar .badge{display:inline-grid;place-items:center;width:74px;height:74px;border-radius:50%;background:var(--accent);
+  color:#fff;font-size:32px;margin-bottom:26px;box-shadow:0 20px 44px -18px var(--accent)}
+.guar h2{font-weight:900;letter-spacing:-.03em;font-size:clamp(28px,4.4vw,54px);line-height:1.03;max-width:22ch;margin:0 auto}
+.guar p{color:var(--ink-soft);font-size:17px;margin-top:18px}
+.guar .btn{margin-top:30px}
+
+/* ── РАБОТЫ мозаикой ── */
+.works{background:var(--bg);padding-bottom:clamp(70px,9vw,120px)}
+.wgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.wgrid a{border-radius:18px;overflow:hidden;aspect-ratio:4/3;background:#eee;display:block}
+.wgrid a:nth-child(3n+2){transform:translateY(22px)}
+.wgrid img{width:100%;height:100%;object-fit:cover;transition:.55s}
+.wgrid a:hover img{transform:scale(1.07)}
+
+/* ── ОТЗЫВЫ (реальные, из ВК) ── */
+.rev{background:var(--bg);padding-bottom:clamp(70px,9vw,120px)}
+.rev-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
+.rev-card{background:#fff;border:2px solid var(--ink);border-radius:22px;padding:30px 28px;position:relative;
+  box-shadow:8px 8px 0 var(--accent);transition:.3s}
+.rev-card:hover{transform:translate(-3px,-3px);box-shadow:12px 12px 0 var(--accent)}
+.rev-card .stars{color:var(--accent);font-size:17px;letter-spacing:3px}
+.rev-card p{margin-top:14px;font-size:15.5px;line-height:1.55;font-weight:500}
+.rev-card .src{margin-top:16px;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);font-weight:800}
+
+/* ── FAQ ── */
+.faq{background:#f1efe9;padding:clamp(70px,9vw,120px) 0}
+.faq-list{max-width:820px;margin-top:14px}
+.qa{border-top:1px solid var(--line);padding:4px 0}
+.qa:last-child{border-bottom:1px solid var(--line)}
+.qa summary{list-style:none;cursor:pointer;padding:22px 4px;font-weight:850;font-size:clamp(17px,2vw,21px);
+  display:flex;justify-content:space-between;align-items:center;gap:18px;letter-spacing:-.01em}
+.qa summary::-webkit-details-marker{display:none}
+.qa .pl{flex:none;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:var(--ink);color:#fff;font-weight:800;transition:.3s}
+.qa[open] .pl{transform:rotate(45deg);background:var(--accent)}
+.qa .ans{padding:0 4px 22px;color:var(--ink-soft);font-size:15.5px;max-width:64ch}
+
+/* ── ФОРМА на акценте ── */
+.lead{background:
+  radial-gradient(900px 500px at 90% -10%,color-mix(in srgb,#fff 20%,transparent),transparent 55%),
+  var(--accent);color:#fff;padding:clamp(70px,9vw,120px) 0}
+.lead-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+.lead h2{font-weight:900;text-transform:uppercase;letter-spacing:-.02em;font-size:clamp(30px,4.4vw,54px);line-height:.98}
+.lead .lp{margin-top:20px;font-size:17px;color:color-mix(in srgb,#fff 88%,var(--accent));max-width:44ch}
+.lead-points{list-style:none;margin:26px 0 0;display:grid;gap:12px}
+.lead-points li{display:flex;align-items:center;gap:13px;font-weight:700;font-size:15.5px}
+.lead-points .tk{display:grid;place-items:center;width:26px;height:26px;border-radius:50%;background:#fff;color:var(--accent);font-weight:900;font-size:14px;flex:none}
+.lead-form{background:#fff;border-radius:24px;padding:34px 32px;color:var(--ink);box-shadow:0 50px 100px -40px rgba(0,0,0,.55)}
+.lf-row{margin-bottom:15px}
+.lf-row label{display:block;font-size:13px;font-weight:800;margin-bottom:7px}
+.lf-row label span{color:#9aa0a8;font-weight:500}
+.lf-row input,.lf-row textarea{width:100%;border:2px solid var(--line);border-radius:14px;padding:14px 16px;font:inherit;font-size:15px;background:#faf9f6;transition:.2s;resize:vertical}
+.lf-row input:focus,.lf-row textarea:focus{outline:none;border-color:var(--accent);background:#fff;box-shadow:0 0 0 4px color-mix(in srgb,var(--accent) 16%,transparent)}
+.lf-btn{width:100%;margin-top:4px}
+.lf-note{display:block;text-align:center;color:#9aa0a8;font-size:12px;margin-top:12px}
+.lf-ok{display:none;background:color-mix(in srgb,var(--accent) 10%,#fff);border:1.5px solid var(--accent);border-radius:14px;padding:18px;text-align:center;font-weight:700}
+.lf-ok.show{display:block}
+
+/* footer */
+footer{background:var(--dark);color:#b9bec7;padding:50px 0 38px;font-size:14px}
+.ft{display:flex;flex-wrap:wrap;gap:26px;justify-content:space-between}
+.ft b{color:#fff;font-size:17px}
+.ft a:hover{color:#fff}
+.made{margin-top:32px;padding-top:18px;border-top:1px solid rgba(255,255,255,.12);opacity:.55;font-size:13px}
+
+/* mobile bar */
+.mbar{position:fixed;left:0;right:0;bottom:0;z-index:60;display:none;gap:10px;padding:12px 14px;
+  background:rgba(255,255,255,.96);backdrop-filter:blur(12px);border-top:1px solid var(--line)}
+.mbar a{flex:1;text-align:center;padding:14px;border-radius:14px;font-weight:800}
+.mbar .call{background:#f1efe9;color:var(--ink)}
+.mbar .go{background:var(--accent);color:#fff}
+
+.rv{opacity:0;transform:translateY(26px);transition:.7s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none}
+
+@media(max-width:900px){
+  .stats-grid{grid-template-columns:1fr 1fr}
+  .steps-grid{grid-template-columns:1fr 1fr;gap:34px 22px}
+  .wgrid{grid-template-columns:1fr 1fr}.wgrid a:nth-child(3n+2){transform:none}
+  .lead-grid{grid-template-columns:1fr;gap:36px}
+  .hero-grid{grid-template-columns:1fr;gap:34px}
+  .hero-ph{justify-self:center;width:min(100%,360px);margin-bottom:8px}
+}
+@media(max-width:820px){
+  .nav-cta{display:none}.mbar{display:flex}
+  .svc-row{grid-template-columns:44px 1fr}.svc-row .arr{display:none}
+  body{padding-bottom:76px}
+  /* кнопки в ряд, а не два жирных блока на всю ширину */
+  .hero-actions .btn{flex:1;min-width:145px;padding:15px 18px;font-size:15px}
+  .hero h1{font-size:clamp(38px,10vw,54px)}
+  .hero .sub{font-size:16.5px}
+  .ptag{font-size:13.5px;padding:9px 16px}
+  .marq span{font-size:13px;margin-right:30px}
+}
+</style>
+</head>
+<body>
+
+<header id="hdr">
+  <div class="wrap hd">
+    <a class="brand" href="#top">
+      <img src="assets/logo.jpg" alt="Тату СПб | Олеся Грейвошик">
+      <b>Тату СПб | Олеся Грейвошик</b>
+    </a>
+    <a class="nav-cta" href="#zayavka">Пройти тест и записаться</a>
+  </div>
+</header>
+
+<a id="top"></a>
+<section class="hero">
+  <div class="hero-deco"></div>
+  <div class="wrap hero-in rv">
+    <div class="hero-grid">
+      <div>
+        <span class="hero-city">Тату-салон · Санкт-Петербург</span>
+        <h1>Тату, которое создано для тебя</h1>
+        <p class="sub">Графика, реализм и гравюра — адаптирую каждый эскиз под ваше тело в Петербурге</p>
+        <div class="hero-actions">
+          <a class="btn btn-dark" href="#zayavka">Пройти тест и записаться</a>
+          
+        </div>
+        
+      </div>
+      
+      <div class="hero-ph">
+        <div class="arch"><img src="assets/g12.jpg" alt="Тату СПб | Олеся Грейвошик"></div>
+        <div class="tag"><span class="ic">🛡</span>Точная цена в договоре — никаких сюрпризов и переплат</div>
+      </div>
+      
+    </div>
+  </div>
+  <div class="hero-foot">
+    <div class="marq"><div class="marq-in">
+      
+      <span><span class="st">✦</span>Бесплатная примерка эскиза</span><span><span class="st">✦</span>Цена известна заранее</span><span><span class="st">✦</span>Адаптация под ваше тело</span><span><span class="st">✦</span>Собственные эскизы или ваши идеи</span><span><span class="st">✦</span>Бесплатная примерка эскиза</span><span><span class="st">✦</span>Цена известна заранее</span><span><span class="st">✦</span>Адаптация под ваше тело</span><span><span class="st">✦</span>Собственные эскизы или ваши идеи</span><span><span class="st">✦</span>Бесплатная примерка эскиза</span><span><span class="st">✦</span>Цена известна заранее</span><span><span class="st">✦</span>Адаптация под ваше тело</span><span><span class="st">✦</span>Собственные эскизы или ваши идеи</span><span><span class="st">✦</span>Бесплатная примерка эскиза</span><span><span class="st">✦</span>Цена известна заранее</span><span><span class="st">✦</span>Адаптация под ваше тело</span><span><span class="st">✦</span>Собственные эскизы или ваши идеи</span>
+    </div></div>
+  </div>
+</section>
+
+<section class="stats">
+  <div class="wrap stats-grid">
+    
+    <div class="stat rv"><b>110<em>+</em></b><span>клиентов и подписчиков нам доверяют</span></div>
+    
+    <div class="stat rv" style="transition-delay:70ms"><b>5<em>+</em></b><span>видов услуг под вашу задачу</span></div>
+    <div class="stat rv" style="transition-delay:140ms"><b>15<em> мин</em></b><span>перезвоним после заявки</span></div>
+  </div>
+</section>
+
+
+<section class="svc" id="services">
+  <div class="wrap">
+    <div class="sec-cap rv"><span class="n">01</span><h2>Что мы делаем</h2></div>
+    <div>
+      
+      <div class="svc-row rv" style="transition-delay:0ms">
+        <span class="idx">01</span>
+        <div><h3>Чёрно-белая графика</h3><p>Животные, насекомые, цветы — эффектно смотрятся и рассматриваются</p></div>
+        <span class="arr">→</span>
+      </div>
+      
+      <div class="svc-row rv" style="transition-delay:40ms">
+        <span class="idx">02</span>
+        <div><h3>Портреты и реализм</h3><p>Качественный рисунок, продуманное украшение на теле</p></div>
+        <span class="arr">→</span>
+      </div>
+      
+      <div class="svc-row rv" style="transition-delay:80ms">
+        <span class="idx">03</span>
+        <div><h3>Гравюра и детали</h3><p>Фактурные листья, сложные узоры, многосеансовые проекты</p></div>
+        <span class="arr">→</span>
+      </div>
+      
+      <div class="svc-row rv" style="transition-delay:120ms">
+        <span class="idx">04</span>
+        <div><h3>Консультация и эскиз</h3><p>Быстрая проработка идеи, примерка на месте, уточнение деталей</p></div>
+        <span class="arr">→</span>
+      </div>
+      
+      <div class="svc-row rv" style="transition-delay:160ms">
+        <span class="idx">05</span>
+        <div><h3>Многосеансовые работы</h3><p>Комфортный график, хороший отдых между сеансами, чёткие рекомендации</p></div>
+        <span class="arr">→</span>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+
+
+<section class="steps">
+  <div class="wrap">
+    <div class="sec-cap rv"><span class="n">02</span><h2>Как мы работаем</h2></div>
+    <div class="steps-grid">
+      
+      <div class="stp rv" style="transition-delay:0ms">
+        <b>01</b>
+        <h3>Пройти тест</h3>
+        <p>Ответьте на вопросы о вашей идее татуировки</p>
+      </div>
+      
+      <div class="stp rv" style="transition-delay:70ms">
+        <b>02</b>
+        <h3>Консультация</h3>
+        <p>Олеся проконсультирует вас и озвучит точную цену</p>
+      </div>
+      
+      <div class="stp rv" style="transition-delay:140ms">
+        <b>03</b>
+        <h3>Примерка эскиза</h3>
+        <p>Бесплатно примеряем рисунок в студии, адаптируем под тело</p>
+      </div>
+      
+      <div class="stp rv" style="transition-delay:210ms">
+        <b>04</b>
+        <h3>Сеанс и результат</h3>
+        <p>Делаем татуировку, даём рекомендации по заживлению</p>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+
+<section class="guar">
+  <div class="wrap rv">
+    <div class="badge">🛡</div>
+    <h2>Точная цена в договоре — никаких сюрпризов и переплат</h2>
+    <p>Работаем честно: цена известна заранее, результат закреплён гарантией.</p>
+    <a class="btn btn-accent" href="#zayavka">Пройти тест и записаться</a>
+  </div>
+</section>
+
+
+<section class="works">
+  <div class="wrap">
+    <div class="sec-cap rv"><span class="n">03</span><h2>Наши работы</h2></div>
+    <div class="wgrid rv">
+      <a href="assets/g12.jpg" target="_blank"><img src="assets/g12.jpg" alt="работа 1" loading="lazy"></a><a href="assets/g14.jpg" target="_blank"><img src="assets/g14.jpg" alt="работа 2" loading="lazy"></a><a href="assets/g9.jpg" target="_blank"><img src="assets/g9.jpg" alt="работа 3" loading="lazy"></a><a href="assets/g11.jpg" target="_blank"><img src="assets/g11.jpg" alt="работа 4" loading="lazy"></a><a href="assets/g7.jpg" target="_blank"><img src="assets/g7.jpg" alt="работа 5" loading="lazy"></a><a href="assets/g3.jpg" target="_blank"><img src="assets/g3.jpg" alt="работа 6" loading="lazy"></a>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="rev">
+  <div class="wrap">
+    <div class="sec-cap rv"><span class="n">✦</span><h2>Отзывы клиентов</h2></div>
+    <div class="rev-grid">
+      
+      <div class="rev-card rv" style="transition-delay:0ms">
+        <div class="stars">★★★★★</div>
+        <p>«Олеся настоящий художник и профессионал! Быстро и качественно набросала эскиз четырёхлистного клевера — это было именно то, что я хотел.»</p>
+        <div class="src">Отзыв из ВКонтакте</div>
+      </div>
+      
+      <div class="rev-card rv" style="transition-delay:60ms">
+        <div class="stars">★★★★★</div>
+        <p>«Со всей моей придирчивостью заявляю, что это именно то, что я хотел! Спасибо большое!»</p>
+        <div class="src">Отзыв из ВКонтакте</div>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+
+
+<section class="faq">
+  <div class="wrap">
+    <div class="sec-cap rv"><span class="n">04</span><h2>Вопрос — ответ</h2></div>
+    <div class="faq-list rv">
+      
+      <details class="qa" open>
+        <summary>Можно ли принести свой эскиз?<span class="pl">+</span></summary>
+        <div class="ans">Да, Олеся работает как со своими эскизами, так и с вашими идеями и референсами. Главное — качественный результат.</div>
+      </details>
+      
+      <details class="qa">
+        <summary>Сколько времени занимает одна татуировка?<span class="pl">+</span></summary>
+        <div class="ans">Зависит от размера и сложности. Маленькие работы — за один день, крупные проекты делаются в несколько сеансов с перерывом на заживление.</div>
+      </details>
+      
+      <details class="qa">
+        <summary>Как проходит заживление?<span class="pl">+</span></summary>
+        <div class="ans">Олеся даёт чёткие рекомендации по уходу. При соблюдении советов процесс заживления проходит без проблем и быстрее.</div>
+      </details>
+      
+    </div>
+  </div>
+</section>
+
+
+<section class="lead" id="zayavka">
+  <div class="wrap lead-grid">
+    <div class="rv">
+      <h2>Оставьте заявку</h2>
+      <p class="lp">Перезвоним за 15 минут, ответим на вопросы и посчитаем стоимость. Ни к чему не обязывает.</p>
+      <ul class="lead-points">
+        <li><span class="tk">✓</span> Перезвоним в течение 15 минут</li>
+        <li><span class="tk">✓</span> Честная цена сразу, без доплат</li>
+        <li><span class="tk">✓</span> Точная цена в договоре — никаких сюрпризов и переплат</li>
+      </ul>
+    </div>
+    <form class="lead-form rv" onsubmit="return sendLead(event)">
+      <div class="lf-row"><label>Ваше имя</label><input name="name" required autocomplete="name" placeholder="Как к вам обращаться"></div>
+      <div class="lf-row"><label>Телефон</label><input name="phone" required type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (___) ___-__-__"></div>
+      <div class="lf-row"><label>Комментарий <span>(необязательно)</span></label><textarea name="msg" rows="2" placeholder="Что вас интересует"></textarea></div>
+      <button class="btn btn-accent lf-btn" type="submit">Пройти тест и записаться</button>
+      <div class="lf-ok" id="lfOk">Спасибо! Заявка принята — свяжемся совсем скоро 🙌</div>
+      <small class="lf-note">Нажимая кнопку, вы соглашаетесь на обработку персональных данных</small>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="ft">
+      <div><b>Тату СПб | Олеся Грейвошик</b><span style="display:block;margin-top:8px">📍 Санкт-Петербург</span></div>
+      
+      <div><b style="font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:#8a8e96">Соцсети</b><span style="display:block;margin-top:8px"><a href="https://vk.com/tattoo_greywashik" target="_blank">ВКонтакте</a></span></div>
+    </div>
+    <div class="made">© Тату СПб | Олеся Грейвошик. Сайт-макет от SmartLink.</div>
+  </div>
+</footer>
+
+
+
+<script>
+var hdr=document.getElementById('hdr');
+addEventListener('scroll',function(){hdr.classList.toggle('solid',scrollY>50)},{passive:true});
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.1});
+document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
+setTimeout(function(){document.querySelectorAll('.hero .rv').forEach(function(e){e.classList.add('in')})},60);
+function sendLead(e){e.preventDefault();var f=e.target;f.querySelectorAll('.lf-row,.lf-btn,.lf-note').forEach(function(el){el.style.display='none'});document.getElementById('lfOk').classList.add('show');return false;}
+</script>
+</body>
+</html>
