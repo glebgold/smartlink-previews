@@ -1,404 +1,318 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Крокус-ХМ | Строительная компания — Ханты-Мансийск</title>
+<meta name="description" content="Генподрядчик Роснефти и ННК — кустовые площадки и дороги под ключ в ХМАО">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Строим фундамент нефтяной добычи — Крокус-ХМ | Строительная компания">
+<meta property="og:description" content="Генподрядчик Роснефти и ННК — кустовые площадки и дороги под ключ в ХМАО">
+<meta property="og:image" content="assets/cover.jpg">
+<meta name="theme-color" content="#223047">
 <style>
-  :root{
-    --accent: #2f5699;
-    --ink: #14161a;
-    --ink-soft: #52585f;
-    --line: #e6e5e1;
-    --paper: #ffffff;
-    --paper-dim: #f6f5f1;
-    --maxw: 1180px;
-    --font: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
-  }
-  *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth}
-  body{
-    font-family:var(--font);
-    color:var(--ink);
-    background:var(--paper);
-    line-height:1.6;
-    -webkit-font-smoothing:antialiased;
-    text-rendering:optimizeLegibility;
-  }
-  img{display:block;max-width:100%}
-  a{color:inherit;text-decoration:none}
-  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
-  .eyebrow{
-    font-size:12px;letter-spacing:.22em;text-transform:uppercase;
-    color:var(--ink-soft);font-weight:600;
-  }
+:root{
+  --accent:#223047;
+  --ink:#101216; --ink-soft:#565d68; --line:#e6e3dd;
+  --bg:#faf9f6; --dark:#101216;
+  --on-accent:#fff;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  color:var(--ink);background:var(--bg);line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1240px;margin:0 auto;padding:0 28px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:17px 32px;border-radius:100px;
+  font-weight:800;font-size:16px;transition:.25s;cursor:pointer;border:0;letter-spacing:.01em;white-space:nowrap}
+.btn-dark{background:var(--dark);color:#fff}
+.btn-dark:hover{transform:translateY(-3px);box-shadow:0 18px 36px -16px rgba(0,0,0,.5)}
+.btn-white{background:#fff;color:var(--ink)}
+.btn-white:hover{transform:translateY(-3px);box-shadow:0 18px 36px -16px rgba(0,0,0,.35)}
+.btn-accent{background:var(--accent);color:var(--on-accent)}
+.btn-accent:hover{transform:translateY(-3px);box-shadow:0 18px 40px -14px var(--accent)}
 
-  /* ---------- Buttons ---------- */
-  .btn{
-    display:inline-flex;align-items:center;gap:9px;
-    font-size:15px;font-weight:600;line-height:1;
-    padding:15px 26px;border-radius:2px;cursor:pointer;
-    border:1px solid var(--accent);background:var(--accent);color:#fff;
-    transition:transform .15s ease, opacity .2s ease;white-space:nowrap;
-  }
-  .btn:hover{opacity:.9;transform:translateY(-1px)}
-  .btn-ghost{
-    background:transparent;color:var(--ink);border:1px solid var(--line);
-  }
-  .btn-ghost:hover{border-color:var(--ink);opacity:1}
-  .btn-light{background:#fff;border-color:#fff;color:var(--ink)}
-  .btn svg{width:16px;height:16px}
+/* ── header поверх акцентного героя ── */
+header{position:fixed;top:0;left:0;right:0;z-index:50;transition:.3s;color:#fff}
+.hd{display:flex;align-items:center;justify-content:space-between;height:76px}
+.brand{display:flex;align-items:center;gap:12px;font-weight:850}
+.brand img{height:42px;width:42px;border-radius:12px;object-fit:cover;background:#fff;box-shadow:0 0 0 2px rgba(255,255,255,.35)}
+.brand .mark{height:42px;width:42px;border-radius:12px;display:grid;place-items:center;background:#fff;color:var(--accent);font-weight:850;font-size:20px}
+.brand b{font-size:16px;line-height:1.15;max-width:250px}
+header.solid{background:rgba(16,18,22,.9);backdrop-filter:blur(14px);color:#fff}
+.nav-cta{padding:11px 22px;border-radius:100px;background:#fff;color:var(--ink);font-weight:800;font-size:14px;transition:.25s;white-space:nowrap}
+.nav-cta:hover{transform:translateY(-2px)}
 
-  /* ---------- Header ---------- */
-  header{
-    position:sticky;top:0;z-index:50;
-    background:rgba(255,255,255,.86);backdrop-filter:saturate(180%) blur(12px);
-    border-bottom:1px solid var(--line);
-  }
-  .nav{display:flex;align-items:center;justify-content:space-between;height:72px}
-  .brand{display:flex;align-items:center;gap:13px;min-width:0}
-  .brand img{height:34px;width:auto;object-fit:contain}
-  .brand-mark{
-    width:34px;height:34px;flex:none;border-radius:50%;
-    background:var(--accent);color:#fff;display:flex;align-items:center;
-    justify-content:center;font-weight:700;font-size:15px;
-  }
-  .brand-name{font-weight:600;font-size:16px;letter-spacing:-.01em;
-    white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:46vw}
-  .nav-right{display:flex;align-items:center;gap:22px}
-  .nav-phone{font-weight:600;font-size:15px;letter-spacing:-.01em;white-space:nowrap}
-  .nav-phone:hover{color:var(--accent)}
-  .nav .btn{padding:11px 20px;font-size:14px}
-  @media(max-width:820px){
-    .nav-phone{display:none}
-    .nav .btn{padding:10px 16px;font-size:13px}
-    .brand-name{max-width:38vw}
-  }
+/* ── АКЦЕНТНЫЙ ГЕРОЙ-ПОСТЕР ── */
+.hero{position:relative;min-height:96svh;display:flex;flex-direction:column;justify-content:flex-end;
+  background:
+    radial-gradient(1000px 600px at 85% -10%,color-mix(in srgb,#fff 22%,transparent),transparent 55%),
+    radial-gradient(800px 500px at -5% 110%,color-mix(in srgb,#000 26%,transparent),transparent 60%),
+    var(--accent);
+  color:var(--on-accent);overflow:hidden}
+.hero-deco{position:absolute;right:-120px;top:-120px;width:520px;height:520px;border-radius:50%;
+  border:2px dashed rgba(255,255,255,.28);animation:spin 60s linear infinite}
+.hero-deco::after{content:"";position:absolute;inset:70px;border-radius:50%;border:2px solid rgba(255,255,255,.16)}
+@keyframes spin{to{transform:rotate(360deg)}}
+/* padding-top, НЕ padding: иначе обнуляет боковые отступы .wrap и текст липнет к краям */
+.hero-in{padding-top:130px}
+/* герой с ФОТО: сплит, справа кадр в большой арке (ставится только если арт-директор
+   нашёл достойное фото по содержимому; иначе — чистый типографический постер) */
+.hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:48px;align-items:center}
+.hero-grid h1{font-size:clamp(40px,6vw,84px)}
+.hero-ph{position:relative;justify-self:end;width:min(100%,430px)}
+.hero-ph .arch{aspect-ratio:3/4;border-radius:999px 999px 30px 30px;overflow:hidden;
+  box-shadow:0 0 0 9px rgba(255,255,255,.16),0 46px 90px -38px rgba(0,0,0,.55)}
+.hero-ph .arch img{width:100%;height:100%;object-fit:cover}
+.hero-ph .tag{position:absolute;left:-16px;bottom:24px;display:flex;align-items:center;gap:10px;
+  background:#fff;color:var(--ink);border-radius:14px;padding:12px 16px;max-width:250px;
+  box-shadow:0 22px 44px -18px rgba(0,0,0,.5);font-weight:800;font-size:13.5px;line-height:1.3}
+.hero-ph .tag .ic{display:grid;place-items:center;width:34px;height:34px;border-radius:10px;flex:none;
+  background:color-mix(in srgb,var(--accent) 16%,#fff);color:var(--accent);font-size:17px}
+.hero-city{display:inline-flex;align-items:center;gap:10px;font-size:14px;font-weight:800;letter-spacing:.22em;text-transform:uppercase;opacity:.9}
+.hero-city::before{content:"";width:34px;height:2px;background:#fff;display:inline-block}
+.hero h1{font-weight:800;letter-spacing:-.03em;line-height:1.02;text-transform:uppercase;
+  font-size:clamp(44px,8.2vw,112px);margin:22px 0 0;max-width:12ch}
+.hero .sub{font-size:clamp(17px,1.8vw,22px);margin-top:22px;max-width:52ch;color:color-mix(in srgb,#fff 88%,var(--accent))}
+.hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin:34px 0 0}
+.ptag{display:inline-flex;align-items:center;gap:10px;margin-top:26px;padding:10px 20px;border-radius:100px;
+  background:rgba(255,255,255,.14);border:1.5px solid rgba(255,255,255,.4);font-weight:800;font-size:15px;backdrop-filter:blur(6px)}
+.ptag::before{content:"₽";display:grid;place-items:center;width:24px;height:24px;border-radius:50%;background:#fff;color:var(--accent);font-size:14px}
+.hero-foot{margin-top:64px;border-top:1px solid rgba(255,255,255,.25)}
+/* бегущая строка УТП */
+.marq{overflow:hidden;white-space:nowrap;padding:18px 0}
+.marq-in{display:inline-block;animation:mq 26s linear infinite}
+.marq span{display:inline-flex;align-items:center;gap:14px;margin-right:46px;font-weight:800;font-size:15px;
+  letter-spacing:.12em;text-transform:uppercase}
+.marq .st{font-size:19px}
+@keyframes mq{to{transform:translateX(-50%)}}
 
-  /* ---------- Hero (bold full-bleed) ---------- */
-  .hero{position:relative;overflow:hidden;background:#0e1013}
-  .hero-media{position:absolute;inset:0;z-index:0}
-  .hero-media img{
-    width:100%;height:100%;object-fit:cover;
-    /* сильное размытие превращает вшитый в обложку текст в абстрактный фон — заголовок читается чисто */
-    filter:blur(24px) saturate(1.15) brightness(.5);
-    transform:scale(1.2);
-  }
-  .hero-tint{
-    position:absolute;inset:0;z-index:1;
-    background:
-      linear-gradient(180deg, rgba(10,12,14,.62) 0%, rgba(10,12,14,.5) 42%, rgba(10,12,14,.9) 100%),
-      linear-gradient(105deg, color-mix(in srgb, var(--accent) 62%, transparent) 0%, transparent 66%);
-  }
-  .hero-plain{
-    position:absolute;inset:0;z-index:0;
-    background:
-      radial-gradient(120% 90% at 82% 8%, color-mix(in srgb, var(--accent) 20%, transparent), transparent 60%),
-      #0e1013;
-  }
-  .hero-inner{
-    position:relative;z-index:2;
-    max-width:var(--maxw);margin:0 auto;padding:118px 24px 104px;
-  }
-  .hero-content{max-width:760px}
-  .hero .eyebrow{color:rgba(255,255,255,.72)}
-  .hero-h1{
-    color:#fff;font-weight:600;letter-spacing:-.03em;line-height:1.02;
-    font-size:clamp(42px,7.4vw,84px);margin:22px 0 0;
-    text-wrap:balance;
-  }
-  .hero-sub{
-    color:rgba(255,255,255,.82);font-size:clamp(17px,2.1vw,21px);
-    line-height:1.5;margin:24px 0 0;max-width:560px;
-  }
-  .hero-actions{display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin-top:40px}
-  .hero-tel{
-    color:#fff;font-weight:600;font-size:16px;display:inline-flex;
-    align-items:center;gap:9px;padding:14px 4px;
-  }
-  .hero-tel svg{width:17px;height:17px;opacity:.85}
-  .hero-tel:hover{opacity:.85}
-  .hero-usps{
-    position:relative;z-index:2;border-top:1px solid rgba(255,255,255,.14);
-    max-width:var(--maxw);margin:0 auto;
-  }
-  .hero-usps-grid{
-    display:grid;grid-template-columns:repeat(3,1fr);
-    padding:0 24px;
-  }
-  .hero-usp{
-    padding:26px 26px 30px;color:rgba(255,255,255,.9);
-    border-left:1px solid rgba(255,255,255,.14);
-    font-size:15px;font-weight:500;line-height:1.45;
-    display:flex;gap:13px;align-items:flex-start;
-  }
-  .hero-usp:first-child{border-left:none;padding-left:0}
-  .hero-usp svg{width:19px;height:19px;flex:none;stroke:var(--accent);margin-top:1px}
-  @media(max-width:820px){
-    .hero-inner{padding:82px 24px 64px}
-    .hero-usps-grid{grid-template-columns:1fr;padding:0}
-    .hero-usp{border-left:none;border-top:1px solid rgba(255,255,255,.14);
-      padding:20px 24px}
-    .hero-usp:first-child{border-top:none;padding-left:24px}
-  }
+/* ── ЦИФРЫ-ПЛАКАТ ── */
+.stats{background:var(--bg);padding:clamp(64px,8vw,104px) 0}
+.stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.stat b{display:block;font-weight:900;letter-spacing:-.04em;line-height:.9;font-size:clamp(52px,7vw,96px);color:var(--ink)}
+.stat b em{font-style:normal;color:var(--accent)}
+.stat span{display:block;margin-top:10px;font-size:15px;color:var(--ink-soft);font-weight:600;max-width:24ch}
+.stat{padding-top:22px;border-top:3px solid var(--ink)}
 
-  /* ---------- Section scaffolding ---------- */
-  section{padding:104px 0}
-  .sec-head{max-width:640px;margin-bottom:56px}
-  .sec-title{
-    font-size:clamp(28px,4vw,42px);font-weight:600;letter-spacing:-.025em;
-    line-height:1.08;margin-top:16px;text-wrap:balance;
-  }
-  .sec-lead{color:var(--ink-soft);font-size:17px;margin-top:16px;line-height:1.6}
-  @media(max-width:820px){section{padding:70px 0}.sec-head{margin-bottom:38px}}
+/* ── УСЛУГИ строками ── */
+.svc{background:var(--bg);padding-bottom:clamp(70px,9vw,120px)}
+.sec-cap{display:flex;align-items:baseline;gap:18px;margin-bottom:40px}
+.sec-cap .n{font-weight:900;font-size:15px;color:var(--accent);letter-spacing:.08em}
+.sec-cap h2{font-weight:900;letter-spacing:-.03em;text-transform:uppercase;font-size:clamp(30px,4.6vw,56px);line-height:.98}
+.svc-row{display:grid;grid-template-columns:64px 1fr auto;gap:20px;align-items:center;
+  padding:26px 6px;border-top:1px solid var(--line);transition:.3s;position:relative}
+.svc-row:last-child{border-bottom:1px solid var(--line)}
+.svc-row .idx{font-weight:900;font-size:15px;color:var(--ink-soft)}
+.svc-row h3{font-weight:850;font-size:clamp(19px,2.4vw,27px);letter-spacing:-.015em;transition:.3s}
+.svc-row p{grid-column:2;color:var(--ink-soft);font-size:15px;max-width:60ch;margin-top:2px}
+.svc-row .arr{display:grid;place-items:center;width:46px;height:46px;border-radius:50%;border:1.5px solid var(--line);
+  font-size:18px;transition:.3s;grid-row:span 2}
+.svc-row:hover{background:#fff;padding-left:18px}
+.svc-row:hover h3{color:var(--accent)}
+.svc-row:hover .arr{background:var(--accent);border-color:var(--accent);color:#fff;transform:rotate(-45deg)}
 
-  /* ---------- Services ---------- */
-  .services{background:var(--paper-dim);border-top:1px solid var(--line);
-    border-bottom:1px solid var(--line)}
-  .svc-list{border-top:1px solid var(--line)}
-  .svc{
-    display:grid;grid-template-columns:56px 1fr auto;gap:28px;align-items:baseline;
-    padding:32px 4px;border-bottom:1px solid var(--line);
-    transition:padding-left .2s ease;
-  }
-  .svc:hover{padding-left:14px}
-  .svc-num{font-size:14px;color:var(--accent);font-weight:600;
-    font-variant-numeric:tabular-nums;letter-spacing:.02em}
-  .svc-title{font-size:clamp(20px,2.6vw,26px);font-weight:600;letter-spacing:-.02em}
-  .svc-desc{color:var(--ink-soft);font-size:16px;line-height:1.55;max-width:520px;margin-top:8px}
-  .svc-arrow{color:var(--ink-soft)}
-  .svc-arrow svg{width:22px;height:22px}
-  @media(max-width:820px){
-    .svc{grid-template-columns:38px 1fr;gap:14px;padding:26px 2px}
-    .svc-arrow{display:none}
-  }
+/* ── ШАГИ лентой ── */
+.steps{background:var(--dark);color:#fff;padding:clamp(70px,9vw,120px) 0}
+.steps .sec-cap h2{color:#fff}
+.steps-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:26px;margin-top:14px}
+.stp b{display:block;font-weight:900;font-size:clamp(44px,5vw,72px);line-height:.9;letter-spacing:-.04em;
+  color:transparent;-webkit-text-stroke:2px var(--accent)}
+.stp h3{font-size:18px;font-weight:800;margin-top:16px}
+.stp p{color:#9aa1ac;font-size:14.5px;margin-top:7px}
 
-  /* ---------- Gallery ---------- */
-  .gal-grid{
-    display:grid;grid-template-columns:repeat(3,1fr);gap:16px;
-  }
-  .gal-item{
-    position:relative;overflow:hidden;border-radius:3px;background:var(--paper-dim);
-    aspect-ratio:4/3;
-  }
-  .gal-item:first-child{grid-column:span 2;grid-row:span 2;aspect-ratio:auto}
-  .gal-item img{
-    width:100%;height:100%;object-fit:cover;
-    transition:transform .6s cubic-bezier(.2,.6,.2,1);
-  }
-  .gal-item:hover img{transform:scale(1.05)}
-  @media(max-width:820px){
-    .gal-grid{grid-template-columns:repeat(2,1fr);gap:10px}
-    .gal-item:first-child{grid-column:span 2;grid-row:auto;aspect-ratio:16/10}
-  }
+/* ── ГАРАНТИЯ-ПЛАКАТ ── */
+.guar{background:var(--bg);padding:clamp(70px,9vw,120px) 0;text-align:center}
+.guar .badge{display:inline-grid;place-items:center;width:74px;height:74px;border-radius:50%;background:var(--accent);
+  color:#fff;font-size:32px;margin-bottom:26px;box-shadow:0 20px 44px -18px var(--accent)}
+.guar h2{font-weight:900;letter-spacing:-.03em;font-size:clamp(28px,4.4vw,54px);line-height:1.03;max-width:22ch;margin:0 auto}
+.guar p{color:var(--ink-soft);font-size:17px;margin-top:18px}
+.guar .btn{margin-top:30px}
 
-  /* ---------- About ---------- */
-  .about{background:var(--ink);color:#fff}
-  .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
-  .about .sec-title{color:#fff}
-  .about .eyebrow{color:rgba(255,255,255,.6)}
-  .about-body{color:rgba(255,255,255,.78);font-size:18px;line-height:1.72}
-  .about-rule{width:60px;height:2px;background:var(--accent);margin:0 0 28px}
-  .about-side{border-left:1px solid rgba(255,255,255,.16);padding-left:40px}
-  .about-side .row{padding:20px 0;border-bottom:1px solid rgba(255,255,255,.12)}
-  .about-side .row:last-child{border-bottom:none}
-  .about-side .k{font-size:13px;letter-spacing:.14em;text-transform:uppercase;
-    color:rgba(255,255,255,.5);font-weight:600}
-  .about-side .v{font-size:17px;margin-top:6px;font-weight:500}
-  .about-side .v a:hover{color:var(--accent)}
-  @media(max-width:820px){
-    .about-grid{grid-template-columns:1fr;gap:36px}
-    .about-side{border-left:none;padding-left:0;
-      border-top:1px solid rgba(255,255,255,.16);padding-top:8px}
-  }
+/* ── РАБОТЫ мозаикой ── */
+.works{background:var(--bg);padding-bottom:clamp(70px,9vw,120px)}
+.wgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.wgrid a{border-radius:18px;overflow:hidden;aspect-ratio:4/3;background:#eee;display:block}
+.wgrid a:nth-child(3n+2){transform:translateY(22px)}
+.wgrid img{width:100%;height:100%;object-fit:cover;transition:.55s}
+.wgrid a:hover img{transform:scale(1.07)}
 
-  /* ---------- Contact / form ---------- */
-  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start}
-  .contact-lead{color:var(--ink-soft);font-size:18px;line-height:1.65;margin-top:18px}
-  .contact-links{margin-top:38px;border-top:1px solid var(--line)}
-  .contact-links a,.contact-links .li{
-    display:flex;align-items:center;gap:15px;padding:20px 0;
-    border-bottom:1px solid var(--line);font-size:17px;font-weight:500;
-  }
-  .contact-links a:hover{color:var(--accent)}
-  .contact-links svg{width:20px;height:20px;stroke:var(--accent);flex:none}
-  .form{background:var(--paper-dim);border:1px solid var(--line);
-    border-radius:4px;padding:40px}
-  .form h3{font-size:22px;font-weight:600;letter-spacing:-.02em;margin-bottom:6px}
-  .form p{color:var(--ink-soft);font-size:15px;margin-bottom:26px}
-  .field{margin-bottom:18px}
-  .field label{display:block;font-size:13px;font-weight:600;
-    letter-spacing:.02em;margin-bottom:8px;color:var(--ink)}
-  .field input,.field textarea{
-    width:100%;font-family:var(--font);font-size:16px;color:var(--ink);
-    background:#fff;border:1px solid var(--line);border-radius:3px;
-    padding:14px 15px;transition:border-color .18s ease;
-  }
-  .field input:focus,.field textarea:focus{outline:none;border-color:var(--accent)}
-  .field textarea{resize:vertical;min-height:96px}
-  .form .btn{width:100%;justify-content:center;margin-top:6px}
-  .form-note{font-size:12.5px;color:var(--ink-soft);text-align:center;margin-top:14px}
-  @media(max-width:820px){
-    .contact-grid{grid-template-columns:1fr;gap:40px}
-    .form{padding:28px 22px}
-  }
+/* ── ОТЗЫВЫ (реальные, из ВК) ── */
+.rev{background:var(--bg);padding-bottom:clamp(70px,9vw,120px)}
+.rev-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
+.rev-card{background:#fff;border:2px solid var(--ink);border-radius:22px;padding:30px 28px;position:relative;
+  box-shadow:8px 8px 0 var(--accent);transition:.3s}
+.rev-card:hover{transform:translate(-3px,-3px);box-shadow:12px 12px 0 var(--accent)}
+.rev-card .stars{color:var(--accent);font-size:17px;letter-spacing:3px}
+.rev-card p{margin-top:14px;font-size:15.5px;line-height:1.55;font-weight:500}
+.rev-card .src{margin-top:16px;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);font-weight:800}
 
-  /* ---------- Footer ---------- */
-  footer{border-top:1px solid var(--line);padding:44px 0 108px}
-  .foot{display:flex;align-items:center;justify-content:space-between;
-    flex-wrap:wrap;gap:16px}
-  .foot-brand{display:flex;align-items:center;gap:11px;font-weight:600}
-  .foot-brand .brand-mark{width:28px;height:28px;font-size:13px}
-  .foot-meta{color:var(--ink-soft);font-size:13.5px}
-  .foot-vk:hover{color:var(--accent)}
-  @media(max-width:820px){footer{padding-bottom:96px}}
+/* ── FAQ ── */
+.faq{background:#f1efe9;padding:clamp(70px,9vw,120px) 0}
+.faq-list{max-width:820px;margin-top:14px}
+.qa{border-top:1px solid var(--line);padding:4px 0}
+.qa:last-child{border-bottom:1px solid var(--line)}
+.qa summary{list-style:none;cursor:pointer;padding:22px 4px;font-weight:850;font-size:clamp(17px,2vw,21px);
+  display:flex;justify-content:space-between;align-items:center;gap:18px;letter-spacing:-.01em}
+.qa summary::-webkit-details-marker{display:none}
+.qa .pl{flex:none;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:var(--ink);color:#fff;font-weight:800;transition:.3s}
+.qa[open] .pl{transform:rotate(45deg);background:var(--accent)}
+.qa .ans{padding:0 4px 22px;color:var(--ink-soft);font-size:15.5px;max-width:64ch}
 
-  /* ---------- Sticky mobile call bar ---------- */
-  .callbar{
-    position:fixed;left:0;right:0;bottom:0;z-index:60;display:none;
-    background:rgba(255,255,255,.94);backdrop-filter:blur(10px);
-    border-top:1px solid var(--line);padding:10px 14px;
-    grid-template-columns:1fr 1fr;gap:10px;
-  }
-  .callbar a{
-    display:flex;align-items:center;justify-content:center;gap:8px;
-    padding:14px;border-radius:3px;font-weight:600;font-size:15px;
-  }
-  .callbar .cb-call{background:transparent;color:var(--ink);border:1px solid var(--line)}
-  .callbar .cb-cta{background:var(--accent);color:#fff}
-  .callbar svg{width:16px;height:16px}
-  @media(max-width:820px){.callbar{display:grid}}
+/* ── ФОРМА на акценте ── */
+.lead{background:
+  radial-gradient(900px 500px at 90% -10%,color-mix(in srgb,#fff 20%,transparent),transparent 55%),
+  var(--accent);color:#fff;padding:clamp(70px,9vw,120px) 0}
+.lead-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+.lead h2{font-weight:900;text-transform:uppercase;letter-spacing:-.02em;font-size:clamp(30px,4.4vw,54px);line-height:.98}
+.lead .lp{margin-top:20px;font-size:17px;color:color-mix(in srgb,#fff 88%,var(--accent));max-width:44ch}
+.lead-points{list-style:none;margin:26px 0 0;display:grid;gap:12px}
+.lead-points li{display:flex;align-items:center;gap:13px;font-weight:700;font-size:15.5px}
+.lead-points .tk{display:grid;place-items:center;width:26px;height:26px;border-radius:50%;background:#fff;color:var(--accent);font-weight:900;font-size:14px;flex:none}
+.lead-form{background:#fff;border-radius:24px;padding:34px 32px;color:var(--ink);box-shadow:0 50px 100px -40px rgba(0,0,0,.55)}
+.lf-row{margin-bottom:15px}
+.lf-row label{display:block;font-size:13px;font-weight:800;margin-bottom:7px}
+.lf-row label span{color:#9aa0a8;font-weight:500}
+.lf-row input,.lf-row textarea{width:100%;border:2px solid var(--line);border-radius:14px;padding:14px 16px;font:inherit;font-size:15px;background:#faf9f6;transition:.2s;resize:vertical}
+.lf-row input:focus,.lf-row textarea:focus{outline:none;border-color:var(--accent);background:#fff;box-shadow:0 0 0 4px color-mix(in srgb,var(--accent) 16%,transparent)}
+.lf-btn{width:100%;margin-top:4px}
+.lf-note{display:block;text-align:center;color:#9aa0a8;font-size:12px;margin-top:12px}
+.lf-ok{display:none;background:color-mix(in srgb,var(--accent) 10%,#fff);border:1.5px solid var(--accent);border-radius:14px;padding:18px;text-align:center;font-weight:700}
+.lf-ok.show{display:block}
+
+/* footer */
+footer{background:var(--dark);color:#b9bec7;padding:50px 0 38px;font-size:14px}
+.ft{display:flex;flex-wrap:wrap;gap:26px;justify-content:space-between}
+.ft b{color:#fff;font-size:17px}
+.ft a:hover{color:#fff}
+.made{margin-top:32px;padding-top:18px;border-top:1px solid rgba(255,255,255,.12);opacity:.55;font-size:13px}
+
+/* mobile bar */
+.mbar{position:fixed;left:0;right:0;bottom:0;z-index:60;display:none;gap:10px;padding:12px 14px;
+  background:rgba(255,255,255,.96);backdrop-filter:blur(12px);border-top:1px solid var(--line)}
+.mbar a{flex:1;text-align:center;padding:14px;border-radius:14px;font-weight:800}
+.mbar .call{background:#f1efe9;color:var(--ink)}
+.mbar .go{background:var(--accent);color:#fff}
+
+.rv{opacity:0;transform:translateY(26px);transition:.7s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none}
+
+@media(max-width:900px){
+  .stats-grid{grid-template-columns:1fr 1fr}
+  .steps-grid{grid-template-columns:1fr 1fr;gap:34px 22px}
+  .wgrid{grid-template-columns:1fr 1fr}.wgrid a:nth-child(3n+2){transform:none}
+  .lead-grid{grid-template-columns:1fr;gap:36px}
+  .hero-grid{grid-template-columns:1fr;gap:34px}
+  .hero-ph{justify-self:center;width:min(100%,360px);margin-bottom:8px}
+}
+@media(max-width:820px){
+  /* ВОЗДУХ ПО КРАЯМ на телефоне (жалоба 20.07: текст прилипает к углам) */
+  .wrap{padding:0 22px}
+  .hero-in{padding-top:118px}
+  .hero h1{font-size:clamp(34px,8.6vw,46px);letter-spacing:-.02em;max-width:100%}
+  .hero .sub{max-width:100%}
+  .sec-cap h2{font-size:clamp(26px,7vw,34px)}
+  .stat b{font-size:clamp(40px,13vw,56px)}
+  .guar h2{font-size:clamp(24px,6.4vw,32px)}
+  .lead h2{font-size:clamp(26px,7vw,34px)}
+  .nav-cta{display:none}.mbar{display:flex}
+  .svc-row{grid-template-columns:44px 1fr}.svc-row .arr{display:none}
+  body{padding-bottom:76px}
+  /* кнопки в ряд, а не два жирных блока на всю ширину */
+  /* кнопки в столбик: длинный телефон не влезает в ряд на 375px и вылезал за экран */
+  .hero-actions{flex-direction:column;align-items:stretch;gap:11px}
+  .hero-actions .btn{width:100%;padding:16px 18px;font-size:15.5px}
+  .hero h1{font-size:clamp(38px,10vw,54px)}
+  .hero .sub{font-size:16.5px}
+  .ptag{font-size:13.5px;padding:9px 16px}
+  .marq span{font-size:13px;margin-right:30px}
+}
 </style>
 </head>
 <body>
 
-<header>
-  <div class="wrap nav">
+<header id="hdr">
+  <div class="wrap hd">
     <a class="brand" href="#top">
       <img src="assets/logo.jpg" alt="Крокус-ХМ | Строительная компания">
-      <span class="brand-name">Крокус-ХМ | Строительная компания</span>
+      <b>Крокус-ХМ | Строительная компания</b>
     </a>
-    <div class="nav-right">
-      <a class="nav-phone" href="tel:+79292222272">+7 (929) 222-22-72</a>
-      <a class="btn" href="#contact">Получить консультацию</a>
-    </div>
+    <a class="nav-cta" href="tel:+79292222272">+7 (929) 222-22-72</a>
+    
   </div>
 </header>
 
-<div id="top"></div>
-
-<section class="hero" style="padding:0">
-  
-    <div class="hero-media"><img src="assets/cover.jpg" alt=""></div>
-    <div class="hero-tint"></div>
-  
-
-  <div class="hero-inner">
-    <div class="hero-content">
-      <p class="eyebrow">Ханты-Мансийск · Крокус-ХМ | Строительная компания</p>
-      <h1 class="hero-h1">Строим будущее вместе!</h1>
-      <p class="hero-sub">Надежные решения для нефтегазовой инфраструктуры в Ханты-Мансийске.</p>
-      <div class="hero-actions">
-        <a class="btn btn-light" href="#contact">Получить консультацию
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </a>
-        
-        <a class="hero-tel" href="tel:+79292222272">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
-          +7 (929) 222-22-72
-        </a>
+<a id="top"></a>
+<section class="hero">
+  <div class="hero-deco"></div>
+  <div class="wrap hero-in rv">
+    <div class="">
+      <div>
+        <span class="hero-city">Строительные и ремонтные работы · Ханты-Мансийск</span>
+        <h1>Строим фундамент нефтяной добычи</h1>
+        <p class="sub">Генподрядчик Роснефти и ННК — кустовые площадки и дороги под ключ в ХМАО</p>
+        <div class="hero-actions">
+          <a class="btn btn-dark" href="#zayavka">Оставить заявку</a>
+          <a class="btn btn-white" href="tel:+79292222272">☎ +7 (929) 222-22-72</a>
+        </div>
         
       </div>
+      
     </div>
   </div>
+  <div class="hero-foot">
+    <div class="marq"><div class="marq-in">
+      
+      <span><span class="st">✦</span>Передовые технологии и оборудование</span><span><span class="st">✦</span>Сертификация ISO 9001/18001/45001</span><span><span class="st">✦</span>Безостановочное производство</span><span><span class="st">✦</span>Полная безопасность и ОТ</span><span><span class="st">✦</span>Передовые технологии и оборудование</span><span><span class="st">✦</span>Сертификация ISO 9001/18001/45001</span><span><span class="st">✦</span>Безостановочное производство</span><span><span class="st">✦</span>Полная безопасность и ОТ</span><span><span class="st">✦</span>Передовые технологии и оборудование</span><span><span class="st">✦</span>Сертификация ISO 9001/18001/45001</span><span><span class="st">✦</span>Безостановочное производство</span><span><span class="st">✦</span>Полная безопасность и ОТ</span><span><span class="st">✦</span>Передовые технологии и оборудование</span><span><span class="st">✦</span>Сертификация ISO 9001/18001/45001</span><span><span class="st">✦</span>Безостановочное производство</span><span><span class="st">✦</span>Полная безопасность и ОТ</span>
+    </div></div>
+  </div>
+</section>
 
-  
-  <div class="hero-usps">
-    <div class="hero-usps-grid">
-      
-      <div class="hero-usp">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
-        <span>Передовые технологии</span>
-      </div>
-      
-      <div class="hero-usp">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
-        <span>Квалифицированный персонал</span>
-      </div>
-      
-      <div class="hero-usp">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
-        <span>Соблюдение стандартов</span>
-      </div>
-      
-    </div>
+<section class="stats">
+  <div class="wrap stats-grid">
+    
+    <div class="stat rv"><b>5529<em>+</em></b><span>клиентов и подписчиков нам доверяют</span></div>
+    
+    <div class="stat rv" style="transition-delay:70ms"><b>5<em>+</em></b><span>видов услуг под вашу задачу</span></div>
+    <div class="stat rv" style="transition-delay:140ms"><b>15<em> мин</em></b><span>перезвоним после заявки</span></div>
   </div>
-  
 </section>
 
 
-<section class="services">
+<section class="svc" id="services">
   <div class="wrap">
-    <div class="sec-head">
-      <p class="eyebrow">Услуги</p>
-      <h2 class="sec-title">Что мы делаем</h2>
-      <p class="sec-lead">Каждую задачу ведём от первого контакта до результата, за который не стыдно.</p>
-    </div>
-    <div class="svc-list">
+    <div class="sec-cap rv"><span class="n">01</span><h2>Что мы делаем</h2></div>
+    <div>
       
-      <div class="svc">
-        <span class="svc-num">01</span>
-        <div>
-          <div class="svc-title">Инженерная подготовка</div>
-          <div class="svc-desc">Создаем безопасные площадки для буровых работ.</div>
-        </div>
-        <span class="svc-arrow">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
-        </span>
+      <div class="svc-row rv" style="transition-delay:0ms">
+        <span class="idx">01</span>
+        <div><h3>Инженерная подготовка площадок</h3><p>Подготовка кустовых площадок и автодорог для буровых операций</p></div>
+        <span class="arr">→</span>
       </div>
       
-      <div class="svc">
-        <span class="svc-num">02</span>
-        <div>
-          <div class="svc-title">Строительство дорог</div>
-          <div class="svc-desc">Обеспечиваем доступ к местам бурения.</div>
-        </div>
-        <span class="svc-arrow">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
-        </span>
+      <div class="svc-row rv" style="transition-delay:40ms">
+        <span class="idx">02</span>
+        <div><h3>Земляные работы</h3><p>Экскавация, погрузка инертных материалов, подготовка оснований</p></div>
+        <span class="arr">→</span>
       </div>
       
-      <div class="svc">
-        <span class="svc-num">03</span>
-        <div>
-          <div class="svc-title">Сертифицированные услуги</div>
-          <div class="svc-desc">Гарантия качества по международным стандартам.</div>
-        </div>
-        <span class="svc-arrow">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
-        </span>
+      <div class="svc-row rv" style="transition-delay:80ms">
+        <span class="idx">03</span>
+        <div><h3>Устройство оснований и плит</h3><p>Укладка железобетонных плит, песчаные основания, гидроизоляция</p></div>
+        <span class="arr">→</span>
       </div>
       
-      <div class="svc">
-        <span class="svc-num">04</span>
-        <div>
-          <div class="svc-title">Оперативное выполнение</div>
-          <div class="svc-desc">Сокращаем сроки строительства без потери качества.</div>
-        </div>
-        <span class="svc-arrow">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
-        </span>
+      <div class="svc-row rv" style="transition-delay:120ms">
+        <span class="idx">04</span>
+        <div><h3>Доставка материалов</h3><p>Оперативная доставка инертных материалов сочленёнными самосвалами</p></div>
+        <span class="arr">→</span>
       </div>
       
-      <div class="svc">
-        <span class="svc-num">05</span>
-        <div>
-          <div class="svc-title">Безопасность на первом месте</div>
-          <div class="svc-desc">Полный комплект СИЗ и обучение сотрудников.</div>
-        </div>
-        <span class="svc-arrow">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
-        </span>
+      <div class="svc-row rv" style="transition-delay:160ms">
+        <span class="idx">05</span>
+        <div><h3>Техническое обслуживание</h3><p>Ремонт и обслуживание парка из 250+ единиц строительной техники</p></div>
+        <span class="arr">→</span>
       </div>
       
     </div>
@@ -407,131 +321,135 @@
 
 
 
-<section>
+<section class="steps">
   <div class="wrap">
-    <div class="sec-head">
-      <p class="eyebrow">Портфолио</p>
-      <h2 class="sec-title">Наши работы</h2>
-      <p class="sec-lead">Реальные объекты — без стоковых картинок и приукрашивания.</p>
-    </div>
-    <div class="gal-grid">
+    <div class="sec-cap rv"><span class="n">02</span><h2>Как мы работаем</h2></div>
+    <div class="steps-grid">
       
-      <div class="gal-item"><img src="assets/g0.jpg" alt="Работа 1"></div>
+      <div class="stp rv" style="transition-delay:0ms">
+        <b>01</b>
+        <h3>Заявка на объект</h3>
+        <p>Вы описываете объём и сроки работ, мы готовим смету</p>
+      </div>
       
-      <div class="gal-item"><img src="assets/g1.jpg" alt="Работа 2"></div>
+      <div class="stp rv" style="transition-delay:70ms">
+        <b>02</b>
+        <h3>Подготовка и планирование</h3>
+        <p>Выезд на площадку, расчёт материалов, мобилизация техники</p>
+      </div>
       
-      <div class="gal-item"><img src="assets/g2.jpg" alt="Работа 3"></div>
+      <div class="stp rv" style="transition-delay:140ms">
+        <b>03</b>
+        <h3>Выполнение работ</h3>
+        <p>Непрерывное производство с контролем качества и безопасности</p>
+      </div>
       
-      <div class="gal-item"><img src="assets/g3.jpg" alt="Работа 4"></div>
-      
-      <div class="gal-item"><img src="assets/g4.jpg" alt="Работа 5"></div>
-      
-      <div class="gal-item"><img src="assets/g5.jpg" alt="Работа 6"></div>
+      <div class="stp rv" style="transition-delay:210ms">
+        <b>04</b>
+        <h3>Сдача и гарантия</h3>
+        <p>Проверка плотности, готовность объекта, гарантийное обслуживание</p>
+      </div>
       
     </div>
   </div>
 </section>
 
 
+<section class="guar">
+  <div class="wrap rv">
+    <div class="badge">🛡</div>
+    <h2>Работаем по ГОСТам и стандартам ISO, гарантия качества в договоре</h2>
+    <p>Работаем честно: цена известна заранее, результат закреплён гарантией.</p>
+    <a class="btn btn-accent" href="#zayavka">Оставить заявку</a>
+  </div>
+</section>
 
-<section class="about">
+
+<section class="works">
   <div class="wrap">
-    <div class="about-grid">
-      <div>
-        <p class="eyebrow">О компании</p>
-        <h2 class="sec-title">Крокус-ХМ | Строительная компания</h2>
-      </div>
-      <div>
-        <div class="about-rule"></div>
-        <p class="about-body">Компания «Крокус-ХМ» — надежный партнер в строительстве и ремонте для нефтегазовой отрасли. Мы применяем передовые технологии и обеспечиваем высокое качество работ.</p>
-        <div class="about-side" style="border:none;padding:0;margin-top:34px">
-          
-          <div class="row"><div class="k">Город</div><div class="v">Ханты-Мансийск</div></div>
-          
-          
-          <div class="row"><div class="k">Телефон</div><div class="v"><a href="tel:+79292222272">+7 (929) 222-22-72</a></div></div>
-          
-          
-          <div class="row"><div class="k">ВКонтакте</div><div class="v"><a href="https://vk.com/krokushm" target="_blank" rel="noopener">Наша страница</a></div></div>
-          
-        </div>
-      </div>
+    <div class="sec-cap rv"><span class="n">03</span><h2>Наши работы</h2></div>
+    <div class="wgrid rv">
+      <a href="assets/g6.jpg" target="_blank"><img src="assets/g6.jpg" alt="работа 1" loading="lazy"></a><a href="assets/g7.jpg" target="_blank"><img src="assets/g7.jpg" alt="работа 2" loading="lazy"></a><a href="assets/g8.jpg" target="_blank"><img src="assets/g8.jpg" alt="работа 3" loading="lazy"></a><a href="assets/g9.jpg" target="_blank"><img src="assets/g9.jpg" alt="работа 4" loading="lazy"></a><a href="assets/g10.jpg" target="_blank"><img src="assets/g10.jpg" alt="работа 5" loading="lazy"></a><a href="assets/g11.jpg" target="_blank"><img src="assets/g11.jpg" alt="работа 6" loading="lazy"></a>
     </div>
   </div>
 </section>
 
 
-<section id="contact">
-  <div class="wrap">
-    <div class="contact-grid">
-      <div>
-        <p class="eyebrow">Контакты</p>
-        <h2 class="sec-title">Оставьте заявку</h2>
-        <p class="contact-lead">Ответим в течение рабочего дня, подберём решение под вашу задачу в городе Ханты-Мансийск и назовём стоимость.</p>
-        <div class="contact-links">
-          
-          <a href="tel:+79292222272">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
-            +7 (929) 222-22-72
-          </a>
-          
-          
-          <a href="https://vk.com/krokushm" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M7 9c.5 3 2.4 5.5 5 5.5V12M12 12c1.6 0 2.8-1.2 3.4-3M12 14.5c1 0 1.8.6 2.4 1.6"/></svg>
-            Мы во ВКонтакте
-          </a>
-          
-          
-          <div class="li">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            Ханты-Мансийск
-          </div>
-          
-        </div>
-      </div>
 
-      <form class="form" onsubmit="alert('Это демо-макет. На готовом сайте заявка придёт вам.');return false">
-        <h3>Форма заявки</h3>
-        <p>Заполните поля — мы свяжемся с вами.</p>
-        <div class="field">
-          <label for="f-name">Ваше имя</label>
-          <input id="f-name" type="text" placeholder="Как к вам обращаться" required>
-        </div>
-        <div class="field">
-          <label for="f-phone">Телефон</label>
-          <input id="f-phone" type="tel" placeholder="+7 900 000-00-00" required>
-        </div>
-        <div class="field">
-          <label for="f-msg">Комментарий</label>
-          <textarea id="f-msg" placeholder="Коротко о задаче"></textarea>
-        </div>
-        <button class="btn" type="submit">Получить консультацию</button>
-        <p class="form-note">Нажимая кнопку, вы соглашаетесь на обработку данных.</p>
-      </form>
+
+
+<section class="faq">
+  <div class="wrap">
+    <div class="sec-cap rv"><span class="n">04</span><h2>Вопрос — ответ</h2></div>
+    <div class="faq-list rv">
+      
+      <details class="qa" open>
+        <summary>Какие объёмы работ вы можете выполнить?<span class="pl">+</span></summary>
+        <div class="ans">Мы генподрядчик крупнейших нефтегазовых компаний. Справляемся с проектами любой сложности благодаря парку из 250+ единиц техники и квалифицированной команде.</div>
+      </details>
+      
+      <details class="qa">
+        <summary>Как вы гарантируете безопасность на объекте?<span class="pl">+</span></summary>
+        <div class="ans">Все сотрудники обучены по ОТ, ПБТООС, ПУЭ. Полный комплект СИЗ, применение техники вместо ручных работ, сертификация ISO 45001.</div>
+      </details>
+      
+      <details class="qa">
+        <summary>Какие сроки выполнения работ?<span class="pl">+</span></summary>
+        <div class="ans">Безостановочное производство позволяет ускорять сроки. Конкретные сроки зависят от объёма и сложности – обсуждаем при расчёте.</div>
+      </details>
+      
     </div>
+  </div>
+</section>
+
+
+<section class="lead" id="zayavka">
+  <div class="wrap lead-grid">
+    <div class="rv">
+      <h2>Оставьте заявку</h2>
+      <p class="lp">Перезвоним за 15 минут, ответим на вопросы и посчитаем стоимость. Ни к чему не обязывает.</p>
+      <ul class="lead-points">
+        <li><span class="tk">✓</span> Перезвоним в течение 15 минут</li>
+        <li><span class="tk">✓</span> Честная цена сразу, без доплат</li>
+        <li><span class="tk">✓</span> Работаем по ГОСТам и стандартам ISO, гарантия качества в договоре</li>
+      </ul>
+    </div>
+    <form class="lead-form rv" onsubmit="return sendLead(event)">
+      <div class="lf-row"><label>Ваше имя</label><input name="name" required autocomplete="name" placeholder="Как к вам обращаться"></div>
+      <div class="lf-row"><label>Телефон</label><input name="phone" required type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (___) ___-__-__"></div>
+      <div class="lf-row"><label>Комментарий <span>(необязательно)</span></label><textarea name="msg" rows="2" placeholder="Что вас интересует"></textarea></div>
+      <button class="btn btn-accent lf-btn" type="submit">Оставить заявку</button>
+      <div class="lf-ok" id="lfOk">Спасибо! Заявка принята — свяжемся совсем скоро 🙌</div>
+      <small class="lf-note">Нажимая кнопку, вы соглашаетесь на обработку персональных данных</small>
+    </form>
   </div>
 </section>
 
 <footer>
-  <div class="wrap foot">
-    <div class="foot-brand">
-      <img src="assets/logo.jpg" alt="Крокус-ХМ | Строительная компания" style="height:26px;width:auto;object-fit:contain">
-      <span>Крокус-ХМ | Строительная компания</span>
+  <div class="wrap">
+    <div class="ft">
+      <div><b>Крокус-ХМ | Строительная компания</b><span style="display:block;margin-top:8px">📍 Ханты-Мансийск</span></div>
+      <div><b style="font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:#8a8e96">Телефон</b><span style="display:block;margin-top:8px"><a href="tel:+79292222272">+7 (929) 222-22-72</a></span></div>
+      <div><b style="font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:#8a8e96">Соцсети</b><span style="display:block;margin-top:8px"><a href="https://vk.com/krokushm" target="_blank">ВКонтакте</a></span></div>
     </div>
-    <div class="foot-meta">Макет подготовлен студией SmartLink · 2026</div>
-    <a class="foot-vk foot-meta" href="https://vk.com/krokushm" target="_blank" rel="noopener">ВКонтакте</a>
+    <div class="made">© Крокус-ХМ | Строительная компания. Сайт-макет от SmartLink.</div>
   </div>
 </footer>
 
-<div class="callbar">
-  
-  <a class="cb-call" href="tel:+79292222272">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
-    Позвонить
-  </a>
-  
-  <a class="cb-cta" href="#contact">Получить консультацию</a>
+
+<div class="mbar">
+  <a class="call" href="tel:+79292222272">☎ Позвонить</a>
+  <a class="go" href="#zayavka">Оставить заявку</a>
 </div>
 
+
+<script>
+var hdr=document.getElementById('hdr');
+addEventListener('scroll',function(){hdr.classList.toggle('solid',scrollY>50)},{passive:true});
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.1});
+document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
+setTimeout(function(){document.querySelectorAll('.hero .rv').forEach(function(e){e.classList.add('in')})},60);
+function sendLead(e){e.preventDefault();var f=e.target;f.querySelectorAll('.lf-row,.lf-btn,.lf-note').forEach(function(el){el.style.display='none'});document.getElementById('lfOk').classList.add('show');return false;}
+</script>
 </body>
 </html>
