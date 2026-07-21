@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Каталог букетов — Цветочный Хаос · Иваново</title>
-<meta name="description" content="Каталог букетов Цветочный Хаос: авторские букеты из роз, композиции в корзинах, монобукеты, цветочные боксы и свадебная флористика с доставкой по Иваново.">
+<title>Каталог букетов — Цветочный Хаос · Иваново и Кохма</title>
+<meta name="description" content="Каталог букетов Цветочный Хаос: сборные букеты, композиции, интерьерные букеты, букеты-гиганты, монобукеты и боксы с доставкой по Иваново и Кохме. Фильтр по цене.">
 <meta name="theme-color" content="#faf6fb">
 <link rel="icon" href="assets/logo.jpg">
 <script>document.documentElement.className="js";</script>
@@ -12,6 +12,10 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
+<style>
+  .filters-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:14px}
+  .filters-row .flabel{font-weight:700;color:var(--ink,#3a2a33);opacity:.7;font-size:.92rem;margin-right:2px}
+</style>
 </head>
 <body class="catalog-page">
 
@@ -27,9 +31,10 @@
     <nav class="nav-menu">
       <a href="index.html">Главная</a>
       <a href="index.html#services">Услуги</a>
-      <a href="index.html#delivery">Доставка</a>
+      <a href="index.html#delivery">Доставка и оплата</a>
       <a href="index.html#reviews">Отзывы</a>
       <a href="index.html#contact">Контакты</a>
+      <a href="index.html#about">О нас</a>
     </nav>
     <div class="nav-right">
       <a class="nav-phone" href="tel:+79806913478">+7 (980) 691‑34‑78</a>
@@ -40,166 +45,457 @@
 
 <div id="top"></div>
 
-<!-- ================= PAGE HERO ================= -->
 <section class="page-hero">
   <div class="wrap">
     <p class="crumbs reveal"><a href="index.html">Главная</a><span class="sep">→</span><span class="cur">Каталог</span></p>
     <h1 class="reveal">Каталог <em>букетов</em></h1>
-    <p class="ph-lead reveal">Авторские букеты, композиции в корзинах, монобукеты, боксы и свадебная флористика. Любую позицию соберём под ваш повод, размер и бюджет — и привезём по Иванову.</p>
-    <div class="filters reveal" id="filters">
+    <p class="ph-lead reveal">Сборные букеты, композиции, интерьерные букеты, гиганты, монобукеты и боксы. Любую позицию соберём под ваш повод, размер и бюджет — и привезём по Иванову и Кохме.</p>
+    <div class="filters reveal" id="cat-filters">
       <button class="chip active" data-filter="all">Все</button>
-      <button class="chip" data-filter="rozy">Розы</button>
-      <button class="chip" data-filter="korziny">Композиции</button>
       <button class="chip" data-filter="mono">Монобукеты</button>
-      <button class="chip" data-filter="boxy">Боксы</button>
-      <button class="chip" data-filter="svadba">Свадебные</button>
+      <button class="chip" data-filter="kompozicii">Композиции</button>
+      <button class="chip" data-filter="sbornye">Сборные букеты</button>
+      <button class="chip" data-filter="rozy">Розы</button>
+      <button class="chip" data-filter="boksy">Подарочные боксы</button>
+      <button class="chip" data-filter="interior">Интерьерные букеты</button>
+      <button class="chip" data-filter="giganty">Букеты-гиганты</button>
+    </div>
+    <div class="filters-row reveal" id="price-filters">
+      <span class="flabel">Цена:</span>
+      <button class="chip active" data-price="all">Все</button>
+      <button class="chip" data-price="0-2000">до 2 000 ₽</button>
+      <button class="chip" data-price="2000-3000">2 000–3 000 ₽</button>
+      <button class="chip" data-price="3000-5000">3 000–5 000 ₽</button>
+      <button class="chip" data-price="5000-10000">5 000–10 000 ₽</button>
+      <button class="chip" data-price="10000-">от 10 000 ₽</button>
     </div>
   </div>
 </section>
 
-<!-- ================= CATALOG GRID ================= -->
 <section class="catalog-sec">
   <div class="wrap">
     <div class="cat-grid" id="grid">
 
-      <article class="card reveal" data-cat="rozy">
-        <div class="card-media"><img src="assets/g3.jpg" alt="Букет из красных и кремовых роз" loading="lazy"><span class="card-tag">Хит</span></div>
+      <article class="card reveal" data-cat="kompozicii" data-price="3200">
+        <div class="card-media"><img src="assets/catalog/kompozicii/01.jpg" alt="Композиция №1 — доставка цветов Иваново" loading="lazy"><span class="card-tag">Хит</span></div>
         <div class="card-body">
-          <h3 class="card-title">Классические розы</h3>
-          <p class="card-desc">Красные и кремовые розы с эвкалиптом в стильной упаковке.</p>
-          <div class="card-foot"><span class="price"><i>от</i>3 200 ₽</span><a class="card-btn order-btn" href="index.html#order" data-flower="Букет «Классические розы»">Заказать</a></div>
+          <h3 class="card-title">Композиция №1</h3>
+          <p class="card-desc">Цветочная композиция ручной работы — эффектный подарок.</p>
+          <div class="card-foot"><span class="price"><i>от</i>3 200 ₽</span><a class="card-btn order-btn" href="index.html#order" data-flower="Композиция №1">Заказать</a></div>
         </div>
       </article>
 
-      <article class="card reveal" data-cat="rozy">
-        <div class="card-media"><img src="assets/g4.jpg" alt="Компактный букет роз" loading="lazy"></div>
+      <article class="card reveal" data-cat="kompozicii" data-price="3800">
+        <div class="card-media"><img src="assets/catalog/kompozicii/02.jpg" alt="Композиция №2 — доставка цветов Иваново" loading="lazy"></div>
         <div class="card-body">
-          <h3 class="card-title">Свидание</h3>
-          <p class="card-desc">Компактный букет для тёплых слов и приятного повода.</p>
-          <div class="card-foot"><span class="price"><i>от</i>2 600 ₽</span><a class="card-btn order-btn" href="index.html#order" data-flower="Букет «Свидание»">Заказать</a></div>
+          <h3 class="card-title">Композиция №2</h3>
+          <p class="card-desc">Цветочная композиция ручной работы — эффектный подарок.</p>
+          <div class="card-foot"><span class="price"><i>от</i>3 800 ₽</span><a class="card-btn order-btn" href="index.html#order" data-flower="Композиция №2">Заказать</a></div>
         </div>
       </article>
 
-      <article class="card reveal" data-cat="rozy">
-        <div class="card-media"><img src="assets/g5.jpg" alt="Букет роз с зеленью" loading="lazy"></div>
+      <article class="card reveal" data-cat="kompozicii" data-price="4500">
+        <div class="card-media"><img src="assets/catalog/kompozicii/03.jpg" alt="Композиция №3 — доставка цветов Иваново" loading="lazy"></div>
         <div class="card-body">
-          <h3 class="card-title">Нежность</h3>
-          <p class="card-desc">Розы и свежая зелень в дизайнерской упаковке ручной работы.</p>
-          <div class="card-foot"><span class="price"><i>от</i>3 400 ₽</span><a class="card-btn order-btn" href="index.html#order" data-flower="Букет «Нежность»">Заказать</a></div>
+          <h3 class="card-title">Композиция №3</h3>
+          <p class="card-desc">Цветочная композиция ручной работы — эффектный подарок.</p>
+          <div class="card-foot"><span class="price"><i>от</i>4 500 ₽</span><a class="card-btn order-btn" href="index.html#order" data-flower="Композиция №3">Заказать</a></div>
         </div>
       </article>
 
-      <article class="card reveal" data-cat="korziny">
-        <div class="card-media"><img src="assets/g0.jpg" alt="Цветочная композиция в корзине" loading="lazy"></div>
+      <article class="card reveal" data-cat="kompozicii" data-price="5200">
+        <div class="card-media"><img src="assets/catalog/kompozicii/04.jpg" alt="Композиция №4 — доставка цветов Иваново" loading="lazy"></div>
         <div class="card-body">
-          <h3 class="card-title">Праздничная корзина</h3>
-          <p class="card-desc">Пышная сезонная композиция в корзине — эффектный подарок.</p>
-          <div class="card-foot"><span class="price"><i>от</i>5 500 ₽</span><a class="card-btn order-btn" href="index.html#order" data-flower="Праздничная корзина">Заказать</a></div>
+          <h3 class="card-title">Композиция №4</h3>
+          <p class="card-desc">Цветочная композиция ручной работы — эффектный подарок.</p>
+          <div class="card-foot"><span class="price"><i>от</i>5 200 ₽</span><a class="card-btn order-btn" href="index.html#order" data-flower="Композиция №4">Заказать</a></div>
         </div>
       </article>
 
-      <article class="card reveal" data-cat="korziny svadba">
-        <div class="card-media"><img src="assets/g2.jpg" alt="Корзина с белыми хризантемами и розами" loading="lazy"><span class="card-tag">Свадьба</span></div>
+      <article class="card reveal" data-cat="kompozicii" data-price="6500">
+        <div class="card-media"><img src="assets/catalog/kompozicii/05.jpg" alt="Композиция №5 — доставка цветов Иваново" loading="lazy"></div>
         <div class="card-body">
-          <h3 class="card-title">Белый сад</h3>
-          <p class="card-desc">Хризантемы, розы и орхидеи — нежная композиция для торжества.</p>
-          <div class="card-foot"><span class="price"><i>от</i>6 400 ₽</span><a class="card-btn order-btn" href="index.html#order" data-flower="Композиция «Белый сад»">Заказать</a></div>
+          <h3 class="card-title">Композиция №5</h3>
+          <p class="card-desc">Цветочная композиция ручной работы — эффектный подарок.</p>
+          <div class="card-foot"><span class="price"><i>от</i>6 500 ₽</span><a class="card-btn order-btn" href="index.html#order" data-flower="Композиция №5">Заказать</a></div>
         </div>
       </article>
 
-      <article class="card reveal" data-cat="korziny svadba">
-        <div class="card-media"><img src="assets/g1.jpg" alt="Флористическое оформление праздника" loading="lazy"></div>
+      <article class="card reveal" data-cat="kompozicii" data-price="3200">
+        <div class="card-media"><img src="assets/catalog/kompozicii/06.jpg" alt="Композиция №6 — доставка цветов Иваново" loading="lazy"></div>
         <div class="card-body">
-          <h3 class="card-title">Событие</h3>
-          <p class="card-desc">Флористика и оформление для свадьбы, юбилея и любого праздника.</p>
-          <div class="card-foot"><span class="price"><i>от</i>4 900 ₽</span><a class="card-btn order-btn" href="index.html#order" data-flower="Оформление «Событие»">Заказать</a></div>
+          <h3 class="card-title">Композиция №6</h3>
+          <p class="card-desc">Цветочная композиция ручной работы — эффектный подарок.</p>
+          <div class="card-foot"><span class="price"><i>от</i>3 200 ₽</span><a class="card-btn order-btn" href="index.html#order" data-flower="Композиция №6">Заказать</a></div>
         </div>
       </article>
 
-      <article class="card reveal" data-cat="mono">
-        <div class="card-media req">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22V9"/><path d="M12 9c0-3.5 2.4-6 6-6 0 3.5-2.4 6-6 6Z"/><path d="M12 9c0-3.5-2.4-6-6-6 0 3.5 2.4 6 6 6Z"/><path d="M8 22h8"/></svg>
-          <span class="card-tag soft">На заказ</span>
-        </div>
+      <article class="card reveal" data-cat="kompozicii" data-price="3800">
+        <div class="card-media"><img src="assets/catalog/kompozicii/07.jpg" alt="Композиция №7 — доставка цветов Иваново" loading="lazy"></div>
         <div class="card-body">
-          <h3 class="card-title">Монобукет роз</h3>
-          <p class="card-desc">15, 25, 51 или 101 роза — соберём нужный размер и цвет.</p>
-          <div class="card-foot"><span class="price"><i>от</i>1 900 ₽</span><a class="card-btn order-btn" href="index.html#order" data-flower="Монобукет роз">Обсудить</a></div>
+          <h3 class="card-title">Композиция №7</h3>
+          <p class="card-desc">Цветочная композиция ручной работы — эффектный подарок.</p>
+          <div class="card-foot"><span class="price"><i>от</i>3 800 ₽</span><a class="card-btn order-btn" href="index.html#order" data-flower="Композиция №7">Заказать</a></div>
         </div>
       </article>
 
-      <article class="card reveal" data-cat="mono">
-        <div class="card-media req">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21V11"/><path d="M12 11c-3 0-5-2-5-5 3 0 5 2 5 5Z"/><path d="M12 11c3 0 5-2 5-5-3 0-5 2-5 5Z"/><circle cx="12" cy="7" r="2.2"/></svg>
-          <span class="card-tag soft">На заказ</span>
-        </div>
+      <article class="card reveal" data-cat="kompozicii" data-price="4500">
+        <div class="card-media"><img src="assets/catalog/kompozicii/08.jpg" alt="Композиция №8 — доставка цветов Иваново" loading="lazy"></div>
         <div class="card-body">
-          <h3 class="card-title">Сезонные цветы</h3>
-          <p class="card-desc">Тюльпаны, пионы, хризантемы, гортензии — по сезону и настроению.</p>
-          <div class="card-foot"><span class="price"><i>от</i>1 500 ₽</span><a class="card-btn order-btn" href="index.html#order" data-flower="Сезонный букет">Обсудить</a></div>
+          <h3 class="card-title">Композиция №8</h3>
+          <p class="card-desc">Цветочная композиция ручной работы — эффектный подарок.</p>
+          <div class="card-foot"><span class="price"><i>от</i>4 500 ₽</span><a class="card-btn order-btn" href="index.html#order" data-flower="Композиция №8">Заказать</a></div>
         </div>
       </article>
 
-      <article class="card reveal" data-cat="boxy">
-        <div class="card-media req">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h18v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M3 8l2-4h14l2 4"/><path d="M12 4v17"/></svg>
-          <span class="card-tag soft">На заказ</span>
-        </div>
+      <article class="card reveal" data-cat="kompozicii" data-price="5200">
+        <div class="card-media"><img src="assets/catalog/kompozicii/09.jpg" alt="Композиция №9 — доставка цветов Иваново" loading="lazy"></div>
         <div class="card-body">
-          <h3 class="card-title">Цветочный бокс</h3>
-          <p class="card-desc">Шляпная коробка с цветами — удобный и стильный подарок.</p>
-          <div class="card-foot"><span class="price"><i>от</i>2 900 ₽</span><a class="card-btn order-btn" href="index.html#order" data-flower="Цветочный бокс">Обсудить</a></div>
+          <h3 class="card-title">Композиция №9</h3>
+          <p class="card-desc">Цветочная композиция ручной работы — эффектный подарок.</p>
+          <div class="card-foot"><span class="price"><i>от</i>5 200 ₽</span><a class="card-btn order-btn" href="index.html#order" data-flower="Композиция №9">Заказать</a></div>
         </div>
       </article>
 
-      <article class="card reveal" data-cat="svadba">
-        <div class="card-media req">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.5-9.3-9C1 8.5 2.5 5 6 5c2 0 3.2 1.2 4 2.5C10.8 6.2 12 5 14 5c3.5 0 5 3.5 3.3 7C19 16.5 12 21 12 21Z"/></svg>
-          <span class="card-tag soft">На заказ</span>
-        </div>
+      <article class="card reveal" data-cat="kompozicii" data-price="6500">
+        <div class="card-media"><img src="assets/catalog/kompozicii/10.jpg" alt="Композиция №10 — доставка цветов Иваново" loading="lazy"></div>
         <div class="card-body">
-          <h3 class="card-title">Букет невесты</h3>
-          <p class="card-desc">Свадебная флористика: букет невесты, бутоньерки, оформление.</p>
-          <div class="card-foot"><span class="price"><i>от</i>3 500 ₽</span><a class="card-btn order-btn" href="index.html#order" data-flower="Букет невесты">Обсудить</a></div>
+          <h3 class="card-title">Композиция №10</h3>
+          <p class="card-desc">Цветочная композиция ручной работы — эффектный подарок.</p>
+          <div class="card-foot"><span class="price"><i>от</i>6 500 ₽</span><a class="card-btn order-btn" href="index.html#order" data-flower="Композиция №10">Заказать</a></div>
+        </div>
+      </article>
+
+      <article class="card reveal" data-cat="kompozicii" data-price="3200">
+        <div class="card-media"><img src="assets/catalog/kompozicii/11.jpg" alt="Композиция №11 — доставка цветов Иваново" loading="lazy"></div>
+        <div class="card-body">
+          <h3 class="card-title">Композиция №11</h3>
+          <p class="card-desc">Цветочная композиция ручной работы — эффектный подарок.</p>
+          <div class="card-foot"><span class="price"><i>от</i>3 200 ₽</span><a class="card-btn order-btn" href="index.html#order" data-flower="Композиция №11">Заказать</a></div>
+        </div>
+      </article>
+
+      <article class="card reveal" data-cat="kompozicii" data-price="3800">
+        <div class="card-media"><img src="assets/catalog/kompozicii/12.jpg" alt="Композиция №12 — доставка цветов Иваново" loading="lazy"></div>
+        <div class="card-body">
+          <h3 class="card-title">Композиция №12</h3>
+          <p class="card-desc">Цветочная композиция ручной работы — эффектный подарок.</p>
+          <div class="card-foot"><span class="price"><i>от</i>3 800 ₽</span><a class="card-btn order-btn" href="index.html#order" data-flower="Композиция №12">Заказать</a></div>
+        </div>
+      </article>
+
+      <article class="card reveal" data-cat="sbornye" data-price="2400">
+        <div class="card-media"><img src="assets/catalog/sbornye/01.jpg" alt="Сборный букет №1 — доставка цветов Иваново" loading="lazy"><span class="card-tag">Хит</span></div>
+        <div class="card-body">
+          <h3 class="card-title">Сборный букет №1</h3>
+          <p class="card-desc">Авторский сборный букет из свежих сезонных цветов.</p>
+          <div class="card-foot"><span class="price"><i>от</i>2 400 ₽</span><a class="card-btn order-btn" href="index.html#order" data-flower="Сборный букет №1">Заказать</a></div>
+        </div>
+      </article>
+
+      <article class="card reveal" data-cat="sbornye" data-price="2800">
+        <div class="card-media"><img src="assets/catalog/sbornye/02.jpg" alt="Сборный букет №2 — доставка цветов Иваново" loading="lazy"></div>
+        <div class="card-body">
+          <h3 class="card-title">Сборный букет №2</h3>
+          <p class="card-desc">Авторский сборный букет из свежих сезонных цветов.</p>
+          <div class="card-foot"><span class="price"><i>от</i>2 800 ₽</span><a class="card-btn order-btn" href="index.html#order" data-flower="Сборный букет №2">Заказать</a></div>
+        </div>
+      </article>
+
+      <article class="card reveal" data-cat="sbornye" data-price="3200">
+        <div class="card-media"><img src="assets/catalog/sbornye/03.jpg" alt="Сборный букет №3 — доставка цветов Иваново" loading="lazy"></div>
+        <div class="card-body">
+          <h3 class="card-title">Сборный букет №3</h3>
+          <p class="card-desc">Авторский сборный букет из свежих сезонных цветов.</p>
+          <div class="card-foot"><span class="price"><i>от</i>3 200 ₽</span><a class="card-btn order-btn" href="index.html#order" data-flower="Сборный букет №3">Заказать</a></div>
+        </div>
+      </article>
+
+      <article class="card reveal" data-cat="sbornye" data-price="3600">
+        <div class="card-media"><img src="assets/catalog/sbornye/04.jpg" alt="Сборный букет №4 — доставка цветов Иваново" loading="lazy"></div>
+        <div class="card-body">
+          <h3 class="card-title">Сборный букет №4</h3>
+          <p class="card-desc">Авторский сборный букет из свежих сезонных цветов.</p>
+          <div class="card-foot"><span class="price"><i>от</i>3 600 ₽</span><a class="card-btn order-btn" href="index.html#order" data-flower="Сборный букет №4">Заказать</a></div>
+        </div>
+      </article>
+
+      <article class="card reveal" data-cat="sbornye" data-price="4200">
+        <div class="card-media"><img src="assets/catalog/sbornye/05.jpg" alt="Сборный букет №5 — доставка цветов Иваново" loading="lazy"></div>
+        <div class="card-body">
+          <h3 class="card-title">Сборный букет №5</h3>
+          <p class="card-desc">Авторский сборный букет из свежих сезонных цветов.</p>
+          <div class="card-foot"><span class="price"><i>от</i>4 200 ₽</span><a class="card-btn order-btn" href="index.html#order" data-flower="Сборный букет №5">Заказать</a></div>
+        </div>
+      </article>
+
+      <article class="card reveal" data-cat="sbornye" data-price="2400">
+        <div class="card-media"><img src="assets/catalog/sbornye/06.jpg" alt="Сборный букет №6 — доставка цветов Иваново" loading="lazy"></div>
+        <div class="card-body">
+          <h3 class="card-title">Сборный букет №6</h3>
+          <p class="card-desc">Авторский сборный букет из свежих сезонных цветов.</p>
+          <div class="card-foot"><span class="price"><i>от</i>2 400 ₽</span><a class="card-btn order-btn" href="index.html#order" data-flower="Сборный букет №6">Заказать</a></div>
+        </div>
+      </article>
+
+      <article class="card reveal" data-cat="sbornye" data-price="2800">
+        <div class="card-media"><img src="assets/catalog/sbornye/07.jpg" alt="Сборный букет №7 — доставка цветов Иваново" loading="lazy"></div>
+        <div class="card-body">
+          <h3 class="card-title">Сборный букет №7</h3>
+          <p class="card-desc">Авторский сборный букет из свежих сезонных цветов.</p>
+          <div class="card-foot"><span class="price"><i>от</i>2 800 ₽</span><a class="card-btn order-btn" href="index.html#order" data-flower="Сборный букет №7">Заказать</a></div>
+        </div>
+      </article>
+
+      <article class="card reveal" data-cat="sbornye" data-price="3200">
+        <div class="card-media"><img src="assets/catalog/sbornye/08.jpg" alt="Сборный букет №8 — доставка цветов Иваново" loading="lazy"></div>
+        <div class="card-body">
+          <h3 class="card-title">Сборный букет №8</h3>
+          <p class="card-desc">Авторский сборный букет из свежих сезонных цветов.</p>
+          <div class="card-foot"><span class="price"><i>от</i>3 200 ₽</span><a class="card-btn order-btn" href="index.html#order" data-flower="Сборный букет №8">Заказать</a></div>
+        </div>
+      </article>
+
+      <article class="card reveal" data-cat="sbornye" data-price="3600">
+        <div class="card-media"><img src="assets/catalog/sbornye/09.jpg" alt="Сборный букет №9 — доставка цветов Иваново" loading="lazy"></div>
+        <div class="card-body">
+          <h3 class="card-title">Сборный букет №9</h3>
+          <p class="card-desc">Авторский сборный букет из свежих сезонных цветов.</p>
+          <div class="card-foot"><span class="price"><i>от</i>3 600 ₽</span><a class="card-btn order-btn" href="index.html#order" data-flower="Сборный букет №9">Заказать</a></div>
+        </div>
+      </article>
+
+      <article class="card reveal" data-cat="sbornye" data-price="4200">
+        <div class="card-media"><img src="assets/catalog/sbornye/10.jpg" alt="Сборный букет №10 — доставка цветов Иваново" loading="lazy"></div>
+        <div class="card-body">
+          <h3 class="card-title">Сборный букет №10</h3>
+          <p class="card-desc">Авторский сборный букет из свежих сезонных цветов.</p>
+          <div class="card-foot"><span class="price"><i>от</i>4 200 ₽</span><a class="card-btn order-btn" href="index.html#order" data-flower="Сборный букет №10">Заказать</a></div>
+        </div>
+      </article>
+
+      <article class="card reveal" data-cat="sbornye" data-price="2400">
+        <div class="card-media"><img src="assets/catalog/sbornye/11.jpg" alt="Сборный букет №11 — доставка цветов Иваново" loading="lazy"></div>
+        <div class="card-body">
+          <h3 class="card-title">Сборный букет №11</h3>
+          <p class="card-desc">Авторский сборный букет из свежих сезонных цветов.</p>
+          <div class="card-foot"><span class="price"><i>от</i>2 400 ₽</span><a class="card-btn order-btn" href="index.html#order" data-flower="Сборный букет №11">Заказать</a></div>
+        </div>
+      </article>
+
+      <article class="card reveal" data-cat="sbornye" data-price="2800">
+        <div class="card-media"><img src="assets/catalog/sbornye/12.jpg" alt="Сборный букет №12 — доставка цветов Иваново" loading="lazy"></div>
+        <div class="card-body">
+          <h3 class="card-title">Сборный букет №12</h3>
+          <p class="card-desc">Авторский сборный букет из свежих сезонных цветов.</p>
+          <div class="card-foot"><span class="price"><i>от</i>2 800 ₽</span><a class="card-btn order-btn" href="index.html#order" data-flower="Сборный букет №12">Заказать</a></div>
+        </div>
+      </article>
+
+      <article class="card reveal" data-cat="interior" data-price="4500">
+        <div class="card-media"><img src="assets/catalog/interior/01.jpg" alt="Интерьерный букет №1 — доставка цветов Иваново" loading="lazy"><span class="card-tag">Хит</span></div>
+        <div class="card-body">
+          <h3 class="card-title">Интерьерный букет №1</h3>
+          <p class="card-desc">Интерьерный букет для украшения дома или офиса.</p>
+          <div class="card-foot"><span class="price"><i>от</i>4 500 ₽</span><a class="card-btn order-btn" href="index.html#order" data-flower="Интерьерный букет №1">Заказать</a></div>
+        </div>
+      </article>
+
+      <article class="card reveal" data-cat="interior" data-price="5500">
+        <div class="card-media"><img src="assets/catalog/interior/02.jpg" alt="Интерьерный букет №2 — доставка цветов Иваново" loading="lazy"></div>
+        <div class="card-body">
+          <h3 class="card-title">Интерьерный букет №2</h3>
+          <p class="card-desc">Интерьерный букет для украшения дома или офиса.</p>
+          <div class="card-foot"><span class="price"><i>от</i>5 500 ₽</span><a class="card-btn order-btn" href="index.html#order" data-flower="Интерьерный букет №2">Заказать</a></div>
+        </div>
+      </article>
+
+      <article class="card reveal" data-cat="interior" data-price="6500">
+        <div class="card-media"><img src="assets/catalog/interior/03.jpg" alt="Интерьерный букет №3 — доставка цветов Иваново" loading="lazy"></div>
+        <div class="card-body">
+          <h3 class="card-title">Интерьерный букет №3</h3>
+          <p class="card-desc">Интерьерный букет для украшения дома или офиса.</p>
+          <div class="card-foot"><span class="price"><i>от</i>6 500 ₽</span><a class="card-btn order-btn" href="index.html#order" data-flower="Интерьерный букет №3">Заказать</a></div>
+        </div>
+      </article>
+
+      <article class="card reveal" data-cat="interior" data-price="8000">
+        <div class="card-media"><img src="assets/catalog/interior/04.jpg" alt="Интерьерный букет №4 — доставка цветов Иваново" loading="lazy"></div>
+        <div class="card-body">
+          <h3 class="card-title">Интерьерный букет №4</h3>
+          <p class="card-desc">Интерьерный букет для украшения дома или офиса.</p>
+          <div class="card-foot"><span class="price"><i>от</i>8 000 ₽</span><a class="card-btn order-btn" href="index.html#order" data-flower="Интерьерный букет №4">Заказать</a></div>
+        </div>
+      </article>
+
+      <article class="card reveal" data-cat="interior" data-price="4500">
+        <div class="card-media"><img src="assets/catalog/interior/05.jpg" alt="Интерьерный букет №5 — доставка цветов Иваново" loading="lazy"></div>
+        <div class="card-body">
+          <h3 class="card-title">Интерьерный букет №5</h3>
+          <p class="card-desc">Интерьерный букет для украшения дома или офиса.</p>
+          <div class="card-foot"><span class="price"><i>от</i>4 500 ₽</span><a class="card-btn order-btn" href="index.html#order" data-flower="Интерьерный букет №5">Заказать</a></div>
+        </div>
+      </article>
+
+      <article class="card reveal" data-cat="interior" data-price="5500">
+        <div class="card-media"><img src="assets/catalog/interior/06.jpg" alt="Интерьерный букет №6 — доставка цветов Иваново" loading="lazy"></div>
+        <div class="card-body">
+          <h3 class="card-title">Интерьерный букет №6</h3>
+          <p class="card-desc">Интерьерный букет для украшения дома или офиса.</p>
+          <div class="card-foot"><span class="price"><i>от</i>5 500 ₽</span><a class="card-btn order-btn" href="index.html#order" data-flower="Интерьерный букет №6">Заказать</a></div>
+        </div>
+      </article>
+
+      <article class="card reveal" data-cat="giganty" data-price="8500">
+        <div class="card-media"><img src="assets/catalog/giganty/01.jpg" alt="Букет-гигант №1 — доставка цветов Иваново" loading="lazy"><span class="card-tag">Хит</span></div>
+        <div class="card-body">
+          <h3 class="card-title">Букет-гигант №1</h3>
+          <p class="card-desc">Большой букет-гигант, который впечатляет с порога.</p>
+          <div class="card-foot"><span class="price"><i>от</i>8 500 ₽</span><a class="card-btn order-btn" href="index.html#order" data-flower="Букет-гигант №1">Заказать</a></div>
+        </div>
+      </article>
+
+      <article class="card reveal" data-cat="giganty" data-price="10500">
+        <div class="card-media"><img src="assets/catalog/giganty/02.jpg" alt="Букет-гигант №2 — доставка цветов Иваново" loading="lazy"></div>
+        <div class="card-body">
+          <h3 class="card-title">Букет-гигант №2</h3>
+          <p class="card-desc">Большой букет-гигант, который впечатляет с порога.</p>
+          <div class="card-foot"><span class="price"><i>от</i>10 500 ₽</span><a class="card-btn order-btn" href="index.html#order" data-flower="Букет-гигант №2">Заказать</a></div>
+        </div>
+      </article>
+
+      <article class="card reveal" data-cat="giganty" data-price="12500">
+        <div class="card-media"><img src="assets/catalog/giganty/03.jpg" alt="Букет-гигант №3 — доставка цветов Иваново" loading="lazy"></div>
+        <div class="card-body">
+          <h3 class="card-title">Букет-гигант №3</h3>
+          <p class="card-desc">Большой букет-гигант, который впечатляет с порога.</p>
+          <div class="card-foot"><span class="price"><i>от</i>12 500 ₽</span><a class="card-btn order-btn" href="index.html#order" data-flower="Букет-гигант №3">Заказать</a></div>
+        </div>
+      </article>
+
+      <article class="card reveal" data-cat="giganty" data-price="15000">
+        <div class="card-media"><img src="assets/catalog/giganty/04.jpg" alt="Букет-гигант №4 — доставка цветов Иваново" loading="lazy"></div>
+        <div class="card-body">
+          <h3 class="card-title">Букет-гигант №4</h3>
+          <p class="card-desc">Большой букет-гигант, который впечатляет с порога.</p>
+          <div class="card-foot"><span class="price"><i>от</i>15 000 ₽</span><a class="card-btn order-btn" href="index.html#order" data-flower="Букет-гигант №4">Заказать</a></div>
+        </div>
+      </article>
+
+      <article class="card reveal" data-cat="giganty" data-price="8500">
+        <div class="card-media"><img src="assets/catalog/giganty/05.jpg" alt="Букет-гигант №5 — доставка цветов Иваново" loading="lazy"></div>
+        <div class="card-body">
+          <h3 class="card-title">Букет-гигант №5</h3>
+          <p class="card-desc">Большой букет-гигант, который впечатляет с порога.</p>
+          <div class="card-foot"><span class="price"><i>от</i>8 500 ₽</span><a class="card-btn order-btn" href="index.html#order" data-flower="Букет-гигант №5">Заказать</a></div>
+        </div>
+      </article>
+
+      <article class="card reveal" data-cat="giganty" data-price="10500">
+        <div class="card-media"><img src="assets/catalog/giganty/06.jpg" alt="Букет-гигант №6 — доставка цветов Иваново" loading="lazy"></div>
+        <div class="card-body">
+          <h3 class="card-title">Букет-гигант №6</h3>
+          <p class="card-desc">Большой букет-гигант, который впечатляет с порога.</p>
+          <div class="card-foot"><span class="price"><i>от</i>10 500 ₽</span><a class="card-btn order-btn" href="index.html#order" data-flower="Букет-гигант №6">Заказать</a></div>
+        </div>
+      </article>
+
+      <article class="card reveal" data-cat="giganty" data-price="12500">
+        <div class="card-media"><img src="assets/catalog/giganty/07.jpg" alt="Букет-гигант №7 — доставка цветов Иваново" loading="lazy"></div>
+        <div class="card-body">
+          <h3 class="card-title">Букет-гигант №7</h3>
+          <p class="card-desc">Большой букет-гигант, который впечатляет с порога.</p>
+          <div class="card-foot"><span class="price"><i>от</i>12 500 ₽</span><a class="card-btn order-btn" href="index.html#order" data-flower="Букет-гигант №7">Заказать</a></div>
+        </div>
+      </article>
+
+      <article class="card reveal" data-cat="giganty" data-price="15000">
+        <div class="card-media"><img src="assets/catalog/giganty/08.jpg" alt="Букет-гигант №8 — доставка цветов Иваново" loading="lazy"></div>
+        <div class="card-body">
+          <h3 class="card-title">Букет-гигант №8</h3>
+          <p class="card-desc">Большой букет-гигант, который впечатляет с порога.</p>
+          <div class="card-foot"><span class="price"><i>от</i>15 000 ₽</span><a class="card-btn order-btn" href="index.html#order" data-flower="Букет-гигант №8">Заказать</a></div>
+        </div>
+      </article>
+
+      <article class="card reveal" data-cat="mono" data-price="1600">
+        <div class="card-media req"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22V9"/><path d="M12 9c0-3.5 2.4-6 6-6 0 3.5-2.4 6-6 6Z"/><path d="M12 9c0-3.5-2.4-6-6-6 0 3.5 2.4 6 6 6Z"/><path d="M8 22h8"/></svg><span class="card-tag soft">На заказ</span></div>
+        <div class="card-body">
+          <h3 class="card-title">Монобукет</h3>
+          <p class="card-desc">Монобукет из свежих цветов — 15, 25, 51 или 101 шт.</p>
+          <div class="card-foot"><span class="price"><i>от</i>1 600 ₽</span><a class="card-btn order-btn" href="index.html#order" data-flower="Монобукет">Обсудить</a></div>
+        </div>
+      </article>
+
+      <article class="card reveal" data-cat="mono" data-price="1900">
+        <div class="card-media req"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22V9"/><path d="M12 9c0-3.5 2.4-6 6-6 0 3.5-2.4 6-6 6Z"/><path d="M12 9c0-3.5-2.4-6-6-6 0 3.5 2.4 6 6 6Z"/><path d="M8 22h8"/></svg><span class="card-tag soft">На заказ</span></div>
+        <div class="card-body">
+          <h3 class="card-title">Монобукет · вариант 2</h3>
+          <p class="card-desc">Монобукет из свежих цветов — 15, 25, 51 или 101 шт.</p>
+          <div class="card-foot"><span class="price"><i>от</i>1 900 ₽</span><a class="card-btn order-btn" href="index.html#order" data-flower="Монобукет · вариант 2">Обсудить</a></div>
+        </div>
+      </article>
+
+      <article class="card reveal" data-cat="rozy" data-price="2600">
+        <div class="card-media req"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22V9"/><path d="M12 9c0-3.5 2.4-6 6-6 0 3.5-2.4 6-6 6Z"/><path d="M12 9c0-3.5-2.4-6-6-6 0 3.5 2.4 6 6 6Z"/><path d="M8 22h8"/></svg><span class="card-tag soft">На заказ</span></div>
+        <div class="card-body">
+          <h3 class="card-title">Розы</h3>
+          <p class="card-desc">Розы поштучно и букетами — любой размер и цвет.</p>
+          <div class="card-foot"><span class="price"><i>от</i>2 600 ₽</span><a class="card-btn order-btn" href="index.html#order" data-flower="Розы">Обсудить</a></div>
+        </div>
+      </article>
+
+      <article class="card reveal" data-cat="rozy" data-price="3400">
+        <div class="card-media req"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22V9"/><path d="M12 9c0-3.5 2.4-6 6-6 0 3.5-2.4 6-6 6Z"/><path d="M12 9c0-3.5-2.4-6-6-6 0 3.5 2.4 6 6 6Z"/><path d="M8 22h8"/></svg><span class="card-tag soft">На заказ</span></div>
+        <div class="card-body">
+          <h3 class="card-title">Розы · вариант 2</h3>
+          <p class="card-desc">Розы поштучно и букетами — любой размер и цвет.</p>
+          <div class="card-foot"><span class="price"><i>от</i>3 400 ₽</span><a class="card-btn order-btn" href="index.html#order" data-flower="Розы · вариант 2">Обсудить</a></div>
+        </div>
+      </article>
+
+      <article class="card reveal" data-cat="boksy" data-price="3200">
+        <div class="card-media req"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22V9"/><path d="M12 9c0-3.5 2.4-6 6-6 0 3.5-2.4 6-6 6Z"/><path d="M12 9c0-3.5-2.4-6-6-6 0 3.5 2.4 6 6 6Z"/><path d="M8 22h8"/></svg><span class="card-tag soft">На заказ</span></div>
+        <div class="card-body">
+          <h3 class="card-title">Подарочный бокс</h3>
+          <p class="card-desc">Цветы в шляпной коробке — стильный и удобный подарок.</p>
+          <div class="card-foot"><span class="price"><i>от</i>3 200 ₽</span><a class="card-btn order-btn" href="index.html#order" data-flower="Подарочный бокс">Обсудить</a></div>
+        </div>
+      </article>
+
+      <article class="card reveal" data-cat="boksy" data-price="4200">
+        <div class="card-media req"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22V9"/><path d="M12 9c0-3.5 2.4-6 6-6 0 3.5-2.4 6-6 6Z"/><path d="M12 9c0-3.5-2.4-6-6-6 0 3.5 2.4 6 6 6Z"/><path d="M8 22h8"/></svg><span class="card-tag soft">На заказ</span></div>
+        <div class="card-body">
+          <h3 class="card-title">Подарочный бокс · вариант 2</h3>
+          <p class="card-desc">Цветы в шляпной коробке — стильный и удобный подарок.</p>
+          <div class="card-foot"><span class="price"><i>от</i>4 200 ₽</span><a class="card-btn order-btn" href="index.html#order" data-flower="Подарочный бокс · вариант 2">Обсудить</a></div>
         </div>
       </article>
 
     </div>
-
-    <p class="cat-note reveal" id="empty" style="display:none">В этой категории пока пусто — но мы соберём букет на заказ. <a href="index.html#order">Напишите нам</a>.</p>
+    <p class="cat-note reveal" id="empty" style="display:none">В этом фильтре пока пусто — но мы соберём букет на заказ. <a href="index.html#order">Напишите нам</a>.</p>
   </div>
 </section>
 
-<!-- ================= CTA BAND ================= -->
 <section style="padding-top:0">
   <div class="wrap">
     <div class="cta-band reveal">
       <h2>Не нашли <em>свой</em> букет?</h2>
       <p>Расскажите, что хочется — повод, цвет, бюджет. Флорист предложит варианты и соберёт композицию специально для вас.</p>
       <div class="row">
-        <a class="btn btn-light" href="tel:+79806913478">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
-          Позвонить
-        </a>
-        <a class="btn btn-wa" href="https://wa.me/79806913478" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.8 4.9-1.3A10 10 0 1 0 12 2Zm5.8 14.2c-.2.7-1.4 1.3-2 1.4-.5.1-1.2.1-1.9-.1-.4-.1-1-.3-1.8-.6-3-1.3-5-4.4-5.2-4.6-.1-.2-1.2-1.6-1.2-3s.7-2.1 1-2.4c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.6-.3.3c-.2.2-.4.4-.2.7.2.4.9 1.5 2 2.4 1.3 1.2 2.4 1.5 2.8 1.7.3.1.5.1.7-.1l.9-1c.2-.3.4-.2.7-.1l1.9.9c.3.2.5.2.5.4.1.1.1.6-.1 1.2Z"/></svg>
-          Написать в WhatsApp
-        </a>
+        <a class="btn btn-light" href="tel:+79806913478">Позвонить</a>
+        <a class="btn btn-wa" href="https://wa.me/79806913478" target="_blank" rel="noopener">Написать в WhatsApp</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ================= FOOTER ================= -->
 <footer>
   <div class="wrap">
     <div class="foot-top">
       <div>
-        <div class="foot-brand">
-          <img src="assets/logo.jpg" alt="Цветочный Хаос">
-          <b>Цветочный Хаос</b>
-        </div>
-        <p class="foot-about">Свежие авторские букеты и доставка цветов по всему Иванову. Хаос, который хочется дарить.</p>
+        <div class="foot-brand"><img src="assets/logo.jpg" alt="Цветочный Хаос"><b>Цветочный Хаос</b></div>
+        <p class="foot-about">Свежие авторские букеты и доставка цветов по Иваново и Кохме. Хаос, который хочется дарить.</p>
       </div>
       <div class="foot-col">
         <h4>Разделы</h4>
@@ -207,6 +503,7 @@
         <a href="index.html#services">Услуги</a>
         <a href="index.html#delivery">Доставка и оплата</a>
         <a href="index.html#reviews">Отзывы</a>
+        <a href="index.html#about">О нас</a>
       </div>
       <div class="foot-col">
         <h4>Контакты</h4>
@@ -218,65 +515,71 @@
       </div>
     </div>
     <div class="foot-bot">
-      <span>© <span id="year">2026</span> Цветочный Хаос · Доставка цветов по Иваново</span>
+      <span>© <span id="year">2026</span> Цветочный Хаос · Доставка цветов по Иваново и Кохме</span>
       <span>Сделано в <a href="index.html">SmartLink</a></span>
     </div>
   </div>
 </footer>
 
-<!-- ================= MOBILE CALLBAR ================= -->
 <div class="callbar">
-  <a class="cb-call" href="tel:+79806913478">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
-    Позвонить
-  </a>
-  <a class="cb-wa" href="https://wa.me/79806913478" target="_blank" rel="noopener">
-    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.8 4.9-1.3A10 10 0 1 0 12 2Zm5.8 14.2c-.2.7-1.4 1.3-2 1.4-.5.1-1.2.1-1.9-.1-.4-.1-1-.3-1.8-.6-3-1.3-5-4.4-5.2-4.6-.1-.2-1.2-1.6-1.2-3s.7-2.1 1-2.4c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.6-.3.3c-.2.2-.4.4-.2.7.2.4.9 1.5 2 2.4 1.3 1.2 2.4 1.5 2.8 1.7.3.1.5.1.7-.1l.9-1c.2-.3.4-.2.7-.1l1.9.9c.3.2.5.2.5.4.1.1.1.6-.1 1.2Z"/></svg>
-    WhatsApp
-  </a>
+  <a class="cb-call" href="tel:+79806913478">Позвонить</a>
+  <a class="cb-wa" href="https://wa.me/79806913478" target="_blank" rel="noopener">WhatsApp</a>
 </div>
 
 <script>
   document.getElementById("year").textContent = new Date().getFullYear();
 
-  // reveal
   (function(){
     var els = document.querySelectorAll(".reveal");
     if(!("IntersectionObserver" in window)){els.forEach(function(e){e.classList.add("in")});return;}
     var io = new IntersectionObserver(function(entries){
       entries.forEach(function(en){ if(en.isIntersecting){en.target.classList.add("in");io.unobserve(en.target);} });
-    },{threshold:.12,rootMargin:"0px 0px -6% 0px"});
-    els.forEach(function(el){
-      var sibs = el.parentElement ? el.parentElement.children : [el];
-      var idx = Array.prototype.indexOf.call(sibs, el);
-      el.style.transitionDelay = Math.min(idx,6)*60 + "ms";
-      io.observe(el);
-    });
+    },{threshold:.08,rootMargin:"0px 0px -5% 0px"});
+    els.forEach(function(el){ io.observe(el); });
   })();
 
-  // category filter
+  // combined filter: category + price
   (function(){
-    var chips = document.querySelectorAll(".chip");
+    var catChips = document.querySelectorAll("#cat-filters .chip");
+    var priceChips = document.querySelectorAll("#price-filters .chip");
     var cards = document.querySelectorAll(".card[data-cat]");
     var empty = document.getElementById("empty");
-    chips.forEach(function(ch){
+    var curCat = "all", curPrice = "all";
+
+    function inPrice(p, f){
+      if(f==="all") return true;
+      if(f==="0-2000") return p<2000;
+      if(f==="2000-3000") return p>=2000 && p<3000;
+      if(f==="3000-5000") return p>=3000 && p<5000;
+      if(f==="5000-10000") return p>=5000 && p<10000;
+      if(f==="10000-") return p>=10000;
+      return true;
+    }
+    function apply(){
+      var shown = 0;
+      cards.forEach(function(card){
+        var cat = card.getAttribute("data-cat")||"";
+        var price = parseInt(card.getAttribute("data-price")||"0",10);
+        var show = (curCat==="all" || cat===curCat) && inPrice(price, curPrice);
+        card.classList.toggle("is-hidden", !show);
+        if(show) shown++;
+      });
+      if(empty) empty.style.display = shown ? "none" : "block";
+    }
+    catChips.forEach(function(ch){
       ch.addEventListener("click", function(){
-        chips.forEach(function(c){c.classList.remove("active")});
-        ch.classList.add("active");
-        var f = ch.getAttribute("data-filter");
-        var shown = 0;
-        cards.forEach(function(card){
-          var cats = (card.getAttribute("data-cat")||"").split(" ");
-          var show = (f==="all") || cats.indexOf(f)>-1;
-          card.classList.toggle("is-hidden", !show);
-          if(show) shown++;
-        });
-        if(empty) empty.style.display = shown ? "none" : "block";
+        catChips.forEach(function(c){c.classList.remove("active")});
+        ch.classList.add("active"); curCat = ch.getAttribute("data-filter"); apply();
+      });
+    });
+    priceChips.forEach(function(ch){
+      ch.addEventListener("click", function(){
+        priceChips.forEach(function(c){c.classList.remove("active")});
+        ch.classList.add("active"); curPrice = ch.getAttribute("data-price"); apply();
       });
     });
   })();
 
-  // order -> WhatsApp with the item name
   var WA = "79806913478";
   document.querySelectorAll(".order-btn").forEach(function(b){
     b.addEventListener("click", function(e){
