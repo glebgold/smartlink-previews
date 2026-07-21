@@ -388,7 +388,7 @@
     </div>
     <div class="foot-bot">
       <span>© <span id="year">2026</span> Цветочный Хаос · Доставка цветов по Иваново</span>
-      <span>Сделано в <a href="#top">SmartLink</a></span>
+      <span>Сделано в <a href="#top">SmartLink</a> · <a href="#" id="admin-link">Админка</a></span>
     </div>
   </div>
 </footer>
@@ -471,6 +471,49 @@
     try{ if(navigator.clipboard) navigator.clipboard.writeText(text); }catch(_){}
     window.open("https://t.me/zvetihause", "_blank");
   });
+</script>
+
+<!-- ================= АДМИНКА (демо) ================= -->
+<style>
+  .admin-modal{position:fixed;inset:0;z-index:9999;display:none;align-items:center;justify-content:center;padding:20px;background:rgba(30,10,30,.55);backdrop-filter:blur(3px)}
+  .admin-modal.open{display:flex}
+  .admin-card{background:#fff;border-radius:20px;padding:32px 28px;max-width:390px;width:100%;box-shadow:0 30px 70px -20px rgba(0,0,0,.45);position:relative}
+  .admin-card h3{font-family:var(--serif,Georgia,serif);font-size:25px;color:var(--plum,#3a123a);margin-bottom:6px}
+  .admin-card .am-sub{color:var(--ink-soft,#666);font-size:14px;line-height:1.5;margin-bottom:22px}
+  .afield{margin-bottom:14px}
+  .afield label{display:block;font-size:13px;font-weight:700;margin-bottom:7px;color:var(--ink,#222)}
+  .afield input{width:100%;padding:13px 15px;border:1px solid var(--line-2,#ddd);border-radius:11px;font-size:16px;font-family:inherit;background:#fff}
+  .afield input:focus{outline:none;border-color:var(--accent,#9c3fb9)}
+  .admin-enter{width:100%;justify-content:center;margin-top:8px}
+  .admin-note{font-size:12.5px;color:var(--ink-soft,#888);text-align:center;margin-top:15px;line-height:1.5}
+  .admin-close{position:absolute;top:14px;right:16px;background:none;border:0;font-size:30px;line-height:1;cursor:pointer;color:var(--ink-soft,#999)}
+  #admin-link{opacity:.75}
+  #admin-link:hover{opacity:1;color:var(--accent,#9c3fb9)}
+</style>
+<div class="admin-modal" id="admin-modal" aria-hidden="true">
+  <div class="admin-card">
+    <button class="admin-close" id="admin-close" aria-label="Закрыть">&times;</button>
+    <h3>Вход в админку</h3>
+    <p class="am-sub">Управление каталогом: редактирование букетов, цен, фотографий и добавление новых.</p>
+    <div class="afield"><label for="adm-login">Логин</label><input id="adm-login" type="text" placeholder="Введите логин" autocomplete="off"></div>
+    <div class="afield"><label for="adm-pass">Пароль</label><input id="adm-pass" type="password" placeholder="Введите пароль" autocomplete="off"></div>
+    <button class="btn admin-enter" id="adm-enter" type="button">Войти</button>
+    <p class="admin-note">Панель управления заработает после подключения хостинга и домена.</p>
+  </div>
+</div>
+<script>
+  (function(){
+    var link=document.getElementById("admin-link"), modal=document.getElementById("admin-modal");
+    if(!link||!modal) return;
+    link.addEventListener("click", function(e){ e.preventDefault(); modal.classList.add("open"); });
+    document.getElementById("admin-close").addEventListener("click", function(){ modal.classList.remove("open"); });
+    modal.addEventListener("click", function(e){ if(e.target===modal) modal.classList.remove("open"); });
+    document.getElementById("adm-enter").addEventListener("click", function(){
+      var note=modal.querySelector(".admin-note");
+      note.textContent="Панель заработает после подключения хостинга и домена — совсем скоро.";
+      note.style.color="var(--accent,#9c3fb9)";
+    });
+  })();
 </script>
 
 </body>
