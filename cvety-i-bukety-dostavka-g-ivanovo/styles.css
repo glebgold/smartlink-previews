@@ -129,7 +129,7 @@
     box-shadow:var(--shadow);border:1px solid rgba(255,255,255,.6);
   }
   .hero-arch::after{content:"";position:absolute;inset:0;border-radius:inherit;box-shadow:inset 0 0 0 1px rgba(57,18,47,.14);pointer-events:none}
-  .hero-arch img{width:100%;height:100%;object-fit:cover;object-position:50% 32%}
+  .hero-arch img{width:100%;height:100%;object-fit:cover;object-position:50% 58%}
   .hero-figure .leaf{position:absolute;color:var(--accent);opacity:.5}
   .hero-figure .leaf.a{top:-18px;left:-26px;width:86px;transform:rotate(-18deg)}
   .hero-figure .leaf.b{bottom:24px;right:-30px;width:74px;transform:rotate(160deg)}
@@ -144,9 +144,9 @@
   .hero-badge b{display:block;font-family:var(--serif);font-size:18px;color:var(--plum);line-height:1}
   .hero-badge small{display:block;font-size:12.5px;color:var(--ink-soft);margin-top:3px;font-weight:600}
   @media(max-width:900px){
-    .hero{padding:36px 0 20px}
-    .hero-grid{grid-template-columns:1fr;gap:40px}
-    .hero-figure{order:-1;max-width:400px}
+    .hero{padding:28px 0 18px}
+    .hero-grid{grid-template-columns:1fr;gap:28px}
+    .hero-figure{order:0;max-width:330px;margin:2px auto 0}
     .hero-badge{left:0}
     .hero-sub{max-width:none}
   }
