@@ -320,11 +320,25 @@
   .callbar{position:fixed;left:0;right:0;bottom:0;z-index:90;display:none;gap:10px;padding:11px 14px;
     background:rgba(250,246,251,.94);backdrop-filter:blur(12px);border-top:1px solid var(--line);
     grid-template-columns:1fr 1fr}
-  .callbar a{display:flex;align-items:center;justify-content:center;gap:8px;padding:14px;border-radius:999px;font-weight:700;font-size:15px}
+  .callbar a,.callbar button{display:flex;align-items:center;justify-content:center;gap:8px;padding:14px;border-radius:999px;font-weight:700;font-size:15px;font-family:inherit;border:0;cursor:pointer}
   .callbar svg{width:17px;height:17px}
   .cb-call{background:#fff;color:var(--plum);border:1px solid var(--line-2)}
   .cb-wa{background:linear-gradient(135deg,#2fb457,#199442);color:#fff}
+  .cb-social{background:linear-gradient(135deg,var(--accent),#7a2e93);color:#fff}
   @media(max-width:860px){.callbar{display:grid}}
+  /* поповер соцсетей */
+  .social-sheet{position:fixed;right:14px;bottom:74px;z-index:95;background:#fff;border:1px solid var(--line);
+    border-radius:16px;box-shadow:0 22px 50px -18px rgba(40,10,40,.35);padding:8px;min-width:232px;display:none}
+  .social-sheet.open{display:block;animation:ssIn .18s ease}
+  @keyframes ssIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+  .ss-item{display:flex;align-items:center;gap:12px;padding:11px 12px;border-radius:11px;font-weight:600;font-size:15px;color:var(--ink)}
+  .ss-item:hover{background:#f5eef8}
+  .ss-ic{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex:none}
+  .ss-ic svg{width:21px;height:21px}
+  .ss-vk .ss-ic{background:#e6f0ff}.ss-vk .ss-ic svg{fill:#0077ff}
+  .ss-tg .ss-ic{background:#e3f3fd}.ss-tg .ss-ic svg{fill:#28a8ea}
+  .ss-wa .ss-ic{background:#e4f8ec}.ss-wa .ss-ic svg{fill:#25d366}
+  .ss-max .ss-ic{background:#ece9ff}.ss-max .ss-ic svg{fill:#6b4ffb}
 
   /* ---------- Reveal ---------- */
   html.js .reveal{opacity:0;transform:translateY(22px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
