@@ -400,7 +400,7 @@
       <p>Расскажите, что хочется — повод, цвет, бюджет. Флорист предложит варианты и соберёт композицию специально для вас.</p>
       <div class="row">
         <a class="btn btn-light" href="tel:+79806913478">Позвонить</a>
-        <a class="btn btn-wa" href="https://wa.me/79806913478" target="_blank" rel="noopener">Написать в WhatsApp</a>
+        <a class="btn btn-light" href="https://t.me/zvetihause" target="_blank" rel="noopener">Написать в Telegram</a>
       </div>
     </div>
   </div>
@@ -424,7 +424,8 @@
       <div class="foot-col">
         <h4>Контакты</h4>
         <a href="tel:+79806913478">+7 (980) 691‑34‑78</a>
-        <a href="https://wa.me/79806913478" target="_blank" rel="noopener">WhatsApp</a>
+        <a href="https://t.me/zvetihause" target="_blank" rel="noopener">Telegram</a>
+        <a href="https://max.ru/join/Sd-76gpRBfq-LjYeCO0K8bx8nfeKel-J40mMX5wH8ZY" target="_blank" rel="noopener">MAX</a>
         <a href="https://vk.com/zvetihause" target="_blank" rel="noopener">ВКонтакте</a>
         <p>г. Иваново, мкр. Московский, 10</p>
         <p>Ежедневно, 8:00–21:00</p>
@@ -439,7 +440,16 @@
 
 <div class="callbar">
   <a class="cb-call" href="tel:+79806913478">Позвонить</a>
-  <a class="cb-wa" href="https://wa.me/79806913478" target="_blank" rel="noopener">WhatsApp</a>
+  <button class="cb-social" id="social-btn" type="button" aria-label="Мы в соцсетях">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.6 13.5 6.8 4M15.4 6.5l-6.8 4"/></svg>
+    Соцсети
+  </button>
+</div>
+
+<div class="social-sheet" id="social-sheet" aria-hidden="true">
+  <a class="ss-item ss-vk" href="https://vk.com/zvetihause" target="_blank" rel="noopener"><span class="ss-ic"><svg viewBox="0 0 24 24"><path d="M13.2 17c-5.3 0-8.4-3.7-8.5-9.8h2.7c.1 4.5 2 6.4 3.6 6.8V7.2h2.5v3.9c1.5-.2 3.2-2 3.7-3.9h2.5c-.4 2.3-2 4.1-3.2 4.8 1.2.6 3 2.2 3.7 5h-2.8c-.5-1.7-2-3-3.9-3.2V17z"/></svg></span>ВКонтакте</a>
+  <a class="ss-item ss-tg" href="https://t.me/zvetihause" target="_blank" rel="noopener"><span class="ss-ic"><svg viewBox="0 0 24 24"><path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"/></svg></span>Telegram</a>
+  <a class="ss-item ss-max" href="https://max.ru/join/Sd-76gpRBfq-LjYeCO0K8bx8nfeKel-J40mMX5wH8ZY" target="_blank" rel="noopener"><span class="ss-ic"><svg viewBox="0 0 24 24"><path d="M12 3C6.5 3 2 6.6 2 11c0 2.5 1.4 4.7 3.6 6.1-.1 1-.5 2.3-1.4 3.4-.2.3 0 .7.4.6 1.9-.4 3.3-1.1 4.2-1.7.9.2 1.8.3 2.8.3 5.5 0 10-3.6 10-8s-4.5-8-10-8z"/></svg></span>MAX</a>
 </div>
 
 <div class="lb" id="lb" aria-hidden="true">
@@ -524,8 +534,7 @@
     lb.addEventListener("touchend", function(e){ var dx=e.changedTouches[0].clientX-sx; if(Math.abs(dx)>40) go(dx<0?1:-1); }, {passive:true});
   })();
 
-  // order -> WhatsApp (с ссылкой на фото букета, чтобы флорист видел какой)
-  var WA = "79806913478";
+  // order -> Telegram (текст заявки копируется в буфер, открывается чат)
   document.querySelectorAll(".order-btn").forEach(function(b){
     b.addEventListener("click", function(e){
       e.preventDefault();
@@ -534,9 +543,19 @@
       var text = "Здравствуйте! Хочу заказать: " + name + ".";
       if(photo){ text += "\nВот этот букет: " + new URL("assets/catalog/"+photo, location.href).href; }
       text += "\nПодскажите наличие, цену и сроки.";
-      window.open("https://wa.me/" + WA + "?text=" + encodeURIComponent(text), "_blank");
+      try{ if(navigator.clipboard) navigator.clipboard.writeText(text); }catch(_){}
+      window.open("https://t.me/zvetihause", "_blank");
     });
   });
+
+  // social sheet toggle (поповер соцсетей)
+  (function(){
+    var btn=document.getElementById("social-btn"), sheet=document.getElementById("social-sheet");
+    if(!btn||!sheet) return;
+    btn.addEventListener("click", function(e){ e.stopPropagation(); sheet.classList.toggle("open"); });
+    document.addEventListener("click", function(e){ if(!sheet.contains(e.target) && e.target!==btn) sheet.classList.remove("open"); });
+    sheet.querySelectorAll("a").forEach(function(a){ a.addEventListener("click", function(){ sheet.classList.remove("open"); }); });
+  })();
 </script>
 
 </body>
