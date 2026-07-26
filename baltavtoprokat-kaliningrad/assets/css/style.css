@@ -381,6 +381,7 @@ body.menu-open .mobile-nav{transform:none;visibility:visible}
   .footer-brand{grid-column:1/-1}
 }
 @media (max-width:900px){
+  .scroll-hint{display:none}                 /* на мобилке «Листайте» налезала на цифры */
   .srv{grid-template-columns:56px 1fr auto;gap:18px}
   .srv__desc{display:none}
   .srv__thumb{width:104px;height:74px}
@@ -401,22 +402,38 @@ body.menu-open .mobile-nav{transform:none;visibility:visible}
   .site-header{padding:12px 0}
   .brand__name{font-size:1rem}
   .brand__sub{font-size:.54rem;letter-spacing:.18em}
+  .section{padding:58px 0}
+  .section--tight{padding:46px 0}
+  .section-head{margin-bottom:30px}
+  /* герой: заголовок ложится ровно в 2 строки, компактнее */
+  .hero__inner{padding-top:118px;padding-bottom:46px}
+  .hero h1{font-size:clamp(2.1rem,9vw,3.4rem)}
+  .hero__kicker{margin-bottom:18px}
+  .hero__lead{margin:20px 0 28px}
+  .hero__stats{gap:22px 26px;padding-top:24px;margin-top:34px}
+  .stat{flex:1 1 40%}
+  .stat__num{font-size:2rem}
+  .hero__side{display:none}
   .feature-grid{grid-template-columns:1fr}
   .process{grid-template-columns:1fr}
-  .gallery{columns:1}
-  .srv{grid-template-columns:44px 1fr;gap:14px}
+  .gallery{columns:2;column-gap:12px}       /* 2 колонки — иначе 35 фото в одну бесконечную ленту */
+  .gitem{margin-bottom:12px}
+  .srv{grid-template-columns:40px 1fr;gap:14px;padding-block:22px}
   .srv__thumb{display:none}
-  .hero__side{display:none}
-  .hero__inner{padding-top:120px}
-  .hero__stats{gap:20px 30px}
-  .stat{flex:1 1 40%}
-  .footer-top{grid-template-columns:1fr}
+  .srv__title{font-size:1.4rem}
+  .footer-top{grid-template-columns:1fr;gap:26px}
   .footer-bottom{flex-direction:column;align-items:flex-start;gap:8px}
-  .btn{--pad:15px 24px;font-size:.88rem}
-  .hero__cta{width:100%}
+  .btn{--pad:15px 22px;font-size:.86rem}
+  .hero__cta{width:100%;gap:12px}
   .hero__cta .btn{flex:1 1 100%;justify-content:center}
+  .cta-band__row{flex-direction:column}
   .cta-band__row .btn,.hero__cta .btn{width:100%}
+  .cta-band{padding:38px 22px}
+  .map-wrap iframe{min-height:300px}
+  .info-row .v{font-size:1.05rem}
 }
-@media (max-width:360px){
+@media (max-width:380px){
   .brand__sub{display:none}
+  .hero h1{font-size:2rem}
+  .gallery{columns:1}                        /* совсем узкие — одна колонка читабельнее */
 }
