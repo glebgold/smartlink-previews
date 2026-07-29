@@ -314,6 +314,8 @@ h1, h2, h3 { margin: 0; font-family: 'Sora', sans-serif; font-weight: 700; line-
   .hero-title { font-size: clamp(30px, 8.2vw, 48px); }
   .hero-actions { width: 100%; }
   .hero-actions .btn { flex: 1 1 auto; }
+  .contact-list li { flex-direction: column; align-items: flex-start; gap: 4px; }
+  .contact-list a, .contact-list em { font-size: 17px; }
   .bento { grid-template-columns: repeat(2, 1fr); grid-auto-rows: clamp(140px, 40vw, 200px); }
   .b1 { grid-column: span 2; grid-row: span 1; }
   .b2, .b5, .b6 { grid-column: span 2; }
