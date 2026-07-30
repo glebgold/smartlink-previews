@@ -287,7 +287,10 @@ footer a:hover{color:var(--gold-l)}
   .hero-btns{flex-direction:column;align-items:stretch;gap:10px}
   .hero-btns .btn{width:100%}
   .hphone{display:none}
+  .hcta .btn{display:none}
   .logo-t b{font-size:15px}
+  .logo-m{width:36px;height:36px}
+  .logo-m svg{width:19px;height:19px}
   .trust-grid{grid-template-columns:1fr;gap:16px}
   .trust-i{display:flex;gap:12px;align-items:baseline}
   .trust-i b{font-size:17px;flex-shrink:0;margin-bottom:0;min-width:74px}
@@ -301,6 +304,20 @@ footer a:hover{color:var(--gold-l)}
   .about-ph .about-cert{width:96px;right:-8px;bottom:-12px}
   .card,.step{padding:22px 19px}
 }
+/* нижняя панель на телефоне */
+.bar{display:none;position:fixed;left:0;right:0;bottom:0;z-index:70;
+  background:rgba(253,248,243,.97);backdrop-filter:blur(12px);
+  border-top:1px solid rgba(176,141,87,.24);padding:10px 14px;gap:10px}
+.bar a{flex:1;padding:14px 10px;border-radius:100px;text-decoration:none;font-weight:700;
+  font-size:15px;text-align:center;font-family:'Manrope'}
+.bar .b1{background:var(--navy);color:#fff}
+.bar .b2{background:#fff;color:var(--ink);border:1.5px solid rgba(176,141,87,.4)}
+@media(max-width:640px){
+  .bar{display:flex}
+  body{padding-bottom:74px}
+  footer{padding-bottom:20px}
+}
+
 /* мобильное меню */
 .mob{display:none;position:fixed;inset:0;z-index:120;background:rgba(20,16,12,.5)}
 .mob.on{display:block}
@@ -755,6 +772,11 @@ footer a:hover{color:var(--gold-l)}
     </div>
   </div>
 </footer>
+
+<div class="bar">
+  <a class="b1" href="#contact">Записаться</a>
+  <a class="b2" href="tel:+79113661427">Позвонить</a>
+</div>
 
 <div class="lb" id="lb">
   <button class="lb-x" id="lbx" aria-label="Закрыть">&times;</button>
