@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Наталья Новикова — тренер и нутрициолог | Путь к здоровью, Великие Луки</title>
+<meta name="description" content="Индивидуальный план питания, персональные консультации по снижению веса, программа «Здоровая спина», степ-аэробика и фитнес-танцы. Наталья Новикова — дипломированный нутрициолог и сертифицированный инструктор, Великие Луки.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Manrope:wght@400;500;600;700&family=Marck+Script&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#f8eee5; --cream-2:#fdf8f3; --sand:#efe0d0; --gold:#b08d57; --gold-l:#c9a878;
+  --ink:#2a2723; --ink-2:#5d564e; --navy:#1d2436; --green:#3f6b52; --white:#fff;
+  --sh:0 14px 40px rgba(70,50,30,.10); --sh-s:0 6px 18px rgba(70,50,30,.08);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:'Manrope',system-ui,sans-serif;color:var(--ink);background:var(--cream-2);
+  font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+h1,h2,h3,h4{font-family:'Playfair Display',Georgia,serif;font-weight:600;line-height:1.16;margin:0}
+a{color:inherit}
+.wrap{width:100%;max-width:1180px;margin:0 auto;padding-left:22px;padding-right:22px}
+.sec{padding-top:82px;padding-bottom:82px}
+.eyebrow{font-family:'Manrope';font-size:12.5px;letter-spacing:.20em;text-transform:uppercase;
+  color:var(--gold);font-weight:700;margin-bottom:14px}
+.h2{font-size:clamp(27px,4.2vw,42px);letter-spacing:-.01em}
+.lead{color:var(--ink-2);font-size:17.5px;max-width:660px}
+.script{font-family:'Marck Script',cursive;color:var(--gold);font-weight:400}
+
+/* ── шапка ── */
+header{position:sticky;top:0;z-index:60;background:rgba(253,248,243,.94);
+  backdrop-filter:blur(12px);border-bottom:1px solid rgba(176,141,87,.20)}
+.hrow{display:flex;align-items:center;justify-content:space-between;gap:16px;
+  padding-top:13px;padding-bottom:13px}
+.logo{display:flex;align-items:center;gap:11px;text-decoration:none;flex-shrink:0}
+.logo-m{width:40px;height:40px;border-radius:50%;border:1.5px solid var(--gold);
+  display:grid;place-items:center;flex-shrink:0}
+.logo-m svg{width:21px;height:21px}
+.logo-t b{display:block;font-family:'Playfair Display',serif;font-size:16.5px;
+  letter-spacing:.01em;line-height:1.1;font-weight:600}
+.logo-t span{display:block;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--gold);margin-top:2px}
+nav.menu{display:flex;gap:26px}
+nav.menu a{text-decoration:none;font-size:15px;font-weight:500;color:var(--ink-2);
+  white-space:nowrap;transition:color .18s}
+nav.menu a:hover{color:var(--gold)}
+.hcta{display:flex;align-items:center;gap:12px;flex-shrink:0}
+.hphone{text-decoration:none;font-weight:700;font-size:15.5px;white-space:nowrap}
+.burger{display:none;width:42px;height:42px;border:1px solid rgba(176,141,87,.4);
+  border-radius:11px;background:none;cursor:pointer;padding:0;place-items:center}
+.burger span{display:block;width:19px;height:1.8px;background:var(--ink);
+  margin:3.4px auto;border-radius:2px}
+
+/* ── кнопки ── */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;
+  padding:15px 27px;border-radius:100px;text-decoration:none;font-weight:700;font-size:15.5px;
+  border:none;cursor:pointer;transition:transform .18s, box-shadow .18s, background .18s;
+  font-family:'Manrope';line-height:1.2;text-align:center}
+.btn-p{background:var(--navy);color:#fff;box-shadow:0 10px 26px rgba(29,36,54,.24)}
+.btn-p:hover{transform:translateY(-2px);box-shadow:0 14px 32px rgba(29,36,54,.30)}
+.btn-g{background:var(--gold);color:#fff;box-shadow:0 10px 26px rgba(176,141,87,.30)}
+.btn-g:hover{transform:translateY(-2px)}
+.btn-o{background:transparent;color:var(--ink);border:1.5px solid rgba(42,39,35,.22)}
+.btn-o:hover{border-color:var(--gold);color:var(--gold)}
+
+/* ── герой ── */
+.hero{background:var(--cream);position:relative;overflow:hidden;
+  padding-top:56px;padding-bottom:0}
+.hero:before{content:"";position:absolute;top:-90px;right:-110px;width:420px;height:420px;
+  border-radius:50%;background:radial-gradient(circle,rgba(176,141,87,.13),transparent 68%);pointer-events:none}
+.hero-grid{display:grid;grid-template-columns:1.12fr .88fr;gap:36px;align-items:end}
+.hero-txt{padding-bottom:62px}
+.hero h1{font-size:clamp(30px,4.3vw,47px);letter-spacing:-.015em;margin-bottom:20px}
+.hero h1 em{font-style:normal;color:var(--gold)}
+.hero p.sub{color:var(--ink-2);font-size:18px;max-width:520px;margin:0 0 28px}
+.hero-btns{display:flex;gap:13px;flex-wrap:wrap;margin-bottom:28px}
+.hero-chips{display:flex;gap:9px;flex-wrap:wrap}
+.chip{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.72);
+  border:1px solid rgba(176,141,87,.26);border-radius:100px;padding:8px 15px;
+  font-size:13.5px;font-weight:600;color:var(--ink-2)}
+.chip i{width:6px;height:6px;border-radius:50%;background:var(--gold);flex-shrink:0}
+.hero-fig{position:relative;align-self:end}
+.hero-fig img{width:100%;max-width:430px;margin-left:auto;display:block;
+  border-radius:220px 220px 0 0;object-fit:cover;object-position:50% 12%;
+  max-height:540px;filter:drop-shadow(0 18px 34px rgba(70,50,30,.13))}
+.hero-badge{position:absolute;left:-6px;bottom:52px;background:#fff;border-radius:18px;
+  padding:14px 18px;box-shadow:var(--sh);max-width:212px}
+.hero-badge b{display:block;font-family:'Playfair Display',serif;font-size:26px;
+  color:var(--green);line-height:1}
+.hero-badge span{display:block;font-size:12.5px;color:var(--ink-2);margin-top:5px;line-height:1.35}
+
+/* ── полоса доверия ── */
+.trust{background:var(--navy);color:#fff;padding-top:34px;padding-bottom:34px}
+.trust-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:26px}
+.trust-i b{display:block;font-family:'Playfair Display',serif;font-size:20px;
+  color:var(--gold-l);margin-bottom:4px;line-height:1.2}
+.trust-i span{font-size:14px;color:rgba(255,255,255,.74);line-height:1.45;display:block}
+
+/* ── услуги ── */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:38px}
+.card{background:#fff;border-radius:20px;padding:28px 24px 26px;box-shadow:var(--sh-s);
+  border:1px solid rgba(176,141,87,.14);display:flex;flex-direction:column;
+  transition:transform .2s, box-shadow .2s}
+.card:hover{transform:translateY(-4px);box-shadow:var(--sh)}
+.card-ic{width:50px;height:50px;border-radius:14px;background:var(--cream);
+  display:grid;place-items:center;margin-bottom:17px;flex-shrink:0}
+.card-ic svg{width:25px;height:25px;stroke:var(--gold);fill:none;stroke-width:1.6}
+.card h3{font-size:20.5px;margin-bottom:9px}
+.card p{color:var(--ink-2);font-size:15.3px;margin:0 0 15px;flex:1}
+.card ul{margin:0 0 15px;padding-left:0;list-style:none}
+.card ul li{position:relative;padding-left:20px;font-size:14.6px;color:var(--ink-2);
+  margin-bottom:6px;line-height:1.45}
+.card ul li:before{content:"";position:absolute;left:0;top:8px;width:9px;height:9px;
+  border-radius:50%;border:1.8px solid var(--gold)}
+.card-foot{border-top:1px solid rgba(176,141,87,.18);padding-top:14px;
+  display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.card-foot b{font-family:'Playfair Display',serif;font-size:17px}
+.card-foot a{font-size:14px;font-weight:700;color:var(--gold);text-decoration:none;white-space:nowrap}
+
+/* ── план питания / бонусы ── */
+.plan{background:var(--cream)}
+.plan-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.bonus{display:flex;gap:15px;align-items:flex-start;background:#fff;border-radius:16px;
+  padding:17px 19px;box-shadow:var(--sh-s);margin-bottom:13px}
+.bonus-n{width:38px;height:38px;border-radius:11px;background:var(--cream);color:var(--gold);
+  display:grid;place-items:center;font-weight:800;font-size:15px;flex-shrink:0}
+.bonus b{display:block;font-size:15.6px;margin-bottom:2px}
+.bonus span{font-size:14.2px;color:var(--ink-2);line-height:1.45}
+.plan-ph{border-radius:22px;overflow:hidden;box-shadow:var(--sh)}
+.plan-ph img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/5}
+
+/* ── шаги ── */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:38px;
+  position:relative}
+.step{background:#fff;border-radius:18px;padding:26px 22px;box-shadow:var(--sh-s);
+  border:1px solid rgba(176,141,87,.14)}
+.step b.num{display:inline-grid;place-items:center;width:40px;height:40px;border-radius:50%;
+  background:var(--navy);color:var(--gold-l);font-family:'Playfair Display',serif;
+  font-size:18px;margin-bottom:14px}
+.step h4{font-size:18px;margin-bottom:7px}
+.step p{margin:0;font-size:14.8px;color:var(--ink-2)}
+
+/* ── об эксперте ── */
+.about{background:var(--navy);color:#fff;position:relative;overflow:hidden}
+.about:before{content:"";position:absolute;left:-140px;bottom:-140px;width:420px;height:420px;
+  border-radius:50%;background:radial-gradient(circle,rgba(176,141,87,.20),transparent 66%)}
+.about .eyebrow{color:var(--gold-l)}
+.about-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:48px;align-items:center;
+  position:relative;z-index:2}
+.about-ph{position:relative}
+.about-ph img{border-radius:20px;box-shadow:0 20px 50px rgba(0,0,0,.35);aspect-ratio:4/5;
+  object-fit:cover;width:100%}
+.about-cert{position:absolute;right:-16px;bottom:-18px;width:132px;border-radius:12px;
+  box-shadow:0 14px 32px rgba(0,0,0,.4);border:3px solid #fff;aspect-ratio:auto}
+.about h2{color:#fff;margin-bottom:8px}
+.about .sig{font-family:'Marck Script',cursive;font-size:25px;color:var(--gold-l);margin-bottom:18px}
+.about p{color:rgba(255,255,255,.80);font-size:16.4px;margin:0 0 16px}
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:22px 0}
+.pillar{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.13);
+  border-radius:14px;padding:16px 15px}
+.pillar b{display:block;font-family:'Playfair Display',serif;font-size:17px;color:var(--gold-l);margin-bottom:5px}
+.pillar span{font-size:13.6px;color:rgba(255,255,255,.72);line-height:1.42}
+.certs{display:flex;gap:9px;flex-wrap:wrap;margin-top:6px}
+.certs span{background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.16);
+  border-radius:100px;padding:7px 14px;font-size:13.4px;color:rgba(255,255,255,.85);font-weight:600}
+
+/* ── блог ── */
+.posts{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:38px}
+.post{background:#fff;border-radius:18px;overflow:hidden;box-shadow:var(--sh-s);
+  border:1px solid rgba(176,141,87,.14);display:flex;flex-direction:column;
+  transition:transform .2s,box-shadow .2s}
+.post:hover{transform:translateY(-4px);box-shadow:var(--sh)}
+.post-im{aspect-ratio:16/10;overflow:hidden;background:var(--cream)}
+.post-im img{width:100%;height:100%;object-fit:cover}
+.post-b{padding:20px 21px 22px;display:flex;flex-direction:column;flex:1}
+.post-tag{font-size:11.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--gold);
+  font-weight:700;margin-bottom:8px}
+.post h3{font-size:18.4px;margin-bottom:8px;line-height:1.28}
+.post p{font-size:14.7px;color:var(--ink-2);margin:0 0 14px;flex:1}
+.post .more{font-size:14px;font-weight:700;color:var(--gold);text-decoration:none}
+
+/* ── галерея ── */
+.gal{background:var(--cream)}
+.gal-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:13px;margin-top:34px}
+.gal-grid figure{margin:0;border-radius:15px;overflow:hidden;cursor:zoom-in;
+  aspect-ratio:1/1;background:#e8dccf;position:relative}
+.gal-grid img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.gal-grid figure:hover img{transform:scale(1.06)}
+.gal-grid figure.wide{grid-column:span 2;aspect-ratio:2/1}
+
+/* ── FAQ ── */
+.faq{max-width:840px;margin:36px auto 0}
+.q{background:#fff;border-radius:15px;box-shadow:var(--sh-s);margin-bottom:12px;
+  border:1px solid rgba(176,141,87,.14);overflow:hidden}
+.q summary{cursor:pointer;padding:19px 54px 19px 22px;font-weight:700;font-size:16.4px;
+  list-style:none;position:relative}
+.q summary::-webkit-details-marker{display:none}
+.q summary:after{content:"+";position:absolute;right:22px;top:16px;font-size:24px;
+  color:var(--gold);font-weight:400;transition:transform .2s}
+.q[open] summary:after{transform:rotate(45deg)}
+.q .a{padding:0 22px 20px;color:var(--ink-2);font-size:15.6px}
+
+/* ── заявка ── */
+.cta{background:var(--cream)}
+.cta-box{background:#fff;border-radius:24px;box-shadow:var(--sh);overflow:hidden;
+  display:grid;grid-template-columns:1.02fr .98fr}
+.cta-l{padding:44px 40px}
+.cta-l h2{font-size:clamp(25px,3.4vw,35px);margin-bottom:12px}
+.cta-l p{color:var(--ink-2);font-size:16.2px;margin:0 0 22px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:13px}
+.fld{margin-bottom:13px}
+.fld label{display:block;font-size:13.2px;font-weight:700;color:var(--ink-2);margin-bottom:6px}
+.fld input,.fld select,.fld textarea{width:100%;padding:14px 16px;border-radius:12px;
+  border:1.5px solid rgba(42,39,35,.14);font-family:'Manrope';font-size:15.5px;
+  background:var(--cream-2);color:var(--ink);-webkit-appearance:none;appearance:none}
+.fld select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23b08d57' stroke-width='1.8' fill='none'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 16px center}
+.fld input:focus,.fld select:focus,.fld textarea:focus{outline:none;border-color:var(--gold);
+  background:#fff}
+.form-note{font-size:12.6px;color:var(--ink-2);margin-top:12px;line-height:1.45}
+.cta-r{background:var(--navy);color:#fff;padding:44px 38px;display:flex;flex-direction:column;
+  justify-content:center;gap:20px}
+.cta-r h3{font-size:22px;color:#fff;margin-bottom:2px}
+.ct{display:flex;gap:14px;align-items:flex-start;text-decoration:none}
+.ct-ic{width:42px;height:42px;border-radius:12px;background:rgba(255,255,255,.09);
+  display:grid;place-items:center;flex-shrink:0}
+.ct-ic svg{width:20px;height:20px;stroke:var(--gold-l);fill:none;stroke-width:1.7}
+.ct b{display:block;font-size:16.5px;color:#fff;margin-bottom:2px;word-break:break-word}
+.ct span{font-size:13.5px;color:rgba(255,255,255,.62);display:block}
+
+/* ── футер ── */
+footer{background:#161c2a;color:rgba(255,255,255,.62);
+  padding-top:42px;padding-bottom:34px;font-size:14.6px}
+.f-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:34px;
+  padding-bottom:26px;border-bottom:1px solid rgba(255,255,255,.10)}
+footer h4{color:#fff;font-size:16.5px;margin-bottom:13px}
+footer a{color:rgba(255,255,255,.62);text-decoration:none}
+footer a:hover{color:var(--gold-l)}
+.f-links{display:flex;flex-direction:column;gap:9px}
+.f-bot{padding-top:22px;display:flex;justify-content:space-between;gap:14px;
+  flex-wrap:wrap;font-size:13.2px}
+
+/* ── лайтбокс ── */
+.lb{position:fixed;inset:0;background:rgba(20,16,12,.94);z-index:200;display:none;
+  align-items:center;justify-content:center;padding:24px}
+.lb.on{display:flex}
+.lb img{max-width:94vw;max-height:88vh;width:auto;border-radius:12px;object-fit:contain}
+.lb-x{position:absolute;top:18px;right:20px;width:46px;height:46px;border-radius:50%;
+  background:rgba(255,255,255,.14);color:#fff;border:none;font-size:26px;cursor:pointer;
+  line-height:1;display:grid;place-items:center}
+.lb-nav{position:absolute;top:50%;transform:translateY(-50%);width:52px;height:52px;
+  border-radius:50%;background:rgba(255,255,255,.14);color:#fff;border:none;font-size:26px;
+  cursor:pointer;display:grid;place-items:center}
+.lb-prev{left:16px}.lb-next{right:16px}
+
+/* ── адаптив ── */
+@media(max-width:1040px){
+  nav.menu{display:none}
+  .burger{display:grid}
+  .trust-grid{grid-template-columns:repeat(2,1fr);gap:22px}
+  .cards,.posts{grid-template-columns:repeat(2,1fr)}
+  .steps{grid-template-columns:repeat(2,1fr)}
+  .plan-grid,.about-grid{grid-template-columns:1fr;gap:34px}
+  .about-ph{max-width:380px}
+  .cta-box{grid-template-columns:1fr}
+}
+@media(max-width:900px){
+  .hero-grid{grid-template-columns:1fr;gap:0}
+  .hero{padding-top:38px}
+  .hero-txt{padding-bottom:30px;order:0}
+  .hero-fig{order:1;max-width:340px;margin:0 auto}
+  .hero-fig img{max-width:340px;border-radius:170px 170px 0 0;max-height:460px}
+  .hero-badge{left:auto;right:-4px;bottom:22px;max-width:184px;padding:12px 15px}
+  .hero-badge b{font-size:22px}
+}
+@media(max-width:640px){
+  body{font-size:16.4px}
+  .sec{padding-top:56px;padding-bottom:56px}
+  .wrap{padding-left:17px;padding-right:17px}
+  .hero h1{font-size:30px}
+  .hero p.sub{font-size:16.6px}
+  .hero-btns{flex-direction:column;align-items:stretch;gap:10px}
+  .hero-btns .btn{width:100%}
+  .hphone{display:none}
+  .logo-t b{font-size:15px}
+  .trust-grid{grid-template-columns:1fr;gap:16px}
+  .trust-i{display:flex;gap:12px;align-items:baseline}
+  .trust-i b{font-size:17px;flex-shrink:0;margin-bottom:0;min-width:74px}
+  .cards,.posts,.steps{grid-template-columns:1fr;gap:15px}
+  .pillars{grid-template-columns:1fr;gap:10px}
+  .gal-grid{grid-template-columns:repeat(2,1fr);gap:9px}
+  .gal-grid figure.wide{grid-column:span 2;aspect-ratio:2/1}
+  .form-row{grid-template-columns:1fr}
+  .cta-l,.cta-r{padding:30px 22px}
+  .f-grid{grid-template-columns:1fr;gap:24px}
+  .about-cert{width:96px;right:-8px;bottom:-12px}
+  .card,.step{padding:22px 19px}
+}
+/* мобильное меню */
+.mob{display:none;position:fixed;inset:0;z-index:120;background:rgba(20,16,12,.5)}
+.mob.on{display:block}
+.mob-p{position:absolute;top:0;right:0;width:min(310px,84vw);height:100%;background:var(--cream-2);
+  padding:24px 22px;display:flex;flex-direction:column;gap:5px;box-shadow:-10px 0 40px rgba(0,0,0,.2)}
+.mob-p a{padding:14px 4px;text-decoration:none;font-weight:600;font-size:17px;
+  border-bottom:1px solid rgba(176,141,87,.18)}
+.mob-x{align-self:flex-end;width:42px;height:42px;border:none;background:none;font-size:28px;
+  cursor:pointer;color:var(--ink);margin-bottom:6px}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap hrow">
+    <a class="logo" href="#top">
+      <span class="logo-m"><svg viewBox="0 0 24 24" fill="none" stroke="#b08d57" stroke-width="1.5">
+        <path d="M12 21c0-5 3-9 8-10-1 5-4 8-8 10Z"/><path d="M12 21c0-5-3-9-8-10 1 5 4 8 8 10Z"/>
+        <path d="M12 21V9"/><circle cx="12" cy="5.5" r="2.6"/></svg></span>
+      <span class="logo-t"><b>Наталья Новикова</b><span>Путь к здоровью</span></span>
+    </a>
+    <nav class="menu">
+      <a href="#services">Услуги</a>
+      <a href="#plan">План питания</a>
+      <a href="#about">Обо мне</a>
+      <a href="#blog">Статьи</a>
+      <a href="#contact">Записаться</a>
+    </nav>
+    <div class="hcta">
+      <a class="hphone" href="tel:+79113661427">+7 911 366-14-27</a>
+      <a class="btn btn-p" href="#contact" style="padding:12px 21px;font-size:14.6px">Записаться</a>
+      <button class="burger" id="bg" aria-label="Меню"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="mob" id="mob">
+  <div class="mob-p">
+    <button class="mob-x" id="mx" aria-label="Закрыть">&times;</button>
+    <a href="#services">Услуги</a>
+    <a href="#plan">План питания</a>
+    <a href="#about">Обо мне</a>
+    <a href="#blog">Статьи</a>
+    <a href="#gallery">Фото</a>
+    <a href="#faq">Вопросы</a>
+    <a href="#contact">Записаться</a>
+    <a href="tel:+79113661427" style="border:none;color:var(--gold);margin-top:8px">+7 911 366-14-27</a>
+  </div>
+</div>
+
+<!-- ─── ГЕРОЙ ─── -->
+<section class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div class="hero-txt">
+      <div class="eyebrow">Тренер · Дипломированный нутрициолог</div>
+      <h1>Здоровое тело —<br>без диет и <em>«с понедельника»</em></h1>
+      <p class="sub">Составлю индивидуальный план питания под ваш образ жизни и подберу тренировки,
+        которые реально получится делать. Работаю с людьми, а не со стандартными таблицами.</p>
+      <div class="hero-btns">
+        <a class="btn btn-p" href="#contact">Получить план питания</a>
+        <a class="btn btn-o" href="#services">Все услуги и цены</a>
+      </div>
+      <div class="hero-chips">
+        <span class="chip"><i></i>3 образования</span>
+        <span class="chip"><i></i>Сертифицированный инструктор</span>
+        <span class="chip"><i></i>Онлайн по всей России</span>
+        <span class="chip"><i></i>Великие Луки</span>
+      </div>
+    </div>
+    <div class="hero-fig">
+      <img src="assets/hero.jpg" alt="Наталья Новикова — тренер и нутрициолог">
+      <div class="hero-badge">
+        <b>1 478</b>
+        <span>человек в клубе «Путь к здоровью»</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── ДОВЕРИЕ ─── -->
+<section class="trust">
+  <div class="wrap trust-grid">
+    <div class="trust-i"><b>Спорт</b><span>Академия физической культуры и спорта, кафедра гимнастики</span></div>
+    <div class="trust-i"><b>Питание</b><span>Дипломированный нутрициолог, практикующий специалист</span></div>
+    <div class="trust-i"><b>Право</b><span>Юридическое образование — работаю прозрачно и по договорённостям</span></div>
+    <div class="trust-i"><b>Десятки курсов</b><span>Степ-аэробика, здоровая спина, миофасциальный релиз, йога</span></div>
+  </div>
+</section>
+
+<!-- ─── УСЛУГИ ─── -->
+<section class="sec" id="services">
+  <div class="wrap">
+    <div class="eyebrow">Чем я могу помочь</div>
+    <h2 class="h2">Услуги</h2>
+    <p class="lead" style="margin-top:14px">Можно начать с одного — плана питания или занятий.
+      А можно совместить: тело меняется на 30% в зале и на 70% на тарелке.</p>
+
+    <div class="cards">
+      <div class="card">
+        <div class="card-ic"><svg viewBox="0 0 24 24"><path d="M4 4h16v5a8 8 0 0 1-8 8 8 8 0 0 1-8-8V4Z"/><path d="M12 17v3"/><path d="M8 21h8"/></svg></div>
+        <h3>Индивидуальный план питания</h3>
+        <p>Считаю ваш КБЖУ, собираю рацион из продуктов обычного магазина и расписываю день:
+          завтрак, перекус, обед, перекус, ужин.</p>
+        <ul>
+          <li>Расчёт нормы калорий и БЖУ под вашу цель</li>
+          <li>Готовое меню на день с граммовками</li>
+          <li>Продуктовая корзина и замены блюд</li>
+          <li>Три гайда в подарок</li>
+        </ul>
+        <div class="card-foot"><b>По анкете</b><a href="#contact">Заполнить анкету →</a></div>
+      </div>
+
+      <div class="card">
+        <div class="card-ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg></div>
+        <h3>Консультация по снижению веса</h3>
+        <p>Разбираем, почему вес стоит: питание, режим, дефицит, привычки. Без «просто ешьте
+          меньше» — с понятной схемой, что делать дальше.</p>
+        <ul>
+          <li>Разбор текущего рациона и режима дня</li>
+          <li>Причины остановки веса</li>
+          <li>План действий на ближайший месяц</li>
+        </ul>
+        <div class="card-foot"><b>Онлайн / лично</b><a href="#contact">Записаться →</a></div>
+      </div>
+
+      <div class="card">
+        <div class="card-ic"><svg viewBox="0 0 24 24"><path d="M12 3v18"/><path d="M9 6h6"/><path d="M8.5 10.5h7"/><path d="M9 15h6"/></svg></div>
+        <h3>Программа «Здоровая спина»</h3>
+        <p>Сертифицированное направление, которое я люблю больше всего: когда после первого
+          занятия человек говорит «а спина-то не болит».</p>
+        <ul>
+          <li>Уменьшение боли и напряжения в спине</li>
+          <li>Укрепление мышечного корсета</li>
+          <li>Осанка, гибкость, подвижность</li>
+          <li>Отдельный комплекс для шейного отдела</li>
+        </ul>
+        <div class="card-foot"><b>Курс занятий</b><a href="#contact">Узнать расписание →</a></div>
+      </div>
+
+      <div class="card">
+        <div class="card-ic"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/><circle cx="12" cy="12" r="3"/></svg></div>
+        <h3>Степ-аэробика и фитнес-танцы</h3>
+        <p>Zumba и степ — для тех, кому скучно «просто тренироваться». Кардио, которое
+          не хочется прогуливать.</p>
+        <ul>
+          <li>Сертифицированный инструктор Zumba</li>
+          <li>Группы под разный уровень подготовки</li>
+          <li>Хореографическая база — движения ставятся правильно</li>
+        </ul>
+        <div class="card-foot"><b>Группы</b><a href="#contact">Прийти на занятие →</a></div>
+      </div>
+
+      <div class="card">
+        <div class="card-ic"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 9h10M7 13h6"/></svg></div>
+        <h3>Домашний фитнес-комплекс</h3>
+        <p>Тренировка на 30–40 минут без оборудования и без зала. Разминка, силовая часть,
+          кардио, растяжка — всё по схеме.</p>
+        <ul>
+          <li>Уровни: начальный и средний</li>
+          <li>Подходит для дома, нужен только коврик</li>
+          <li>Понятные картинки и подходы</li>
+        </ul>
+        <div class="card-foot"><b>Готовая программа</b><a href="#contact">Забрать →</a></div>
+      </div>
+
+      <div class="card">
+        <div class="card-ic"><svg viewBox="0 0 24 24"><path d="M17 20v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="10" cy="7" r="3.2"/><path d="M21 20v-2a4 4 0 0 0-3-3.87"/></svg></div>
+        <h3>Клуб «Путь к здоровью»</h3>
+        <p>Сообщество, где каждый день выходят разборы, рецепты, идеи меню и поддержка.
+          Не сдаваться проще, когда рядом такие же.</p>
+        <ul>
+          <li>Разборы по питанию и тренировкам</li>
+          <li>Готовые рецепты с КБЖУ</li>
+          <li>Ответы на вопросы подписчиков</li>
+        </ul>
+        <div class="card-foot"><b>Бесплатно</b><a href="https://vk.com/club236337771" target="_blank" rel="noopener">Вступить →</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── ПЛАН ПИТАНИЯ ─── -->
+<section class="sec plan" id="plan">
+  <div class="wrap plan-grid">
+    <div>
+      <div class="eyebrow">Индивидуальный план питания</div>
+      <h2 class="h2">Ваш рацион — за один день, без «нянек» на месяцы</h2>
+      <p class="lead" style="margin:14px 0 24px">Вы заполняете анкету: рост, вес, режим дня,
+        активность, что любите и что не едите. Я считаю и собираю план. Дальше вы работаете
+        по готовой схеме сами — без ежедневных отчётов о каждой ложке.</p>
+
+      <div class="bonus"><div class="bonus-n">1</div><div>
+        <b>Гайд «Топ-10 рецептов здорового завтрака»</b>
+        <span>Способ приготовления и готовый КБЖУ на каждое блюдо</span></div></div>
+      <div class="bonus"><div class="bonus-n">2</div><div>
+        <b>Гайд полезных перекусов</b>
+        <span>Что съесть, чтобы насытиться и не тянуться к сладкому</span></div></div>
+      <div class="bonus"><div class="bonus-n">3</div><div>
+        <b>Гайд «Сбалансированный комплекс упражнений»</b>
+        <span>Для укрепления организма — можно делать дома</span></div></div>
+
+      <a class="btn btn-g" href="#contact" style="margin-top:12px">Заполнить анкету</a>
+    </div>
+    <div class="plan-ph"><img src="assets/p22.jpg" alt="Пример завтрака из плана питания"></div>
+  </div>
+</section>
+
+<!-- ─── ШАГИ ─── -->
+<section class="sec">
+  <div class="wrap">
+    <div class="eyebrow">Как это работает</div>
+    <h2 class="h2">Четыре шага до готового плана</h2>
+    <div class="steps">
+      <div class="step"><b class="num">1</b><h4>Анкета</h4>
+        <p>Присылаю анкету «Путь к здоровью»: параметры, режим, активность, предпочтения и что
+          вы не едите.</p></div>
+      <div class="step"><b class="num">2</b><h4>Расчёт</h4>
+        <p>Считаю норму калорий и БЖУ под вашу цель — снижение веса, набор массы или просто
+          энергия и самочувствие.</p></div>
+      <div class="step"><b class="num">3</b><h4>План и корзина</h4>
+        <p>Собираю рацион на день с граммовками, вариантами замен и продуктовой корзиной из
+          обычного магазина.</p></div>
+      <div class="step"><b class="num">4</b><h4>Старт и вопросы</h4>
+        <p>Разбираем, как жить по плану. Появились вопросы — отвечаю, при необходимости
+          корректируем.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── ОБО МНЕ ─── -->
+<section class="sec about" id="about">
+  <div class="wrap about-grid">
+    <div class="about-ph">
+      <img src="assets/p05.jpg" alt="Наталья Новикова — тренер">
+      <img class="about-cert" src="assets/p18.jpg" alt="Сертификат нутрициолога">
+    </div>
+    <div>
+      <div class="eyebrow">Обо мне</div>
+      <h2 class="h2">Наталья Новикова</h2>
+      <div class="sig">Я искренне люблю то, чем занимаюсь</div>
+      <p>Моя работа строится на трёх главных китах: <b style="color:#fff">спорт, право и здоровое
+        питание</b>. У меня три образования — Академия физической культуры и спорта (кафедра
+        гимнастики), юридическое, а также я дипломированный нутрициолог.</p>
+      <div class="pillars">
+        <div class="pillar"><b>Спорт</b><span>Академия физкультуры и спорта, кафедра гимнастики</span></div>
+        <div class="pillar"><b>Право</b><span>Юридическое образование</span></div>
+        <div class="pillar"><b>Питание</b><span>Дипломированный нутрициолог</span></div>
+      </div>
+      <p>Я прошла десятки курсов и имею сертификаты по направлениям:</p>
+      <div class="certs">
+        <span>Степ-аэробика</span><span>Здоровая спина</span><span>Миофасциальный релиз</span>
+        <span>Йога</span><span>Фитнес-танцы Zumba</span><span>Нутрициология</span>
+      </div>
+      <p style="margin-top:18px">Сейчас я сертифицированный инструктор по степ-аэробике,
+        фитнес-танцам (Zumba) и программе «Здоровая спина». Провожу персональные консультации
+        по снижению веса и работаю как практикующий нутрициолог. Постоянно учусь, чтобы быть
+        для вас максимально полезной.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ─── СТАТЬИ ─── -->
+<section class="sec" id="blog">
+  <div class="wrap">
+    <div class="eyebrow">Разборы без магии</div>
+    <h2 class="h2">Статьи и полезные материалы</h2>
+    <p class="lead" style="margin-top:14px">Я разбираю темы по существу — с физиологией и
+      исследованиями, а не «съешь это и похудеешь».</p>
+
+    <div class="posts">
+      <a class="post" href="#contact">
+        <div class="post-im"><img src="assets/p01.jpg" alt="Сушка в спорте"></div>
+        <div class="post-b"><div class="post-tag">Тренировки</div>
+          <h3>«Сушка»: как сохранить мышцы в дефиците калорий</h3>
+          <p>Сушка — это не потеря веса любой ценой, а снижение жировой массы при сохранении
+            сухой. Разбираю принципы: дефицит, белок, силовая нагрузка.</p>
+          <span class="more">Читать →</span></div></a>
+
+      <a class="post" href="#contact">
+        <div class="post-im"><img src="assets/p14.jpg" alt="Ягоды"></div>
+        <div class="post-b"><div class="post-tag">Нутрициология</div>
+          <h3>Ягоды: почему горсть в день заменяет половину аптечки</h3>
+          <p>Чёрная смородина, малина, клубника, черника, вишня, крыжовник — механизмы
+            воздействия на организм по мета-анализам последних лет.</p>
+          <span class="more">Читать →</span></div></a>
+
+      <a class="post" href="#contact">
+        <div class="post-im"><img src="assets/p15.jpg" alt="Продуктовая корзина"></div>
+        <div class="post-b"><div class="post-tag">Питание</div>
+          <h3>Чек-лист «Золотая корзина»</h3>
+          <p>Как собрать продуктовую корзину за 5 минут, не разориться и не привезти домой
+            снова макароны с сосисками. Белок — 25% корзины, и дальше по базе.</p>
+          <span class="more">Читать →</span></div></a>
+
+      <a class="post" href="#contact">
+        <div class="post-im"><img src="assets/p04.jpg" alt="Мышцы это 30 зал и 70 тарелка"></div>
+        <div class="post-b"><div class="post-tag">Тренировки</div>
+          <h3>Мышцы — это 30% зал и 70% тарелка</h3>
+          <p>Почему через полгода в зале видно «стройного человека без форм». Тренировка — это
+            проект, а питание — стройматериалы.</p>
+          <span class="more">Читать →</span></div></a>
+
+      <a class="post" href="#contact">
+        <div class="post-im"><img src="assets/p24.jpg" alt="Здоровая спина"></div>
+        <div class="post-b"><div class="post-tag">Здоровая спина</div>
+          <h3>Шея: важнейшая часть тела и как сохранить её здоровье</h3>
+          <p>Шея несёт 4–5 кг головы и обеспечивает кровоток к мозгу. Симптомы, которые нельзя
+            игнорировать, и комплекс упражнений.</p>
+          <span class="more">Читать →</span></div></a>
+
+      <a class="post" href="#contact">
+        <div class="post-im"><img src="assets/p13.jpg" alt="Сидячий и активный образ жизни"></div>
+        <div class="post-b"><div class="post-tag">Мотивация</div>
+          <h3>Две стороны одной медали</h3>
+          <p>Один и тот же человек через 10 лет двух разных сценариев. Активный образ жизни —
+            это не марафоны, а выбор каждого дня.</p>
+          <span class="more">Читать →</span></div></a>
+    </div>
+  </div>
+</section>
+
+<!-- ─── ГАЛЕРЕЯ ─── -->
+<section class="sec gal" id="gallery">
+  <div class="wrap">
+    <div class="eyebrow">Как это выглядит на практике</div>
+    <h2 class="h2">Рецепты, блюда и занятия</h2>
+    <div class="gal-grid" id="gg">
+      <figure><img src="assets/p21.jpg" alt="Полезный завтрак" loading="lazy"></figure>
+      <figure><img src="assets/p29.jpg" alt="Перекус, который насыщает" loading="lazy"></figure>
+      <figure><img src="assets/p02.jpg" alt="Клубника" loading="lazy"></figure>
+      <figure><img src="assets/p26.jpg" alt="Обед" loading="lazy"></figure>
+      <figure><img src="assets/p03.jpg" alt="Завтрак с кофе" loading="lazy"></figure>
+      <figure><img src="assets/p16.jpg" alt="Наталья за завтраком" loading="lazy"></figure>
+      <figure><img src="assets/p30.jpg" alt="Перекус перед тренировкой" loading="lazy"></figure>
+      <figure><img src="assets/p27.jpg" alt="Рецепт с КБЖУ" loading="lazy"></figure>
+      <figure><img src="assets/p07.jpg" alt="Домашний фитнес-комплекс" loading="lazy"></figure>
+      <figure><img src="assets/p25.jpg" alt="Комплекс для шейного отдела" loading="lazy"></figure>
+      <figure><img src="assets/p20.jpg" alt="Сборник рецептов" loading="lazy"></figure>
+      <figure><img src="assets/p32.jpg" alt="Разбор корзины за день" loading="lazy"></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FAQ ─── -->
+<section class="sec" id="faq">
+  <div class="wrap">
+    <div class="eyebrow">Частые вопросы</div>
+    <h2 class="h2">Что обычно спрашивают</h2>
+    <div class="faq">
+      <details class="q"><summary>Придётся голодать и отказываться от вкусного?</summary>
+        <div class="a">Нет. Я работаю без строгих запретов: задача — собрать рацион, который вам
+          нравится и который вы сможете держать не две недели, а постоянно. Похудение — это
+          дефицит калорий, а не список запрещённых продуктов.</div></details>
+      <details class="q"><summary>У меня сидячая работа и почти нет времени. Подойдёт?</summary>
+        <div class="a">Да, план строится под ваш реальный день, а не под идеальный. Плюс есть
+          домашний комплекс на 30–40 минут без зала и оборудования — этого достаточно, чтобы
+          начать.</div></details>
+      <details class="q"><summary>Нужно ли считать калории самому?</summary>
+        <div class="a">В плане уже всё посчитано — вам останется готовить по граммовкам. Но я
+          объясню принцип подсчёта, чтобы вы могли сами заменять блюда и не зависеть от таблицы.</div></details>
+      <details class="q"><summary>А если сорвусь?</summary>
+        <div class="a">Срыв — это часть процесса, а не провал. Разберём причину: чаще всего это
+          слишком жёсткий дефицит, мало белка или нехватка сна. Поправим план, а не «начнём
+          заново с понедельника».</div></details>
+      <details class="q"><summary>Занятия только в Великих Луках?</summary>
+        <div class="a">Групповые занятия и «Здоровая спина» — в Великих Луках. План питания,
+          консультации по снижению веса и домашние комплексы работают онлайн, из любого города.</div></details>
+      <details class="q"><summary>Болит спина — можно ли ко мне на занятия?</summary>
+        <div class="a">Программа «Здоровая спина» как раз для этого: мягкая работа с мышечным
+          корсетом, осанкой и подвижностью. Но если есть диагноз или обострение — сначала
+          покажитесь врачу, а потом занимаемся с учётом ограничений.</div></details>
+    </div>
+  </div>
+</section>
+
+<!-- ─── ЗАЯВКА ─── -->
+<section class="sec cta" id="contact">
+  <div class="wrap">
+    <div class="cta-box">
+      <div class="cta-l">
+        <div class="eyebrow">Записаться</div>
+        <h2>Начните путь к здоровью сегодня</h2>
+        <p>Напишите, какая у вас цель — я отвечу, что подойдёт лучше, и пришлю анкету.
+          Первый шаг ни к чему не обязывает.</p>
+        <form id="frm" novalidate>
+          <div class="form-row">
+            <div class="fld"><label for="nm">Ваше имя</label>
+              <input id="nm" name="nm" type="text" placeholder="Как к вам обращаться" required></div>
+            <div class="fld"><label for="ph">Телефон или ник в VK</label>
+              <input id="ph" name="ph" type="text" placeholder="+7 ___ ___-__-__" required></div>
+          </div>
+          <div class="fld"><label for="gl">Цель</label>
+            <select id="gl" name="gl">
+              <option>Снизить вес</option>
+              <option>Индивидуальный план питания</option>
+              <option>Здоровая спина / болит спина</option>
+              <option>Набрать мышечную массу</option>
+              <option>Больше энергии и хорошее самочувствие</option>
+              <option>Групповые занятия (степ, Zumba)</option>
+            </select></div>
+          <div class="fld"><label for="cm">Коротко о себе (необязательно)</label>
+            <textarea id="cm" name="cm" rows="3" placeholder="Возраст, что уже пробовали, есть ли ограничения по здоровью"></textarea></div>
+          <button class="btn btn-p" type="submit" style="width:100%">Отправить заявку</button>
+          <div class="form-note" id="fn">Нажимая кнопку, вы соглашаетесь на обработку персональных
+            данных. Я отвечу в течение дня.</div>
+        </form>
+      </div>
+      <div class="cta-r">
+        <h3>Связаться напрямую</h3>
+        <a class="ct" href="tel:+79113661427">
+          <span class="ct-ic"><svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg></span>
+          <span><b>+7 911 366-14-27</b><span>Позвонить или написать в мессенджер</span></span></a>
+        <a class="ct" href="https://vk.com/club236337771" target="_blank" rel="noopener">
+          <span class="ct-ic"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M7.5 9.5c.4 2.6 2 5 4.5 5h1v-2c1 .3 1.8 1.1 2.3 2h1.7c-.5-1.4-1.6-2.5-2.6-3 .9-.6 1.8-1.6 2.3-2.9H15c-.5 1.1-1.3 2-2 2.4V9.5h-1.7v3c-1.2-.5-2-1.8-2.3-3Z"/></svg></span>
+          <span><b>Клуб «Путь к здоровью»</b><span>Сообщество ВКонтакте — 1 478 участников</span></span></a>
+        <a class="ct" href="mailto:businkamischka1987@gmail.com">
+          <span class="ct-ic"><svg viewBox="0 0 24 24"><rect x="2.5" y="4.5" width="19" height="15" rx="2.5"/><path d="M3 7l9 6 9-6"/></svg></span>
+          <span><b>businkamischka1987@gmail.com</b><span>Почта — для анкет и материалов</span></span></a>
+        <a class="ct" href="#top" style="pointer-events:none">
+          <span class="ct-ic"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.9-7-10a7 7 0 0 1 14 0c0 5.1-7 10-7 10Z"/><circle cx="12" cy="11" r="2.6"/></svg></span>
+          <span><b>Великие Луки</b><span>Занятия в городе · план питания — онлайн по всей России</span></span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="f-grid">
+      <div>
+        <h4>Путь к здоровью</h4>
+        <p style="margin:0">Наталья Новикова — тренер, сертифицированный инструктор и
+          дипломированный нутрициолог. Индивидуальные планы питания, «Здоровая спина»,
+          степ-аэробика и фитнес-танцы.</p>
+      </div>
+      <div>
+        <h4>Разделы</h4>
+        <div class="f-links">
+          <a href="#services">Услуги</a><a href="#plan">План питания</a>
+          <a href="#about">Обо мне</a><a href="#blog">Статьи</a><a href="#faq">Вопросы</a>
+        </div>
+      </div>
+      <div>
+        <h4>Контакты</h4>
+        <div class="f-links">
+          <a href="tel:+79113661427">+7 911 366-14-27</a>
+          <a href="mailto:businkamischka1987@gmail.com">businkamischka1987@gmail.com</a>
+          <a href="https://vk.com/club236337771" target="_blank" rel="noopener">ВКонтакте</a>
+          <span>Великие Луки</span>
+        </div>
+      </div>
+    </div>
+    <div class="f-bot">
+      <span>© 2026 Наталья Новикова · Путь к здоровью</span>
+      <span>Информация на сайте не является медицинской рекомендацией</span>
+    </div>
+  </div>
+</footer>
+
+<div class="lb" id="lb">
+  <button class="lb-x" id="lbx" aria-label="Закрыть">&times;</button>
+  <button class="lb-nav lb-prev" id="lbp" aria-label="Назад">&#8249;</button>
+  <img id="lbi" src="" alt="">
+  <button class="lb-nav lb-next" id="lbn" aria-label="Вперёд">&#8250;</button>
+</div>
+
+<script>
+// мобильное меню
+var mob=document.getElementById('mob');
+document.getElementById('bg').onclick=function(){mob.classList.add('on');document.body.style.overflow='hidden'};
+function closeMob(){mob.classList.remove('on');document.body.style.overflow=''}
+document.getElementById('mx').onclick=closeMob;
+mob.addEventListener('click',function(e){if(e.target===mob)closeMob()});
+mob.querySelectorAll('a').forEach(function(a){a.onclick=closeMob});
+
+// лайтбокс
+var imgs=[].slice.call(document.querySelectorAll('#gg img')), cur=0;
+var lb=document.getElementById('lb'), lbi=document.getElementById('lbi');
+function show(i){cur=(i+imgs.length)%imgs.length;lbi.src=imgs[cur].src;lbi.alt=imgs[cur].alt}
+imgs.forEach(function(im,i){im.parentElement.onclick=function(){show(i);lb.classList.add('on');document.body.style.overflow='hidden'}});
+function closeLb(){lb.classList.remove('on');document.body.style.overflow=''}
+document.getElementById('lbx').onclick=closeLb;
+document.getElementById('lbp').onclick=function(e){e.stopPropagation();show(cur-1)};
+document.getElementById('lbn').onclick=function(e){e.stopPropagation();show(cur+1)};
+lb.addEventListener('click',function(e){if(e.target===lb)closeLb()});
+document.addEventListener('keydown',function(e){
+  if(!lb.classList.contains('on'))return;
+  if(e.key==='Escape')closeLb();
+  if(e.key==='ArrowLeft')show(cur-1);
+  if(e.key==='ArrowRight')show(cur+1);
+});
+
+// форма
+document.getElementById('frm').addEventListener('submit',function(e){
+  e.preventDefault();
+  var nm=document.getElementById('nm'), ph=document.getElementById('ph'), fn=document.getElementById('fn');
+  if(!nm.value.trim()||!ph.value.trim()){
+    fn.textContent='Заполните имя и телефон — иначе я не смогу ответить.';
+    fn.style.color='#b23b3b'; return;
+  }
+  this.innerHTML='<div style="text-align:center;padding:26px 8px">'+
+    '<div style="font-family:\'Playfair Display\',serif;font-size:25px;margin-bottom:9px">Заявка отправлена</div>'+
+    '<p style="color:#5d564e;margin:0">Спасибо, '+nm.value.trim().replace(/[<>]/g,'')+'! Я свяжусь с вами '+
+    'в течение дня и пришлю анкету.</p></div>';
+});
+</script>
+</body>
+</html>
