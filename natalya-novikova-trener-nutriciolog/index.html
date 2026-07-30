@@ -152,8 +152,9 @@ nav.menu a:hover{color:var(--gold)}
 .about-ph{position:relative}
 .about-ph img{border-radius:20px;box-shadow:0 20px 50px rgba(0,0,0,.35);aspect-ratio:4/5;
   object-fit:cover;width:100%}
-.about-cert{position:absolute;right:-16px;bottom:-18px;width:132px;border-radius:12px;
-  box-shadow:0 14px 32px rgba(0,0,0,.4);border:3px solid #fff;aspect-ratio:auto}
+.about-ph .about-cert{position:absolute;right:-16px;bottom:-18px;width:132px;height:auto;
+  border-radius:12px;box-shadow:0 14px 32px rgba(0,0,0,.4);border:3px solid #fff;
+  aspect-ratio:auto;object-fit:contain;background:#fff}
 .about h2{color:#fff;margin-bottom:8px}
 .about .sig{font-family:'Marck Script',cursive;font-size:25px;color:var(--gold-l);margin-bottom:18px}
 .about p{color:rgba(255,255,255,.80);font-size:16.4px;margin:0 0 16px}
@@ -169,6 +170,7 @@ nav.menu a:hover{color:var(--gold)}
 /* ── блог ── */
 .posts{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:38px}
 .post{background:#fff;border-radius:18px;overflow:hidden;box-shadow:var(--sh-s);
+  text-decoration:none;color:inherit;
   border:1px solid rgba(176,141,87,.14);display:flex;flex-direction:column;
   transition:transform .2s,box-shadow .2s}
 .post:hover{transform:translateY(-4px);box-shadow:var(--sh)}
@@ -296,7 +298,7 @@ footer a:hover{color:var(--gold-l)}
   .form-row{grid-template-columns:1fr}
   .cta-l,.cta-r{padding:30px 22px}
   .f-grid{grid-template-columns:1fr;gap:24px}
-  .about-cert{width:96px;right:-8px;bottom:-12px}
+  .about-ph .about-cert{width:96px;right:-8px;bottom:-12px}
   .card,.step{padding:22px 19px}
 }
 /* мобильное меню */
@@ -502,7 +504,7 @@ footer a:hover{color:var(--gold-l)}
 
       <a class="btn btn-g" href="#contact" style="margin-top:12px">Заполнить анкету</a>
     </div>
-    <div class="plan-ph"><img src="assets/p22.jpg" alt="Пример завтрака из плана питания"></div>
+    <div class="plan-ph"><img src="assets/p21.jpg" alt="Пример завтрака из плана питания"></div>
   </div>
 </section>
 
@@ -532,7 +534,7 @@ footer a:hover{color:var(--gold-l)}
 <section class="sec about" id="about">
   <div class="wrap about-grid">
     <div class="about-ph">
-      <img src="assets/p05.jpg" alt="Наталья Новикова — тренер">
+      <img src="assets/p16.jpg" alt="Наталья Новикова — тренер и нутрициолог">
       <img class="about-cert" src="assets/p18.jpg" alt="Сертификат нутрициолога">
     </div>
     <div>
@@ -569,7 +571,7 @@ footer a:hover{color:var(--gold-l)}
       исследованиями, а не «съешь это и похудеешь».</p>
 
     <div class="posts">
-      <a class="post" href="#contact">
+      <a class="post" href="https://vk.com/@novikova.health" target="_blank" rel="noopener">
         <div class="post-im"><img src="assets/p01.jpg" alt="Сушка в спорте"></div>
         <div class="post-b"><div class="post-tag">Тренировки</div>
           <h3>«Сушка»: как сохранить мышцы в дефиците калорий</h3>
@@ -577,7 +579,7 @@ footer a:hover{color:var(--gold-l)}
             сухой. Разбираю принципы: дефицит, белок, силовая нагрузка.</p>
           <span class="more">Читать →</span></div></a>
 
-      <a class="post" href="#contact">
+      <a class="post" href="https://vk.com/@novikova.health" target="_blank" rel="noopener">
         <div class="post-im"><img src="assets/p14.jpg" alt="Ягоды"></div>
         <div class="post-b"><div class="post-tag">Нутрициология</div>
           <h3>Ягоды: почему горсть в день заменяет половину аптечки</h3>
@@ -585,7 +587,7 @@ footer a:hover{color:var(--gold-l)}
             воздействия на организм по мета-анализам последних лет.</p>
           <span class="more">Читать →</span></div></a>
 
-      <a class="post" href="#contact">
+      <a class="post" href="https://vk.com/@novikova.health" target="_blank" rel="noopener">
         <div class="post-im"><img src="assets/p15.jpg" alt="Продуктовая корзина"></div>
         <div class="post-b"><div class="post-tag">Питание</div>
           <h3>Чек-лист «Золотая корзина»</h3>
@@ -593,7 +595,7 @@ footer a:hover{color:var(--gold-l)}
             снова макароны с сосисками. Белок — 25% корзины, и дальше по базе.</p>
           <span class="more">Читать →</span></div></a>
 
-      <a class="post" href="#contact">
+      <a class="post" href="https://vk.com/@novikova.health" target="_blank" rel="noopener">
         <div class="post-im"><img src="assets/p04.jpg" alt="Мышцы это 30 зал и 70 тарелка"></div>
         <div class="post-b"><div class="post-tag">Тренировки</div>
           <h3>Мышцы — это 30% зал и 70% тарелка</h3>
@@ -601,7 +603,7 @@ footer a:hover{color:var(--gold-l)}
             проект, а питание — стройматериалы.</p>
           <span class="more">Читать →</span></div></a>
 
-      <a class="post" href="#contact">
+      <a class="post" href="https://vk.com/@novikova.health" target="_blank" rel="noopener">
         <div class="post-im"><img src="assets/p24.jpg" alt="Здоровая спина"></div>
         <div class="post-b"><div class="post-tag">Здоровая спина</div>
           <h3>Шея: важнейшая часть тела и как сохранить её здоровье</h3>
@@ -609,7 +611,7 @@ footer a:hover{color:var(--gold-l)}
             игнорировать, и комплекс упражнений.</p>
           <span class="more">Читать →</span></div></a>
 
-      <a class="post" href="#contact">
+      <a class="post" href="https://vk.com/@novikova.health" target="_blank" rel="noopener">
         <div class="post-im"><img src="assets/p13.jpg" alt="Сидячий и активный образ жизни"></div>
         <div class="post-b"><div class="post-tag">Мотивация</div>
           <h3>Две стороны одной медали</h3>
@@ -626,18 +628,14 @@ footer a:hover{color:var(--gold-l)}
     <div class="eyebrow">Как это выглядит на практике</div>
     <h2 class="h2">Рецепты, блюда и занятия</h2>
     <div class="gal-grid" id="gg">
-      <figure><img src="assets/p21.jpg" alt="Полезный завтрак" loading="lazy"></figure>
-      <figure><img src="assets/p29.jpg" alt="Перекус, который насыщает" loading="lazy"></figure>
       <figure><img src="assets/p02.jpg" alt="Клубника" loading="lazy"></figure>
-      <figure><img src="assets/p26.jpg" alt="Обед" loading="lazy"></figure>
       <figure><img src="assets/p03.jpg" alt="Завтрак с кофе" loading="lazy"></figure>
-      <figure><img src="assets/p16.jpg" alt="Наталья за завтраком" loading="lazy"></figure>
+      <figure><img src="assets/p14.jpg" alt="Ягоды" loading="lazy"></figure>
+      <figure><img src="assets/p26.jpg" alt="Обед" loading="lazy"></figure>
+      <figure><img src="assets/p29.jpg" alt="Перекус, который насыщает" loading="lazy"></figure>
       <figure><img src="assets/p30.jpg" alt="Перекус перед тренировкой" loading="lazy"></figure>
-      <figure><img src="assets/p27.jpg" alt="Рецепт с КБЖУ" loading="lazy"></figure>
-      <figure><img src="assets/p07.jpg" alt="Домашний фитнес-комплекс" loading="lazy"></figure>
-      <figure><img src="assets/p25.jpg" alt="Комплекс для шейного отдела" loading="lazy"></figure>
-      <figure><img src="assets/p20.jpg" alt="Сборник рецептов" loading="lazy"></figure>
-      <figure><img src="assets/p32.jpg" alt="Разбор корзины за день" loading="lazy"></figure>
+      <figure><img src="assets/p20.jpg" alt="Сборник рецептов полезного завтрака" loading="lazy"></figure>
+      <figure><img src="assets/p05.jpg" alt="Тренировка" loading="lazy"></figure>
     </div>
   </div>
 </section>
