@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Бухгалтерские услуги в Златоусте — ведение учёта, отчётность, регистрация ООО и ИП</title>
+<meta name="description" content="Бухгалтерское обслуживание в Златоусте: ведение учёта для ИП и ООО, отчётность, зарплата и 3-НДФЛ, регистрация и ликвидация, учёт для селлеров маркетплейсов. Команда профильных специалистов. Тел. 8 (909) 744-96-26.">
+<meta name="theme-color" content="#12325c">
+<meta property="og:title" content="Бухгалтерские услуги в Златоусте">
+<meta property="og:description" content="Ведение учёта, отчётность, зарплата, регистрация ООО и ИП. Команда специалистов, каждый по своему направлению.">
+<link rel="icon" href="assets/logo.jpg">
+<script>document.documentElement.className="js";</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{--navy:#12325c;--navy-d:#0c2444;--navy-l:#e8eef7;--accent:#2f7de1;--accent-d:#1f63bd;
+    --ink:#16202e;--ink-s:#5d6a7c;--line:#e4e9f0;--bg:#f7f9fc;--ok:#1e9e6a;
+    --sans:"Manrope",-apple-system,Segoe UI,sans-serif}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--sans);color:var(--ink);background:#fff;line-height:1.6;-webkit-font-smoothing:antialiased}
+  img{display:block;max-width:100%}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1160px;margin:0 auto;padding:0 22px}
+  .eyebrow{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:700}
+  .reveal{opacity:1}
+  html.js .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s cubic-bezier(.2,.7,.2,1)}
+  html.js .reveal.in{opacity:1;transform:none}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;font-weight:700;font-size:15px;
+    padding:15px 26px;border-radius:10px;border:1.5px solid var(--navy);background:var(--navy);color:#fff;
+    cursor:pointer;transition:.2s;white-space:nowrap;font-family:inherit}
+  .btn:hover{background:var(--navy-d);border-color:var(--navy-d);transform:translateY(-1px)}
+  .btn-a{background:var(--accent);border-color:var(--accent)}
+  .btn-a:hover{background:var(--accent-d);border-color:var(--accent-d)}
+  .btn-o{background:#fff;color:var(--navy);border-color:var(--line)}
+  .btn-o:hover{background:var(--navy-l);border-color:var(--accent);color:var(--navy)}
+
+  header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:72px;gap:16px}
+  .brand{display:flex;align-items:center;gap:12px;min-width:0}
+  .brand img{width:44px;height:44px;border-radius:9px;object-fit:cover;flex:none;border:1px solid var(--line)}
+  .brand-tx{display:flex;flex-direction:column;line-height:1.15}
+  .brand-n{font-weight:800;font-size:17px;color:var(--navy);letter-spacing:-.01em}
+  .brand-s{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-s);font-weight:600}
+  .nav-menu{display:flex;gap:24px}
+  .nav-menu a{font-size:14.5px;font-weight:600;white-space:nowrap;color:var(--ink)}
+  .nav-menu a:hover{color:var(--accent)}
+  .nav-tel{font-weight:800;font-size:15px;color:var(--navy);white-space:nowrap}
+  .nav .btn{padding:12px 19px;font-size:14px}
+  @media(max-width:1080px){.nav-menu,.nav-tel{display:none}}
+  @media(max-width:520px){.brand-s{display:none}.nav .btn{padding:11px 15px;font-size:13px}}
+
+  .hero{background:linear-gradient(140deg,var(--navy-d) 0%,var(--navy) 60%,#1a4478 100%);color:#fff;position:relative;overflow:hidden}
+  .hero::after{content:"";position:absolute;right:-120px;top:-120px;width:520px;height:520px;border-radius:50%;
+    background:radial-gradient(circle,rgba(47,125,225,.35),transparent 65%)}
+  .hero-in{position:relative;z-index:2;padding-top:66px;padding-bottom:66px;max-width:760px}
+  .hero h1{font-size:clamp(31px,4.6vw,50px);font-weight:800;line-height:1.1;letter-spacing:-.02em;margin:15px 0 0}
+  .hero .lead{color:rgba(255,255,255,.88);font-size:clamp(16px,1.9vw,18.5px);margin-top:18px;line-height:1.6;max-width:600px}
+  .hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+  .hero-tr{display:flex;flex-wrap:wrap;gap:22px;margin-top:32px;padding-top:26px;border-top:1px solid rgba(255,255,255,.18)}
+  .tr b{display:block;font-size:26px;font-weight:800;line-height:1}
+  .tr span{display:block;font-size:13.5px;color:rgba(255,255,255,.75);margin-top:5px}
+  @media(max-width:820px){.hero-in{padding-top:42px;padding-bottom:44px}.hero-cta .btn{width:100%}}
+
+  section{padding:76px 0}
+  .sec-head{max-width:640px;margin-bottom:42px}
+  .sec-head.c{margin:0 auto 42px;text-align:center}
+  .sec-t{font-size:clamp(26px,3.6vw,38px);font-weight:800;line-height:1.14;letter-spacing:-.02em;margin-top:11px}
+  .sec-l{color:var(--ink-s);font-size:17px;margin-top:13px;line-height:1.6}
+  @media(max-width:820px){section{padding:52px 0}.sec-head{margin-bottom:30px}}
+
+  .svc{background:var(--bg)}
+  .svc-g{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .sv{background:#fff;border:1px solid var(--line);border-radius:14px;padding:26px 24px;transition:.2s}
+  .sv:hover{border-color:var(--accent);box-shadow:0 16px 34px -22px rgba(18,50,92,.35);transform:translateY(-3px)}
+  .sv .ic{width:46px;height:46px;border-radius:11px;background:var(--navy-l);display:flex;align-items:center;justify-content:center;margin-bottom:15px}
+  .sv .ic svg{width:23px;height:23px;stroke:var(--navy);fill:none;stroke-width:1.8}
+  .sv h3{font-size:17.5px;font-weight:700}
+  .sv p{color:var(--ink-s);font-size:14.5px;line-height:1.55;margin-top:7px}
+  @media(max-width:900px){.svc-g{grid-template-columns:1fr 1fr}}
+  @media(max-width:560px){.svc-g{grid-template-columns:1fr}}
+
+  .who-g{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+  .wh{border:1px solid var(--line);border-radius:14px;padding:24px 20px;background:#fff}
+  .wh .t{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);font-weight:700}
+  .wh h3{font-size:17px;font-weight:700;margin-top:8px}
+  .wh p{color:var(--ink-s);font-size:14px;line-height:1.5;margin-top:6px}
+  @media(max-width:900px){.who-g{grid-template-columns:1fr 1fr}}
+
+  .team{background:var(--navy);color:#fff}
+  .team .sec-t{color:#fff}.team .eyebrow{color:#8fc0ff}.team .sec-l{color:rgba(255,255,255,.82)}
+  .tm-g{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .tm{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);border-radius:14px;padding:22px 20px}
+  .tm .role{font-size:13px;color:#8fc0ff;font-weight:700}
+  .tm a{display:block;font-size:19px;font-weight:800;margin-top:7px;letter-spacing:-.01em}
+  .tm a:hover{color:#8fc0ff}
+  @media(max-width:900px){.tm-g{grid-template-columns:1fr 1fr}}
+  @media(max-width:560px){.tm-g{grid-template-columns:1fr}}
+
+  .why-g{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  .wy{display:flex;gap:15px;background:var(--bg);border:1px solid var(--line);border-radius:14px;padding:22px 22px}
+  .wy svg{width:24px;height:24px;stroke:var(--ok);fill:none;stroke-width:2.1;flex:none;margin-top:2px}
+  .wy b{font-size:16.5px;display:block}
+  .wy span{color:var(--ink-s);font-size:14.5px;display:block;margin-top:4px;line-height:1.5}
+  @media(max-width:820px){.why-g{grid-template-columns:1fr}}
+
+  .steps{background:var(--bg)}
+  .st-g{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+  .st{background:#fff;border:1px solid var(--line);border-radius:14px;padding:24px 20px}
+  .st .n{width:34px;height:34px;border-radius:9px;background:var(--navy);color:#fff;display:flex;align-items:center;
+    justify-content:center;font-weight:800;font-size:15px}
+  .st h3{font-size:16.5px;font-weight:700;margin-top:12px}
+  .st p{color:var(--ink-s);font-size:14px;line-height:1.5;margin-top:5px}
+  @media(max-width:900px){.st-g{grid-template-columns:1fr 1fr}}
+  @media(max-width:520px){.st-g{grid-template-columns:1fr}}
+
+  .ct-g{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+  .cl{display:flex;align-items:center;gap:14px;padding:15px 0;border-bottom:1px solid var(--line);font-weight:600;font-size:16px}
+  .cl:last-child{border-bottom:none}
+  .cl .i{width:42px;height:42px;border-radius:10px;background:var(--navy-l);display:flex;align-items:center;justify-content:center;flex:none}
+  .cl .i svg{width:20px;height:20px;stroke:var(--navy);fill:none;stroke-width:1.8}
+  .cl small{display:block;font-size:12.5px;color:var(--ink-s);font-weight:600}
+  .form{background:var(--bg);border:1px solid var(--line);border-radius:16px;padding:30px 26px}
+  .form h3{font-size:21px;font-weight:800;color:var(--navy)}
+  .form>p{color:var(--ink-s);font-size:14.5px;margin:5px 0 19px}
+  .fld{margin-bottom:14px}
+  .fld label{display:block;font-size:13px;font-weight:700;margin-bottom:7px}
+  .fld input,.fld textarea,.fld select{width:100%;padding:13px 14px;border:1px solid var(--line);border-radius:10px;
+    font-size:16px;font-family:inherit;background:#fff}
+  .fld input:focus,.fld textarea:focus,.fld select:focus{outline:none;border-color:var(--accent)}
+  .fld textarea{resize:vertical;min-height:80px}
+  .form .btn{width:100%;margin-top:5px}
+  .fnote{font-size:12.5px;color:var(--ink-s);text-align:center;margin-top:11px}
+  @media(max-width:900px){.ct-g{grid-template-columns:1fr;gap:30px}.form{padding:24px 20px}}
+
+  footer{background:var(--navy-d);color:rgba(255,255,255,.78);padding:40px 0 92px}
+  .ft{display:flex;justify-content:space-between;flex-wrap:wrap;gap:18px;align-items:center}
+  .ft-b{display:flex;align-items:center;gap:11px;color:#fff}
+  .ft-b img{width:38px;height:38px;border-radius:9px;object-fit:cover}
+  .ft-b b{font-size:16px;font-weight:800}
+  .ft-m{font-size:13.5px}
+  .ft a:hover{color:#8fc0ff}
+
+  .callbar{position:fixed;left:0;right:0;bottom:0;z-index:60;display:none;background:rgba(255,255,255,.97);
+    backdrop-filter:blur(10px);border-top:1px solid var(--line);padding:10px 14px;grid-template-columns:1fr 1fr;gap:10px}
+  .callbar a{display:flex;align-items:center;justify-content:center;gap:8px;padding:14px;border-radius:10px;font-weight:700;font-size:15px}
+  .cb1{background:#fff;color:var(--navy);border:1.5px solid var(--line)}
+  .cb2{background:var(--navy);color:#fff}
+  @media(max-width:1080px){.callbar{display:grid}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#top">
+      <img src="assets/logo.jpg" alt="Бухгалтерские услуги Златоуст">
+      <span class="brand-tx"><span class="brand-n">Бухгалтерские услуги</span><span class="brand-s">г. Златоуст</span></span>
+    </a>
+    <nav class="nav-menu">
+      <a href="#services">Услуги</a>
+      <a href="#who">Кому подходит</a>
+      <a href="#team">Специалисты</a>
+      <a href="#how">Как работаем</a>
+      <a href="#contact">Контакты</a>
+    </nav>
+    <div style="display:flex;align-items:center;gap:15px">
+      <a class="nav-tel" href="tel:+79097449626">8 (909) 744-96-26</a>
+      <a class="btn" href="#contact">Консультация</a>
+    </div>
+  </div>
+</header>
+<div id="top"></div>
+
+<section class="hero" style="padding:0">
+  <div class="wrap hero-in">
+    <p class="eyebrow">Бухгалтерское обслуживание · Златоуст</p>
+    <h1>Берём бухгалтерию на себя — вы занимаетесь бизнесом</h1>
+    <p class="lead">Ведение учёта для ИП и ООО, отчётность без просрочек, зарплата и 3-НДФЛ, регистрация и закрытие бизнеса. Команда специалистов, где каждый ведёт своё направление, а не «один бухгалтер на всё».</p>
+    <div class="hero-cta">
+      <a class="btn btn-a" href="#contact">Получить консультацию</a>
+      <a class="btn btn-o" href="tel:+79097449626">Позвонить: 8 (909) 744-96-26</a>
+    </div>
+    <div class="hero-tr">
+      <div class="tr"><b>2 000+</b><span>предпринимателей в сообществе</span></div>
+      <div class="tr"><b>6</b><span>профильных специалистов</span></div>
+      <div class="tr"><b>ИП · ООО</b><span>самозанятые и селлеры</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="svc" id="services">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">Услуги</p>
+      <h2 class="sec-t">Что мы ведём</h2>
+      <p class="sec-l">Полное обслуживание или отдельные задачи — как удобнее. Работаем по договору, отвечаем за сроки.</p>
+    </div>
+    <div class="svc-g">
+      <div class="sv reveal"><div class="ic"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h5"/></svg></div>
+        <h3>Ведение учёта</h3><p>Полное бухгалтерское обслуживание ИП и ООО: первичка, банк, налоги, отчётность в срок.</p></div>
+      <div class="sv reveal"><div class="ic"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg></div>
+        <h3>Отчётность</h3><p>Сдача отчётов в ФНС, СФР и Росстат. Нулевая отчётность, уточнёнки, ответы на требования.</p></div>
+      <div class="sv reveal"><div class="ic"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.9"/></svg></div>
+        <h3>Зарплата и кадры</h3><p>Расчёт зарплаты, взносы, кадровые документы, 3-НДФЛ и вычеты — отдельный специалист.</p></div>
+      <div class="sv reveal"><div class="ic"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M2 12h20"/><circle cx="12" cy="12" r="9"/></svg></div>
+        <h3>Регистрация ООО и ИП</h3><p>Открытие бизнеса «под ключ», смена данных, ликвидация и закрытие — без походов по инстанциям.</p></div>
+      <div class="sv reveal"><div class="ic"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2"/><path d="M1 10h22"/></svg></div>
+        <h3>Учёт для селлеров</h3><p>Маркетплейсы: доходы и комиссии, УСН и НДС, отсрочки по налогам — знаем специфику.</p></div>
+      <div class="sv reveal"><div class="ic"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></div>
+        <h3>Восстановление учёта</h3><p>Разберём запущенную бухгалтерию, приведём в порядок и защитим от штрафов и блокировок.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="who">
+  <div class="wrap">
+    <div class="sec-head c reveal">
+      <p class="eyebrow">Кому подходит</p>
+      <h2 class="sec-t">Работаем со всеми формами</h2>
+    </div>
+    <div class="who-g">
+      <div class="wh reveal"><div class="t">ИП</div><h3>Предприниматели</h3><p>УСН, патент, НПД. Ведём учёт и следим за сроками уплаты.</p></div>
+      <div class="wh reveal"><div class="t">ООО</div><h3>Компании</h3><p>Полный учёт, зарплата, отчётность, работа с банком и налоговой.</p></div>
+      <div class="wh reveal"><div class="t">Селлеры</div><h3>Маркетплейсы</h3><p>Wildberries, Ozon и другие: комиссии, возвраты, НДС.</p></div>
+      <div class="wh reveal"><div class="t">Старт</div><h3>Только открываетесь</h3><p>Зарегистрируем, подберём систему налогов, откроем счёт.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="team" id="team">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">Специалисты</p>
+      <h2 class="sec-t">Каждый ведёт своё направление</h2>
+      <p class="sec-l">Вам не нужно объяснять задачу «универсальному бухгалтеру» — звоните напрямую нужному специалисту.</p>
+    </div>
+    <div class="tm-g">
+      <div class="tm reveal"><div class="role">Руководитель</div><a href="tel:+79511217120">8 (951) 121-71-20</a></div>
+      <div class="tm reveal"><div class="role">Регистрация ООО и ИП</div><a href="tel:+79097449626">8 (909) 744-96-26</a></div>
+      <div class="tm reveal"><div class="role">Зарплата и 3-НДФЛ</div><a href="tel:+79517814802">8 (951) 781-48-02</a></div>
+      <div class="tm reveal"><div class="role">Ведущий специалист</div><a href="tel:+79588704645">8 (958) 870-46-45</a></div>
+      <div class="tm reveal"><div class="role">Ведущий специалист</div><a href="tel:+79090870567">8 (909) 087-05-67</a></div>
+      <div class="tm reveal"><div class="role">Бухгалтер</div><a href="tel:+79511150112">8 (951) 115-01-12</a></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head c reveal">
+      <p class="eyebrow">Почему к нам</p>
+      <h2 class="sec-t">Спокойно за учёт и сроки</h2>
+    </div>
+    <div class="why-g">
+      <div class="wy reveal"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+        <div><b>Отвечаем за сроки</b><span>Отчётность сдаётся вовремя — без штрафов и блокировок счёта.</span></div></div>
+      <div class="wy reveal"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+        <div><b>Профильные специалисты</b><span>Зарплата, регистрация, маркетплейсы — у каждого направления свой человек.</span></div></div>
+      <div class="wy reveal"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+        <div><b>Следим за изменениями</b><span>Законы меняются каждый месяц — мы читаем и применяем это за вас.</span></div></div>
+      <div class="wy reveal"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+        <div><b>По договору</b><span>Понятные условия и ответственность, зафиксированные на бумаге.</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="steps" id="how">
+  <div class="wrap">
+    <div class="sec-head c reveal">
+      <p class="eyebrow">Как начать</p>
+      <h2 class="sec-t">Четыре шага</h2>
+    </div>
+    <div class="st-g">
+      <div class="st reveal"><div class="n">1</div><h3>Звонок</h3><p>Расскажете о бизнесе: форма, обороты, что болит.</p></div>
+      <div class="st reveal"><div class="n">2</div><h3>Оценка</h3><p>Посмотрим текущее состояние учёта и назовём стоимость.</p></div>
+      <div class="st reveal"><div class="n">3</div><h3>Договор</h3><p>Фиксируем услуги, сроки и ответственность.</p></div>
+      <div class="st reveal"><div class="n">4</div><h3>Ведём</h3><p>Забираем рутину, отчётность и общение с налоговой.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap ct-g">
+    <div class="reveal">
+      <p class="eyebrow">Контакты</p>
+      <h2 class="sec-t">Позвоните — разберём вашу ситуацию</h2>
+      <p class="sec-l">Первая консультация бесплатная: подскажем, что делать, даже если пока не готовы передавать учёт.</p>
+      <div style="margin-top:22px">
+        <a class="cl" href="tel:+79097449626">
+          <span class="i"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg></span>
+          <span>8 (909) 744-96-26<small>консультация, регистрация ООО и ИП</small></span></a>
+        <a class="cl" href="tel:+79511217120">
+          <span class="i"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></span>
+          <span>8 (951) 121-71-20<small>руководитель</small></span></a>
+        <a class="cl" href="mailto:buh.zlatoust@mail.ru">
+          <span class="i"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg></span>
+          <span>buh.zlatoust@mail.ru<small>для документов и запросов</small></span></a>
+        <a class="cl" href="https://vk.com/club142469417" target="_blank" rel="noopener">
+          <span class="i"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M7 9c.5 3 2.4 5.5 5 5.5V12M12 12c1.6 0 2.8-1.2 3.4-3M12 14.5c1 0 1.8.6 2.4 1.6"/></svg></span>
+          <span>Мы ВКонтакте<small>разборы изменений в законах</small></span></a>
+      </div>
+    </div>
+    <form class="form reveal" id="f">
+      <h3>Заявка на консультацию</h3>
+      <p>Оставьте контакты — перезвоним и разберём вашу задачу.</p>
+      <div class="fld"><label for="n">Имя</label><input id="n" type="text" placeholder="Как к вам обращаться" required></div>
+      <div class="fld"><label for="ph">Телефон</label><input id="ph" type="tel" placeholder="+7 900 000-00-00" required></div>
+      <div class="fld"><label for="fm">Форма бизнеса</label>
+        <select id="fm"><option>ИП</option><option>ООО</option><option>Самозанятый</option><option>Селлер (маркетплейсы)</option><option>Только открываюсь</option></select></div>
+      <div class="fld"><label for="ts">Что нужно</label>
+        <select id="ts"><option>Полное ведение учёта</option><option>Сдать отчётность</option><option>Зарплата и кадры</option><option>Регистрация / закрытие</option><option>Восстановить учёт</option><option>Консультация</option></select></div>
+      <div class="fld"><label for="ms">Комментарий</label><textarea id="ms" placeholder="Коротко о ситуации"></textarea></div>
+      <button class="btn btn-a" type="submit">Отправить заявку</button>
+      <p class="fnote">Нажимая кнопку, вы соглашаетесь на обработку данных.</p>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap ft">
+    <div class="ft-b"><img src="assets/logo.jpg" alt="Бухгалтерские услуги Златоуст"><b>Бухгалтерские услуги · Златоуст</b></div>
+    <span class="ft-m">Ведение учёта · отчётность · зарплата · регистрация ООО и ИП</span>
+    <a class="ft-m" href="tel:+79097449626">8 (909) 744-96-26</a>
+  </div>
+</footer>
+
+<div class="callbar">
+  <a class="cb1" href="tel:+79097449626">Позвонить</a>
+  <a class="cb2" href="#contact">Консультация</a>
+</div>
+
+<script>
+(function(){var e=document.querySelectorAll(".reveal");
+ if(!("IntersectionObserver" in window)){e.forEach(function(x){x.classList.add("in")});return;}
+ var io=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){x.target.classList.add("in");io.unobserve(x.target);}})},{threshold:.08,rootMargin:"0px 0px -5% 0px"});
+ e.forEach(function(x,i){x.style.transitionDelay=Math.min(i%4,3)*60+"ms";io.observe(x);});})();
+document.getElementById("f").addEventListener("submit",function(e){e.preventDefault();
+ var t="Заявка с сайта (бухгалтерия Златоуст):\nИмя: "+document.getElementById("n").value+
+  "\nТелефон: "+document.getElementById("ph").value+"\nФорма: "+document.getElementById("fm").value+
+  "\nЗадача: "+document.getElementById("ts").value+"\nКомментарий: "+document.getElementById("ms").value;
+ try{if(navigator.clipboard)navigator.clipboard.writeText(t);}catch(_){}
+ window.open("https://vk.com/club142469417","_blank");});
+</script>
+</body>
+</html>
