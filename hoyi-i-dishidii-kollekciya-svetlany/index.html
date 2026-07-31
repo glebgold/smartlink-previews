@@ -230,6 +230,11 @@ footer a:hover{color:#c9d8bf}
   .f-g{grid-template-columns:1fr;gap:22px}
   .bar{display:flex}
   body{padding-bottom:74px}
+  /* шапка не влезала: логотип + «Заказать» + бургер = шире экрана, бургер уезжал
+     за край. Кнопка на телефоне не нужна — «Заказать» есть в нижней панели. */
+  .hrow .btn{display:none}
+  .logo-t b{font-size:17px}
+  .logo-m{width:34px;height:34px}
 }
 .mob{display:none;position:fixed;inset:0;z-index:120;background:rgba(20,26,20,.5)}
 .mob.on{display:block}
