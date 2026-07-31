@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ВизаСпорт — клуб единоборств в Новосибирске | бокс, кикбоксинг, тайский, ММА</title>
+<meta name="description" content="Клуб единоборств «ВизаСпорт» в Новосибирске с 2013 года. Бокс, кикбоксинг, тайский бокс, ММА, джиу-джитсу, грэпплинг, каратэ. Взрослые, детские и женские группы, персональные тренировки. Гоголя 15 и Коммунистическая 34.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0b0c0e; --bg-2:#121417; --card:#191c20; --line:rgba(255,255,255,.10);
+  --fg:#f4f3f1; --fg-2:#9ca0a5; --red:#e23b2e; --red-d:#a82a20; --gold:#f2b23a;
+  --sh:0 18px 50px rgba(0,0,0,.55);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--fg);
+  font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+h1,h2,h3,h4{font-family:'Oswald',Impact,sans-serif;font-weight:600;line-height:1.06;margin:0;
+  text-transform:uppercase;letter-spacing:.005em}
+a{color:inherit}
+.wrap{width:100%;max-width:1180px;margin:0 auto;padding-left:22px;padding-right:22px}
+.sec{padding-top:76px;padding-bottom:76px}
+.eyebrow{font-size:11.5px;letter-spacing:.26em;text-transform:uppercase;color:var(--red);
+  font-weight:700;margin-bottom:12px;font-family:'Inter'}
+.h2{font-size:clamp(30px,5vw,52px)}
+.lead{color:var(--fg-2);font-size:17px;max-width:660px}
+
+header{position:sticky;top:0;z-index:60;background:rgba(11,12,14,.93);backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--line)}
+.hrow{display:flex;align-items:center;justify-content:space-between;gap:14px;
+  padding-top:12px;padding-bottom:12px}
+.logo{text-decoration:none;flex-shrink:0}
+.logo b{font-family:'Oswald',sans-serif;font-size:23px;letter-spacing:.05em;display:block;line-height:1}
+.logo b i{font-style:normal;color:var(--red)}
+.logo span{font-size:9.6px;letter-spacing:.22em;color:var(--fg-2);text-transform:uppercase;display:block;margin-top:3px}
+nav.menu{display:flex;gap:24px}
+nav.menu a{text-decoration:none;font-size:14.2px;font-weight:500;color:var(--fg-2);white-space:nowrap}
+nav.menu a:hover{color:var(--fg)}
+.hc{display:flex;gap:11px;align-items:center;flex-shrink:0}
+.hph{text-decoration:none;font-weight:700;font-size:15px;white-space:nowrap}
+.burger{display:none;width:42px;height:42px;border:1px solid var(--line);border-radius:9px;
+  background:none;cursor:pointer;padding:0;place-items:center}
+.burger span{display:block;width:19px;height:2px;background:var(--fg);margin:3.4px auto}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:15px 28px;
+  border-radius:3px;text-decoration:none;font-weight:700;font-size:14.2px;border:none;cursor:pointer;
+  font-family:'Inter';letter-spacing:.07em;text-transform:uppercase;line-height:1.2;transition:.18s}
+.btn-p{background:var(--red);color:#fff}
+.btn-p:hover{background:#f04a3c;transform:translateY(-2px)}
+.btn-o{background:transparent;color:var(--fg);border:1px solid rgba(255,255,255,.26)}
+.btn-o:hover{border-color:var(--red);color:var(--red)}
+
+.hero{position:relative;min-height:580px;display:flex;align-items:center;overflow:hidden}
+.hero-bg{position:absolute;inset:0;z-index:0}
+.hero-bg img{width:100%;height:100%;object-fit:cover;opacity:.46}
+.hero-bg:after{content:"";position:absolute;inset:0;
+  background:linear-gradient(90deg,#0b0c0e 10%,rgba(11,12,14,.86) 48%,rgba(11,12,14,.4) 100%)}
+.hero-in{position:relative;z-index:2;padding-top:72px;padding-bottom:72px;max-width:660px}
+.hero h1{font-size:clamp(35px,6.4vw,68px);margin-bottom:16px}
+.hero h1 em{font-style:normal;color:var(--red)}
+.hero .q{font-size:18px;color:var(--fg-2);margin:0 0 26px;max-width:520px}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:24px}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chip{border:1px solid var(--line);border-radius:3px;padding:8px 14px;font-size:13px;
+  color:var(--fg-2);font-weight:500;background:rgba(255,255,255,.03)}
+
+.strip{background:var(--red-d);padding-top:28px;padding-bottom:28px}
+.strip-g{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.strip-i b{display:block;font-family:'Oswald',sans-serif;font-size:26px;margin-bottom:2px}
+.strip-i span{font-size:13.4px;color:rgba(255,255,255,.82);line-height:1.4}
+
+.dirs{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:34px}
+.dir{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:22px 19px;
+  transition:.2s}
+.dir:hover{border-color:var(--red);transform:translateY(-3px)}
+.dir h3{font-size:20px;margin-bottom:7px}
+.dir p{margin:0;font-size:14.2px;color:var(--fg-2)}
+
+.who{background:var(--bg-2)}
+.who-g{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:34px}
+.who-c{border-radius:6px;overflow:hidden;background:var(--card);border:1px solid var(--line)}
+.who-im{aspect-ratio:4/3;overflow:hidden;background:#111;cursor:zoom-in}
+.who-im img{width:100%;height:100%;object-fit:cover;transition:.4s}
+.who-c:hover .who-im img{transform:scale(1.06)}
+.who-b{padding:17px 18px 19px}
+.who-b h4{font-size:18px;margin-bottom:6px}
+.who-b p{margin:0;font-size:14px;color:var(--fg-2)}
+
+.price-g{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center;margin-top:32px}
+.pcard{background:linear-gradient(150deg,#1d1013,#12171b);border:1px solid rgba(226,59,46,.4);
+  border-radius:8px;padding:32px 30px}
+.pcard .tag{display:inline-block;background:var(--red);color:#fff;font-size:11.5px;font-weight:700;
+  letter-spacing:.12em;text-transform:uppercase;padding:6px 12px;border-radius:3px;margin-bottom:16px}
+.pcard h3{font-size:clamp(26px,3.6vw,38px);margin-bottom:10px}
+.pcard .num{font-family:'Oswald',sans-serif;font-size:54px;color:var(--red);line-height:1;margin:14px 0 6px}
+.pcard ul{list-style:none;padding:0;margin:16px 0 22px}
+.pcard li{padding-left:24px;position:relative;margin-bottom:9px;font-size:15.6px;color:var(--fg-2)}
+.pcard li:before{content:"";position:absolute;left:0;top:8px;width:10px;height:10px;
+  border:2px solid var(--red);border-radius:50%}
+.pnote{color:var(--fg-2);font-size:14.2px;margin-top:14px}
+.price-ph img{border-radius:6px;aspect-ratio:4/5;object-fit:cover}
+
+.sched{background:var(--bg-2)}
+.stab{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:32px}
+.srow{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:20px 20px}
+.srow h4{font-size:19px;margin-bottom:5px}
+.srow .tr{font-size:14px;color:var(--red);font-weight:600;margin-bottom:9px}
+.srow .days{font-size:15.4px;color:var(--fg-2)}
+
+.gal-g{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:32px}
+.gal-g figure{margin:0;border-radius:5px;overflow:hidden;aspect-ratio:1/1;cursor:zoom-in;background:#111}
+.gal-g img{width:100%;height:100%;object-fit:cover;transition:.4s}
+.gal-g figure:hover img{transform:scale(1.06)}
+
+.faq{max-width:840px;margin:30px auto 0}
+.q2{background:var(--card);border:1px solid var(--line);border-radius:6px;margin-bottom:10px;overflow:hidden}
+.q2 summary{cursor:pointer;padding:18px 52px 18px 21px;font-weight:600;font-size:16px;list-style:none;position:relative}
+.q2 summary::-webkit-details-marker{display:none}
+.q2 summary:after{content:"+";position:absolute;right:21px;top:14px;font-size:23px;color:var(--red);transition:.2s}
+.q2[open] summary:after{transform:rotate(45deg)}
+.q2 .a{padding:0 21px 19px;color:var(--fg-2);font-size:15.2px}
+
+.book-box{display:grid;grid-template-columns:1.05fr .95fr;border:1px solid var(--line);
+  border-radius:8px;overflow:hidden;background:var(--card)}
+.book-l{padding:40px 36px}
+.book-l h2{font-size:clamp(26px,3.6vw,38px);margin-bottom:11px}
+.book-l p{color:var(--fg-2);margin:0 0 20px}
+.fld{margin-bottom:12px}
+.fld label{display:block;font-size:12.4px;font-weight:600;color:var(--fg-2);margin-bottom:5px;
+  text-transform:uppercase;letter-spacing:.08em}
+.fld input,.fld select{width:100%;padding:13px 15px;border-radius:4px;border:1px solid var(--line);
+  background:var(--bg);color:var(--fg);font-family:'Inter';font-size:15.4px;-webkit-appearance:none;appearance:none}
+.fld select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23e23b2e' stroke-width='1.8' fill='none'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 15px center}
+.fld input:focus,.fld select:focus{outline:none;border-color:var(--red)}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.book-r{background:var(--bg);padding:40px 32px;display:flex;flex-direction:column;justify-content:center;gap:17px}
+.ct{display:flex;gap:13px;align-items:flex-start;text-decoration:none}
+.ct-ic{width:40px;height:40px;border-radius:5px;background:rgba(226,59,46,.15);display:grid;
+  place-items:center;flex-shrink:0}
+.ct-ic svg{width:19px;height:19px;stroke:var(--red);fill:none;stroke-width:1.7}
+.ct b{display:block;font-size:16px;margin-bottom:1px}
+.ct span{font-size:13.4px;color:var(--fg-2)}
+
+footer{border-top:1px solid var(--line);padding-top:34px;padding-bottom:28px;font-size:14.2px;color:var(--fg-2)}
+.f-g{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:30px;padding-bottom:22px;border-bottom:1px solid var(--line)}
+footer h4{color:var(--fg);font-size:16px;margin-bottom:11px}
+footer a{color:var(--fg-2);text-decoration:none}
+footer a:hover{color:var(--red)}
+.f-l{display:flex;flex-direction:column;gap:8px}
+.f-b{padding-top:18px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:12.6px}
+
+.lb{position:fixed;inset:0;background:rgba(0,0,0,.95);z-index:200;display:none;align-items:center;justify-content:center;padding:24px}
+.lb.on{display:flex}
+.lb img{max-width:94vw;max-height:88vh;border-radius:6px;object-fit:contain}
+.lb-x{position:absolute;top:18px;right:20px;width:46px;height:46px;border-radius:50%;
+  background:rgba(255,255,255,.14);color:#fff;border:none;font-size:26px;cursor:pointer}
+.lb-n{position:absolute;top:50%;transform:translateY(-50%);width:50px;height:50px;border-radius:50%;
+  background:rgba(255,255,255,.14);color:#fff;border:none;font-size:25px;cursor:pointer}
+.lb-pv{left:16px}.lb-nx{right:16px}
+
+.bar{display:none;position:fixed;left:0;right:0;bottom:0;z-index:70;background:rgba(11,12,14,.97);
+  backdrop-filter:blur(12px);border-top:1px solid var(--line);padding:10px 14px;gap:10px}
+.bar a{flex:1;padding:14px 8px;border-radius:4px;text-decoration:none;font-weight:700;font-size:14px;
+  text-align:center;text-transform:uppercase;letter-spacing:.05em}
+.bar .b1{background:var(--red);color:#fff}
+.bar .b2{border:1px solid var(--line);color:var(--fg)}
+
+@media(max-width:1040px){
+  nav.menu{display:none}.burger{display:grid}
+  .strip-g{grid-template-columns:repeat(2,1fr)}
+  .dirs{grid-template-columns:repeat(2,1fr)}
+  .who-g{grid-template-columns:repeat(2,1fr)}
+  .price-g,.book-box{grid-template-columns:1fr;gap:28px}
+  .price-ph{max-width:380px}
+}
+@media(max-width:640px){
+  body{font-size:16.4px}
+  .sec{padding-top:52px;padding-bottom:52px}
+  .wrap{padding-left:17px;padding-right:17px}
+  .hero{min-height:auto}
+  .hero-in{padding-top:50px;padding-bottom:50px}
+  .hero h1{font-size:34px}
+  .hero-btns{flex-direction:column;align-items:stretch}
+  .hero-btns .btn{width:100%}
+  .hph,.hc .btn{display:none}
+  .strip-g{grid-template-columns:1fr;gap:14px}
+  .strip-i{display:flex;gap:12px;align-items:baseline}
+  .strip-i b{flex-shrink:0;min-width:74px;margin-bottom:0;font-size:21px}
+  .dirs,.who-g,.stab{grid-template-columns:1fr}
+  .gal-g{grid-template-columns:repeat(2,1fr);gap:9px}
+  .frow{grid-template-columns:1fr}
+  .book-l,.book-r{padding:26px 19px}
+  .pcard{padding:24px 20px}
+  .f-g{grid-template-columns:1fr;gap:20px}
+  .bar{display:flex}
+  body{padding-bottom:74px}
+}
+.mob{display:none;position:fixed;inset:0;z-index:120;background:rgba(0,0,0,.6)}
+.mob.on{display:block}
+.mob-p{position:absolute;top:0;right:0;width:min(300px,84vw);height:100%;background:var(--bg-2);
+  padding:22px;display:flex;flex-direction:column;gap:4px}
+.mob-p a{padding:14px 4px;text-decoration:none;font-weight:600;font-size:17px;border-bottom:1px solid var(--line)}
+.mob-x{align-self:flex-end;width:40px;height:40px;border:none;background:none;font-size:28px;cursor:pointer;color:var(--fg)}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap hrow">
+    <a class="logo" href="#top"><b>ВИЗА<i>СПОРТ</i></b><span>Клуб единоборств · с 2013 года</span></a>
+    <nav class="menu">
+      <a href="#dirs">Направления</a><a href="#who">Кому</a><a href="#price">Цены</a>
+      <a href="#sched">Расписание</a><a href="#book">Записаться</a>
+    </nav>
+    <div class="hc">
+      <a class="hph" href="tel:+73832923259">292-32-59</a>
+      <a class="btn btn-p" href="#book" style="padding:11px 18px">Пробная тренировка</a>
+      <button class="burger" id="bg" aria-label="Меню"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="mob" id="mob"><div class="mob-p">
+  <button class="mob-x" id="mx">&times;</button>
+  <a href="#dirs">Направления</a><a href="#who">Кому подходит</a><a href="#price">Цены</a>
+  <a href="#sched">Расписание</a><a href="#gallery">Залы</a><a href="#faq">Вопросы</a><a href="#book">Записаться</a>
+  <a href="tel:+73832923259" style="border:none;color:var(--red)">292-32-59</a>
+</div></div>
+
+<section class="hero" id="top">
+  <div class="hero-bg"><img src="assets/p04.jpg" alt="Ринг клуба ВизаСпорт"></div>
+  <div class="wrap hero-in">
+    <div class="eyebrow">Новосибирск · Гоголя 15 · Коммунистическая 34</div>
+    <h1>Клуб единоборств<br>для тех, кто <em>начинает с нуля</em></h1>
+    <p class="q">Бокс, кикбоксинг, тайский, ММА, джиу-джитсу, грэпплинг и каратэ. Взрослые,
+      детские и женские группы. Большинство приходит без опыта — это нормально, программы
+      рассчитаны и на новичка.</p>
+    <div class="hero-btns">
+      <a class="btn btn-p" href="#book">Записаться на пробную</a>
+      <a class="btn btn-o" href="#price">Цены и абонементы</a>
+    </div>
+    <div class="chips">
+      <span class="chip">В клубе с 2013 года</span>
+      <span class="chip">Два зала</span>
+      <span class="chip">Группы для детей</span>
+      <span class="chip">Женские тренировки</span>
+    </div>
+  </div>
+</section>
+
+<section class="strip">
+  <div class="wrap strip-g">
+    <div class="strip-i"><b>2013</b><span>Год основания клуба — работаем больше десяти лет</span></div>
+    <div class="strip-i"><b>2 зала</b><span>Гоголя 15 и Коммунистическая 34, третий в планах</span></div>
+    <div class="strip-i"><b>8</b><span>Направлений: от бокса до бразильского джиу-джитсу</span></div>
+    <div class="strip-i"><b>С нуля</b><span>Отдельные группы для новичков — начинать не страшно</span></div>
+  </div>
+</section>
+
+<section class="sec" id="dirs">
+  <div class="wrap">
+    <div class="eyebrow">Что у нас есть</div>
+    <h2 class="h2">Направления</h2>
+    <p class="lead" style="margin-top:12px">Не знаете, что выбрать — приходите на пробную,
+      тренер подскажет по вашей задаче: форма, самооборона или спорт.</p>
+    <div class="dirs">
+      <div class="dir"><h3>Бокс</h3><p>База ударной техники. Хорошо ставит дыхание и учит держать дистанцию.</p></div>
+      <div class="dir"><h3>Кикбоксинг</h3><p>Руки и ноги. Самое универсальное для тех, кто хочет и форму, и навык.</p></div>
+      <div class="dir"><h3>Тайский бокс</h3><p>Муай-тай: локти, колени, клинч. Жёстко по нагрузке, быстро по результату.</p></div>
+      <div class="dir"><h3>ММА</h3><p>Смешанные единоборства: ударка плюс борьба. Для тех, кто уже втянулся.</p></div>
+      <div class="dir"><h3>Джиу-джитсу</h3><p>Бразильское BJJ. Работа в партере, техника важнее силы и веса.</p></div>
+      <div class="dir"><h3>Грэпплинг</h3><p>Борьба без ударов. Отличный вход в единоборства без синяков.</p></div>
+      <div class="dir"><h3>Каратэ</h3><p>Дисциплина и техника. Отдельные детские группы с тренером.</p></div>
+      <div class="dir"><h3>ОФП и функциональные</h3><p>Общая подготовка, выносливость и сила — как дополнение или отдельно.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec who" id="who">
+  <div class="wrap">
+    <div class="eyebrow">Группы</div>
+    <h2 class="h2">Кому подходит</h2>
+    <div class="who-g">
+      <div class="who-c">
+        <div class="who-im"><img src="assets/p07.jpg" alt="Взрослые группы"></div>
+        <div class="who-b"><h4>Взрослым</h4>
+          <p>Начальный и продвинутый уровень. Похудеть, набрать форму, снять стресс или
+            научиться защищаться.</p></div>
+      </div>
+      <div class="who-c">
+        <div class="who-im"><img src="assets/p18.jpg" alt="Детские группы"></div>
+        <div class="who-b"><h4>Детям</h4>
+          <p>Координация, дисциплина, сила. Спортивное воспитание и занятость вместо телефона.</p></div>
+      </div>
+      <div class="who-c">
+        <div class="who-im"><img src="assets/p22.jpg" alt="Женские тренировки"></div>
+        <div class="who-b"><h4>Женщинам</h4>
+          <p>Бокс и фитнес в комфортной атмосфере: акцент на форму и уверенность,
+            без «ты тут лишняя».</p></div>
+      </div>
+      <div class="who-c">
+        <div class="who-im"><img src="assets/p21.jpg" alt="Персональные тренировки"></div>
+        <div class="who-b"><h4>Персонально</h4>
+          <p>Индивидуальные тренировки с тренером — если хочется быстрее и под свою задачу.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="price">
+  <div class="wrap">
+    <div class="eyebrow">Абонементы</div>
+    <h2 class="h2">Цены</h2>
+    <div class="price-g">
+      <div class="pcard">
+        <span class="tag">Акция «24 часа»</span>
+        <h3>Карта на 6 месяцев</h3>
+        <div class="num">16 900 ₽</div>
+        <ul>
+          <li>50 тренировок</li>
+          <li>Действует 6 месяцев — ходите в своём темпе</li>
+          <li>Любые групповые направления клуба</li>
+        </ul>
+        <a class="btn btn-p" href="#book">Забрать по акции</a>
+        <p class="pnote">Подробности и остальные форматы абонементов — у администратора
+          по телефону 292-32-59. Есть подарочные сертификаты.</p>
+      </div>
+      <div class="price-ph"><img src="assets/p03.jpg" alt="Зал клуба"></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec sched" id="sched">
+  <div class="wrap">
+    <div class="eyebrow">Детские группы</div>
+    <h2 class="h2">Расписание</h2>
+    <p class="lead" style="margin-top:12px">Взрослое расписание меняется по сезону —
+      уточните у администратора актуальное на сегодня.</p>
+    <div class="stab">
+      <div class="srow">
+        <h4>Джиу-джитсу и ММА · дети</h4>
+        <div class="tr">Тренер Антон Хаперский</div>
+        <div class="days">Понедельник, среда, четверг — 13:00</div>
+      </div>
+      <div class="srow">
+        <h4>Каратэ · дети</h4>
+        <div class="tr">Тренер Дмитрий Кунгуров</div>
+        <div class="days">Понедельник, среда, пятница — 18:00</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="gallery">
+  <div class="wrap">
+    <div class="eyebrow">Где тренируемся</div>
+    <h2 class="h2">Залы</h2>
+    <div class="gal-g" id="gg">
+      <figure><img src="assets/p02.jpg" alt="Зал с мешками" loading="lazy"></figure>
+      <figure><img src="assets/p04.jpg" alt="Ринг" loading="lazy"></figure>
+      <figure><img src="assets/p05.jpg" alt="Мешки" loading="lazy"></figure>
+      <figure><img src="assets/p06.jpg" alt="Оборудование зала" loading="lazy"></figure>
+      <figure><img src="assets/p13.jpg" alt="Тренировка" loading="lazy"></figure>
+      <figure><img src="assets/p21.jpg" alt="Работа с тренером" loading="lazy"></figure>
+      <figure><img src="assets/p24.jpg" alt="Тренировка у мешка" loading="lazy"></figure>
+      <figure><img src="assets/p18.jpg" alt="Детская группа" loading="lazy"></figure>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="faq" style="background:var(--bg-2)">
+  <div class="wrap">
+    <div class="eyebrow">Частые вопросы</div>
+    <h2 class="h2">Что спрашивают</h2>
+    <div class="faq">
+      <details class="q2"><summary>Я никогда не занимался. Не будет стыдно?</summary>
+        <div class="a">Большинство приходит без опыта — это норма, а не исключение. В группах
+          для начинающих все в одной лодке: разбирают стойку, дыхание и базовые движения.
+          Никто не ставит новичка в спарринг в первый день.</div></details>
+      <details class="q2"><summary>Что взять на первую тренировку?</summary>
+        <div class="a">Спортивную форму, сменную обувь и воду. Перчатки и защиту на пробную
+          давать не обязательно — подскажем, что покупать, когда определитесь с направлением.</div></details>
+      <details class="q2"><summary>С какого возраста берёте детей?</summary>
+        <div class="a">Детские группы есть по джиу-джитсу, ММА и каратэ. Возраст и уровень
+          подбираем под ребёнка — позвоните, администратор скажет, в какую группу он попадёт.</div></details>
+      <details class="q2"><summary>Я девушка, мне будет комфортно?</summary>
+        <div class="a">Есть отдельные женские тренировки по боксу и фитнесу — там спокойная
+          атмосфера и акцент на форму и уверенность. Можно и в общую группу, если хочется
+          именно спортивной нагрузки.</div></details>
+      <details class="q2"><summary>Хочу похудеть, а не драться. Подойдёт?</summary>
+        <div class="a">Да. Единоборства дают такую нагрузку, какую редко высидишь на дорожке,
+          и заниматься интереснее. Плюс есть функциональные тренировки и ОФП — без контакта.</div></details>
+      <details class="q2"><summary>Где вы находитесь?</summary>
+        <div class="a">Два зала в Новосибирске: ул. Гоголя 15 (метро Сибирская) и
+          ул. Коммунистическая 34 (метро Площадь Ленина). Уточните по телефону, в каком зале
+          идёт нужное вам направление.</div></details>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="book">
+  <div class="wrap">
+    <div class="book-box">
+      <div class="book-l">
+        <div class="eyebrow">Пробная тренировка</div>
+        <h2>Записаться</h2>
+        <p>Оставьте контакт — перезвоним, подберём направление и удобное время.</p>
+        <form id="frm" novalidate>
+          <div class="frow">
+            <div class="fld"><label for="nm">Имя</label><input id="nm" type="text" placeholder="Как вас зовут"></div>
+            <div class="fld"><label for="ph">Телефон</label><input id="ph" type="tel" placeholder="+7 ___ ___-__-__"></div>
+          </div>
+          <div class="fld"><label for="fl">Зал</label>
+            <select id="fl"><option>Гоголя 15 — м. Сибирская</option>
+              <option>Коммунистическая 34 — м. Пл. Ленина</option>
+              <option>Не важно, подберите ближе</option></select></div>
+          <div class="fld"><label for="dr">Направление</label>
+            <select id="dr"><option>Ещё не выбрал, подскажите</option><option>Бокс</option>
+              <option>Кикбоксинг</option><option>Тайский бокс</option><option>ММА</option>
+              <option>Джиу-джитсу</option><option>Грэпплинг</option><option>Каратэ</option>
+              <option>Детская группа</option><option>Женские тренировки</option>
+              <option>Персональные тренировки</option></select></div>
+          <button class="btn btn-p" type="submit" style="width:100%">Записаться на пробную</button>
+          <p style="font-size:12.4px;color:var(--fg-2);margin-top:11px" id="fn">
+            Перезвоним в рабочее время и подберём группу под ваш уровень.</p>
+        </form>
+      </div>
+      <div class="book-r">
+        <a class="ct" href="tel:+73832923259">
+          <span class="ct-ic"><svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg></span>
+          <span><b>292-32-59</b><span>Позвонить администратору</span></span></a>
+        <a class="ct" href="#gallery">
+          <span class="ct-ic"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.9-7-10a7 7 0 0 1 14 0c0 5.1-7 10-7 10Z"/><circle cx="12" cy="11" r="2.6"/></svg></span>
+          <span><b>ул. Гоголя, 15</b><span>метро Сибирская</span></span></a>
+        <a class="ct" href="#gallery">
+          <span class="ct-ic"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.9-7-10a7 7 0 0 1 14 0c0 5.1-7 10-7 10Z"/><circle cx="12" cy="11" r="2.6"/></svg></span>
+          <span><b>ул. Коммунистическая, 34</b><span>метро Площадь Ленина</span></span></a>
+        <a class="ct" href="https://vk.com/club3770800" target="_blank" rel="noopener">
+          <span class="ct-ic"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M7.5 9.5c.4 2.6 2 5 4.5 5h1v-2c1 .3 1.8 1.1 2.3 2h1.7c-.5-1.4-1.6-2.5-2.6-3 .9-.6 1.8-1.6 2.3-2.9H15c-.5 1.1-1.3 2-2 2.4V9.5h-1.7v3c-1.2-.5-2-1.8-2.3-3Z"/></svg></span>
+          <span><b>Мы ВКонтакте</b><span>Новости клуба и расписание</span></span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="f-g">
+      <div><h4>ВизаСпорт</h4>
+        <p style="margin:0">Клуб единоборств в Новосибирске с 2013 года. Бокс, кикбоксинг,
+          тайский, ММА, джиу-джитсу, грэпплинг, каратэ. Взрослые, детские и женские группы.</p></div>
+      <div><h4>Разделы</h4><div class="f-l">
+        <a href="#dirs">Направления</a><a href="#who">Кому подходит</a><a href="#price">Цены</a>
+        <a href="#sched">Расписание</a><a href="#faq">Вопросы</a></div></div>
+      <div><h4>Контакты</h4><div class="f-l">
+        <a href="tel:+73832923259">292-32-59</a>
+        <span>ул. Гоголя, 15 — м. Сибирская</span>
+        <span>ул. Коммунистическая, 34</span>
+        <a href="https://vk.com/club3770800" target="_blank" rel="noopener">ВКонтакте</a></div></div>
+    </div>
+    <div class="f-b"><span>© 2026 ВизаСпорт · Новосибирск</span>
+      <span>Клуб единоборств для взрослых и детей</span></div>
+  </div>
+</footer>
+
+<div class="bar">
+  <a class="b1" href="#book">Записаться</a>
+  <a class="b2" href="tel:+73832923259">Позвонить</a>
+</div>
+
+<div class="lb" id="lb">
+  <button class="lb-x" id="lbx">&times;</button>
+  <button class="lb-n lb-pv" id="lbp">&#8249;</button>
+  <img id="lbi" src="" alt="">
+  <button class="lb-n lb-nx" id="lbn">&#8250;</button>
+</div>
+
+<script>
+var mob=document.getElementById('mob');
+document.getElementById('bg').onclick=function(){mob.classList.add('on');document.body.style.overflow='hidden'};
+function cm(){mob.classList.remove('on');document.body.style.overflow=''}
+document.getElementById('mx').onclick=cm;
+mob.addEventListener('click',function(e){if(e.target===mob)cm()});
+mob.querySelectorAll('a').forEach(function(a){a.onclick=cm});
+
+var imgs=[].slice.call(document.querySelectorAll('#gg img, .who-im img')), cur=0;
+var lb=document.getElementById('lb'), lbi=document.getElementById('lbi');
+function show(i){cur=(i+imgs.length)%imgs.length;lbi.src=imgs[cur].src;lbi.alt=imgs[cur].alt}
+imgs.forEach(function(im,i){im.parentElement.onclick=function(){show(i);lb.classList.add('on');document.body.style.overflow='hidden'}});
+function cl(){lb.classList.remove('on');document.body.style.overflow=''}
+document.getElementById('lbx').onclick=cl;
+document.getElementById('lbp').onclick=function(e){e.stopPropagation();show(cur-1)};
+document.getElementById('lbn').onclick=function(e){e.stopPropagation();show(cur+1)};
+lb.addEventListener('click',function(e){if(e.target===lb)cl()});
+document.addEventListener('keydown',function(e){
+  if(!lb.classList.contains('on'))return;
+  if(e.key==='Escape')cl(); if(e.key==='ArrowLeft')show(cur-1); if(e.key==='ArrowRight')show(cur+1);
+});
+
+document.getElementById('frm').addEventListener('submit',function(e){
+  e.preventDefault();
+  var nm=document.getElementById('nm'), ph=document.getElementById('ph'), f=document.getElementById('fn');
+  if(!nm.value.trim()||!ph.value.trim()){f.textContent='Заполните имя и телефон — иначе не перезвоним.';
+    f.style.color='#e23b2e';return}
+  this.innerHTML='<div style="text-align:center;padding:26px 8px">'+
+    '<div style="font-family:Oswald,sans-serif;font-size:26px;text-transform:uppercase;margin-bottom:8px">Заявка принята</div>'+
+    '<p style="color:#9ca0a5;margin:0">'+nm.value.trim().replace(/[<>]/g,'')+
+    ', перезвоним и подберём группу.</p></div>';
+});
+</script>
+</body>
+</html>
