@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NikoBorod — барбершоп в Челябинске | Чичерина 42б, мужские стрижки и борода</title>
+<meta name="description" content="Барбершоп NikoBorod на северо-западе Челябинска, Чичерина 42б. Мужские стрижки, оформление бороды, уход. Пять уровней мастеров, честные цены, онлайн-запись. Первое посещение −20% и 1000₽ на доп. услуги.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0e0f10; --bg-2:#16181a; --card:#1b1e20; --line:rgba(255,255,255,.11);
+  --fg:#f2f0ec; --fg-2:#a3a7a5; --olive:#7f9a6d; --olive-d:#4d6142; --gold:#c9a227;
+  --sh:0 18px 50px rgba(0,0,0,.5);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--fg);
+  font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+h1,h2,h3,h4{font-family:'Oswald',Impact,sans-serif;font-weight:600;line-height:1.08;margin:0;
+  text-transform:uppercase;letter-spacing:.01em}
+a{color:inherit}
+.wrap{width:100%;max-width:1180px;margin:0 auto;padding-left:22px;padding-right:22px}
+.sec{padding-top:78px;padding-bottom:78px}
+.eyebrow{font-size:11.5px;letter-spacing:.26em;text-transform:uppercase;color:var(--olive);
+  font-weight:700;margin-bottom:13px;font-family:'Inter'}
+.h2{font-size:clamp(30px,5vw,52px)}
+.lead{color:var(--fg-2);font-size:17px;max-width:660px}
+
+header{position:sticky;top:0;z-index:60;background:rgba(14,15,16,.92);backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--line)}
+.hrow{display:flex;align-items:center;justify-content:space-between;gap:14px;
+  padding-top:13px;padding-bottom:13px}
+.logo{text-decoration:none;flex-shrink:0}
+.logo b{font-family:'Oswald',sans-serif;font-size:22px;letter-spacing:.09em;display:block;line-height:1}
+.logo span{font-size:10px;letter-spacing:.2em;color:var(--olive);text-transform:uppercase;display:block;margin-top:3px}
+nav.menu{display:flex;gap:26px}
+nav.menu a{text-decoration:none;font-size:14.4px;font-weight:500;color:var(--fg-2);white-space:nowrap}
+nav.menu a:hover{color:var(--fg)}
+.hc{display:flex;gap:11px;align-items:center;flex-shrink:0}
+.hph{text-decoration:none;font-weight:700;font-size:15px;white-space:nowrap}
+.burger{display:none;width:42px;height:42px;border:1px solid var(--line);border-radius:10px;
+  background:none;cursor:pointer;padding:0;place-items:center}
+.burger span{display:block;width:19px;height:1.8px;background:var(--fg);margin:3.4px auto}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:15px 28px;
+  border-radius:4px;text-decoration:none;font-weight:700;font-size:14.4px;border:none;cursor:pointer;
+  font-family:'Inter';letter-spacing:.06em;text-transform:uppercase;line-height:1.2;
+  transition:transform .18s,background .18s}
+.btn-p{background:var(--olive);color:#0e0f10}
+.btn-p:hover{transform:translateY(-2px);background:#8fab7b}
+.btn-o{background:transparent;color:var(--fg);border:1px solid rgba(255,255,255,.25)}
+.btn-o:hover{border-color:var(--olive);color:var(--olive)}
+
+.hero{position:relative;min-height:600px;display:flex;align-items:center;overflow:hidden;
+  border-bottom:1px solid var(--line)}
+.hero-bg{position:absolute;inset:0;z-index:0}
+.hero-bg img{width:100%;height:100%;object-fit:cover;opacity:.5;filter:grayscale(.25)}
+.hero-bg:after{content:"";position:absolute;inset:0;
+  background:linear-gradient(90deg,#0e0f10 12%,rgba(14,15,16,.82) 46%,rgba(14,15,16,.35) 100%)}
+.hero-in{position:relative;z-index:2;padding-top:74px;padding-bottom:74px;max-width:640px}
+.hero h1{font-size:clamp(34px,6.2vw,66px);margin-bottom:18px}
+.hero h1 em{font-style:normal;color:var(--olive)}
+.hero .q{font-size:18px;color:var(--fg-2);margin:0 0 26px;max-width:490px}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:26px}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chip{border:1px solid var(--line);border-radius:3px;padding:8px 14px;font-size:13px;
+  color:var(--fg-2);font-weight:500;background:rgba(255,255,255,.03)}
+
+.strip{background:var(--olive-d);padding-top:30px;padding-bottom:30px}
+.strip-g{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.strip-i b{display:block;font-family:'Oswald',sans-serif;font-size:20px;margin-bottom:3px}
+.strip-i span{font-size:13.6px;color:rgba(255,255,255,.78);line-height:1.45}
+
+/* прайс */
+.price{background:var(--bg-2)}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:30px 0 22px}
+.tab{padding:11px 19px;border:1px solid var(--line);border-radius:3px;background:none;color:var(--fg-2);
+  font-family:'Inter';font-size:14px;font-weight:600;cursor:pointer;transition:.18s}
+.tab.on{background:var(--olive);color:#0e0f10;border-color:var(--olive)}
+.plist{display:none}
+.plist.on{display:block}
+.prow{display:flex;align-items:baseline;gap:14px;padding:13px 0;border-bottom:1px dashed var(--line)}
+.prow .n{font-size:16.4px;font-weight:500}
+.prow .d{flex:1;border-bottom:1px dotted rgba(255,255,255,.16);transform:translateY(-4px)}
+.prow .p{font-family:'Oswald',sans-serif;font-size:19px;white-space:nowrap;color:var(--fg)}
+.pnote{color:var(--fg-2);font-size:14.4px;margin-top:16px}
+
+/* тренды */
+.cuts{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:36px}
+.cut{background:var(--card);border:1px solid var(--line);border-radius:6px;overflow:hidden;
+  transition:transform .2s}
+.cut:hover{transform:translateY(-4px)}
+.cut-im{aspect-ratio:3/4;overflow:hidden;background:#111;cursor:zoom-in}
+.cut-im img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.cut:hover .cut-im img{transform:scale(1.05)}
+.cut-b{padding:18px 19px 20px}
+.cut-b h3{font-size:21px;margin-bottom:7px}
+.cut-b p{margin:0;font-size:14.6px;color:var(--fg-2)}
+
+/* акция */
+.promo{background:linear-gradient(135deg,var(--olive-d),#35462e);position:relative;overflow:hidden}
+.promo-g{display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center}
+.promo h2{font-size:clamp(28px,4.4vw,44px);margin-bottom:14px}
+.promo ul{list-style:none;padding:0;margin:0 0 22px}
+.promo li{padding-left:28px;position:relative;margin-bottom:11px;font-size:16.4px}
+.promo li:before{content:"";position:absolute;left:0;top:9px;width:13px;height:13px;
+  border:2px solid rgba(255,255,255,.7);border-radius:50%}
+.promo small{display:block;color:rgba(255,255,255,.6);font-size:13px;margin-top:14px}
+.promo-ph img{border-radius:6px;aspect-ratio:4/5;object-fit:cover;box-shadow:var(--sh)}
+
+/* почему */
+.why-g{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.vs{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:24px}
+.vs-c{border:1px solid var(--line);border-radius:6px;padding:20px 19px;background:var(--card)}
+.vs-c h4{font-size:17px;margin-bottom:12px}
+.vs-c.good h4{color:var(--olive)}
+.vs-c.bad h4{color:#b96a6a}
+.vs-c ul{list-style:none;padding:0;margin:0}
+.vs-c li{font-size:14.6px;color:var(--fg-2);padding-left:20px;position:relative;margin-bottom:8px}
+.vs-c li:before{position:absolute;left:0;top:0}
+.vs-c.good li:before{content:"✓";color:var(--olive)}
+.vs-c.bad li:before{content:"✕";color:#b96a6a}
+.why-ph img{border-radius:6px;aspect-ratio:4/5;object-fit:cover}
+
+/* галерея */
+.gal{background:var(--bg-2)}
+.gg{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:34px}
+.gg figure{margin:0;border-radius:5px;overflow:hidden;aspect-ratio:1/1;cursor:zoom-in;background:#111}
+.gg img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.gg figure:hover img{transform:scale(1.06)}
+
+/* faq */
+.faq{max-width:840px;margin:32px auto 0}
+.q2{background:var(--card);border:1px solid var(--line);border-radius:6px;margin-bottom:11px;overflow:hidden}
+.q2 summary{cursor:pointer;padding:18px 52px 18px 21px;font-weight:600;font-size:16px;
+  list-style:none;position:relative}
+.q2 summary::-webkit-details-marker{display:none}
+.q2 summary:after{content:"+";position:absolute;right:21px;top:14px;font-size:23px;color:var(--olive);transition:.2s}
+.q2[open] summary:after{transform:rotate(45deg)}
+.q2 .a{padding:0 21px 19px;color:var(--fg-2);font-size:15.4px}
+
+/* запись */
+.book-box{display:grid;grid-template-columns:1.05fr .95fr;border:1px solid var(--line);
+  border-radius:8px;overflow:hidden;background:var(--card)}
+.book-l{padding:42px 38px}
+.book-l h2{font-size:clamp(26px,3.6vw,38px);margin-bottom:12px}
+.book-l p{color:var(--fg-2);margin:0 0 20px}
+.fld{margin-bottom:12px}
+.fld label{display:block;font-size:12.6px;font-weight:600;color:var(--fg-2);margin-bottom:5px;
+  text-transform:uppercase;letter-spacing:.08em}
+.fld input,.fld select{width:100%;padding:13px 15px;border-radius:4px;border:1px solid var(--line);
+  background:var(--bg);color:var(--fg);font-family:'Inter';font-size:15.4px;-webkit-appearance:none;appearance:none}
+.fld select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%237f9a6d' stroke-width='1.8' fill='none'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 15px center}
+.fld input:focus,.fld select:focus{outline:none;border-color:var(--olive)}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.book-r{background:var(--bg);padding:42px 34px;display:flex;flex-direction:column;justify-content:center;gap:18px}
+.ct{display:flex;gap:13px;align-items:flex-start;text-decoration:none}
+.ct-ic{width:40px;height:40px;border-radius:5px;background:rgba(127,154,109,.14);display:grid;
+  place-items:center;flex-shrink:0}
+.ct-ic svg{width:19px;height:19px;stroke:var(--olive);fill:none;stroke-width:1.7}
+.ct b{display:block;font-size:16px;margin-bottom:1px}
+.ct span{font-size:13.4px;color:var(--fg-2)}
+
+footer{border-top:1px solid var(--line);padding-top:36px;padding-bottom:30px;font-size:14.2px;color:var(--fg-2)}
+.f-g{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:32px;padding-bottom:24px;border-bottom:1px solid var(--line)}
+footer h4{color:var(--fg);font-size:16px;margin-bottom:12px}
+footer a{color:var(--fg-2);text-decoration:none}
+footer a:hover{color:var(--olive)}
+.f-l{display:flex;flex-direction:column;gap:8px}
+.f-b{padding-top:20px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:12.6px}
+
+.lb{position:fixed;inset:0;background:rgba(0,0,0,.95);z-index:200;display:none;align-items:center;
+  justify-content:center;padding:24px}
+.lb.on{display:flex}
+.lb img{max-width:94vw;max-height:88vh;border-radius:6px;object-fit:contain}
+.lb-x{position:absolute;top:18px;right:20px;width:46px;height:46px;border-radius:50%;
+  background:rgba(255,255,255,.14);color:#fff;border:none;font-size:26px;cursor:pointer}
+.lb-n{position:absolute;top:50%;transform:translateY(-50%);width:50px;height:50px;border-radius:50%;
+  background:rgba(255,255,255,.14);color:#fff;border:none;font-size:25px;cursor:pointer}
+.lb-pv{left:16px}.lb-nx{right:16px}
+
+.bar{display:none;position:fixed;left:0;right:0;bottom:0;z-index:70;background:rgba(14,15,16,.97);
+  backdrop-filter:blur(12px);border-top:1px solid var(--line);padding:10px 14px;gap:10px}
+.bar a{flex:1;padding:14px 8px;border-radius:4px;text-decoration:none;font-weight:700;font-size:14px;
+  text-align:center;text-transform:uppercase;letter-spacing:.05em}
+.bar .b1{background:var(--olive);color:#0e0f10}
+.bar .b2{border:1px solid var(--line);color:var(--fg)}
+
+@media(max-width:1040px){
+  nav.menu{display:none}.burger{display:grid}
+  .strip-g{grid-template-columns:repeat(2,1fr)}
+  .cuts{grid-template-columns:repeat(3,1fr)}
+  .promo-g,.why-g,.book-box{grid-template-columns:1fr;gap:30px}
+  .promo-ph,.why-ph{max-width:360px}
+}
+@media(max-width:640px){
+  body{font-size:16.4px}
+  .sec{padding-top:52px;padding-bottom:52px}
+  .wrap{padding-left:17px;padding-right:17px}
+  .hero{min-height:auto}
+  .hero-in{padding-top:52px;padding-bottom:52px}
+  .hero h1{font-size:33px}
+  .hero-btns{flex-direction:column;align-items:stretch}
+  .hero-btns .btn{width:100%}
+  .hph{display:none}
+  .hc .btn{display:none}
+  .strip-g{grid-template-columns:1fr;gap:14px}
+  .strip-i{display:flex;gap:12px;align-items:baseline}
+  .strip-i b{flex-shrink:0;min-width:86px;margin-bottom:0;font-size:17px}
+  .cuts{grid-template-columns:1fr}
+  .vs{grid-template-columns:1fr}
+  .gg{grid-template-columns:repeat(2,1fr);gap:9px}
+  .frow{grid-template-columns:1fr}
+  .book-l,.book-r{padding:28px 20px}
+  .f-g{grid-template-columns:1fr;gap:22px}
+  .prow .n{font-size:15.4px}
+  .bar{display:flex}
+  body{padding-bottom:74px}
+}
+.mob{display:none;position:fixed;inset:0;z-index:120;background:rgba(0,0,0,.6)}
+.mob.on{display:block}
+.mob-p{position:absolute;top:0;right:0;width:min(300px,84vw);height:100%;background:var(--bg-2);
+  padding:22px;display:flex;flex-direction:column;gap:4px}
+.mob-p a{padding:14px 4px;text-decoration:none;font-weight:600;font-size:17px;border-bottom:1px solid var(--line)}
+.mob-x{align-self:flex-end;width:40px;height:40px;border:none;background:none;font-size:28px;cursor:pointer;color:var(--fg)}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap hrow">
+    <a class="logo" href="#top"><b>NIKOBOROD</b><span>Барбершоп · Челябинск</span></a>
+    <nav class="menu">
+      <a href="#price">Цены</a><a href="#cuts">Стрижки</a><a href="#promo">Первый визит</a>
+      <a href="#why">Почему мы</a><a href="#book">Записаться</a>
+    </nav>
+    <div class="hc">
+      <a class="hph" href="tel:+79193165275">8 919 316-52-75</a>
+      <a class="btn btn-p" href="https://dikidi.net/NikoBorod?p=0.pi" target="_blank" rel="noopener"
+         style="padding:11px 18px">Онлайн-запись</a>
+      <button class="burger" id="bg" aria-label="Меню"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="mob" id="mob"><div class="mob-p">
+  <button class="mob-x" id="mx">&times;</button>
+  <a href="#price">Цены</a><a href="#cuts">Стрижки</a><a href="#promo">Первый визит</a>
+  <a href="#why">Почему мы</a><a href="#gallery">Салон</a><a href="#faq">Вопросы</a><a href="#book">Записаться</a>
+  <a href="tel:+79193165275" style="border:none;color:var(--olive)">8 919 316-52-75</a>
+</div></div>
+
+<section class="hero" id="top">
+  <div class="hero-bg"><img src="assets/p22.jpg" alt="Барбер за работой"></div>
+  <div class="wrap hero-in">
+    <div class="eyebrow">Чичерина 42б · ЖК Подсолнухи · северо-запад</div>
+    <h1>Пройди путь с нами —<br>и твой барбер станет <em>бывшим</em></h1>
+    <p class="q">Мужские стрижки, борода и уход в Челябинске. Пять уровней мастеров —
+      выбираешь сам, по цене и по опыту. Записаться можно онлайн, за минуту.</p>
+    <div class="hero-btns">
+      <a class="btn btn-p" href="https://dikidi.net/NikoBorod?p=0.pi" target="_blank" rel="noopener">Записаться онлайн</a>
+      <a class="btn btn-o" href="#price">Смотреть цены</a>
+    </div>
+    <div class="chips">
+      <span class="chip">Первый визит −20%</span>
+      <span class="chip">+1000 ₽ на доп. услуги</span>
+      <span class="chip">Парковка у входа</span>
+      <span class="chip">Работаем официально, ИП</span>
+    </div>
+  </div>
+</section>
+
+<section class="strip">
+  <div class="wrap strip-g">
+    <div class="strip-i"><b>5 уровней</b><span>От мастера до арт-директора — цена честная, выбор за вами</span></div>
+    <div class="strip-i"><b>Онлайн-запись</b><span>Через DIKIDI или по телефону, без переписки</span></div>
+    <div class="strip-i"><b>Чичерина 42б</b><span>ЖК «Подсолнухи», северо-запад Челябинска</span></div>
+    <div class="strip-i"><b>Своя косметика</b><span>Работаем и продаём премиальные бренды</span></div>
+  </div>
+</section>
+
+<section class="sec price" id="price">
+  <div class="wrap">
+    <div class="eyebrow">Прайс без звёздочек</div>
+    <h2 class="h2">Цены</h2>
+    <p class="lead" style="margin-top:13px">Цена зависит только от уровня мастера. Один и тот же
+      прайс на сайте, в записи и на кассе.</p>
+
+    <div class="tabs">
+      <button class="tab on" data-t="cut">Стрижка</button>
+      <button class="tab" data-t="beard">Борода и бритьё</button>
+      <button class="tab" data-t="kids">Дети и пенсионеры</button>
+      <button class="tab" data-t="care">Уход</button>
+      <button class="tab" data-t="shop">Косметика</button>
+    </div>
+
+    <div class="plist on" id="cut">
+      <div class="prow"><span class="n">Стрижка — мастер</span><span class="d"></span><span class="p">900 ₽</span></div>
+      <div class="prow"><span class="n">Стрижка — старший мастер</span><span class="d"></span><span class="p">1 200 ₽</span></div>
+      <div class="prow"><span class="n">Стрижка — топ-мастер</span><span class="d"></span><span class="p">1 600 ₽</span></div>
+      <div class="prow"><span class="n">Стрижка — шеф-мастер</span><span class="d"></span><span class="p">2 000 ₽</span></div>
+      <div class="prow"><span class="n">Стрижка — арт-директор</span><span class="d"></span><span class="p">2 000 ₽</span></div>
+      <div class="prow"><span class="n">Комплекс (стрижка + борода) — мастер</span><span class="d"></span><span class="p">1 400 ₽</span></div>
+      <div class="prow"><span class="n">Комплекс — старший мастер</span><span class="d"></span><span class="p">1 800 ₽</span></div>
+      <div class="prow"><span class="n">Комплекс — топ-мастер</span><span class="d"></span><span class="p">2 400 ₽</span></div>
+      <div class="prow"><span class="n">Комплекс — шеф-мастер / арт-директор</span><span class="d"></span><span class="p">3 000 ₽</span></div>
+      <div class="prow"><span class="n">Коррекция (до 3 насадок / окантовка / шейвер) — мастер</span><span class="d"></span><span class="p">600 ₽</span></div>
+      <div class="prow"><span class="n">Коррекция — старший мастер</span><span class="d"></span><span class="p">800 ₽</span></div>
+      <div class="prow"><span class="n">Коррекция — топ-мастер</span><span class="d"></span><span class="p">1 000 ₽</span></div>
+      <div class="prow"><span class="n">Коррекция — шеф-мастер / арт-директор</span><span class="d"></span><span class="p">1 300 ₽</span></div>
+      <div class="prow"><span class="n">Укладка</span><span class="d"></span><span class="p">190 ₽</span></div>
+      <p class="pnote">Честная цена на «коррекцию» — можно подровнять бока между стрижками,
+        не переплачивая как за полную.</p>
+    </div>
+
+    <div class="plist" id="beard">
+      <div class="prow"><span class="n">Оформление бороды опасной бритвой</span><span class="d"></span><span class="p">800 ₽</span></div>
+      <div class="prow"><span class="n">Оформление бороды шейвером</span><span class="d"></span><span class="p">600 ₽</span></div>
+      <div class="prow"><span class="n">«Бородач под ключ»</span><span class="d"></span><span class="p">3 400 ₽</span></div>
+      <div class="prow"><span class="n">Полный релакс для бородача</span><span class="d"></span><span class="p">2 700 ₽</span></div>
+      <div class="prow"><span class="n">Полный релакс</span><span class="d"></span><span class="p">2 500 ₽</span></div>
+      <div class="prow"><span class="n">Тонирование головы / бороды</span><span class="d"></span><span class="p">790 ₽</span></div>
+      <div class="prow"><span class="n">Окрашивание</span><span class="d"></span><span class="p">3 500 ₽</span></div>
+      <div class="prow"><span class="n">ХИМ / БИО-завивка</span><span class="d"></span><span class="p">5 000 ₽</span></div>
+    </div>
+
+    <div class="plist" id="kids">
+      <div class="prow"><span class="n">Детская стрижка до 12 лет — мастер</span><span class="d"></span><span class="p">800 ₽</span></div>
+      <div class="prow"><span class="n">Детская до 12 лет — старший мастер</span><span class="d"></span><span class="p">1 000 ₽</span></div>
+      <div class="prow"><span class="n">Детская до 12 лет — топ-мастер</span><span class="d"></span><span class="p">1 200 ₽</span></div>
+      <div class="prow"><span class="n">Детская до 12 лет — шеф-мастер / арт-директор</span><span class="d"></span><span class="p">1 500 ₽</span></div>
+      <div class="prow"><span class="n">«Папа + сын»</span><span class="d"></span><span class="p">1 500 ₽</span></div>
+      <div class="prow"><span class="n">Стрижка для пенсионеров (от 60 лет)</span><span class="d"></span><span class="p">600 ₽</span></div>
+    </div>
+
+    <div class="plist" id="care">
+      <div class="prow"><span class="n">Спа-комплекс</span><span class="d"></span><span class="p">1 200 ₽</span></div>
+      <div class="prow"><span class="n">Детокс кожи головы</span><span class="d"></span><span class="p">1 200 ₽</span></div>
+      <div class="prow"><span class="n">Альгинатная маска</span><span class="d"></span><span class="p">1 200 ₽</span></div>
+      <div class="prow"><span class="n">Чёрная маска</span><span class="d"></span><span class="p">1 200 ₽</span></div>
+      <div class="prow"><span class="n">Оформление бровей</span><span class="d"></span><span class="p">400 ₽</span></div>
+      <div class="prow"><span class="n">Удаление волос воском</span><span class="d"></span><span class="p">400 ₽</span></div>
+      <div class="prow"><span class="n">Опаливание ушей</span><span class="d"></span><span class="p">200 ₽</span></div>
+      <div class="prow"><span class="n">Патчи для зоны вокруг глаз</span><span class="d"></span><span class="p">150 ₽</span></div>
+    </div>
+
+    <div class="plist" id="shop">
+      <div class="prow"><span class="n">Шампунь с морской солью</span><span class="d"></span><span class="p">1 990 ₽</span></div>
+      <div class="prow"><span class="n">Одеколон</span><span class="d"></span><span class="p">1 350 ₽</span></div>
+      <div class="prow"><span class="n">Крем после бритья</span><span class="d"></span><span class="p">980 ₽</span></div>
+      <div class="prow"><span class="n">Гель для умывания лица и бороды</span><span class="d"></span><span class="p">940 ₽</span></div>
+      <p class="pnote">В салоне есть Bandido Black Garlic Shampoo и другая профессиональная
+        косметика — та же, которой работают мастера.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="cuts">
+  <div class="wrap">
+    <div class="eyebrow">Что сейчас носят</div>
+    <h2 class="h2">Трендовые стрижки 2026</h2>
+    <p class="lead" style="margin-top:13px">Не знаете, что просить у барбера — покажите пальцем.
+      Мастер подскажет, ляжет ли это на ваш тип волос.</p>
+    <div class="cuts">
+      <div class="cut">
+        <div class="cut-im"><img src="assets/p15.jpg" alt="Modern Mullet"></div>
+        <div class="cut-b"><h3>Modern Mullet</h3>
+          <p>Деловая спереди, вечеринка сзади. Короткие бока и удлинённая макушка — слегка
+            небрежная укладка и затылок.</p></div>
+      </div>
+      <div class="cut">
+        <div class="cut-im"><img src="assets/p16.jpg" alt="Bro Flow"></div>
+        <div class="cut-b"><h3>Bro Flow</h3>
+          <p>Бока убраны, верх укладывается свободной волной назад или набок. Идеально на густые
+            и вьющиеся волосы.</p></div>
+      </div>
+      <div class="cut">
+        <div class="cut-im"><img src="assets/p17.jpg" alt="French Crop Split"></div>
+        <div class="cut-b"><h3>French Crop Split</h3>
+          <p>Короткие виски и объём на макушке, чёлка разделена пробором. Аккуратный образ без
+            лишних усилий, подходит почти под любой тип волос.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec promo" id="promo">
+  <div class="wrap promo-g">
+    <div>
+      <div class="eyebrow" style="color:rgba(255,255,255,.72)">Для новых гостей</div>
+      <h2>Первое посещение — с двойной выгодой</h2>
+      <ul>
+        <li><b>−20%</b> на первую стрижку или комплекс услуг</li>
+        <li><b>+1 000 ₽</b> на дополнительные услуги в подарок</li>
+        <li>Потратить бонус можно на брови, воск, патчи, укладку или опаливание ушей</li>
+      </ul>
+      <a class="btn btn-p" href="https://dikidi.net/NikoBorod?p=0.pi" target="_blank" rel="noopener">Записаться на первую стрижку</a>
+      <small>Акция только для новых гостей. Скидки не суммируются и не распространяются
+        на шеф-мастера. Подробности у администратора.</small>
+    </div>
+    <div class="promo-ph"><img src="assets/p04.jpg" alt="Работа мастера"></div>
+  </div>
+</section>
+
+<section class="sec" id="why">
+  <div class="wrap why-g">
+    <div>
+      <div class="eyebrow">Честно о разнице</div>
+      <h2 class="h2">Бритьё у барбера и дома</h2>
+      <p class="lead" style="margin-top:12px">Вопрос не в том, получится ли побриться самому.
+        Вопрос в том, что вы увидите в зеркале через два дня.</p>
+      <div class="vs">
+        <div class="vs-c good"><h4>У нас</h4><ul>
+          <li>Чёткие линии без «лесенок»</li>
+          <li>Глубокая очистка от вросших волос</li>
+          <li>Профессиональная пена и лосьоны</li>
+          <li>Форма бороды, а не просто длина</li>
+        </ul></div>
+        <div class="vs-c bad"><h4>Дома</h4><ul>
+          <li>Порезы и раздражение от тупых лезвий</li>
+          <li>Вросшие волосы, воспаления и «бугры»</li>
+          <li>Неровный контур — самому его не видно</li>
+          <li>Мыло вместо средств под тип кожи</li>
+        </ul></div>
+      </div>
+    </div>
+    <div class="why-ph"><img src="assets/p08.jpg" alt="Бритьё у барбера"></div>
+  </div>
+</section>
+
+<section class="sec gal" id="gallery">
+  <div class="wrap">
+    <div class="eyebrow">Наше место</div>
+    <h2 class="h2">Салон</h2>
+    <p class="lead" style="margin-top:13px">Парковка у входа, зона ожидания, кофе и напитки —
+      доступны каждому гостю.</p>
+    <div class="gg" id="gg">
+      <figure><img src="assets/p25.jpg" alt="Интерьер" loading="lazy"></figure>
+      <figure><img src="assets/p26.jpg" alt="Косметика" loading="lazy"></figure>
+      <figure><img src="assets/p27.jpg" alt="Кресло барбера" loading="lazy"></figure>
+      <figure><img src="assets/p28.jpg" alt="Зона ожидания" loading="lazy"></figure>
+      <figure><img src="assets/p29.jpg" alt="Зал" loading="lazy"></figure>
+      <figure><img src="assets/p22.jpg" alt="Мастер за работой" loading="lazy"></figure>
+      <figure><img src="assets/p23.jpg" alt="Профессиональная косметика" loading="lazy"></figure>
+      <figure><img src="assets/p32.jpg" alt="Команда" loading="lazy"></figure>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="faq">
+  <div class="wrap">
+    <div class="eyebrow">Частые вопросы</div>
+    <h2 class="h2">Что спрашивают</h2>
+    <div class="faq">
+      <details class="q2"><summary>Чем отличается мастер от топ-мастера?</summary>
+        <div class="a">Опытом и очередью на запись, а не качеством инструмента и косметики —
+          они одинаковые у всех. Если стрижка простая и вы знаете, чего хотите, мастера
+          достаточно. Если нужна сложная форма или вы идёте впервые — берите уровень выше.</div></details>
+      <details class="q2"><summary>Что такое «коррекция» и зачем она?</summary>
+        <div class="a">Это когда стрижка ещё держится, но бока отросли. Подравниваем их
+          отдельно — выходит дешевле полной стрижки, а голова выглядит свежей. У нас на
+          коррекцию честная цена, а не «почти как стрижка».</div></details>
+      <details class="q2"><summary>Можно прийти с ребёнком?</summary>
+        <div class="a">Да, детская стрижка до 12 лет есть у каждого уровня мастеров. Есть
+          отдельная услуга «Папа + сын» — стрижётесь вдвоём за 1 500 ₽.</div></details>
+      <details class="q2"><summary>Я не знаю, какую стрижку хочу</summary>
+        <div class="a">Это нормально и так приходит большинство. Посмотрите раздел с трендами,
+          покажите мастеру фото — он скажет, ляжет ли это на ваш тип волос, и предложит
+          вариант под форму головы.</div></details>
+      <details class="q2"><summary>Где вы находитесь и есть ли парковка?</summary>
+        <div class="a">Челябинск, Чичерина 42б, ЖК «Подсолнухи», северо-запад. Парковка
+          у входа, ждать на улице не придётся.</div></details>
+      <details class="q2"><summary>Можно купить у вас косметику без стрижки?</summary>
+        <div class="a">Да. В салоне продаём то же, чем работаем — шампуни, гели, одеколоны,
+          кремы после бритья. Мастер подскажет, что подойдёт вашим волосам и коже.</div></details>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="book" style="background:var(--bg-2)">
+  <div class="wrap">
+    <div class="book-box">
+      <div class="book-l">
+        <div class="eyebrow">Запись</div>
+        <h2>Записаться в NikoBorod</h2>
+        <p>Быстрее всего — через онлайн-запись, там видно свободное время. Или оставьте
+          заявку, администратор перезвонит.</p>
+        <form id="frm" novalidate>
+          <div class="frow">
+            <div class="fld"><label for="nm">Имя</label><input id="nm" type="text" placeholder="Как вас зовут"></div>
+            <div class="fld"><label for="ph">Телефон</label><input id="ph" type="tel" placeholder="+7 ___ ___-__-__"></div>
+          </div>
+          <div class="fld"><label for="sv">Услуга</label>
+            <select id="sv">
+              <option>Стрижка</option><option>Комплекс: стрижка + борода</option>
+              <option>Оформление бороды</option><option>Коррекция (подровнять бока)</option>
+              <option>Детская стрижка</option><option>Уход: спа, маска, детокс</option>
+              <option>Первый визит — со скидкой</option>
+            </select></div>
+          <div class="fld"><label for="ms">Уровень мастера</label>
+            <select id="ms"><option>Не важно, подберите сами</option><option>Мастер</option>
+              <option>Старший мастер</option><option>Топ-мастер</option>
+              <option>Шеф-мастер</option><option>Арт-директор</option></select></div>
+          <button class="btn btn-p" type="submit" style="width:100%">Оставить заявку</button>
+          <p style="font-size:12.4px;color:var(--fg-2);margin-top:11px" id="fn">
+            Перезвоним и подберём удобное время.</p>
+        </form>
+      </div>
+      <div class="book-r">
+        <a class="ct" href="https://dikidi.net/NikoBorod?p=0.pi" target="_blank" rel="noopener">
+          <span class="ct-ic"><svg viewBox="0 0 24 24"><rect x="3" y="4.5" width="18" height="16" rx="2"/><path d="M3 9.5h18M8 3v3M16 3v3"/></svg></span>
+          <span><b>Онлайн-запись DIKIDI</b><span>Свободное время видно сразу</span></span></a>
+        <a class="ct" href="tel:+79193165275">
+          <span class="ct-ic"><svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg></span>
+          <span><b>8 919 316-52-75</b><span>Позвонить администратору</span></span></a>
+        <a class="ct" href="#gallery">
+          <span class="ct-ic"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.9-7-10a7 7 0 0 1 14 0c0 5.1-7 10-7 10Z"/><circle cx="12" cy="11" r="2.6"/></svg></span>
+          <span><b>Чичерина 42б</b><span>ЖК «Подсолнухи», северо-запад Челябинска</span></span></a>
+        <a class="ct" href="https://vk.com/club186610956" target="_blank" rel="noopener">
+          <span class="ct-ic"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M7.5 9.5c.4 2.6 2 5 4.5 5h1v-2c1 .3 1.8 1.1 2.3 2h1.7c-.5-1.4-1.6-2.5-2.6-3 .9-.6 1.8-1.6 2.3-2.9H15c-.5 1.1-1.3 2-2 2.4V9.5h-1.7v3c-1.2-.5-2-1.8-2.3-3Z"/></svg></span>
+          <span><b>Мы ВКонтакте</b><span>Работы мастеров и акции</span></span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="f-g">
+      <div><h4>NikoBorod</h4>
+        <p style="margin:0">Барбершоп на северо-западе Челябинска. Мужские стрижки, борода,
+          уход и косметика. «У нас можно подровнять бока между стрижками.»</p></div>
+      <div><h4>Разделы</h4><div class="f-l">
+        <a href="#price">Цены</a><a href="#cuts">Стрижки</a><a href="#promo">Первый визит</a>
+        <a href="#why">Почему мы</a><a href="#faq">Вопросы</a></div></div>
+      <div><h4>Контакты</h4><div class="f-l">
+        <a href="tel:+79193165275">8 919 316-52-75</a>
+        <a href="https://dikidi.net/NikoBorod?p=0.pi" target="_blank" rel="noopener">Онлайн-запись</a>
+        <a href="https://vk.com/club186610956" target="_blank" rel="noopener">ВКонтакте</a>
+        <span>Челябинск, Чичерина 42б</span></div></div>
+    </div>
+    <div class="f-b"><span>© 2026 NikoBorod · Челябинск</span>
+      <span>ИП Агалы Джалал Джамал · работаем официально</span></div>
+  </div>
+</footer>
+
+<div class="bar">
+  <a class="b1" href="https://dikidi.net/NikoBorod?p=0.pi" target="_blank" rel="noopener">Записаться</a>
+  <a class="b2" href="tel:+79193165275">Позвонить</a>
+</div>
+
+<div class="lb" id="lb">
+  <button class="lb-x" id="lbx">&times;</button>
+  <button class="lb-n lb-pv" id="lbp">&#8249;</button>
+  <img id="lbi" src="" alt="">
+  <button class="lb-n lb-nx" id="lbn">&#8250;</button>
+</div>
+
+<script>
+var mob=document.getElementById('mob');
+document.getElementById('bg').onclick=function(){mob.classList.add('on');document.body.style.overflow='hidden'};
+function cm(){mob.classList.remove('on');document.body.style.overflow=''}
+document.getElementById('mx').onclick=cm;
+mob.addEventListener('click',function(e){if(e.target===mob)cm()});
+mob.querySelectorAll('a').forEach(function(a){a.onclick=cm});
+
+document.querySelectorAll('.tab').forEach(function(t){
+  t.onclick=function(){
+    document.querySelectorAll('.tab').forEach(function(x){x.classList.remove('on')});
+    document.querySelectorAll('.plist').forEach(function(x){x.classList.remove('on')});
+    t.classList.add('on');
+    document.getElementById(t.dataset.t).classList.add('on');
+  };
+});
+
+var imgs=[].slice.call(document.querySelectorAll('#gg img, .cut-im img')), cur=0;
+var lb=document.getElementById('lb'), lbi=document.getElementById('lbi');
+function show(i){cur=(i+imgs.length)%imgs.length;lbi.src=imgs[cur].src;lbi.alt=imgs[cur].alt}
+imgs.forEach(function(im,i){im.parentElement.onclick=function(){show(i);lb.classList.add('on');document.body.style.overflow='hidden'}});
+function cl(){lb.classList.remove('on');document.body.style.overflow=''}
+document.getElementById('lbx').onclick=cl;
+document.getElementById('lbp').onclick=function(e){e.stopPropagation();show(cur-1)};
+document.getElementById('lbn').onclick=function(e){e.stopPropagation();show(cur+1)};
+lb.addEventListener('click',function(e){if(e.target===lb)cl()});
+document.addEventListener('keydown',function(e){
+  if(!lb.classList.contains('on'))return;
+  if(e.key==='Escape')cl(); if(e.key==='ArrowLeft')show(cur-1); if(e.key==='ArrowRight')show(cur+1);
+});
+
+document.getElementById('frm').addEventListener('submit',function(e){
+  e.preventDefault();
+  var nm=document.getElementById('nm'), ph=document.getElementById('ph'), f=document.getElementById('fn');
+  if(!nm.value.trim()||!ph.value.trim()){f.textContent='Заполните имя и телефон — иначе не перезвоним.';
+    f.style.color='#b96a6a';return}
+  this.innerHTML='<div style="text-align:center;padding:26px 8px">'+
+    '<div style="font-family:Oswald,sans-serif;font-size:26px;text-transform:uppercase;margin-bottom:8px">Заявка принята</div>'+
+    '<p style="color:#a3a7a5;margin:0">'+nm.value.trim().replace(/[<>]/g,'')+
+    ', администратор перезвонит и подберёт время.</p></div>';
+});
+</script>
+</body>
+</html>
