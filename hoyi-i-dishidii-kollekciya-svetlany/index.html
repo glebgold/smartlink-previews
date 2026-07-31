@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Хойи и дисхидии — коллекционные растения Светланы | отправка по России</title>
+<meta name="description" content="Редкие и коллекционные сорта хой и дисхидий из личной коллекции: черенки и укоренённые растения. Более 300 сортов, бережная упаковка, отправка СДЭК, Ozon и 5Post по всей России.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#fbf9f5; --cream:#f3efe6; --moss:#3d5943; --moss-d:#2b4030; --leaf:#6e8f6a;
+  --ink:#232722; --ink-2:#5c6259; --line:rgba(61,89,67,.16); --white:#fff;
+  --blush:#d9a3ac;
+  --sh:0 16px 44px rgba(40,60,40,.10); --sh-s:0 6px 20px rgba(40,60,40,.07);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:'Inter',system-ui,sans-serif;color:var(--ink);background:var(--bg);
+  font-size:17px;line-height:1.62;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+h1,h2,h3,h4{font-family:'Cormorant Garamond',Georgia,serif;font-weight:600;line-height:1.14;margin:0}
+a{color:inherit}
+.wrap{width:100%;max-width:1180px;margin:0 auto;padding-left:22px;padding-right:22px}
+.sec{padding-top:80px;padding-bottom:80px}
+.eyebrow{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--leaf);
+  font-weight:700;margin-bottom:13px}
+.h2{font-size:clamp(29px,4.6vw,46px)}
+.lead{color:var(--ink-2);font-size:17.5px;max-width:670px}
+
+header{position:sticky;top:0;z-index:60;background:rgba(251,249,245,.94);
+  backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.hrow{display:flex;align-items:center;justify-content:space-between;gap:14px;
+  padding-top:12px;padding-bottom:12px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;flex-shrink:0}
+.logo-m{width:38px;height:38px;border-radius:50%;background:var(--cream);display:grid;
+  place-items:center;flex-shrink:0;border:1px solid var(--line)}
+.logo-m svg{width:21px;height:21px;stroke:var(--moss);fill:none;stroke-width:1.5}
+.logo-t b{display:block;font-family:'Cormorant Garamond',serif;font-size:19px;line-height:1.05}
+.logo-t span{display:block;font-size:10px;letter-spacing:.17em;text-transform:uppercase;
+  color:var(--leaf);margin-top:1px}
+nav.menu{display:flex;gap:25px}
+nav.menu a{text-decoration:none;font-size:14.6px;font-weight:500;color:var(--ink-2);white-space:nowrap}
+nav.menu a:hover{color:var(--moss)}
+.burger{display:none;width:42px;height:42px;border:1px solid var(--line);border-radius:11px;
+  background:none;cursor:pointer;padding:0;place-items:center}
+.burger span{display:block;width:19px;height:1.8px;background:var(--ink);margin:3.4px auto;border-radius:2px}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 26px;
+  border-radius:100px;text-decoration:none;font-weight:600;font-size:15.4px;border:none;
+  cursor:pointer;font-family:'Inter';line-height:1.2;transition:transform .18s,box-shadow .18s}
+.btn-p{background:var(--moss);color:#fff;box-shadow:0 10px 26px rgba(61,89,67,.26)}
+.btn-p:hover{transform:translateY(-2px)}
+.btn-o{background:transparent;color:var(--ink);border:1.5px solid var(--line)}
+.btn-o:hover{border-color:var(--moss);color:var(--moss)}
+
+/* герой */
+.hero{background:var(--cream);position:relative;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:44px;align-items:center;
+  padding-top:60px;padding-bottom:60px}
+.hero h1{font-size:clamp(34px,5.6vw,60px);letter-spacing:-.01em;margin-bottom:18px}
+.hero h1 em{font-style:italic;color:var(--leaf)}
+.hero p.sub{color:var(--ink-2);font-size:18px;max-width:520px;margin:0 0 26px}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:26px}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chip{background:rgba(255,255,255,.8);border:1px solid var(--line);border-radius:100px;
+  padding:8px 15px;font-size:13.4px;font-weight:600;color:var(--ink-2)}
+.hero-ph{position:relative}
+.hero-ph img{border-radius:200px 200px 24px 24px;aspect-ratio:3/4;object-fit:cover;
+  width:100%;box-shadow:var(--sh)}
+.hero-tag{position:absolute;left:-14px;bottom:34px;background:#fff;border-radius:16px;
+  padding:13px 17px;box-shadow:var(--sh);max-width:200px}
+.hero-tag b{display:block;font-family:'Cormorant Garamond',serif;font-size:27px;color:var(--moss);line-height:1}
+.hero-tag span{font-size:12.6px;color:var(--ink-2);line-height:1.35;display:block;margin-top:4px}
+
+/* доверие */
+.trust{background:var(--moss);color:#fff;padding-top:32px;padding-bottom:32px}
+.trust-g{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.trust-i b{display:block;font-family:'Cormorant Garamond',serif;font-size:21px;color:#e8ddc6;margin-bottom:3px}
+.trust-i span{font-size:13.8px;color:rgba(255,255,255,.76);line-height:1.45}
+
+/* каталог */
+.cat{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:36px}
+.card{background:#fff;border-radius:18px;overflow:hidden;box-shadow:var(--sh-s);
+  border:1px solid var(--line);display:flex;flex-direction:column;transition:transform .2s,box-shadow .2s}
+.card:hover{transform:translateY(-4px);box-shadow:var(--sh)}
+.card-im{aspect-ratio:4/3;overflow:hidden;background:var(--cream);cursor:zoom-in}
+.card-im img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.card:hover .card-im img{transform:scale(1.05)}
+.card-b{padding:18px 19px 20px;display:flex;flex-direction:column;flex:1}
+.card-b h3{font-size:21px;margin-bottom:6px}
+.card-b p{font-size:14.6px;color:var(--ink-2);margin:0 0 14px;flex:1}
+.tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:13px}
+.tags span{font-size:12.2px;background:var(--cream);border-radius:100px;padding:4px 11px;
+  color:var(--ink-2);font-weight:500}
+.card-f{border-top:1px solid var(--line);padding-top:13px;display:flex;align-items:center;
+  justify-content:space-between;gap:8px}
+.stock{font-size:13.4px;font-weight:600;color:var(--leaf);display:flex;align-items:center;gap:6px}
+.stock i{width:7px;height:7px;border-radius:50%;background:var(--leaf);display:block}
+.card-f a{font-size:13.8px;font-weight:700;color:var(--moss);text-decoration:none;white-space:nowrap}
+
+/* отправка */
+.ship{background:var(--cream)}
+.ship-grid{display:grid;grid-template-columns:1fr 1fr;gap:46px;align-items:center}
+.step{display:flex;gap:15px;align-items:flex-start;margin-bottom:17px}
+.step b{width:36px;height:36px;border-radius:50%;background:var(--moss);color:#fff;display:grid;
+  place-items:center;font-size:15px;flex-shrink:0;font-family:'Cormorant Garamond',serif}
+.step div strong{display:block;font-size:16.4px;margin-bottom:2px}
+.step div span{font-size:14.6px;color:var(--ink-2);line-height:1.5}
+.ship-ph{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.ship-ph img{border-radius:16px;aspect-ratio:1/1;object-fit:cover;box-shadow:var(--sh-s)}
+.note{background:#fff;border-left:3px solid var(--leaf);border-radius:0 14px 14px 0;
+  padding:16px 19px;margin-top:22px;font-size:15px;color:var(--ink-2)}
+.note b{color:var(--ink)}
+
+/* про меня */
+.about{position:relative}
+.about-g{display:grid;grid-template-columns:.8fr 1.2fr;gap:44px;align-items:center}
+.about-g img{border-radius:20px;aspect-ratio:4/5;object-fit:cover;box-shadow:var(--sh)}
+.about p{color:var(--ink-2);font-size:16.6px;margin:0 0 15px}
+
+/* уход */
+.care{background:var(--moss-d);color:#fff}
+.care .eyebrow{color:#c9d8bf}
+.care h2{color:#fff}
+.care-g{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:34px}
+.care-i{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);
+  border-radius:16px;padding:22px 20px}
+.care-i h4{font-size:19px;color:#e8ddc6;margin-bottom:7px}
+.care-i p{margin:0;font-size:14.8px;color:rgba(255,255,255,.76)}
+
+/* галерея */
+.gal{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:34px}
+.gal figure{margin:0;border-radius:14px;overflow:hidden;aspect-ratio:1/1;cursor:zoom-in;background:var(--cream)}
+.gal img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.gal figure:hover img{transform:scale(1.06)}
+
+/* faq */
+.faq{max-width:840px;margin:34px auto 0}
+.q{background:#fff;border:1px solid var(--line);border-radius:15px;margin-bottom:11px;overflow:hidden}
+.q summary{cursor:pointer;padding:18px 52px 18px 21px;font-weight:600;font-size:16.2px;
+  list-style:none;position:relative}
+.q summary::-webkit-details-marker{display:none}
+.q summary:after{content:"+";position:absolute;right:21px;top:14px;font-size:24px;
+  color:var(--leaf);font-weight:400;transition:transform .2s}
+.q[open] summary:after{transform:rotate(45deg)}
+.q .a{padding:0 21px 19px;color:var(--ink-2);font-size:15.4px}
+
+/* заявка */
+.cta{background:var(--cream)}
+.cta-box{background:#fff;border-radius:24px;box-shadow:var(--sh);overflow:hidden;
+  display:grid;grid-template-columns:1.05fr .95fr}
+.cta-l{padding:42px 38px}
+.cta-l h2{font-size:clamp(26px,3.6vw,37px);margin-bottom:11px}
+.cta-l p{color:var(--ink-2);margin:0 0 20px;font-size:16px}
+.fld{margin-bottom:12px}
+.fld label{display:block;font-size:13px;font-weight:600;color:var(--ink-2);margin-bottom:5px}
+.fld input,.fld select,.fld textarea{width:100%;padding:13px 15px;border-radius:11px;
+  border:1.5px solid var(--line);font-family:'Inter';font-size:15.4px;background:var(--bg);
+  color:var(--ink);-webkit-appearance:none;appearance:none}
+.fld select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236e8f6a' stroke-width='1.8' fill='none'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 15px center}
+.fld input:focus,.fld select:focus,.fld textarea:focus{outline:none;border-color:var(--leaf);background:#fff}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.cta-r{background:var(--moss);color:#fff;padding:42px 34px;display:flex;flex-direction:column;
+  justify-content:center;gap:17px}
+.cta-r h3{color:#fff;font-size:23px;margin-bottom:2px}
+.ct{display:flex;gap:13px;align-items:flex-start;text-decoration:none}
+.ct-ic{width:40px;height:40px;border-radius:11px;background:rgba(255,255,255,.10);display:grid;
+  place-items:center;flex-shrink:0}
+.ct-ic svg{width:19px;height:19px;stroke:#e8ddc6;fill:none;stroke-width:1.7}
+.ct b{display:block;font-size:16px;color:#fff;margin-bottom:1px}
+.ct span{font-size:13.4px;color:rgba(255,255,255,.66)}
+
+footer{background:#1e2a1f;color:rgba(255,255,255,.62);padding-top:38px;padding-bottom:30px;font-size:14.4px}
+.f-g{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:32px;padding-bottom:24px;
+  border-bottom:1px solid rgba(255,255,255,.1)}
+footer h4{color:#fff;font-size:17px;margin-bottom:12px}
+footer a{color:rgba(255,255,255,.62);text-decoration:none}
+footer a:hover{color:#c9d8bf}
+.f-l{display:flex;flex-direction:column;gap:8px}
+.f-b{padding-top:20px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:13px}
+
+.lb{position:fixed;inset:0;background:rgba(20,26,20,.95);z-index:200;display:none;
+  align-items:center;justify-content:center;padding:24px}
+.lb.on{display:flex}
+.lb img{max-width:94vw;max-height:88vh;border-radius:12px;object-fit:contain}
+.lb-x{position:absolute;top:18px;right:20px;width:46px;height:46px;border-radius:50%;
+  background:rgba(255,255,255,.15);color:#fff;border:none;font-size:26px;cursor:pointer}
+.lb-n{position:absolute;top:50%;transform:translateY(-50%);width:50px;height:50px;border-radius:50%;
+  background:rgba(255,255,255,.15);color:#fff;border:none;font-size:25px;cursor:pointer}
+.lb-p{left:16px}.lb-x2{right:16px}
+
+.bar{display:none;position:fixed;left:0;right:0;bottom:0;z-index:70;background:rgba(251,249,245,.97);
+  backdrop-filter:blur(12px);border-top:1px solid var(--line);padding:10px 14px;gap:10px}
+.bar a{flex:1;padding:14px 8px;border-radius:100px;text-decoration:none;font-weight:700;
+  font-size:15px;text-align:center}
+.bar .b1{background:var(--moss);color:#fff}
+.bar .b2{background:#fff;color:var(--ink);border:1.5px solid var(--line)}
+
+@media(max-width:1040px){
+  nav.menu{display:none}.burger{display:grid}
+  .trust-g{grid-template-columns:repeat(2,1fr)}
+  .cat{grid-template-columns:repeat(2,1fr)}
+  .ship-grid,.about-g,.cta-box{grid-template-columns:1fr;gap:32px}
+  .care-g{grid-template-columns:1fr 1fr}
+  .about-g img{max-width:360px}
+}
+@media(max-width:900px){
+  .hero-grid{grid-template-columns:1fr;gap:30px;padding-top:36px;padding-bottom:44px}
+  .hero-ph{max-width:360px;margin:0 auto;width:100%}
+  .hero-tag{left:auto;right:-6px;bottom:20px;max-width:180px}
+}
+@media(max-width:640px){
+  body{font-size:16.4px}
+  .sec{padding-top:54px;padding-bottom:54px}
+  .wrap{padding-left:17px;padding-right:17px}
+  .hero h1{font-size:33px}
+  .hero-btns{flex-direction:column;align-items:stretch}
+  .hero-btns .btn{width:100%}
+  .trust-g{grid-template-columns:1fr;gap:15px}
+  .trust-i{display:flex;gap:12px;align-items:baseline}
+  .trust-i b{flex-shrink:0;min-width:92px;margin-bottom:0;font-size:18px}
+  .cat,.care-g{grid-template-columns:1fr}
+  .ship-ph{grid-template-columns:1fr 1fr}
+  .gal{grid-template-columns:repeat(2,1fr);gap:9px}
+  .form-row{grid-template-columns:1fr}
+  .cta-l,.cta-r{padding:28px 21px}
+  .f-g{grid-template-columns:1fr;gap:22px}
+  .bar{display:flex}
+  body{padding-bottom:74px}
+}
+.mob{display:none;position:fixed;inset:0;z-index:120;background:rgba(20,26,20,.5)}
+.mob.on{display:block}
+.mob-p{position:absolute;top:0;right:0;width:min(300px,84vw);height:100%;background:var(--bg);
+  padding:22px;display:flex;flex-direction:column;gap:4px}
+.mob-p a{padding:14px 4px;text-decoration:none;font-weight:600;font-size:17px;
+  border-bottom:1px solid var(--line)}
+.mob-x{align-self:flex-end;width:40px;height:40px;border:none;background:none;font-size:28px;cursor:pointer}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap hrow">
+    <a class="logo" href="#top">
+      <span class="logo-m"><svg viewBox="0 0 24 24"><path d="M12 21c0-6 3.5-10 9-11-1 6-4.5 9.5-9 11Z"/><path d="M12 21c0-6-3.5-10-9-11 1 6 4.5 9.5 9 11Z"/><path d="M12 21v-8"/></svg></span>
+      <span class="logo-t"><b>Хойи и дисхидии</b><span>коллекция Светланы</span></span>
+    </a>
+    <nav class="menu">
+      <a href="#catalog">Каталог</a>
+      <a href="#ship">Доставка</a>
+      <a href="#about">Обо мне</a>
+      <a href="#care">Уход</a>
+      <a href="#order">Заказать</a>
+    </nav>
+    <div style="display:flex;gap:11px;align-items:center">
+      <a class="btn btn-p" href="#order" style="padding:11px 20px;font-size:14.4px">Заказать</a>
+      <button class="burger" id="bg" aria-label="Меню"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="mob" id="mob"><div class="mob-p">
+  <button class="mob-x" id="mx">&times;</button>
+  <a href="#catalog">Каталог</a><a href="#ship">Доставка</a><a href="#about">Обо мне</a>
+  <a href="#care">Уход</a><a href="#gallery">Фото</a><a href="#faq">Вопросы</a><a href="#order">Заказать</a>
+</div></div>
+
+<section class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">Редкие и коллекционные сорта</div>
+      <h1>Хойи и дисхидии<br>из <em>личной коллекции</em></h1>
+      <p class="sub">Выращиваю с заботой и делюсь черенками и укоренёнными растениями.
+        В коллекции больше 300 хой — от простых сортов для новичка до редкостей,
+        которых нет в магазинах.</p>
+      <div class="hero-btns">
+        <a class="btn btn-p" href="#catalog">Смотреть каталог</a>
+        <a class="btn btn-o" href="#order">Подобрать сорт</a>
+      </div>
+      <div class="chips">
+        <span class="chip">300+ сортов в коллекции</span>
+        <span class="chip">Отправка по России</span>
+        <span class="chip">Помощь в выборе</span>
+      </div>
+    </div>
+    <div class="hero-ph">
+      <img src="assets/p05.jpg" alt="Цветущая хойя из коллекции">
+      <div class="hero-tag"><b>300+</b><span>сортов хой в личной коллекции</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="trust">
+  <div class="wrap trust-g">
+    <div class="trust-i"><b>Своя коллекция</b><span>Растения выращены дома, а не перекуплены под заказ</span></div>
+    <div class="trust-i"><b>Фото до отправки</b><span>Снимаю именно ваше растение и согласую перед отправкой</span></div>
+    <div class="trust-i"><b>СДЭК · Ozon · 5Post</b><span>Отправка из Московской области по всей России</span></div>
+    <div class="trust-i"><b>От 1 500 ₽</b><span>Минимальная сумма заказа для отправки</span></div>
+  </div>
+</section>
+
+<section class="sec" id="catalog">
+  <div class="wrap">
+    <div class="eyebrow">Что есть в наличии</div>
+    <h2 class="h2">Каталог растений</h2>
+    <p class="lead" style="margin-top:13px">Сорта из моей коллекции. Наличие меняется — напишите,
+      и я скажу, что есть сейчас, и помогу выбрать под ваши условия.</p>
+
+    <div class="cat">
+      <div class="card">
+        <div class="card-im"><img src="assets/p07.jpg" alt="Вариегатные хойи"></div>
+        <div class="card-b">
+          <h3>Вариегатные хойи</h3>
+          <p>Растения с розово-кремовым кантом по листу. Самая заметная группа в коллекции —
+            и самая частая просьба.</p>
+          <div class="tags"><span>Карноза Аргентия Принцесс</span><span>Кримсон</span><span>Белла вариегатная</span></div>
+          <div class="card-f"><span class="stock"><i></i>Есть в наличии</span><a href="#order">Спросить →</a></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-im"><img src="assets/p14.jpg" alt="Хойи со сплешем"></div>
+        <div class="card-b">
+          <h3>Сорта со «сплешем»</h3>
+          <p>Серебристые брызги по листу — узор, из-за которого хойи и становятся
+            коллекционными.</p>
+          <div class="tags"><span>Эллиптика Сплеш</span><span>Розита Сплеш</span><span>Пандурата Сильвер</span><span>Крохниана Сплеш</span></div>
+          <div class="card-f"><span class="stock"><i></i>Есть в наличии</span><a href="#order">Спросить →</a></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-im"><img src="assets/p13.jpg" alt="Редкие сорта хой"></div>
+        <div class="card-b">
+          <h3>Редкие и коллекционные</h3>
+          <p>Для тех, у кого дома уже стоит десяток хой и хочется то, чего у других нет.</p>
+          <div class="tags"><span>Полинейра Комплекс Вьетнам</span><span>Кентиана Лори Лун</span><span>Наваблоенсис вариегатная</span><span>Паразитика Блэк Эйдж</span></div>
+          <div class="card-f"><span class="stock"><i></i>Уточняйте наличие</span><a href="#order">Спросить →</a></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-im"><img src="assets/p22.jpg" alt="Цветущие хойи"></div>
+        <div class="card-b">
+          <h3>Цветущие сорта</h3>
+          <p>Хойи цветут зонтиками и пахнут — у Ребекки, например, мягкий ненавязчивый аромат.</p>
+          <div class="tags"><span>Ребекка</span><span>Мультифлора Милки Вей</span><span>Кореацея Сильвер</span></div>
+          <div class="card-f"><span class="stock"><i></i>Есть в наличии</span><a href="#order">Спросить →</a></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-im"><img src="assets/p12.jpg" alt="Компактные хойи"></div>
+        <div class="card-b">
+          <h3>Компактные и мелколистные</h3>
+          <p>Если места на подоконнике мало: растут медленно и не занимают полкомнаты.</p>
+          <div class="tags"><span>Микродварф</span><span>Калимантан Мини</span><span>Унифлора</span><span>Серпенс</span></div>
+          <div class="card-f"><span class="stock"><i></i>Есть в наличии</span><a href="#order">Спросить →</a></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-im"><img src="assets/p28.jpg" alt="Черенки хой"></div>
+        <div class="card-b">
+          <h3>Черенки и укоренённые</h3>
+          <p>Черенок — недорогой способ попробовать редкий сорт. Укоренённое растение сразу
+            идёт в рост, если не хочется ждать.</p>
+          <div class="tags"><span>Черенки</span><span>Укоренённые</span><span>Дисхидии</span></div>
+          <div class="card-f"><span class="stock"><i></i>Есть в наличии</span><a href="#order">Спросить →</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec ship" id="ship">
+  <div class="wrap ship-grid">
+    <div>
+      <div class="eyebrow">Как получить растение</div>
+      <h2 class="h2">Заказ и отправка</h2>
+      <div style="margin-top:26px">
+        <div class="step"><b>1</b><div><strong>Пишете, что хотите</strong>
+          <span>Или просто описываете условия — окно, свет, опыт. Подскажу, какой сорт приживётся.</span></div></div>
+        <div class="step"><b>2</b><div><strong>Согласовываем растение</strong>
+          <span>Фотографирую именно ваш экземпляр перед отправкой, чтобы вы видели, что едет.</span></div></div>
+        <div class="step"><b>3</b><div><strong>Бережно упаковываю</strong>
+          <span>Растение фиксируется, чтобы не билось в коробке по дороге.</span></div></div>
+        <div class="step"><b>4</b><div><strong>Отправляю</strong>
+          <span>СДЭК, Ozon или 5Post из Московской области — по всей России.</span></div></div>
+      </div>
+      <div class="note">
+        <b>Про погоду.</b> Отправляю только при ночной температуре от +5 °C по всему маршруту.
+        Если на пути холодно — подожду тепла: замёрзшее растение не спасти, а рисковать вашим
+        заказом я не буду. <b>Минимальная сумма заказа — 1 500 ₽.</b>
+      </div>
+    </div>
+    <div class="ship-ph">
+      <img src="assets/p20.jpg" alt="Упаковка растения">
+      <img src="assets/p21.jpg" alt="Коробка для отправки">
+      <img src="assets/p33.jpg" alt="Укоренённые черенки">
+      <img src="assets/p34.jpg" alt="Подготовка к отправке">
+    </div>
+  </div>
+</section>
+
+<section class="sec about" id="about">
+  <div class="wrap about-g">
+    <img src="assets/p29.jpg" alt="Растение из коллекции">
+    <div>
+      <div class="eyebrow">Обо мне</div>
+      <h2 class="h2">Светлана</h2>
+      <p style="margin-top:14px">С большой любовью выращиваю хойи и дисхидии — необычные комнатные
+        растения, которые становятся украшением дома и особенной частью коллекции.</p>
+      <p>Для меня важно, чтобы каждый черенок и каждое укоренённое растение уезжали
+        здоровыми и крепкими. Поэтому я не беру растения под заказ у перекупщиков: всё, что вы
+        видите, растёт у меня дома.</p>
+      <p>Мои растения подойдут и новичкам, которые только начинают знакомство с необычными
+        комнатными растениями, и опытным коллекционерам, которым нужны редкие сорта.
+        Помогу выбрать и расскажу, как ухаживать — вопросы после покупки это нормально.</p>
+      <a class="btn btn-p" href="#order" style="margin-top:8px">Написать мне</a>
+    </div>
+  </div>
+</section>
+
+<section class="sec care" id="care">
+  <div class="wrap">
+    <div class="eyebrow">Чтобы растение прижилось</div>
+    <h2 class="h2">Коротко про уход</h2>
+    <div class="care-g">
+      <div class="care-i"><h4>Свет</h4>
+        <p>Яркий рассеянный. На прямом солнце листья краснеют и «загорают» — у некоторых сортов
+          это красиво, но расти они будут медленнее.</p></div>
+      <div class="care-i"><h4>Полив</h4>
+        <p>Даём просохнуть между поливами. Хойя гораздо легче переносит засуху, чем перелив —
+          от лишней воды корни гниют.</p></div>
+      <div class="care-i"><h4>Опора</h4>
+        <p>Хойя — лиана. Кольцо или мохошест дают ей расти вверх, а не путаться, и цвести
+          охотнее.</p></div>
+      <div class="care-i"><h4>Цветение</h4>
+        <p>Цветоносы не срезаем — на них цветы появляются снова, из года в год.</p></div>
+      <div class="care-i"><h4>После доставки</h4>
+        <p>Дайте растению неделю привыкнуть: без пересадки, без подкормок, в стабильном месте.</p></div>
+      <div class="care-i"><h4>Черенок</h4>
+        <p>Укореняем в тепле и влажности. Если что-то пошло не так — пишите, разберёмся вместе.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="gallery">
+  <div class="wrap">
+    <div class="eyebrow">Мои растения</div>
+    <h2 class="h2">Фотографии коллекции</h2>
+    <div class="gal" id="gg">
+      <figure><img src="assets/p04.jpg" alt="Цветущая хойя" loading="lazy"></figure>
+      <figure><img src="assets/p06.jpg" alt="Вариегатная хойя" loading="lazy"></figure>
+      <figure><img src="assets/p08.jpg" alt="Хойя на опоре" loading="lazy"></figure>
+      <figure><img src="assets/p09.jpg" alt="Хойя в горшке" loading="lazy"></figure>
+      <figure><img src="assets/p10.jpg" alt="Растение на кольце" loading="lazy"></figure>
+      <figure><img src="assets/p18.jpg" alt="Раскладка сортов" loading="lazy"></figure>
+      <figure><img src="assets/p24.jpg" alt="Цветущая хойя" loading="lazy"></figure>
+      <figure><img src="assets/p25.jpg" alt="Соцветие" loading="lazy"></figure>
+      <figure><img src="assets/p26.jpg" alt="Цветы хойи" loading="lazy"></figure>
+      <figure><img src="assets/p30.jpg" alt="Вариегатное растение" loading="lazy"></figure>
+      <figure><img src="assets/p35.jpg" alt="Цветущая шапка" loading="lazy"></figure>
+      <figure><img src="assets/p38.jpg" alt="Растения в кашпо" loading="lazy"></figure>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="faq" style="background:var(--cream)">
+  <div class="wrap">
+    <div class="eyebrow">Частые вопросы</div>
+    <h2 class="h2">Что обычно спрашивают</h2>
+    <div class="faq">
+      <details class="q"><summary>Растение доедет живым?</summary>
+        <div class="a">Отправляю только при ночной температуре от +5 °C по всему маршруту и
+          фиксирую растение в коробке, чтобы его не било по дороге. Перед отправкой фотографирую
+          ваш экземпляр — вы видите, что именно едет.</div></details>
+      <details class="q"><summary>Я новичок, хойя сложная?</summary>
+        <div class="a">Нет, хойя прощает больше, чем многие комнатные: главное не заливать.
+          Напишите, какое у вас окно и сколько света — подберу сорт, который приживётся именно
+          у вас, а не «самый красивый на фото».</div></details>
+      <details class="q"><summary>Чем черенок отличается от укоренённого растения?</summary>
+        <div class="a">Черенок дешевле и его надо укоренить самому — это интереснее, но дольше.
+          Укоренённое растение уже с корнями и сразу идёт в рост. Новичкам обычно советую
+          укоренённое, а коллекционерам — черенки редких сортов.</div></details>
+      <details class="q"><summary>Можно ли собрать несколько сортов в один заказ?</summary>
+        <div class="a">Да, так чаще всего и делают: минимальная сумма для отправки 1 500 ₽,
+          и её удобнее набрать несколькими растениями. Упакую всё вместе.</div></details>
+      <details class="q"><summary>А если после покупки что-то пойдёт не так?</summary>
+        <div class="a">Пишите. Помогу разобраться с поливом, светом и укоренением — мне важно,
+          чтобы растение у вас прижилось, а не просто доехало.</div></details>
+    </div>
+  </div>
+</section>
+
+<section class="sec cta" id="order">
+  <div class="wrap">
+    <div class="cta-box">
+      <div class="cta-l">
+        <div class="eyebrow">Заказать</div>
+        <h2>Подберу сорт под ваши условия</h2>
+        <p>Напишите, что ищете — конкретный сорт или просто «что-нибудь красивое и несложное».
+          Отвечу, что есть в наличии сейчас.</p>
+        <form id="frm" novalidate>
+          <div class="form-row">
+            <div class="fld"><label for="nm">Ваше имя</label>
+              <input id="nm" type="text" placeholder="Как к вам обращаться"></div>
+            <div class="fld"><label for="ct">Город</label>
+              <input id="ct" type="text" placeholder="Куда отправлять"></div>
+          </div>
+          <div class="fld"><label for="tp">Что интересует</label>
+            <select id="tp">
+              <option>Вариегатные сорта</option>
+              <option>Сорта со сплешем</option>
+              <option>Редкие и коллекционные</option>
+              <option>Цветущие сорта</option>
+              <option>Компактные, мало места</option>
+              <option>Черенки</option>
+              <option>Я новичок — подберите сами</option>
+            </select></div>
+          <div class="fld"><label for="cm">Про ваши условия</label>
+            <textarea id="cm" rows="3" placeholder="Какое окно, сколько света, есть ли опыт с хойями"></textarea></div>
+          <button class="btn btn-p" type="submit" style="width:100%">Отправить запрос</button>
+          <p style="font-size:12.6px;color:var(--ink-2);margin-top:11px" id="fn">Отвечу и подскажу
+            по наличию. Минимальная сумма заказа для отправки — 1 500 ₽.</p>
+        </form>
+      </div>
+      <div class="cta-r">
+        <h3>Написать напрямую</h3>
+        <a class="ct" href="https://vk.com/club226182228" target="_blank" rel="noopener">
+          <span class="ct-ic"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M7.5 9.5c.4 2.6 2 5 4.5 5h1v-2c1 .3 1.8 1.1 2.3 2h1.7c-.5-1.4-1.6-2.5-2.6-3 .9-.6 1.8-1.6 2.3-2.9H15c-.5 1.1-1.3 2-2 2.4V9.5h-1.7v3c-1.2-.5-2-1.8-2.3-3Z"/></svg></span>
+          <span><b>Сообщения сообщества</b><span>Отвечаю сама, подскажу по наличию</span></span></a>
+        <a class="ct" href="https://www.avito.ru/brands/0183d2590bb13e185c974c3da5890d19" target="_blank" rel="noopener">
+          <span class="ct-ic"><svg viewBox="0 0 24 24"><path d="M3 9h18l-1.5 11H4.5L3 9Z"/><path d="M8 9V6.5a4 4 0 0 1 8 0V9"/></svg></span>
+          <span><b>Магазин на Авито</b><span>Часть ассортимента с ценами</span></span></a>
+        <a class="ct" href="https://vk.ru/im/channels/-231462632" target="_blank" rel="noopener">
+          <span class="ct-ic"><svg viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-3.6-7.2"/><path d="M8 12l3 3 5-6"/></svg></span>
+          <span><b>Канал с разросшимися</b><span>Крупные растения по приятной цене</span></span></a>
+        <a class="ct" href="#ship">
+          <span class="ct-ic"><svg viewBox="0 0 24 24"><rect x="2.5" y="7" width="19" height="12" rx="2"/><path d="M2.5 11h19"/></svg></span>
+          <span><b>Отправка по России</b><span>СДЭК · Ozon · 5Post из Московской области</span></span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="f-g">
+      <div><h4>Хойи и дисхидии</h4>
+        <p style="margin:0">Редкие и коллекционные сорта из личной коллекции Светланы.
+          Черенки и укоренённые растения, бережная упаковка и отправка по всей России.</p></div>
+      <div><h4>Разделы</h4><div class="f-l">
+        <a href="#catalog">Каталог</a><a href="#ship">Доставка</a><a href="#about">Обо мне</a>
+        <a href="#care">Уход</a><a href="#faq">Вопросы</a></div></div>
+      <div><h4>Где я есть</h4><div class="f-l">
+        <a href="https://vk.com/club226182228" target="_blank" rel="noopener">ВКонтакте</a>
+        <a href="https://www.avito.ru/brands/0183d2590bb13e185c974c3da5890d19" target="_blank" rel="noopener">Магазин на Авито</a>
+        <span>Московская область</span></div></div>
+    </div>
+    <div class="f-b"><span>© 2026 Хойи и дисхидии · коллекция Светланы</span>
+      <span>Отправка при ночной температуре от +5 °C</span></div>
+  </div>
+</footer>
+
+<div class="bar">
+  <a class="b1" href="#order">Заказать</a>
+  <a class="b2" href="#catalog">Каталог</a>
+</div>
+
+<div class="lb" id="lb">
+  <button class="lb-x" id="lbx">&times;</button>
+  <button class="lb-n lb-p" id="lbp">&#8249;</button>
+  <img id="lbi" src="" alt="">
+  <button class="lb-n lb-x2" id="lbn">&#8250;</button>
+</div>
+
+<script>
+var mob=document.getElementById('mob');
+document.getElementById('bg').onclick=function(){mob.classList.add('on');document.body.style.overflow='hidden'};
+function cm(){mob.classList.remove('on');document.body.style.overflow=''}
+document.getElementById('mx').onclick=cm;
+mob.addEventListener('click',function(e){if(e.target===mob)cm()});
+mob.querySelectorAll('a').forEach(function(a){a.onclick=cm});
+
+var imgs=[].slice.call(document.querySelectorAll('#gg img, .card-im img')), cur=0;
+var lb=document.getElementById('lb'), lbi=document.getElementById('lbi');
+function show(i){cur=(i+imgs.length)%imgs.length;lbi.src=imgs[cur].src;lbi.alt=imgs[cur].alt}
+imgs.forEach(function(im,i){im.parentElement.onclick=function(){show(i);lb.classList.add('on');document.body.style.overflow='hidden'}});
+function cl(){lb.classList.remove('on');document.body.style.overflow=''}
+document.getElementById('lbx').onclick=cl;
+document.getElementById('lbp').onclick=function(e){e.stopPropagation();show(cur-1)};
+document.getElementById('lbn').onclick=function(e){e.stopPropagation();show(cur+1)};
+lb.addEventListener('click',function(e){if(e.target===lb)cl()});
+document.addEventListener('keydown',function(e){
+  if(!lb.classList.contains('on'))return;
+  if(e.key==='Escape')cl(); if(e.key==='ArrowLeft')show(cur-1); if(e.key==='ArrowRight')show(cur+1);
+});
+
+document.getElementById('frm').addEventListener('submit',function(e){
+  e.preventDefault();
+  var nm=document.getElementById('nm');
+  if(!nm.value.trim()){var f=document.getElementById('fn');
+    f.textContent='Напишите имя — иначе не смогу ответить.';f.style.color='#a8464e';return}
+  this.innerHTML='<div style="text-align:center;padding:26px 8px">'+
+    '<div style="font-family:\'Cormorant Garamond\',serif;font-size:27px;margin-bottom:8px">Запрос отправлен</div>'+
+    '<p style="color:#5c6259;margin:0">Спасибо, '+nm.value.trim().replace(/[<>]/g,'')+
+    '! Отвечу по наличию и помогу выбрать сорт.</p></div>';
+});
+</script>
+</body>
+</html>
