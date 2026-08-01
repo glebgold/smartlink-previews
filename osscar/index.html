@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>OSSCAR — Детейлинг-студия · Калининград</title>
-<meta name="description" content="OSSCAR — детейлинг-студия в Калининграде на Портовой 51к2. Керамика, полировка, антигравийная плёнка PPF, химчистка салона, реставрация кожи. Ежедневно 09:00–19:00, по записи.">
+<meta name="description" content="OSSCAR — детейлинг-студия в Калининграде на Портовой 51к2. Керамика, полировка, антигравийная плёнка PPF, химчистка салона, ответственное хранение авто и мото, комиссионная продажа. Ежедневно 09:00–19:00, по записи.">
 <meta name="theme-color" content="#0A0A0B">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230A0A0B'/%3E%3Ccircle cx='16' cy='16' r='7.6' fill='none' stroke='%23E4B04A' stroke-width='3.4'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -252,6 +252,31 @@ body.nav-open .mobile-menu{transform:translateY(0)}
   .srv-body-inner{padding-left:clamp(.2rem,1vw,.6rem)}
 }
 
+/* ============================================================ STORAGE & COMMISSION */
+.biz{padding:var(--pad-y) 0}
+.biz-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.4rem,3vw,2.2rem)}
+.biz-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;
+  display:flex;flex-direction:column;transition:transform .5s var(--ease),border-color .4s}
+.biz-card:hover{transform:translateY(-5px);border-color:var(--line-strong)}
+.biz-media{position:relative;aspect-ratio:16/10;overflow:hidden}
+.biz-media img{width:100%;height:100%;object-fit:cover;transition:transform 1.1s var(--ease);filter:brightness(.88)}
+.biz-card:hover .biz-media img{transform:scale(1.06)}
+.biz-media::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,var(--surface),transparent 60%)}
+.biz-badge{position:absolute;left:14px;top:14px;z-index:2;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;
+  font-weight:700;color:#1a1300;background:var(--red);padding:.45em .85em;border-radius:100px;box-shadow:0 10px 26px -10px var(--glow)}
+.biz-body{padding:clamp(1.4rem,2.6vw,2rem);display:flex;flex-direction:column;flex:1}
+.biz-body h3{font-size:clamp(1.3rem,2.4vw,1.75rem);margin-bottom:.7rem}
+.biz-body>p{color:var(--muted-2);font-size:.96rem;margin-bottom:1.2rem}
+.biz-list{display:flex;flex-direction:column;gap:.7rem;margin-bottom:1.4rem}
+.biz-list li{list-style:none;display:flex;gap:.7rem;align-items:flex-start;font-size:.92rem;color:var(--muted-2);line-height:1.5}
+.biz-list li svg{width:16px;height:16px;color:var(--red);flex-shrink:0;margin-top:3px}
+.biz-list li b{color:var(--text);font-weight:600}
+.biz-foot{margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;
+  padding-top:1.2rem;border-top:1px solid var(--line)}
+.biz-price{font-family:var(--serif);font-size:1.35rem;color:var(--cream);white-space:nowrap}
+.biz-price span{font-size:.62em;color:var(--muted);font-family:var(--sans);font-style:normal}
+@media(max-width:880px){.biz-grid{grid-template-columns:1fr}}
+
 /* ============================================================ SIGNATURE (ceramic proof + before/after) */
 .signature{padding:var(--pad-y) 0}
 .sig-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2.4rem,5vw,5rem);align-items:start}
@@ -299,7 +324,7 @@ body.nav-open .mobile-menu{transform:translateY(0)}
    columns — from stretching to fill their track, collapsing them to min-content. Force fill.
    (Two manifestations: the grid CELL doesn't stretch, or a block CHILD of a correct cell doesn't.) */
 .stats-grid>.stat,.props>.prop,.steps>.step,.rev-grid>.rev,
-.sig-grid>*,.c-grid>*,.faq-grid>*,.foot-top>*{width:100%}
+.sig-grid>*,.c-grid>*,.faq-grid>*,.foot-top>*,.biz-grid>*{width:100%}
 .about-copy h2,.about-copy h4,.about-copy p,
 .sig-copy h2,.sig-copy p,.sig-copy .sig-list,
 .faq-grid>div>h2,.faq-grid>div>.lead,
@@ -528,6 +553,7 @@ body.nav-open .mobile-menu{transform:translateY(0)}
   <a href="#top" class="brand"><span class="dot"></span>OSS<b>CAR</b></a>
   <div class="nav-links">
     <a href="#services">Услуги</a>
+    <a href="#storage">Хранение</a>
     <a href="#signature">Керамика</a>
     <a href="#works">Работы</a>
     <a href="#process">Как работаем</a>
@@ -546,6 +572,7 @@ body.nav-open .mobile-menu{transform:translateY(0)}
 
 <div class="mobile-menu" id="mobileMenu">
   <a href="#services">Услуги</a>
+  <a href="#storage">Хранение</a>
   <a href="#signature">Керамика</a>
   <a href="#works">Работы</a>
   <a href="#process">Как работаем</a>
@@ -596,8 +623,8 @@ body.nav-open .mobile-menu{transform:translateY(0)}
 <!-- ===================== MARQUEE ===================== -->
 <div class="marquee" aria-hidden="true">
   <div class="mq-track">
-    <span>Керамика<span></span></span><span>Полировка<span></span></span><span>Антигравийная плёнка PPF<span></span></span><span>Химчистка салона<span></span></span><span>Защита кожи<span></span></span><span>Полировка фар<span></span></span>
-    <span>Керамика<span></span></span><span>Полировка<span></span></span><span>Антигравийная плёнка PPF<span></span></span><span>Химчистка салона<span></span></span><span>Защита кожи<span></span></span><span>Полировка фар<span></span></span>
+    <span>Керамика<span></span></span><span>Полировка<span></span></span><span>Антигравийная плёнка PPF<span></span></span><span>Химчистка салона<span></span></span><span>Защита кожи<span></span></span><span>Полировка фар<span></span></span><span>Ответственное хранение<span></span></span><span>Комиссионная продажа<span></span></span>
+    <span>Керамика<span></span></span><span>Полировка<span></span></span><span>Антигравийная плёнка PPF<span></span></span><span>Химчистка салона<span></span></span><span>Защита кожи<span></span></span><span>Полировка фар<span></span></span><span>Ответственное хранение<span></span></span><span>Комиссионная продажа<span></span></span>
   </div>
 </div>
 
@@ -685,13 +712,78 @@ body.nav-open .mobile-menu{transform:translateY(0)}
       <div class="srv"><div class="srv-head"><span class="srv-no">№08</span><span class="srv-name">Антидождь на стёкла</span><span class="srv-price">от 2 000 <span>₽</span></span><span class="srv-toggle"></span></div>
         <div class="srv-body"><div class="srv-body-inner">Гидрофобное покрытие лобового и боковых стёкол: вода скатывается на ходу, обзор в дождь становится заметно чище и безопаснее.</div></div></div>
 
-      <div class="srv"><div class="srv-head"><span class="srv-no">№09</span><span class="srv-name">Предпродажная детейлинг-подготовка</span><span class="srv-price">от 9 000 <span>₽</span></span><span class="srv-toggle"></span></div>
+      <div class="srv"><div class="srv-head"><span class="srv-no">№09</span><span class="srv-name">Предпродажная детейлинг-подготовка</span><span class="srv-price">≈ 25 000 <span>₽</span></span><span class="srv-toggle"></span></div>
         <div class="srv-body"><div class="srv-body-inner">Комплекс мойки, полировки и чистки салона, который поднимает машину в товарный вид. Сильный аргумент для покупателя и для цены.</div></div></div>
+
+      <div class="srv"><div class="srv-head"><span class="srv-no">№10</span><span class="srv-name">Ответственное хранение авто и мото</span><span class="srv-price">по запросу</span><span class="srv-toggle"></span></div>
+        <div class="srv-body"><div class="srv-body-inner">Охраняемая крытая стоянка с видеонаблюдением и полной материальной ответственностью. Для долгого простоя консервируем авто: ставим на стойки, разгружаем подвеску, снимаем колёса, обрабатываем подвеску и днище защитными составами. Периодически запускаем двигатель и прокатываем машину. Есть техобслуживание и эвакуатор.</div></div></div>
+
+      <div class="srv"><div class="srv-head"><span class="srv-no">№11</span><span class="srv-name">Комиссионная продажа авто</span><span class="srv-price">от 30 000 <span>₽</span></span><span class="srv-toggle"></span></div>
+        <div class="srv-body"><div class="srv-body-inner">Берём на себя предпродажную подготовку в собственном детейлинг-центре, хранение на охраняемой стоянке, размещение на профильных площадках, переговоры с покупателями и показы. По желанию оформляем агентский договор — тогда в сделке участвуете только вы и покупатель.</div></div></div>
     </div>
     <p class="ledger-foot reveal">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
       Итоговая стоимость — после осмотра автомобиля. Комплексная мойка — от 1&nbsp;200&nbsp;₽.
     </p>
+  </div>
+</section>
+
+<!-- ===================== STORAGE & COMMISSION ===================== -->
+<section class="biz" id="storage">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow reveal">Хранение и продажа</span>
+      <h2 class="head reveal d1">Не только <em class="acc">детейлинг</em></h2>
+      <p class="lead reveal d2">Охраняемая крытая стоянка и комиссионная продажа авто. Стоянка и детейлинг-центр находятся в одном месте — перегонять машину никуда не нужно.</p>
+    </div>
+    <div class="biz-grid">
+
+      <article class="biz-card reveal">
+        <div class="biz-media">
+          <span class="biz-badge">Хранение</span>
+          <img src="assets/img/storage-boxes.jpg" alt="Крытая охраняемая стоянка OSSCAR в Калининграде" loading="lazy">
+        </div>
+        <div class="biz-body">
+          <h3>Ответственное хранение авто и мото</h3>
+          <p>Подойдёт, если вы уезжаете надолго, машина не на ходу либо продаётся и её нужно сохранить в идеальном состоянии.</p>
+          <ul class="biz-list">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><span><b>Полная материальная ответственность</b> за автомобиль на всё время хранения.</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><span><b>Крытая стоянка</b> с охраной и видеонаблюдением.</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><span><b>Консервация на долгий простой:</b> ставим на стойки, разгружаем подвеску, снимаем колёса, обрабатываем детали подвески и днища защитными смазками, резинки — составами от растрескивания.</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><span><b>Периодический контроль:</b> запускаем двигатель и прокатываем машину, чтобы не застаивалось масло и не копился конденсат.</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><span>Техобслуживание авто и мототехники, услуга <b>эвакуатора</b>.</span></li>
+          </ul>
+          <div class="biz-foot">
+            <span class="biz-price">Цена <span>по запросу</span></span>
+            <a href="#contact" class="btn btn-ghost" style="padding:.8em 1.4em">Узнать условия</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="biz-card reveal d1">
+        <div class="biz-media">
+          <span class="biz-badge">Комиссия</span>
+          <img src="assets/img/commission-car.jpg" alt="Автомобиль, подготовленный к продаже в детейлинг-центре OSSCAR" loading="lazy">
+        </div>
+        <div class="biz-body">
+          <h3>Комиссионная продажа авто</h3>
+          <p>Принимаем автомобили на продажу и берём на себя подготовку, размещение, переговоры и показы — от вас нужен только автомобиль.</p>
+          <ul class="biz-list">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><span><b>Предпродажная подготовка в собственном детейлинг-центре</b> — стоянка и детейлинг в одном месте.</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><span>По опыту студии комплекс подготовки поднимает рыночную стоимость <b>на 120–300 тыс ₽</b> в сравнении с неподготовленным авто.</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><span>Владельцу подготовка обходится <b>вдвое дешевле</b>, чем клиенту «только детейлинга», и по договорённости может входить в комиссию.</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><span>Хранение на охраняемой крытой стоянке с полной материальной ответственностью.</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><span>Размещение на площадках с высокой проходимостью и профильных сайтах, <b>переговоры и показы</b> берём на себя.</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><span>По желанию — <b>агентский договор:</b> в сделке участвуете только вы и покупатель.</span></li>
+          </ul>
+          <div class="biz-foot">
+            <span class="biz-price">от 30 000 <span>₽</span></span>
+            <a href="#contact" class="btn btn-ghost" style="padding:.8em 1.4em">Обсудить продажу</a>
+          </div>
+        </div>
+      </article>
+
+    </div>
   </div>
 </section>
 
@@ -859,6 +951,8 @@ body.nav-open .mobile-menu{transform:translateY(0)}
               <option>Химчистка салона</option>
               <option>Полировка фар</option>
               <option>Предпродажная подготовка</option>
+              <option>Ответственное хранение авто/мото</option>
+              <option>Комиссионная продажа авто</option>
               <option>Не знаю — нужна консультация</option>
             </select>
           </div>
@@ -912,6 +1006,8 @@ body.nav-open .mobile-menu{transform:translateY(0)}
         <a href="#services">Антигравийная плёнка PPF</a>
         <a href="#services">Полировка кузова</a>
         <a href="#services">Химчистка салона</a>
+        <a href="#storage">Ответственное хранение</a>
+        <a href="#storage">Комиссионная продажа</a>
       </div>
       <div class="foot-col">
         <h5>Контакты</h5>
@@ -1115,7 +1211,7 @@ body.nav-open .mobile-menu{transform:translateY(0)}
   })();
 
   /* ---------- active nav link ---------- */
-  var secs = ['services','signature','works','process','reviews','contact'];
+  var secs = ['services','storage','signature','works','process','reviews','contact'];
   var linkMap = {};
   document.querySelectorAll('.nav-links a').forEach(function(a){
     var id=a.getAttribute('href').slice(1); linkMap[id]=a;
