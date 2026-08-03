@@ -310,7 +310,8 @@ footer a:hover{color:var(--white)}
   .bar{display:flex}
   body{padding-bottom:70px}
   .hero-in{padding-bottom:44px}
-  .hero-facts{gap:0 26px;margin-top:32px}
+  /* во flex-обёртке четыре факта ложились рвано; на телефоне — ровная сетка 2×2 */
+  .hero-facts{display:grid;grid-template-columns:1fr 1fr;gap:16px 20px;margin-top:32px}
   .hero-facts b{font-size:25px}
   .hero-cta .btn{width:100%}
   .why-grid,.dirs{grid-template-columns:1fr}
@@ -396,9 +397,9 @@ footer a:hover{color:var(--white)}
     </div>
     <div class="open-card">
       <div class="cd" id="cd">
-        <i><b data-d>—</b><span>дней</span></i>
-        <i><b data-h>—</b><span>часов</span></i>
-        <i><b data-m>—</b><span>минут</span></i>
+        <i><b data-d>—</b><span data-ld>дней</span></i>
+        <i><b data-h>—</b><span data-lh>часов</span></i>
+        <i><b data-m>—</b><span data-lm>минут</span></i>
       </div>
       <p class="eyebrow" style="color:var(--sand)">8 августа · 13:00 · Первомайская, 15</p>
       <a class="btn btn-light" style="margin-top:18px;width:100%" href="#book">Записаться на открытие</a>
@@ -713,6 +714,16 @@ function tick(){
   cd.querySelector('[data-d]').textContent=dd;
   cd.querySelector('[data-h]').textContent=hh;
   cd.querySelector('[data-m]').textContent=mm;
+  cd.querySelector('[data-ld]').textContent=pl(dd,['день','дня','дней']);
+  cd.querySelector('[data-lh]').textContent=pl(hh,['час','часа','часов']);
+  cd.querySelector('[data-lm]').textContent=pl(mm,['минута','минуты','минут']);
+}
+// русские склонения: «4 дней» вместо «4 дня» сразу выдаёт шаблон
+function pl(n,f){
+  var a=n%10,b=n%100;
+  if(a==1&&b!=11)return f[0];
+  if(a>1&&a<5&&(b<10||b>=20))return f[1];
+  return f[2];
 }
 tick();setInterval(tick,30000);
 
