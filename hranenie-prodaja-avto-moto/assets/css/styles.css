@@ -499,3 +499,49 @@ h1, h2, h3 { margin: 0; font-family: 'Sora', sans-serif; font-weight: 700; line-
   .info-list li { flex-direction: column; gap: 2px; }
   .info-list b { text-align: left; }
 }
+
+/* ---------- мобильный комфорт: увеличенные зоны нажатия ---------- */
+@media (max-width: 680px) {
+  .eyebrow { font-size: 12px; }
+
+  /* ссылки в подвале — комфортный тап */
+  .footer-nav { gap: 2px 22px; }
+  .footer-nav a { display: inline-block; padding: 11px 0; }
+  .footer-contact a { display: inline-block; padding: 8px 0; }
+  .footer-top { gap: 20px; }
+
+  /* контакты — крупнее зона нажатия */
+  .contact-list a { display: inline-block; padding: 7px 0; }
+  .contact-list li { padding: 12px 0; }
+
+  /* хлебные крошки */
+  .crumbs a, .crumbs b { display: inline-block; padding: 10px 0; }
+
+  /* заголовки-ссылки в карточках направлений */
+  .duo-body h3 a { display: inline-block; padding: 3px 0; }
+
+  /* карточки контактов — крупнее */
+  .ccard { padding: 26px 24px; }
+}
+@media (max-width: 680px) {
+  .menu-foot a:first-child { display: inline-block; padding: 10px 0; }
+  .duo-body h3 a { padding: 8px 0; }
+}
+
+/* На узких экранах принудительные переносы в заголовках ломают текст —
+   пусть строки складываются естественно (герои страниц не трогаем). */
+@media (max-width: 680px) {
+  .sec-head h2 br,
+  .feature-text h2 br,
+  .contact-info h2 br,
+  .crosslink h3 br,
+  .trust-lead h2 br,
+  .intro-lead h2 br { display: none; }
+}
+
+/* Очень узкие экраны (iPhone SE и подобные): плитки статистики в одну колонку */
+@media (max-width: 430px) {
+  .stats { grid-template-columns: 1fr; }
+  .stat { padding: 22px 20px; }
+  .stat-num { font-size: clamp(30px, 9vw, 40px); }
+}
