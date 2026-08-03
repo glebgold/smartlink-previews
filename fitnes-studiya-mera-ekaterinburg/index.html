@@ -61,7 +61,8 @@ h1,h2,h3,.serif{font-family:'Cormorant Garamond',Georgia,serif;font-weight:400;l
   position:fixed;top:0;left:0;right:0;z-index:60;
   transition:.35s;padding:16px 0;color:var(--white);
 }
-.hdr.solid{background:rgba(237,229,219,.95);backdrop-filter:blur(12px);
+.hdr.solid{background:rgba(237,229,219,.95);
+  -webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);
   color:var(--ink);border-bottom:1px solid var(--line);padding:10px 0}
 .hrow{display:flex;align-items:center;justify-content:space-between;gap:24px}
 .logo{display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit}
@@ -255,7 +256,9 @@ label{display:block;font-size:11px;letter-spacing:.16em;text-transform:uppercase
   color:var(--muted);margin:18px 0 7px;font-weight:500}
 input,select{
   width:100%;padding:14px 16px;border:1px solid var(--line);background:var(--cream);
-  font-family:inherit;font-size:15px;color:var(--ink);border-radius:2px;
+  font-family:inherit;color:var(--ink);border-radius:2px;
+  /* ровно 16px: при меньшем Safari на айфоне зумит страницу при фокусе */
+  font-size:16px;
 }
 input:focus,select:focus{outline:0;border-color:var(--ink)}
 form .btn{width:100%;margin-top:26px}
@@ -280,8 +283,11 @@ footer a:hover{color:var(--white)}
 /* мобильная панель */
 .bar{
   display:none;position:fixed;left:0;right:0;bottom:0;z-index:70;
-  background:rgba(51,49,46,.97);backdrop-filter:blur(10px);padding:10px;gap:8px;
-  border-top:1px solid rgba(247,243,237,.16);
+  background:rgba(51,49,46,.97);
+  -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
+  gap:8px;border-top:1px solid rgba(247,243,237,.16);
+  /* на айфоне с домашней полоской кнопки иначе уезжают под неё */
+  padding:10px 10px calc(10px + env(safe-area-inset-bottom));
 }
 .bar a{flex:1;padding:14px 8px;font-size:12px}
 
@@ -308,7 +314,7 @@ footer a:hover{color:var(--white)}
   .hdr .btn{display:none}
   .hdr{padding:12px 0}
   .bar{display:flex}
-  body{padding-bottom:70px}
+  body{padding-bottom:calc(72px + env(safe-area-inset-bottom))}
   .hero-in{padding-bottom:44px}
   /* во flex-обёртке четыре факта ложились рвано; на телефоне — ровная сетка 2×2 */
   .hero-facts{display:grid;grid-template-columns:1fr 1fr;gap:16px 20px;margin-top:32px}
