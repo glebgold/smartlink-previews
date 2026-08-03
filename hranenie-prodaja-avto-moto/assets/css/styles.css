@@ -179,9 +179,9 @@ h1, h2, h3 { margin: 0; font-family: 'Sora', sans-serif; font-weight: 700; line-
 .sec-head h2 { font-size: clamp(28px, 4.4vw, 52px); margin-top: 4px; }
 
 /* ---------- storage ---------- */
-.storage-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(24px, 4vw, 56px); align-items: center; }
-.storage-media { position: relative; margin: 0; border-radius: var(--r); overflow: hidden; border: 1px solid var(--line-2); }
-.storage-media img { width: 100%; height: 100%; aspect-ratio: 4/3.2; object-fit: cover; filter: saturate(1.02) contrast(1.03); }
+.storage-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(24px, 4vw, 56px); align-items: stretch; }
+.storage-media { position: relative; margin: 0; border-radius: var(--r); overflow: hidden; border: 1px solid var(--line-2); min-height: 460px; }
+.storage-media img { width: 100%; height: 100%; object-fit: cover; filter: saturate(1.02) contrast(1.03); }
 .storage-media figcaption { position: absolute; left: 16px; bottom: 16px; display: flex; align-items: center; gap: 9px; font-size: 13.5px; font-weight: 600; color: #fff; background: rgba(10,11,13,.6); backdrop-filter: blur(6px); padding: 8px 14px; border-radius: 100px; border: 1px solid var(--line-2); }
 .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--gold); box-shadow: 0 0 0 4px rgba(217,164,65,.22); }
 
