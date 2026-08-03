@@ -235,6 +235,14 @@ h1, h2, h3 { margin: 0; font-family: 'Sora', sans-serif; font-weight: 700; line-
 .trust-lead h2 { font-size: clamp(30px, 4.6vw, 54px); }
 .trust-lead p { margin-top: 20px; color: var(--muted); font-size: 18px; max-width: 460px; }
 .sign { color: var(--gold) !important; font-weight: 700; margin-top: 22px !important; font-family: 'Sora', sans-serif; }
+.cred {
+  display: inline-flex; align-items: center; flex-wrap: wrap; gap: 9px;
+  margin-top: 16px !important; padding: 9px 16px; border-radius: 100px;
+  border: 1px solid var(--line-2); background: rgba(255,255,255,.03);
+  font-size: 14.5px !important; color: var(--muted) !important;
+}
+.cred b { font-family: 'Sora', sans-serif; font-size: 17px; color: #fff; font-weight: 700; }
+.cred .stars { color: var(--gold); letter-spacing: 1px; font-size: 13px; }
 .trust-points li { padding: 22px 0; border-top: 1px solid var(--line); }
 .trust-points li:first-child { border-top: 0; padding-top: 0; }
 .trust-points strong { display: block; font-family: 'Sora', sans-serif; font-size: 18px; font-weight: 700; margin-bottom: 6px; }

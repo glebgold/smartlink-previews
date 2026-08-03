@@ -3,11 +3,15 @@
    ============================================================ */
 
 /*  ЗАЯВКИ.
-    Форма пока НЕ отправляет данные на сервер — показывает успех локально.
-    Чтобы заявки реально приходили, впишите URL сервиса (Web3Forms, Formspree,
-    свой бэкенд / Telegram-бот) в FORM_ENDPOINT. Инструкция — в README.md. */
-const FORM_ENDPOINT = ''; // напр. 'https://api.web3forms.com/submit'
-const WEB3FORMS_KEY  = ''; // access_key, если Web3Forms
+    По умолчанию заявка уходит в WhatsApp владельца: открывается чат с уже
+    заполненным текстом (имя, телефон, услуга, комментарий). Работает сразу,
+    без сервера и ключей.
+    Если захотите получать заявки на почту — впишите URL сервиса (Web3Forms,
+    Formspree, свой бэкенд) в FORM_ENDPOINT, тогда WhatsApp использоваться не будет.
+    Инструкция — в README.md. */
+const WHATSAPP       = '79325106426'; // номер для заявок, только цифры
+const FORM_ENDPOINT  = '';            // напр. 'https://api.web3forms.com/submit'
+const WEB3FORMS_KEY  = '';            // access_key, если Web3Forms
 
 (function () {
   'use strict';
@@ -128,6 +132,20 @@ const WEB3FORMS_KEY  = ''; // access_key, если Web3Forms
       var intentEl = form.querySelector('input[name="intent"]:checked');
       var payload = { name: name.value.trim(), phone: tel.value.trim(), intent: intentEl ? intentEl.value : '', comment: form.comment.value.trim() };
 
+      // Нет своего бэкенда — отправляем заявку в WhatsApp владельца.
+      if (!FORM_ENDPOINT && WHATSAPP) {
+        var lines = [
+          'Заявка с сайта',
+          'Имя: ' + payload.name,
+          'Телефон: ' + payload.phone,
+          'Услуга: ' + payload.intent
+        ];
+        if (payload.comment) lines.push('Комментарий: ' + payload.comment);
+        window.open('https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent(lines.join('\n')), '_blank');
+        form.reset();
+        setStatus('Открываем WhatsApp — отправьте сообщение, и я свяжусь с вами.', 'ok');
+        return;
+      }
       if (!FORM_ENDPOINT) {
         console.log('Заявка (демо, не отправлена):', payload);
         form.reset(); setStatus('Заявка принята. Свяжусь с вами в ближайшее время.', 'ok'); return;
