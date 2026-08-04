@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>UFL Junior — детские футбольные турниры в центре Екатеринбурга</title>
+<meta name="description" content="Блиц-турниры по футболу для детей 2013–2020 годов рождения. Центр Екатеринбурга, 5 минут от метро «Динамо». Профессиональные судьи, тёплые раздевалки, медали и кубки каждому участнику.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Golos+Text:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0E1726; --navy-2:#16223A; --navy-3:#1E2D4A;
+  --orange:#FF6B00; --orange-d:#E45D00; --lime:#B9F227;
+  --white:#FFFFFF; --paper:#F4F6FA; --grey:#8A94A6; --line:rgba(255,255,255,.13);
+  --line-d:rgba(14,23,38,.12);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--paper);color:var(--navy);
+  font-family:'Golos Text',system-ui,-apple-system,sans-serif;
+  font-size:17px;line-height:1.62;-webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+img{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3,.disp{font-family:'Oswald',Impact,sans-serif;font-weight:600;
+  text-transform:uppercase;letter-spacing:.01em;line-height:1.03;margin:0}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+.eyebrow{font-family:'Oswald',sans-serif;font-size:14px;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--orange);font-weight:500}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  padding:18px 34px;border-radius:6px;border:2px solid var(--orange);
+  background:var(--orange);color:#fff;text-decoration:none;
+  font-family:'Oswald',sans-serif;font-size:17px;letter-spacing:.06em;
+  text-transform:uppercase;font-weight:600;cursor:pointer;transition:.2s;line-height:1.2;
+}
+.btn:hover{background:var(--orange-d);border-color:var(--orange-d)}
+.btn-ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.45)}
+.btn-ghost:hover{background:#fff;color:var(--navy);border-color:#fff}
+.btn-dark{background:var(--navy);border-color:var(--navy)}
+.btn-dark:hover{background:var(--navy-3);border-color:var(--navy-3)}
+
+/* шапка */
+.hdr{position:fixed;top:0;left:0;right:0;z-index:60;padding:16px 0;transition:.3s;color:#fff}
+.hdr.solid{background:rgba(14,23,38,.96);-webkit-backdrop-filter:blur(12px);
+  backdrop-filter:blur(12px);padding:10px 0}
+.hrow{display:flex;align-items:center;justify-content:space-between;gap:24px}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none;color:#fff}
+.logo .mark{width:42px;height:42px;background:var(--orange);border-radius:8px;
+  display:flex;align-items:center;justify-content:center;font-family:'Oswald',sans-serif;
+  font-weight:700;font-size:17px;flex:none;letter-spacing:-.02em}
+.logo b{font-family:'Oswald',sans-serif;font-size:21px;text-transform:uppercase;font-weight:600;line-height:1}
+.logo span{display:block;font-size:10.5px;letter-spacing:.14em;color:var(--grey);
+  text-transform:uppercase;margin-top:3px;font-family:'Golos Text',sans-serif}
+.nav{display:flex;gap:28px}
+.nav a{text-decoration:none;font-size:15px;opacity:.86;transition:.2s}
+.nav a:hover{opacity:1;color:var(--orange)}
+.hdr .btn{padding:12px 22px;font-size:14px}
+
+/* герой */
+.hero{position:relative;min-height:100vh;min-height:100svh;display:flex;flex-direction:column;
+  justify-content:flex-end;padding-top:100px;overflow:hidden;color:#fff}
+.hero-bg{position:absolute;inset:0}
+.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:50% 40%}
+.hero-bg::after{content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(14,23,38,.72) 0%,rgba(14,23,38,.42) 40%,rgba(14,23,38,.93) 100%)}
+.hero-in{position:relative;z-index:2;padding-bottom:60px}
+.hero h1{font-size:clamp(42px,8vw,104px);font-weight:700}
+.hero h1 em{font-style:normal;color:var(--orange);display:block}
+.hero p.lead{max-width:560px;margin:22px 0 0;font-size:18.5px;color:rgba(255,255,255,.88)}
+.hero-cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px}
+.hero-facts{display:grid;grid-template-columns:repeat(4,auto);gap:0 46px;
+  margin-top:44px;padding-top:26px;border-top:1px solid var(--line);justify-content:start}
+.hero-facts b{display:block;font-family:'Oswald',sans-serif;font-size:34px;font-weight:600;
+  line-height:1;color:var(--lime)}
+.hero-facts span{font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--grey)}
+
+/* возрасты */
+.ages{background:var(--navy);color:#fff;padding:0}
+.ages-in{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line)}
+.age{background:var(--navy);padding:40px 28px;transition:.25s;position:relative}
+.age:hover{background:var(--navy-2)}
+.age b{font-family:'Oswald',sans-serif;font-size:clamp(30px,3.4vw,44px);font-weight:600;
+  display:block;line-height:1}
+.age span{display:block;margin-top:10px;color:var(--grey);font-size:15px}
+.age i{position:absolute;top:40px;right:28px;width:34px;height:3px;background:var(--orange);
+  font-style:normal}
+
+section{padding:100px 0}
+.sec-head{max-width:720px;margin-bottom:56px}
+.sec-head h2{font-size:clamp(34px,5vw,60px);margin-top:14px}
+.sec-head p{color:#55607A;margin:18px 0 0;font-size:18px}
+.center{margin-left:auto;margin-right:auto;text-align:center}
+
+/* почему */
+.why{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.why article{background:#fff;border-radius:10px;padding:34px 30px 38px;
+  border-bottom:4px solid var(--orange);box-shadow:0 16px 40px -30px rgba(14,23,38,.5)}
+.why .ic{width:52px;height:52px;border-radius:8px;background:var(--paper);
+  display:flex;align-items:center;justify-content:center;margin-bottom:20px}
+.why .ic svg{width:26px;height:26px;color:var(--orange)}
+.why h3{font-size:24px;margin-bottom:10px}
+.why p{margin:0;color:#55607A;font-size:16.5px}
+
+/* формат */
+.dark{background:var(--navy);color:#fff}
+.dark .sec-head p{color:var(--grey)}
+.fmt{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+.fmt-list{list-style:none;padding:0;margin:0}
+.fmt-list li{display:flex;gap:20px;padding:22px 0;border-bottom:1px solid var(--line)}
+.fmt-list .n{font-family:'Oswald',sans-serif;font-size:22px;color:var(--orange);flex:none;
+  width:34px;font-weight:600}
+.fmt-list h3{font-size:22px;margin-bottom:6px}
+.fmt-list p{margin:0;color:var(--grey);font-size:16px}
+.fmt-img{border-radius:10px;overflow:hidden;aspect-ratio:4/5}
+.fmt-img img{width:100%;height:100%;object-fit:cover}
+
+/* галерея */
+.gal{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.gal figure{margin:0;border-radius:10px;overflow:hidden;height:250px;background:var(--navy-2)}
+.gal figure:first-child{grid-column:span 2;grid-row:span 2;height:512px}
+.gal img{width:100%;height:100%;object-fit:cover;transition:.5s}
+.gal figure:hover img{transform:scale(1.05)}
+
+/* награды */
+.awards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.award{background:var(--navy-2);border-radius:10px;padding:34px 30px;border:1px solid var(--line)}
+.award b{font-family:'Oswald',sans-serif;font-size:26px;display:block;margin-bottom:10px;
+  text-transform:uppercase;color:var(--lime)}
+.award p{margin:0;color:var(--grey);font-size:16.5px}
+
+/* запись */
+.book-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:56px;align-items:start}
+.info{list-style:none;padding:0;margin:30px 0 0}
+.info li{display:flex;gap:16px;padding:18px 0;border-bottom:1px solid var(--line-d)}
+.info svg{width:22px;height:22px;color:var(--orange);flex:none;margin-top:3px}
+.info b{display:block;font-size:12px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--grey);font-weight:600;margin-bottom:4px;font-family:'Oswald',sans-serif}
+.info a{text-decoration:none;border-bottom:1px solid var(--line-d)}
+form{background:#fff;border-radius:12px;padding:38px 34px 40px;
+  box-shadow:0 24px 60px -40px rgba(14,23,38,.6)}
+form h3{font-size:28px;margin-bottom:8px}
+form>p{margin:0 0 22px;color:#55607A;font-size:16px}
+label{display:block;font-size:12px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--grey);margin:18px 0 8px;font-weight:600;font-family:'Oswald',sans-serif}
+input,select{width:100%;padding:15px 17px;border:1.5px solid var(--line-d);background:var(--paper);
+  font-family:inherit;font-size:16px;color:var(--navy);border-radius:6px}
+input:focus,select:focus{outline:0;border-color:var(--orange)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+form .btn{width:100%;margin-top:26px}
+form .fine{font-size:13.5px;color:var(--grey);margin:14px 0 0;text-align:center}
+.done{display:none;text-align:center;padding:26px 0}
+.done svg{width:52px;height:52px;color:var(--orange);margin:0 auto 16px}
+.done h3{font-size:26px;margin-bottom:8px}
+.done p{color:#55607A;margin:0;font-size:16px}
+.is-sent form>*:not(.done){display:none}
+.is-sent .done{display:block}
+
+footer{background:var(--navy);color:var(--grey);padding:56px 0 92px;font-size:15.5px}
+.f-grid{display:flex;justify-content:space-between;gap:36px;flex-wrap:wrap}
+footer a{text-decoration:none}
+footer a:hover{color:#fff}
+
+.bar{display:none;position:fixed;left:0;right:0;bottom:0;z-index:70;gap:10px;
+  background:rgba(14,23,38,.97);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
+  padding:10px 12px calc(10px + env(safe-area-inset-bottom));border-top:1px solid var(--line)}
+.bar .btn{flex:1;padding:15px 6px;font-size:14px}
+
+@media(max-width:1000px){
+  .ages-in{grid-template-columns:1fr 1fr}
+  .why,.awards{grid-template-columns:1fr 1fr}
+  .fmt,.book-grid{grid-template-columns:1fr;gap:40px}
+  .gal{grid-template-columns:1fr 1fr}
+  .gal figure:first-child{grid-column:span 2;grid-row:auto;height:280px}
+  .nav{display:none}
+}
+@media(max-width:640px){
+  section{padding:70px 0}
+  .wrap{padding:0 18px}
+  body{padding-bottom:calc(74px + env(safe-area-inset-bottom))}
+  .hdr .btn{display:none}
+  .bar{display:flex}
+  .hero{padding-top:84px}
+  .hero-in{padding-bottom:44px}
+  .hero-facts{grid-template-columns:1fr 1fr;gap:18px 20px}
+  .hero-cta .btn{width:100%}
+  .why,.awards,.ages-in{grid-template-columns:1fr}
+  .gal{grid-template-columns:1fr}
+  .gal figure,.gal figure:first-child{height:230px;grid-column:auto}
+  .age{padding:28px 22px}
+  form{padding:28px 22px 30px}
+  .two{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<header class="hdr" id="hdr">
+  <div class="wrap hrow">
+    <a class="logo" href="#top">
+      <span class="mark">UFL</span>
+      <span><b>UFL Junior</b><span>детские турниры · Екатеринбург</span></span>
+    </a>
+    <nav class="nav">
+      <a href="#ages">Возрасты</a>
+      <a href="#why">Условия</a>
+      <a href="#how">Как проходит</a>
+      <a href="#gal">Фото</a>
+      <a href="#book">Записаться</a>
+    </nav>
+    <a class="btn" href="#book">Записать ребёнка</a>
+  </div>
+</header>
+
+<div id="top"></div>
+<section class="hero">
+  <div class="hero-bg"><img src="assets/hero.jpg" alt="Команда UFL Junior перед матчем"></div>
+  <div class="hero-in">
+    <div class="wrap">
+      <p class="eyebrow">Центр Екатеринбурга · 5 минут от метро «Динамо»</p>
+      <h1>Детский футбол,<em>где играют все</em></h1>
+      <p class="lead">Блиц-турниры UFL Junior для команд и просто дружных групп ребят.
+        Быстрые матчи, настоящие судьи, кубки авторского дизайна — и медаль каждому,
+        кто вышел на поле.</p>
+      <div class="hero-cta">
+        <a class="btn" href="#book">Записать команду</a>
+        <a class="btn btn-ghost" href="#how">Как проходит турнир</a>
+      </div>
+      <div class="hero-facts">
+        <div><b>4</b><span>возрастные группы</span></div>
+        <div><b>100+</b><span>детей на турнире</span></div>
+        <div><b>сб–вс</b><span>игровые дни</span></div>
+        <div><b>5 мин</b><span>от метро «Динамо»</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="ages" id="ages" style="padding:0">
+  <div class="ages-in">
+    <div class="age"><i></i><b>2013<br>2014</b><span>Старшие. Полноценные матчи и серьёзная борьба за кубок.</span></div>
+    <div class="age"><i></i><b>2015<br>2016</b><span>Средние. Здесь уже видна тактика и командная игра.</span></div>
+    <div class="age"><i></i><b>2017<br>2018</b><span>Младшие. Учатся играть в команде и не бояться соперника.</span></div>
+    <div class="age"><i></i><b>2019<br>2020</b><span>Самые маленькие. Первый турнир в жизни — и первая медаль.</span></div>
+  </div>
+</section>
+
+<section id="why">
+  <div class="wrap">
+    <div class="sec-head center">
+      <p class="eyebrow">Почему к нам едут</p>
+      <h2>Условия, которые важны родителям</h2>
+      <p>Мы делаем турниры так, чтобы ребёнок играл, а родитель не мёрз и не нервничал.</p>
+    </div>
+    <div class="why">
+      <article>
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M12 5v14M3 12h18"/></svg></div>
+        <h3>Качественное поле</h3>
+        <p>Искусственный газон — ребёнку безопасно падать, а игра идёт в любую погоду.</p>
+      </article>
+      <article>
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 10V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v4M4 10h16v9H4zM8 19v-5h8v5"/></svg></div>
+        <h3>Тёплые раздевалки</h3>
+        <p>Спокойно переодеться до игры и согреться после — без беготни по коридорам.</p>
+      </article>
+      <article>
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 21s7-6 7-11a7 7 0 1 0-14 0c0 5 7 11 7 11z"/><circle cx="12" cy="10" r="2.6"/></svg></div>
+        <h3>Центр города</h3>
+        <p>Пять минут пешком от метро «Динамо». Не нужно ехать через весь Екатеринбург.</p>
+      </article>
+      <article>
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 3v7a7 7 0 0 0 14 0V3zM3 3h18M9 21h6M12 17v4"/></svg></div>
+        <h3>Награда каждому</h3>
+        <p>Медаль всем участникам, кубок команде и отдельные призы лучшим игрокам.</p>
+      </article>
+      <article>
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M9 9h.01M15 9h.01M8.5 14.5c1 1.2 2.2 1.8 3.5 1.8s2.5-.6 3.5-1.8"/></svg></div>
+        <h3>Судьи с обучением</h3>
+        <p>Матчи обслуживают квалифицированные судьи — никаких споров и обид на поле.</p>
+      </article>
+      <article>
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 8h13a3 3 0 0 1 0 6h-1M4 8v8a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-2M7 3v2M11 3v2"/></svg></div>
+        <h3>Кафе на территории</h3>
+        <p>Пока ребёнок играет, можно выпить кофе и спокойно посмотреть матч.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="dark" id="how">
+  <div class="wrap fmt">
+    <div>
+      <p class="eyebrow">Формат</p>
+      <h2 style="font-size:clamp(34px,5vw,60px);margin-top:14px">Как проходит блиц-турнир</h2>
+      <ul class="fmt-list">
+        <li><span class="n">01</span><div><h3>Вы записываете команду</h3>
+          <p>Команда, секция или просто собранная группа ребят одного возраста. Отдельного игрока тоже возьмём — подберём состав.</p></div></li>
+        <li><span class="n">02</span><div><h3>Быстрые матчи подряд</h3>
+          <p>Короткие игры без долгих пауз: за один день ребёнок успевает сыграть с разными соперниками.</p></div></li>
+        <li><span class="n">03</span><div><h3>Награждение</h3>
+          <p>Кубок победителю, медали всем участникам, индивидуальные призы лучшим. Фотографии — на память.</p></div></li>
+      </ul>
+    </div>
+    <div class="fmt-img"><img src="assets/play1.jpg" alt="Матч блиц-турнира UFL Junior"></div>
+  </div>
+</section>
+
+<section id="gal">
+  <div class="wrap">
+    <div class="sec-head center">
+      <p class="eyebrow">Как это выглядит</p>
+      <h2>С наших турниров</h2>
+    </div>
+    <div class="gal">
+      <figure><img src="assets/team1.jpg" alt="Команда с тренером после матча"></figure>
+      <figure><img src="assets/play2.jpg" alt="Игровой момент"></figure>
+      <figure><img src="assets/team2.jpg" alt="Команды перед началом турнира"></figure>
+      <figure><img src="assets/field.jpg" alt="Турнир на открытом поле"></figure>
+      <figure><img src="assets/hero.jpg" alt="Команда UFL Junior"></figure>
+    </div>
+  </div>
+</section>
+
+<section class="dark">
+  <div class="wrap">
+    <div class="sec-head center">
+      <p class="eyebrow">Что получает ребёнок</p>
+      <h2>Не только игра</h2>
+    </div>
+    <div class="awards">
+      <div class="award"><b>Медаль</b><p>Каждому участнику, независимо от результата команды. Первый турнир должен запомниться хорошим.</p></div>
+      <div class="award"><b>Кубок</b><p>Авторского дизайна — такие не купишь в магазине, их можно только выиграть.</p></div>
+      <div class="award"><b>Опыт</b><p>Игра с незнакомыми соперниками, работа в команде и умение держаться после проигранного мяча.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="book">
+  <div class="wrap book-grid">
+    <div>
+      <p class="eyebrow">Запись и контакты</p>
+      <h2 style="font-size:clamp(34px,5vw,60px);margin-top:14px">Записать на турнир</h2>
+      <p style="color:#55607A;margin-top:18px;max-width:440px">Оставьте номер — расскажем даты
+        ближайшего турнира для вашего возраста и ответим на вопросы.</p>
+      <ul class="info">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s7-6 7-11a7 7 0 1 0-14 0c0 5 7 11 7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>
+          <div><b>Поле</b>Екатеринбург, пер. Красный, 13а — 5 минут от метро «Динамо»</div></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 10V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v4M4 10h16v9H4z"/></svg>
+          <div><b>Зимний зал</b>ул. Шейнкмана, 7 — играем в тепле круглый год</div></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 4h4l2 5-2.5 1.5a12 12 0 0 0 5 5L15 13l5 2v4a1 1 0 0 1-1.1 1A16 16 0 0 1 4 5.1 1 1 0 0 1 5 4z"/></svg>
+          <div><b>Телефон</b><a href="tel:+79920220700">8 992 022 07 00</a></div></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="8.5"/><path d="M12 7v5l3.2 2"/></svg>
+          <div><b>Игровые дни</b>Суббота и воскресенье</div></li>
+      </ul>
+    </div>
+    <form id="f" novalidate>
+      <h3>Записать ребёнка</h3>
+      <p>Перезвоним и подберём ближайший турнир по возрасту.</p>
+      <div class="two">
+        <div><label for="n">Имя родителя</label><input id="n" name="name" placeholder="Как к вам обращаться" required></div>
+        <div><label for="p">Телефон</label><input id="p" name="phone" type="tel" placeholder="+7 ___ ___ __ __" required></div>
+      </div>
+      <div class="two">
+        <div><label for="y">Год рождения ребёнка</label>
+          <select id="y"><option>2013 / 2014</option><option>2015 / 2016</option><option>2017 / 2018</option><option>2019 / 2020</option></select></div>
+        <div><label for="k">Кого записываете</label>
+          <select id="k"><option>Команду целиком</option><option>Группу ребят</option><option>Одного игрока</option></select></div>
+      </div>
+      <button class="btn" type="submit">Записаться на турнир</button>
+      <p class="fine">Перезвоним в течение дня. Участие ни к чему не обязывает.</p>
+      <div class="done">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9.5"/><path d="M8 12.4l2.6 2.6L16 9.6"/></svg>
+        <h3>Записали!</h3>
+        <p>Перезвоним и расскажем даты ближайшего турнира.</p>
+      </div>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap f-grid">
+    <div style="max-width:320px">
+      <a class="logo" href="#top" style="margin-bottom:14px">
+        <span class="mark">UFL</span>
+        <span><b>UFL Junior</b><span>детские турниры · Екатеринбург</span></span>
+      </a>
+      <p style="margin:14px 0 0">Детская футбольная лига Ultra Football League.
+        Турниры и блиц-турниры для юных футболистов Екатеринбурга.</p>
+    </div>
+    <div>
+      <p style="margin:0 0 8px"><a href="tel:+79920220700">8 992 022 07 00</a></p>
+      <p style="margin:0 0 8px">пер. Красный, 13а</p>
+      <p style="margin:0 0 8px">Зал: ул. Шейнкмана, 7</p>
+      <p style="margin:0">Суббота и воскресенье</p>
+    </div>
+  </div>
+</footer>
+
+<div class="bar">
+  <a class="btn" href="#book">Записать</a>
+  <a class="btn btn-ghost" href="tel:+79920220700">Позвонить</a>
+</div>
+
+<script>
+var hdr=document.getElementById('hdr');
+function onScroll(){hdr.classList.toggle('solid',window.scrollY>60)}
+onScroll();addEventListener('scroll',onScroll,{passive:true});
+document.getElementById('f').addEventListener('submit',function(e){
+  e.preventDefault();
+  if(!this.name.value.trim()){this.name.focus();return}
+  if(this.phone.value.replace(/\D/g,'').length<10){this.phone.focus();return}
+  this.classList.add('is-sent');
+});
+</script>
+</body>
+</html>
