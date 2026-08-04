@@ -2,539 +2,582 @@
 <html lang="ru">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Галина Клименко — психолог и нейропсихолог | подростки и отношения, Абакан</title>
-<meta name="description" content="Семейный психолог и детский нейропсихолог Галина Клименко. Помогаю родителям пройти подростковый период без конфликтов. 13 лет практики, консультации очно в Абакане и онлайн. Бесплатная диагностическая встреча.">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Галина Клименко — семейный психолог и детский нейропсихолог, Абакан и онлайн</title>
+<meta name="description" content="Помогаю родителям подростков понять причины поведения ребёнка и вернуть тёплые отношения. 13 лет практики, психолог и нейропсихолог в одном лице. Первая диагностическая встреча — бесплатно.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Golos+Text:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{
-  --white:#ffffff; --grey-1:#f4f6f5; --grey-2:#e6eae8; --grey-t:#6b7472;
-  --green:#2f6152; --green-d:#22483d; --green-l:#4e8a76; --mint:#eef4f1;
-  --red:#c8443c; --ink:#1e2624;
-  --sh:0 14px 40px rgba(30,50,45,.10); --sh-s:0 5px 16px rgba(30,50,45,.07);
+  --cream:#FAF5EF;      /* тёплый фон вместо стерильно-белого */
+  --paper:#FFFCF9;
+  --blush:#F4E6E0;      /* мягкий розовый — та самая «девочка в душе» */
+  --blush-d:#E9D2C9;
+  --red:#B8433E;        /* её красный, но тёплый и полноправный */
+  --sage:#7F9385;       /* зелёный из её палитры, согретый */
+  --sage-d:#4E6055;
+  --sage-p:#E7EDE7;
+  --ink:#332F2B;        /* тёплый тёмный, не синеватый */
+  --ink-2:#514B44;
+  --muted:#8A8177;
+  --line:rgba(51,47,43,.14);
+  --shadow:0 24px 60px -34px rgba(78,96,85,.55);
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;font-family:'Manrope',system-ui,sans-serif;color:var(--ink);background:var(--white);
-  font-size:17px;line-height:1.62;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-img{max-width:100%;display:block}
-h1,h2,h3,h4{font-weight:800;line-height:1.14;margin:0;letter-spacing:-.015em}
-a{color:inherit}
-.wrap{width:100%;max-width:1140px;margin:0 auto;padding-left:22px;padding-right:22px}
-.sec{padding-top:76px;padding-bottom:76px}
-.eyebrow{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--green-l);
-  font-weight:700;margin-bottom:13px}
-.h2{font-size:clamp(28px,4.4vw,44px)}
-.lead{color:var(--grey-t);font-size:17.5px;max-width:660px}
-
-header{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.95);backdrop-filter:blur(12px);
-  border-bottom:1px solid var(--grey-2)}
-.hrow{display:flex;align-items:center;justify-content:space-between;gap:14px;
-  padding-top:13px;padding-bottom:13px}
-.logo{text-decoration:none;flex-shrink:0}
-.logo b{display:block;font-size:17.5px;line-height:1.1;font-weight:800}
-.logo span{display:block;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;
-  color:var(--green-l);margin-top:2px;font-weight:600}
-nav.menu{display:flex;gap:25px}
-nav.menu a{text-decoration:none;font-size:14.6px;font-weight:600;color:var(--grey-t);white-space:nowrap}
-nav.menu a:hover{color:var(--green)}
-.hc{display:flex;gap:11px;align-items:center;flex-shrink:0}
-.burger{display:none;width:42px;height:42px;border:1px solid var(--grey-2);border-radius:11px;
-  background:none;cursor:pointer;padding:0;place-items:center}
-.burger span{display:block;width:19px;height:2px;background:var(--ink);margin:3.4px auto;border-radius:2px}
-
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:15px 27px;
-  border-radius:100px;text-decoration:none;font-weight:700;font-size:15.4px;border:none;
-  cursor:pointer;font-family:'Manrope';line-height:1.2;transition:.18s;text-align:center}
-.btn-p{background:var(--green);color:#fff;box-shadow:0 10px 26px rgba(47,97,82,.24)}
-.btn-p:hover{background:var(--green-l);transform:translateY(-2px)}
-.btn-r{background:var(--red);color:#fff;box-shadow:0 10px 26px rgba(200,68,60,.24)}
-.btn-r:hover{transform:translateY(-2px)}
-.btn-o{background:transparent;color:var(--ink);border:1.5px solid var(--grey-2)}
-.btn-o:hover{border-color:var(--green);color:var(--green)}
-
-/* герой */
-.hero{background:linear-gradient(180deg,var(--mint),var(--white));position:relative;overflow:hidden}
-.hero-g{display:grid;grid-template-columns:1.08fr .92fr;gap:44px;align-items:center;
-  padding-top:58px;padding-bottom:58px}
-.hero h1{font-size:clamp(31px,4.9vw,52px);margin-bottom:18px}
-.hero h1 em{font-style:normal;color:var(--green)}
-.hero p.sub{color:var(--grey-t);font-size:18px;max-width:520px;margin:0 0 26px}
-.hero-btns{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:24px}
-.chips{display:flex;gap:8px;flex-wrap:wrap}
-.chip{background:#fff;border:1px solid var(--grey-2);border-radius:100px;padding:8px 15px;
-  font-size:13.4px;font-weight:600;color:var(--grey-t)}
-.hero-ph{position:relative}
-.hero-ph img{width:100%;border-radius:20px;aspect-ratio:1/1;object-fit:cover;
-  object-position:30% 30%;box-shadow:var(--sh)}
-.hero-tag{position:absolute;left:-16px;bottom:-16px;background:#fff;border-radius:14px;
-  padding:14px 18px;box-shadow:var(--sh);border-left:4px solid var(--red)}
-.hero-tag b{display:block;font-size:23px;line-height:1;color:var(--green)}
-.hero-tag span{font-size:12.6px;color:var(--grey-t);display:block;margin-top:4px}
-
-/* боль */
-.pain{background:var(--grey-1)}
-.pain-g{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:32px}
-.pain-c{background:#fff;border-radius:16px;padding:24px 22px;box-shadow:var(--sh-s)}
-.pain-c b{display:block;font-size:17px;margin-bottom:7px}
-.pain-c span{font-size:15px;color:var(--grey-t);line-height:1.55}
-
-/* два в одном */
-.two{background:var(--green);color:#fff}
-.two-g{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:32px}
-.two-c{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);
-  border-radius:16px;padding:26px 24px}
-.two-c h3{font-size:22px;margin-bottom:9px}
-.two-c p{margin:0;font-size:15.6px;color:rgba(255,255,255,.82)}
-.two .eyebrow{color:#a8cabd}
-.two h2{color:#fff}
-.two .lead{color:rgba(255,255,255,.82)}
-
-/* услуги */
-.serv{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:34px}
-.s-c{background:#fff;border:1px solid var(--grey-2);border-radius:18px;padding:26px 24px;
-  display:flex;flex-direction:column;transition:.2s}
-.s-c:hover{box-shadow:var(--sh);transform:translateY(-3px);border-color:var(--green-l)}
-.s-c h3{font-size:21px;margin-bottom:8px}
-.s-c p{color:var(--grey-t);font-size:15.4px;margin:0 0 16px;flex:1}
-.s-f{display:flex;align-items:baseline;justify-content:space-between;gap:12px;
-  border-top:1px solid var(--grey-2);padding-top:15px}
-.s-f b{font-size:23px;color:var(--green);white-space:nowrap}
-.s-f span{font-size:13.6px;color:var(--grey-t)}
-.s-c.free{background:var(--mint);border-color:var(--green-l)}
-.s-c.free .s-f b{color:var(--red)}
-
-/* результат */
-.res-g{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:32px}
-.res{display:flex;gap:14px;align-items:flex-start;background:var(--grey-1);border-radius:14px;
-  padding:19px 20px}
-.res i{width:26px;height:26px;border-radius:50%;background:var(--green);color:#fff;flex-shrink:0;
-  display:grid;place-items:center;font-style:normal;font-size:14px;font-weight:700;margin-top:2px}
-.res span{font-size:15.6px;line-height:1.5}
-
-/* об эксперте */
-.ab-g{display:grid;grid-template-columns:.86fr 1.14fr;gap:44px;align-items:center}
-.ab-g img{border-radius:20px;aspect-ratio:4/5;object-fit:cover;box-shadow:var(--sh)}
-.ab p{color:var(--grey-t);font-size:16.6px;margin:0 0 15px}
-.facts{display:grid;gap:12px;margin:22px 0}
-.fact{display:flex;gap:14px;align-items:flex-start;background:var(--mint);border-radius:14px;padding:16px 18px}
-.fact b{color:var(--green);font-size:26px;line-height:1;flex-shrink:0;min-width:58px}
-.fact span{font-size:15.2px;line-height:1.5}
-
-/* шаги */
-.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:34px}
-.step{background:#fff;border:1px solid var(--grey-2);border-radius:16px;padding:24px 21px}
-.step b.n{display:inline-grid;place-items:center;width:38px;height:38px;border-radius:50%;
-  background:var(--green);color:#fff;font-size:16px;margin-bottom:13px;font-weight:700}
-.step h4{font-size:17.5px;margin-bottom:6px}
-.step p{margin:0;font-size:14.8px;color:var(--grey-t)}
-
-/* faq */
-.faq{max-width:840px;margin:32px auto 0}
-.q{background:#fff;border:1px solid var(--grey-2);border-radius:15px;margin-bottom:11px;overflow:hidden}
-.q summary{cursor:pointer;padding:18px 52px 18px 21px;font-weight:700;font-size:16.2px;
-  list-style:none;position:relative}
-.q summary::-webkit-details-marker{display:none}
-.q summary:after{content:"+";position:absolute;right:21px;top:13px;font-size:24px;
-  color:var(--green-l);font-weight:400;transition:.2s}
-.q[open] summary:after{transform:rotate(45deg)}
-.q .a{padding:0 21px 19px;color:var(--grey-t);font-size:15.4px}
-
-/* заявка */
-.cta{background:var(--grey-1)}
-.cta-box{background:#fff;border-radius:22px;box-shadow:var(--sh);overflow:hidden;
-  display:grid;grid-template-columns:1.05fr .95fr}
-.cta-l{padding:42px 38px}
-.cta-l h2{font-size:clamp(25px,3.5vw,36px);margin-bottom:11px}
-.cta-l p{color:var(--grey-t);margin:0 0 20px;font-size:16px}
-.fld{margin-bottom:12px}
-.fld label{display:block;font-size:13px;font-weight:700;color:var(--grey-t);margin-bottom:5px}
-.fld input,.fld select,.fld textarea{width:100%;padding:13px 15px;border-radius:11px;
-  border:1.5px solid var(--grey-2);font-family:'Manrope';font-size:15.4px;background:var(--white);
-  color:var(--ink);-webkit-appearance:none;appearance:none}
-.fld select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%234e8a76' stroke-width='1.8' fill='none'/%3E%3C/svg%3E");
-  background-repeat:no-repeat;background-position:right 15px center}
-.fld input:focus,.fld select:focus,.fld textarea:focus{outline:none;border-color:var(--green-l)}
-.frow{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.cta-r{background:var(--green-d);color:#fff;padding:42px 34px;display:flex;flex-direction:column;
-  justify-content:center;gap:17px}
-.cta-r h3{color:#fff;font-size:22px;margin-bottom:2px}
-.ct{display:flex;gap:13px;align-items:flex-start;text-decoration:none}
-.ct-ic{width:40px;height:40px;border-radius:11px;background:rgba(255,255,255,.1);display:grid;
-  place-items:center;flex-shrink:0}
-.ct-ic svg{width:19px;height:19px;stroke:#a8cabd;fill:none;stroke-width:1.7}
-.ct b{display:block;font-size:16px;color:#fff;margin-bottom:1px}
-.ct span{font-size:13.4px;color:rgba(255,255,255,.66)}
-
-footer{background:var(--ink);color:rgba(255,255,255,.6);padding-top:34px;padding-bottom:28px;font-size:14.2px}
-.f-g{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:30px;padding-bottom:22px;
-  border-bottom:1px solid rgba(255,255,255,.1)}
-footer h4{color:#fff;font-size:16px;margin-bottom:11px}
-footer a{color:rgba(255,255,255,.6);text-decoration:none}
-footer a:hover{color:#a8cabd}
-.f-l{display:flex;flex-direction:column;gap:8px}
-.f-b{padding-top:18px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:12.6px}
-
-.bar{display:none;position:fixed;left:0;right:0;bottom:0;z-index:70;background:rgba(255,255,255,.97);
-  backdrop-filter:blur(12px);border-top:1px solid var(--grey-2);padding:10px 14px;gap:10px}
-.bar a{flex:1;padding:14px 8px;border-radius:100px;text-decoration:none;font-weight:700;
-  font-size:14.6px;text-align:center}
-.bar .b1{background:var(--green);color:#fff}
-.bar .b2{border:1.5px solid var(--grey-2);color:var(--ink)}
-
-@media(max-width:1040px){
-  nav.menu{display:none}.burger{display:grid}
-  .pain-g,.steps{grid-template-columns:repeat(2,1fr)}
-  .two-g,.serv,.res-g{grid-template-columns:1fr}
-  .ab-g,.cta-box{grid-template-columns:1fr;gap:30px}
-  .ab-g img{max-width:360px}
+body{
+  margin:0;background:var(--cream);color:var(--ink);
+  font-family:'Golos Text',system-ui,-apple-system,sans-serif;
+  font-size:17.5px;line-height:1.68;-webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+  font-variant-numeric:lining-nums;font-feature-settings:"lnum" 1;
 }
-@media(max-width:900px){
-  .hero-g{grid-template-columns:1fr;gap:30px;padding-top:36px;padding-bottom:44px}
-  .hero-ph{max-width:380px;margin:0 auto;width:100%}
-  .hero-tag{left:auto;right:-6px;bottom:-14px}
+img{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3,.serif{font-family:'Cormorant Garamond',Georgia,serif;font-weight:400;letter-spacing:.005em}
+.wrap{max-width:1140px;margin:0 auto;padding:0 26px}
+.eyebrow{
+  font-size:12px;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--sage-d);font-weight:500;
+}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:9px;
+  padding:17px 32px;border-radius:100px;border:1.5px solid var(--red);
+  background:var(--red);color:#fff;text-decoration:none;
+  font-size:15.5px;font-weight:500;cursor:pointer;transition:.25s;
+  font-family:inherit;line-height:1.25;text-align:center;
+}
+.btn:hover{background:#A2382F;border-color:#A2382F}
+.btn-ghost{background:transparent;color:var(--sage-d);border-color:rgba(78,96,85,.32)}
+.btn-ghost:hover{background:var(--sage-d);color:#fff;border-color:var(--sage-d)}
+
+.sprig{width:26px;height:26px;color:var(--sage);flex:none}
+.rule{display:flex;align-items:center;gap:16px;margin:20px 0 0}
+.rule i{height:1px;background:var(--line);flex:1;max-width:90px}
+
+/* ── шапка ─────────────────────────────────── */
+.hdr{position:fixed;top:0;left:0;right:0;z-index:60;padding:18px 0;transition:.35s}
+.hdr.solid{background:rgba(250,245,239,.94);-webkit-backdrop-filter:blur(14px);
+  backdrop-filter:blur(14px);box-shadow:0 1px 0 var(--line);padding:12px 0}
+.hrow{display:flex;align-items:center;justify-content:space-between;gap:26px}
+.logo{text-decoration:none;display:flex;flex-direction:column;line-height:1.15}
+.logo b{font-family:'Cormorant Garamond',serif;font-size:25px;font-weight:500}
+.logo span{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.nav{display:flex;gap:28px}
+.nav a{text-decoration:none;font-size:15px;color:var(--ink-2);transition:.2s;white-space:nowrap}
+.nav a:hover{color:var(--red)}
+.hdr .btn{padding:12px 24px;font-size:14px}
+
+/* ── герой ─────────────────────────────────── */
+.hero{padding:150px 0 90px;position:relative;overflow:hidden}
+.hero::before{
+  content:"";position:absolute;top:-220px;right:-180px;width:720px;height:720px;
+  background:radial-gradient(circle,var(--blush) 0%,rgba(244,230,224,0) 68%);
+  border-radius:50%;pointer-events:none;
+}
+.hero-grid{position:relative;display:grid;grid-template-columns:1.08fr .92fr;
+  gap:64px;align-items:center}
+.hero h1{font-size:clamp(44px,6.6vw,82px);line-height:1.03;margin:22px 0 0;font-weight:300}
+.hero h1 em{font-style:italic;color:var(--red);display:block}
+.hero .lead{font-size:19px;color:var(--ink-2);margin:26px 0 0;max-width:520px}
+.hero-cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:36px}
+.hero-tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:36px}
+.hero-tags span{
+  background:var(--paper);border:1px solid var(--line);border-radius:100px;
+  padding:9px 18px;font-size:14px;color:var(--ink-2);
+}
+.portrait{position:relative}
+.portrait img{
+  width:100%;border-radius:200px 200px 28px 28px;box-shadow:var(--shadow);
+  object-fit:cover;aspect-ratio:4/5;
+}
+.portrait .badge{
+  position:absolute;left:-26px;bottom:34px;background:var(--paper);
+  border-radius:22px;padding:18px 24px;box-shadow:var(--shadow);max-width:230px;
+}
+.portrait .badge b{display:block;font-family:'Cormorant Garamond',serif;
+  font-size:34px;line-height:1;color:var(--red);font-weight:500}
+.portrait .badge span{font-size:14px;color:var(--muted);line-height:1.4;display:block;margin-top:6px}
+
+/* ── озеро ─────────────────────────────────── */
+.lake{position:relative;min-height:420px;display:flex;align-items:center;
+  justify-content:center;overflow:hidden;text-align:center}
+.lake img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.lake::after{content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(51,47,43,.34),rgba(51,47,43,.5))}
+.lake .in{position:relative;z-index:2;color:#fff;max-width:760px;padding:80px 26px}
+.lake p{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,4.2vw,46px);
+  line-height:1.22;margin:0;font-weight:300;font-style:italic}
+.lake span{display:block;margin-top:20px;font-size:13px;letter-spacing:.18em;
+  text-transform:uppercase;color:rgba(255,255,255,.78)}
+
+/* ── секции ────────────────────────────────── */
+section{padding:104px 0}
+.sec-head{max-width:700px;margin-bottom:56px}
+.sec-head h2{font-size:clamp(34px,5vw,58px);line-height:1.08;margin:16px 0 0;font-weight:300}
+.sec-head p{color:var(--ink-2);margin:18px 0 0;font-size:18px}
+.center{margin-left:auto;margin-right:auto;text-align:center}
+.center .rule{justify-content:center}
+
+.tint{background:var(--blush)}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.card{background:var(--paper);border-radius:26px;padding:34px 30px 36px;
+  box-shadow:0 14px 40px -30px rgba(78,96,85,.5)}
+.card h3{font-size:27px;margin:0 0 12px;line-height:1.22;color:var(--red)}
+.card p{margin:0;color:var(--ink-2);font-size:16.5px}
+
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.duo article{border-radius:26px;padding:40px 36px}
+.duo .a{background:var(--sage-p)}
+.duo .b{background:var(--blush)}
+.duo h3{font-size:32px;margin:0 0 14px;font-weight:400}
+.duo p{margin:0;color:var(--ink-2)}
+
+.svc{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.svc article{
+  background:var(--paper);border-radius:26px;padding:34px 32px;
+  display:flex;flex-direction:column;gap:12px;border:1px solid var(--line);
+}
+.svc article.free{background:var(--red);border-color:var(--red);color:#fff}
+.svc article.free h3,.svc article.free .price{color:#fff}
+.svc article.free p{color:rgba(255,255,255,.9)}
+.svc article.free .dur{color:rgba(255,255,255,.75)}
+.svc h3{font-size:29px;margin:0;line-height:1.2}
+.svc p{margin:0;color:var(--ink-2);font-size:16.5px;flex:1}
+.svc .foot{display:flex;align-items:baseline;justify-content:space-between;gap:16px;
+  padding-top:16px;border-top:1px solid var(--line)}
+.svc article.free .foot{border-top-color:rgba(255,255,255,.3)}
+.svc .price{font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:500;
+  color:var(--red);line-height:1;white-space:nowrap}
+.svc .dur{font-size:14px;color:var(--muted)}
+
+.res{display:grid;grid-template-columns:1fr 1fr;gap:16px 34px}
+.res div{display:flex;gap:16px;align-items:flex-start;padding:14px 0;
+  border-bottom:1px solid var(--line)}
+.res svg{width:22px;height:22px;flex:none;color:var(--red);margin-top:5px}
+.res p{margin:0;font-size:17px}
+.res b{font-weight:600}
+
+.about-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:60px;align-items:center}
+.about-grid img{border-radius:28px;box-shadow:var(--shadow);aspect-ratio:1/1;object-fit:cover}
+.nums{display:flex;gap:16px;flex-wrap:wrap;margin:32px 0}
+.nums div{background:var(--paper);border-radius:22px;padding:22px 26px;flex:1;min-width:150px;
+  border:1px solid var(--line)}
+.nums b{display:block;font-family:'Cormorant Garamond',serif;font-size:44px;line-height:1;
+  color:var(--red);font-weight:500}
+.nums span{font-size:14.5px;color:var(--ink-2);display:block;margin-top:10px}
+.quote-soft{background:var(--sage-p);border-radius:24px;padding:26px 30px;
+  font-family:'Cormorant Garamond',serif;font-size:23px;font-style:italic;
+  line-height:1.4;color:var(--sage-d);margin:0 0 30px}
+
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.step .n{width:56px;height:56px;border-radius:50%;background:var(--red);color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Cormorant Garamond',serif;font-size:27px;margin-bottom:20px}
+.step h3{font-size:25px;margin:0 0 10px}
+.step p{margin:0;color:var(--ink-2);font-size:16.5px}
+
+details{background:var(--paper);border-radius:22px;margin-bottom:14px;
+  border:1px solid var(--line);overflow:hidden}
+summary{padding:24px 30px;cursor:pointer;font-size:20px;list-style:none;
+  font-family:'Cormorant Garamond',serif;display:flex;justify-content:space-between;
+  gap:20px;align-items:center;transition:.2s}
+summary::-webkit-details-marker{display:none}
+summary:hover{color:var(--red)}
+summary::after{content:"+";font-size:26px;color:var(--red);flex:none;line-height:1}
+details[open] summary::after{content:"–"}
+details p{margin:0;padding:0 30px 26px;color:var(--ink-2);max-width:820px}
+
+.book{background:var(--sage-d);color:#fff}
+.book .sec-head h2{color:#fff}
+.book .eyebrow{color:var(--blush-d)}
+.book-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:start}
+.book p.lead{color:rgba(255,255,255,.85);font-size:18px}
+.direct{list-style:none;padding:0;margin:34px 0 0}
+.direct li{display:flex;gap:16px;align-items:center;padding:16px 0;
+  border-bottom:1px solid rgba(255,255,255,.2)}
+.direct svg{width:22px;height:22px;color:var(--blush-d);flex:none}
+.direct a{text-decoration:none;border-bottom:1px solid rgba(255,255,255,.4)}
+form{background:var(--paper);border-radius:28px;padding:38px 34px 40px;color:var(--ink)}
+form h3{font-size:30px;margin:0 0 8px}
+form>p{margin:0 0 22px;color:var(--muted);font-size:16px}
+label{display:block;font-size:13px;letter-spacing:.06em;color:var(--muted);
+  margin:18px 0 8px;font-weight:500}
+input,select,textarea{
+  width:100%;padding:15px 18px;border:1px solid var(--line);background:var(--cream);
+  font-family:inherit;color:var(--ink);border-radius:14px;font-size:16px;
+}
+textarea{min-height:96px;resize:vertical}
+input:focus,select:focus,textarea:focus{outline:0;border-color:var(--sage)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+form .btn{width:100%;margin-top:26px}
+form .fine{font-size:13.5px;color:var(--muted);margin:16px 0 0;text-align:center}
+.done{display:none;text-align:center;padding:24px 0}
+.done svg{width:52px;height:52px;color:var(--sage);margin:0 auto 18px}
+.done h3{font-size:28px;margin:0 0 10px}
+.done p{color:var(--muted);margin:0;font-size:16px}
+.is-sent form>*:not(.done){display:none}
+.is-sent .done{display:block}
+
+footer{background:var(--ink);color:rgba(255,255,255,.66);padding:56px 0 90px;font-size:15.5px}
+.f-grid{display:flex;justify-content:space-between;gap:36px;flex-wrap:wrap}
+footer .logo b{color:#fff}
+footer a{text-decoration:none}
+footer a:hover{color:#fff}
+
+.bar{display:none;position:fixed;left:0;right:0;bottom:0;z-index:70;gap:10px;
+  background:rgba(250,245,239,.97);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);
+  box-shadow:0 -1px 0 var(--line);padding:10px 12px calc(10px + env(safe-area-inset-bottom))}
+.bar .btn{flex:1;padding:15px 8px;font-size:14.5px}
+
+@media(max-width:1000px){
+  .hero-grid,.about-grid,.book-grid{grid-template-columns:1fr;gap:44px}
+  .portrait{max-width:440px;margin:0 auto}
+  .cards,.svc,.steps{grid-template-columns:1fr 1fr}
+  .res{grid-template-columns:1fr}
+  .nav{display:none}
 }
 @media(max-width:640px){
-  body{font-size:16.4px}
-  .sec{padding-top:52px;padding-bottom:52px}
-  .wrap{padding-left:17px;padding-right:17px}
-  .hero h1{font-size:30px}
-  .hero-btns{flex-direction:column;align-items:stretch}
-  .hero-btns .btn{width:100%}
-  .hc .btn{display:none}
-  .logo b{font-size:16px}
-  .pain-g,.steps{grid-template-columns:1fr}
-  .frow{grid-template-columns:1fr}
-  .cta-l,.cta-r{padding:28px 20px}
-  .f-g{grid-template-columns:1fr;gap:20px}
+  body{font-size:17px;padding-bottom:calc(74px + env(safe-area-inset-bottom))}
+  section{padding:74px 0}
+  .wrap{padding:0 20px}
+  .hero{padding:120px 0 66px}
+  .hdr .btn{display:none}
   .bar{display:flex}
-  body{padding-bottom:74px}
+  .cards,.svc,.steps,.duo,.two{grid-template-columns:1fr}
+  .card,.duo article,.svc article{padding:28px 24px}
+  .portrait .badge{left:12px;bottom:14px;padding:14px 18px}
+  form{padding:28px 22px 30px}
+  .hero-cta .btn{width:100%}
+  summary{padding:20px 22px;font-size:18.5px}
+  details p{padding:0 22px 22px}
+  .lake .in{padding:60px 20px}
 }
-.mob{display:none;position:fixed;inset:0;z-index:120;background:rgba(30,38,36,.5)}
-.mob.on{display:block}
-.mob-p{position:absolute;top:0;right:0;width:min(300px,84vw);height:100%;background:#fff;
-  padding:22px;display:flex;flex-direction:column;gap:4px}
-.mob-p a{padding:14px 4px;text-decoration:none;font-weight:600;font-size:17px;border-bottom:1px solid var(--grey-2)}
-.mob-x{align-self:flex-end;width:40px;height:40px;border:none;background:none;font-size:28px;cursor:pointer}
 </style>
 </head>
 <body>
 
-<header>
+<header class="hdr" id="hdr">
   <div class="wrap hrow">
-    <a class="logo" href="#top"><b>Галина Клименко</b><span>Психолог · Нейропсихолог</span></a>
-    <nav class="menu">
-      <a href="#services">Услуги и цены</a><a href="#about">Обо мне</a>
-      <a href="#how">Как проходит</a><a href="#faq">Вопросы</a><a href="#book">Записаться</a>
+    <a class="logo" href="#top">
+      <b>Галина Клименко</b>
+      <span>психолог · нейропсихолог</span>
+    </a>
+    <nav class="nav">
+      <a href="#problems">С чем приходят</a>
+      <a href="#prices">Услуги и цены</a>
+      <a href="#about">Обо мне</a>
+      <a href="#how">Как проходит</a>
+      <a href="#faq">Вопросы</a>
     </nav>
-    <div class="hc">
-      <a class="btn btn-p" href="#book" style="padding:11px 20px;font-size:14.4px">Записаться</a>
-      <button class="burger" id="bg" aria-label="Меню"><span></span><span></span><span></span></button>
-    </div>
+    <a class="btn" href="#book">Записаться</a>
   </div>
 </header>
 
-<div class="mob" id="mob"><div class="mob-p">
-  <button class="mob-x" id="mx">&times;</button>
-  <a href="#services">Услуги и цены</a><a href="#about">Обо мне</a><a href="#how">Как проходит</a>
-  <a href="#result">Результат</a><a href="#faq">Вопросы</a><a href="#book">Записаться</a>
-</div></div>
-
-<section class="hero" id="top">
-  <div class="wrap hero-g">
+<div id="top"></div>
+<section class="hero">
+  <div class="wrap hero-grid">
     <div>
-      <div class="eyebrow">Абакан и онлайн · 13 лет практики</div>
-      <h1>С подростком сложно,<br>а иногда — <em>невыносимо</em></h1>
-      <p class="sub">Я Галина, семейный психолог и детский нейропсихолог. За одну консультацию
-        помогу понять причины поведения вашего ребёнка и что с этим делать — без нотаций
+      <p class="eyebrow">Абакан и онлайн · 13 лет практики</p>
+      <h1>С подростком сложно,<em>а иногда — невыносимо</em></h1>
+      <p class="lead">Я Галина, семейный психолог и детский нейропсихолог. За одну встречу
+        помогу понять, что стоит за поведением вашего ребёнка и что с этим делать — без нотаций
         и без «потерпите, перерастёт».</p>
-      <div class="hero-btns">
-        <a class="btn btn-r" href="#book">Бесплатная диагностическая встреча</a>
-        <a class="btn btn-o" href="#services">Услуги и цены</a>
+      <div class="hero-cta">
+        <a class="btn" href="#book">Бесплатная первая встреча</a>
+        <a class="btn btn-ghost" href="#prices">Услуги и цены</a>
       </div>
-      <div class="chips">
-        <span class="chip">Психолог + нейропсихолог</span>
-        <span class="chip">13 лет практики</span>
-        <span class="chip">Очно и онлайн</span>
+      <div class="hero-tags">
+        <span>Психолог и нейропсихолог сразу</span>
+        <span>Очно и онлайн</span>
+        <span>Без осуждения</span>
       </div>
     </div>
-    <div class="hero-ph">
-      <img src="assets/p06_crop.jpg" alt="Галина Клименко — психолог и нейропсихолог">
-      <div class="hero-tag"><b>Два специалиста</b><span>в одном лице — двойная эффективность</span></div>
+    <div class="portrait">
+      <img src="assets/p12_crop.jpg" alt="Галина Клименко, семейный психолог и детский нейропсихолог">
+      <div class="badge">
+        <b>13 лет</b>
+        <span>с родителями подростков и с самими подростками</span>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="sec pain">
+<div class="lake">
+  <img src="assets/lake.jpg" alt="">
+  <div class="in">
+    <p>За «невыносимым» поведением почти всегда стоит причина,<br>
+       которую можно найти — и с которой можно работать</p>
+    <span>Галина Клименко</span>
+  </div>
+</div>
+
+<section id="problems" class="tint">
   <div class="wrap">
-    <div class="eyebrow">Знакомо?</div>
-    <h2 class="h2">С чем ко мне приходят</h2>
-    <div class="pain-g">
-      <div class="pain-c"><b>«Он меня не слышит»</b>
-        <span>Разговор превращается в спор за две минуты. Любая просьба — конфликт,
-          а на вопрос «как дела» ответ «нормально».</span></div>
-      <div class="pain-c"><b>Закрылся в комнате</b>
-        <span>Телефон, наушники, дверь. Вы не понимаете, что происходит внутри,
-          и боитесь спросить, чтобы не стало хуже.</span></div>
-      <div class="pain-c"><b>Резко изменился</b>
-        <span>Был спокойный ребёнок — стал раздражительным, скрытным, потерял интерес
-          к тому, что раньше любил.</span></div>
-      <div class="pain-c"><b>Проблемы в школе</b>
-        <span>Съехала успеваемость, жалобы учителей, отказ идти на уроки. А дома —
-          «всё нормально, отстань».</span></div>
-      <div class="pain-c"><b>Тревога у вас самих</b>
-        <span>Вы устали быть в напряжении, срываетесь, а потом виноватите себя за это.
-          Хочется просто выдохнуть.</span></div>
-      <div class="pain-c"><b>Не знаете, что делать</b>
-        <span>Советы из интернета противоречат друг другу: то строже, то мягче.
-          А ребёнок — конкретный, и он ваш.</span></div>
+    <div class="sec-head center">
+      <p class="eyebrow">Знакомо?</p>
+      <h2>С чем ко мне приходят</h2>
+      <div class="rule"><i></i>
+        <svg class="sprig" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c-1.2 5.4-4.3 7.6-8.6 8.6 4.3 1 7.4 3.2 8.6 12.4 1.2-9.2 4.3-11.4 8.6-12.4C16.3 9.6 13.2 7.4 12 2z"/></svg>
+        <i></i></div>
+    </div>
+    <div class="cards">
+      <article class="card"><h3>«Он меня не слышит»</h3>
+        <p>Разговор превращается в спор за две минуты. Любая просьба — конфликт, а на вопрос «как дела» ответ «нормально».</p></article>
+      <article class="card"><h3>Закрылся в комнате</h3>
+        <p>Телефон, наушники, дверь. Вы не понимаете, что происходит внутри, и боитесь спросить, чтобы не стало хуже.</p></article>
+      <article class="card"><h3>Резко изменился</h3>
+        <p>Был спокойный ребёнок — стал раздражительным, скрытным, потерял интерес к тому, что раньше любил.</p></article>
+      <article class="card"><h3>Проблемы в школе</h3>
+        <p>Съехала успеваемость, жалобы учителей, отказ идти на уроки. А дома — «всё нормально, отстань».</p></article>
+      <article class="card"><h3>Тревога у вас самих</h3>
+        <p>Вы устали быть в напряжении, срываетесь, а потом виноватите себя за это. Хочется просто выдохнуть.</p></article>
+      <article class="card"><h3>Не знаете, что делать</h3>
+        <p>Советы из интернета противоречат друг другу: то строже, то мягче. А ребёнок — конкретный, и он ваш.</p></article>
     </div>
   </div>
 </section>
 
-<section class="sec two">
+<section>
   <div class="wrap">
-    <div class="eyebrow">Почему ко мне идут</div>
-    <h2 class="h2">Два специалиста в одном лице</h2>
-    <p class="lead" style="margin-top:13px">Обычно родителям приходится ходить к двоим —
-      и платить дважды. У меня оба направления сразу, поэтому картина видна целиком.</p>
-    <div class="two-g">
-      <div class="two-c"><h3>Психолог</h3>
+    <div class="sec-head center">
+      <p class="eyebrow">Почему ко мне идут</p>
+      <h2>Два специалиста в одном лице</h2>
+      <p>Обычно родителям приходится ходить к двоим — и платить дважды.
+         У меня оба направления сразу, поэтому картина видна целиком.</p>
+    </div>
+    <div class="duo">
+      <article class="a">
+        <h3>Психолог</h3>
         <p>Разбираем отношения: что стоит за поведением, как разговаривать без конфликтов,
-          где границы, а где давление. Работаю и с родителем, и с подростком.</p></div>
-      <div class="two-c"><h3>Нейропсихолог</h3>
+           где границы, а где давление. Работаю и с родителем, и с подростком.</p>
+      </article>
+      <article class="b">
+        <h3>Нейропсихолог</h3>
         <p>Смотрю на то, что не видно глазом: внимание, память, саморегуляция, утомляемость.
-          Иногда «ленится» и «не старается» — это не характер, а особенности созревания мозга.</p></div>
+           Иногда «ленится» и «не старается» — это не характер, а особенности созревания мозга.</p>
+      </article>
     </div>
   </div>
 </section>
 
-<section class="sec" id="services">
+<section id="prices" class="tint">
   <div class="wrap">
-    <div class="eyebrow">Услуги</div>
-    <h2 class="h2">Чем могу помочь</h2>
-    <div class="serv">
-      <div class="s-c free">
+    <div class="sec-head center">
+      <p class="eyebrow">Услуги</p>
+      <h2>Чем могу помочь</h2>
+    </div>
+    <div class="svc">
+      <article class="free">
         <h3>Диагностическая встреча</h3>
         <p>Знакомимся, вы рассказываете ситуацию, я задаю вопросы. На выходе вы получаете
-          карту решения: что происходит, почему и с чего начинать.</p>
-        <div class="s-f"><b>Бесплатно</b><span>первая встреча</span></div>
-      </div>
-      <div class="s-c">
+           карту решения: что происходит, почему и с чего начинать.</p>
+        <div class="foot"><span class="price">Бесплатно</span><span class="dur">первая встреча</span></div>
+      </article>
+      <article>
         <h3>Консультация для родителя</h3>
         <p>Разбираем вашу ситуацию с ребёнком: причины поведения и конкретные приёмы общения,
-          которые работают именно в вашем случае.</p>
-        <div class="s-f"><b>2 900 ₽</b><span>1–1,5 часа</span></div>
-      </div>
-      <div class="s-c">
+           которые работают именно в вашем случае.</p>
+        <div class="foot"><span class="price">2 900 ₽</span><span class="dur">1–1,5 часа</span></div>
+      </article>
+      <article>
         <h3>Консультация подростка</h3>
         <p>Разговор с самим подростком — на его языке и без «мама сказала, что ты плохо себя
-          ведёшь». Безопасное пространство, где можно говорить честно.</p>
-        <div class="s-f"><b>2 900 ₽</b><span>1–1,5 часа</span></div>
-      </div>
-      <div class="s-c">
+           ведёшь». Безопасное пространство, где можно говорить честно.</p>
+        <div class="foot"><span class="price">2 900 ₽</span><span class="dur">1–1,5 часа</span></div>
+      </article>
+      <article>
         <h3>Нейропсихологическая диагностика</h3>
         <p>Проверяем внимание, память, саморегуляцию и утомляемость. Часто именно здесь
-          находится ответ на «почему не может собраться».</p>
-        <div class="s-f"><b>3 800 ₽</b><span>1,5–2 часа</span></div>
-      </div>
-      <div class="s-c">
+           находится ответ на «почему не может собраться».</p>
+        <div class="foot"><span class="price">3 800 ₽</span><span class="dur">1,5–2 часа</span></div>
+      </article>
+      <article>
         <h3>Групповые мастер-классы</h3>
         <p>Практические встречи для родителей: техники общения без конфликтов, разбор
-          типичных ситуаций, ответы на вопросы.</p>
-        <div class="s-f"><b>от 990 ₽</b><span>группа</span></div>
-      </div>
-      <div class="s-c">
+           типичных ситуаций, ответы на вопросы.</p>
+        <div class="foot"><span class="price">от 990 ₽</span><span class="dur">группа</span></div>
+      </article>
+      <article>
         <h3>Онлайн из любого города</h3>
         <p>Формат тот же, что и очно. Многие родители из других городов работают со мной
-          именно так — удобно и без дороги.</p>
-        <div class="s-f"><b>По тем же ценам</b><span>видеосвязь</span></div>
-      </div>
+           именно так — удобно и без дороги.</p>
+        <div class="foot"><span class="price">Те же цены</span><span class="dur">видеосвязь</span></div>
+      </article>
     </div>
   </div>
 </section>
 
-<section class="sec" id="result" style="background:var(--grey-1)">
+<section>
   <div class="wrap">
-    <div class="eyebrow">Что вы получите</div>
-    <h2 class="h2">Результат работы</h2>
-    <div class="res-g">
-      <div class="res"><i>✓</i><span>Поймёте <b>причины</b> поведения ребёнка — а не будете
-        гадать и пробовать наугад</span></div>
-      <div class="res"><i>✓</i><span>Освоите простые техники общения <b>без конфликтов</b>,
-        которые можно применять с завтрашнего дня</span></div>
-      <div class="res"><i>✓</i><span>Снимете чувство тревоги и постоянного напряжения</span></div>
-      <div class="res"><i>✓</i><span>Получите двойную помощь — психологическую и
-        нейропсихологическую, а значит экономию времени и денег</span></div>
-      <div class="res"><i>✓</i><span>Пройдёте подростковый период максимально комфортно,
-        а не «как-нибудь переживём»</span></div>
-      <div class="res"><i>✓</i><span>Сохраните отношения с ребёнком — то, ради чего
-        всё и затевается</span></div>
+    <div class="sec-head center">
+      <p class="eyebrow">Что вы получите</p>
+      <h2>Результат работы</h2>
+    </div>
+    <div class="res">
+      <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12.5l5 5L20 6.5"/></svg>
+        <p>Поймёте <b>причины</b> поведения ребёнка — а не будете гадать и пробовать наугад</p></div>
+      <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12.5l5 5L20 6.5"/></svg>
+        <p>Освоите простые техники общения <b>без конфликтов</b>, которые можно применять с завтрашнего дня</p></div>
+      <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12.5l5 5L20 6.5"/></svg>
+        <p>Снимете чувство тревоги и постоянного напряжения</p></div>
+      <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12.5l5 5L20 6.5"/></svg>
+        <p>Получите двойную помощь — психологическую и нейропсихологическую, а значит экономию времени и денег</p></div>
+      <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12.5l5 5L20 6.5"/></svg>
+        <p>Пройдёте подростковый период спокойно, а не «как-нибудь переживём»</p></div>
+      <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12.5l5 5L20 6.5"/></svg>
+        <p>Сохраните отношения с ребёнком — то, ради чего всё и затевается</p></div>
     </div>
   </div>
 </section>
 
-<section class="sec ab" id="about">
-  <div class="wrap ab-g">
-    <img src="assets/p12_crop.jpg" alt="Галина Клименко">
+<section id="about" class="tint">
+  <div class="wrap about-grid">
+    <img src="assets/p06_crop.jpg" alt="Галина Клименко">
     <div>
-      <div class="eyebrow">Обо мне</div>
-      <h2 class="h2">Галина Клименко</h2>
-      <p style="margin-top:14px">Я сердечно приветствую вас. Работаю с родителями подростков
+      <p class="eyebrow">Обо мне</p>
+      <h2 style="font-size:clamp(34px,5vw,58px);line-height:1.08;margin:16px 0 0;font-weight:300">Галина Клименко</h2>
+      <p style="margin-top:20px;color:var(--ink-2)">Я сердечно приветствую вас. Работаю с родителями подростков
         и с самими подростками — и знаю, что за «невыносимым» поведением почти всегда стоит
         причина, которую можно найти и с которой можно работать.</p>
-      <div class="facts">
-        <div class="fact"><b>13</b><span>лет практики — отсюда быстро нахожу решения
-          в любой трудной ситуации с подростком</span></div>
-        <div class="fact"><b>2</b><span>специальности в одном лице: практикующий психолог
-          и детский нейропсихолог</span></div>
-        <div class="fact"><b>500К</b><span>рублей вложено в профессиональное образование
-          только за последние три года</span></div>
+      <div class="nums">
+        <div><b>13</b><span>лет практики — быстро нахожу решение в трудной ситуации</span></div>
+        <div><b>2</b><span>специальности сразу: психолог и детский нейропсихолог</span></div>
+        <div><b>500К</b><span>рублей вложено в образование за последние три года</span></div>
       </div>
-      <p>Со мной ваша жизнь станет спокойнее и уютнее — как с ароматным чаем у тёплого камина.
-        Начать можно с бесплатной диагностической встречи: вы ничем не рискуете, а карту решения
-        своей ситуации получите уже на ней.</p>
-      <a class="btn btn-p" href="#book">Записаться на встречу</a>
+      <p class="quote-soft">Со мной ваша жизнь станет спокойнее и уютнее — как с ароматным чаем
+        у тёплого камина.</p>
+      <a class="btn" href="#book">Записаться на встречу</a>
     </div>
   </div>
 </section>
 
-<section class="sec" id="how">
+<section id="how">
   <div class="wrap">
-    <div class="eyebrow">Как это устроено</div>
-    <h2 class="h2">Как проходит работа</h2>
+    <div class="sec-head center">
+      <p class="eyebrow">Как это устроено</p>
+      <h2>Как проходит работа</h2>
+    </div>
     <div class="steps">
-      <div class="step"><b class="n">1</b><h4>Вы пишете</h4>
+      <div class="step"><div class="n">1</div><h3>Вы пишете</h3>
         <p>Коротко описываете ситуацию: возраст ребёнка и что беспокоит. Подбираем время.</p></div>
-      <div class="step"><b class="n">2</b><h4>Диагностическая встреча</h4>
+      <div class="step"><div class="n">2</div><h3>Диагностическая встреча</h3>
         <p>Бесплатно. Я задаю вопросы, вы рассказываете. На выходе — карта решения вашей ситуации.</p></div>
-      <div class="step"><b class="n">3</b><h4>Работа</h4>
+      <div class="step"><div class="n">3</div><h3>Работа</h3>
         <p>Консультации с вами, с подростком или диагностика — то, что нужно именно в вашем случае.</p></div>
-      <div class="step"><b class="n">4</b><h4>Практика дома</h4>
+      <div class="step"><div class="n">4</div><h3>Практика дома</h3>
         <p>Вы получаете конкретные приёмы и применяете их. Что не получилось — разбираем на следующей встрече.</p></div>
     </div>
   </div>
 </section>
 
-<section class="sec" id="faq" style="background:var(--mint)">
+<section id="faq" class="tint">
   <div class="wrap">
-    <div class="eyebrow">Частые вопросы</div>
-    <h2 class="h2">Что спрашивают родители</h2>
-    <div class="faq">
-      <details class="q"><summary>Ребёнок отказывается идти к психологу. Что делать?</summary>
-        <div class="a">Приходите сначала сами — это нормальная и очень частая ситуация.
-          Многое решается через родителя: меняется ваша реакция, меняется и поведение подростка.
-          А дальше он часто соглашается сам, увидев, что дома стало спокойнее.</div></details>
-      <details class="q"><summary>Одной консультации хватит?</summary>
-        <div class="a">За одну встречу вы точно поймёте причины поведения и получите план действий.
+    <div class="sec-head center">
+      <p class="eyebrow">Частые вопросы</p>
+      <h2>Что спрашивают родители</h2>
+    </div>
+    <div style="max-width:900px;margin:0 auto">
+      <details open><summary>Ребёнок отказывается идти к психологу. Что делать?</summary>
+        <p>Приходите сначала сами — это нормальная и очень частая ситуация. Многое решается
+          через родителя: меняется ваша реакция, меняется и поведение подростка. А дальше он
+          часто соглашается сам, увидев, что дома стало спокойнее.</p></details>
+      <details><summary>Одной консультации хватит?</summary>
+        <p>За одну встречу вы точно поймёте причины поведения и получите план действий.
           Сколько потребуется дальше — зависит от ситуации, и решаете это вы, а не я.
-          Я не «подсаживаю» на длинную терапию.</div></details>
-      <details class="q"><summary>Чем нейропсихолог отличается от психолога?</summary>
-        <div class="a">Психолог работает с отношениями и эмоциями, нейропсихолог — с тем, как
-          работает мозг: внимание, память, саморегуляция. Бывает, что подросток «не старается»
-          не из вредности, а потому что физически не может удерживать внимание. Это лечится
-          не разговорами, а другими методами.</div></details>
-      <details class="q"><summary>Онлайн работает так же, как очно?</summary>
-        <div class="a">Да. Формат и длительность те же. Многие родители из других городов
-          работают со мной онлайн, и результат не отличается.</div></details>
-      <details class="q"><summary>Вы будете говорить, что я плохой родитель?</summary>
-        <div class="a">Нет. Вы уже делаете больше, чем большинство, — вы ищете помощь.
-          Моя задача не оценивать, а разобраться и дать инструменты.</div></details>
-      <details class="q"><summary>Как оплачивается?</summary>
-        <div class="a">100% предоплата за консультацию. Диагностическая встреча бесплатная,
-          так что начать можно ничем не рискуя.</div></details>
+          Я не «подсаживаю» на длинную терапию.</p></details>
+      <details><summary>Чем нейропсихолог отличается от психолога?</summary>
+        <p>Психолог работает с отношениями и эмоциями, нейропсихолог — с тем, как работает мозг:
+          внимание, память, саморегуляция. Бывает, что подросток «не старается» не из вредности,
+          а потому что физически не может удерживать внимание. Это решается не разговорами,
+          а другими методами.</p></details>
+      <details><summary>Онлайн работает так же, как очно?</summary>
+        <p>Да. Формат и длительность те же. Многие родители из других городов работают
+          со мной онлайн, и результат не отличается.</p></details>
+      <details><summary>Вы будете говорить, что я плохой родитель?</summary>
+        <p>Нет. Вы уже делаете больше, чем большинство, — вы ищете помощь.
+          Моя задача не оценивать, а разобраться и дать инструменты.</p></details>
+      <details><summary>Как оплачивается?</summary>
+        <p>100% предоплата за консультацию. Диагностическая встреча бесплатная,
+          так что начать можно ничем не рискуя.</p></details>
     </div>
   </div>
 </section>
 
-<section class="sec cta" id="book">
-  <div class="wrap">
-    <div class="cta-box">
-      <div class="cta-l">
-        <div class="eyebrow">Запись</div>
-        <h2>Начните с бесплатной встречи</h2>
-        <p>Напишите возраст ребёнка и что беспокоит — я отвечу и предложу удобное время.</p>
-        <form id="frm" novalidate>
-          <div class="frow">
-            <div class="fld"><label for="nm">Ваше имя</label>
-              <input id="nm" type="text" placeholder="Как к вам обращаться"></div>
-            <div class="fld"><label for="ph">Телефон или ник в VK</label>
-              <input id="ph" type="text" placeholder="+7 ___ ___-__-__"></div>
-          </div>
-          <div class="frow">
-            <div class="fld"><label for="ag">Возраст ребёнка</label>
-              <select id="ag"><option>10–12 лет</option><option>13–15 лет</option>
-                <option>16–18 лет</option><option>Другой возраст</option></select></div>
-            <div class="fld"><label for="fm">Формат</label>
-              <select id="fm"><option>Онлайн</option><option>Очно в Абакане</option>
-                <option>Не важно</option></select></div>
-          </div>
-          <div class="fld"><label for="cm">Что беспокоит</label>
-            <textarea id="cm" rows="3" placeholder="Коротко: что происходит и как давно"></textarea></div>
-          <button class="btn btn-r" type="submit" style="width:100%">Записаться на бесплатную встречу</button>
-          <p style="font-size:12.6px;color:var(--grey-t);margin-top:11px" id="fn">
-            Отвечу лично. Всё, что вы расскажете, останется между нами.</p>
-        </form>
-      </div>
-      <div class="cta-r">
-        <h3>Связаться напрямую</h3>
-        <a class="ct" href="tel:+79230200511">
-          <span class="ct-ic"><svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg></span>
-          <span><b>+7 (923) 020-05-11</b><span>Позвонить или написать</span></span></a>
-        <a class="ct" href="https://vk.me/galkapsiholog" target="_blank" rel="noopener">
-          <span class="ct-ic"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M7.5 9.5c.4 2.6 2 5 4.5 5h1v-2c1 .3 1.8 1.1 2.3 2h1.7c-.5-1.4-1.6-2.5-2.6-3 .9-.6 1.8-1.6 2.3-2.9H15c-.5 1.1-1.3 2-2 2.4V9.5h-1.7v3c-1.2-.5-2-1.8-2.3-3Z"/></svg></span>
-          <span><b>Написать ВКонтакте</b><span>Отвечаю лично, а не бот</span></span></a>
-        <a class="ct" href="#how">
-          <span class="ct-ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg></span>
-          <span><b>Очно и онлайн</b><span>Абакан · и любой город по видеосвязи</span></span></a>
-      </div>
+<section id="book" class="book">
+  <div class="wrap book-grid">
+    <div>
+      <p class="eyebrow">Запись</p>
+      <h2 style="font-size:clamp(34px,5vw,58px);line-height:1.08;margin:16px 0 0;font-weight:300;color:#fff">
+        Начните с бесплатной встречи</h2>
+      <p class="lead" style="margin-top:20px">Напишите возраст ребёнка и что беспокоит —
+        я отвечу лично и предложу удобное время. Всё, что вы расскажете, останется между нами.</p>
+      <ul class="direct">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 4h4l2 5-2.5 1.5a12 12 0 0 0 5 5L15 13l5 2v4a1 1 0 0 1-1.1 1A16 16 0 0 1 4 5.1 1 1 0 0 1 5 4z"/></svg>
+          <a href="tel:+79230200511">+7 923 020 05 11</a></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="18" height="16" rx="4"/><path d="M7 10c.6 3.2 2.4 4.6 4.4 4.6V10m0 4.6h1.2c1.6 0 2.6-1.4 3.8-3"/></svg>
+          <a href="https://vk.me/galkapsiholog" target="_blank" rel="noopener">Написать в VK</a></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s7-6 7-11a7 7 0 1 0-14 0c0 5 7 11 7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>
+          Абакан — очно, остальная Россия — онлайн</li>
+      </ul>
     </div>
+    <form id="f" novalidate>
+      <h3>Записаться на встречу</h3>
+      <p>Первая, диагностическая — бесплатно.</p>
+      <div class="two">
+        <div><label for="n">Ваше имя</label><input id="n" name="name" placeholder="Имя" required></div>
+        <div><label for="p">Телефон или ник в VK</label><input id="p" name="phone" placeholder="+7 ___ ___ __ __" required></div>
+      </div>
+      <div class="two">
+        <div><label for="a">Возраст ребёнка</label>
+          <select id="a"><option>10–12 лет</option><option>13–15 лет</option><option>16–18 лет</option><option>Другой возраст</option></select></div>
+        <div><label for="fm">Формат</label>
+          <select id="fm"><option>Онлайн</option><option>Очно в Абакане</option><option>Не важно</option></select></div>
+      </div>
+      <label for="t">Что беспокоит</label>
+      <textarea id="t" placeholder="Пара строк о ситуации — этого достаточно"></textarea>
+      <button class="btn" type="submit">Записаться на бесплатную встречу</button>
+      <p class="fine">Отвечу лично. Всё, что вы расскажете, останется между нами.</p>
+      <div class="done">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9.5"/><path d="M8 12.4l2.6 2.6L16 9.6"/></svg>
+        <h3>Спасибо, получила!</h3>
+        <p>Отвечу лично в течение дня и предложу удобное время.</p>
+      </div>
+    </form>
   </div>
 </section>
 
 <footer>
-  <div class="wrap">
-    <div class="f-g">
-      <div><h4>Галина Клименко</h4>
-        <p style="margin:0">Семейный психолог и детский нейропсихолог. Помогаю родителям
-          подростков пройти этот период спокойно и сохранить отношения с ребёнком.</p></div>
-      <div><h4>Разделы</h4><div class="f-l">
-        <a href="#services">Услуги и цены</a><a href="#about">Обо мне</a>
-        <a href="#how">Как проходит</a><a href="#faq">Вопросы</a></div></div>
-      <div><h4>Контакты</h4><div class="f-l">
-        <a href="tel:+79230200511">+7 (923) 020-05-11</a>
-        <a href="https://vk.me/galkapsiholog" target="_blank" rel="noopener">ВКонтакте</a>
-        <span>Абакан · онлайн по России</span></div></div>
+  <div class="wrap f-grid">
+    <div style="max-width:320px">
+      <a class="logo" href="#top" style="margin-bottom:14px"><b>Галина Клименко</b>
+        <span>психолог · нейропсихолог</span></a>
+      <p style="margin:0">Помогаю родителям подростков вернуть тёплые отношения в семью.
+        Абакан и онлайн по всей России.</p>
     </div>
-    <div class="f-b"><span>© 2026 Клименко Галина Владимировна · ИНН 190104190807</span>
-      <span>Консультации не заменяют медицинскую помощь</span></div>
+    <div>
+      <p style="margin:0 0 8px"><a href="tel:+79230200511">+7 923 020 05 11</a></p>
+      <p style="margin:0 0 8px"><a href="https://vk.me/galkapsiholog" target="_blank" rel="noopener">vk.me/galkapsiholog</a></p>
+      <p style="margin:0">Первая встреча — бесплатно</p>
+    </div>
   </div>
 </footer>
 
 <div class="bar">
-  <a class="b1" href="#book">Записаться</a>
-  <a class="b2" href="tel:+79230200511">Позвонить</a>
+  <a class="btn" href="#book">Бесплатная встреча</a>
+  <a class="btn btn-ghost" href="tel:+79230200511">Позвонить</a>
 </div>
 
 <script>
-var mob=document.getElementById('mob');
-document.getElementById('bg').onclick=function(){mob.classList.add('on');document.body.style.overflow='hidden'};
-function cm(){mob.classList.remove('on');document.body.style.overflow=''}
-document.getElementById('mx').onclick=cm;
-mob.addEventListener('click',function(e){if(e.target===mob)cm()});
-mob.querySelectorAll('a').forEach(function(a){a.onclick=cm});
-
-document.getElementById('frm').addEventListener('submit',function(e){
+var hdr=document.getElementById('hdr');
+function onScroll(){hdr.classList.toggle('solid',window.scrollY>50)}
+onScroll();addEventListener('scroll',onScroll,{passive:true});
+document.getElementById('f').addEventListener('submit',function(e){
   e.preventDefault();
-  var nm=document.getElementById('nm'), ph=document.getElementById('ph'), f=document.getElementById('fn');
-  if(!nm.value.trim()||!ph.value.trim()){f.textContent='Заполните имя и контакт — иначе я не смогу ответить.';
-    f.style.color='#c8443c';return}
-  this.innerHTML='<div style="text-align:center;padding:26px 8px">'+
-    '<div style="font-size:25px;font-weight:800;margin-bottom:9px">Заявка отправлена</div>'+
-    '<p style="color:#6b7472;margin:0">Спасибо, '+nm.value.trim().replace(/[<>]/g,'')+
-    '! Я свяжусь с вами и предложу время встречи.</p></div>';
+  if(!this.name.value.trim()){this.name.focus();return}
+  if(!this.phone.value.trim()){this.phone.focus();return}
+  this.classList.add('is-sent');
 });
 </script>
 </body>
