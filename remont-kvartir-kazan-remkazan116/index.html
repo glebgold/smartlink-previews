@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ремонт квартир в Казани под ключ — фотоотчёт по каждому этапу</title>
+<meta name="description" content="Ремонт квартир под ключ в Казани: перепланировка, полы, стены, потолки, электрика и сантехника. Снимаем каждый этап — вы видите работу каждый день. 27 объектов, скидка 5%.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Golos+Text:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#12161C; --ink-2:#1B222C; --ink-3:#28313E;
+  --amber:#F2A03D; --amber-d:#D8862A; --steel:#8794A6;
+  --paper:#F5F6F8; --white:#fff; --line:rgba(255,255,255,.12); --line-d:rgba(18,22,28,.13);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);
+  font-family:'Golos Text',system-ui,-apple-system,sans-serif;font-size:17px;line-height:1.62;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3,.disp{font-family:'Oswald',Impact,sans-serif;font-weight:600;text-transform:uppercase;
+  line-height:1.05;margin:0;letter-spacing:.005em}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+.eyebrow{font-family:'Oswald',sans-serif;font-size:13.5px;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--amber);font-weight:500}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:18px 34px;
+  border-radius:4px;border:2px solid var(--amber);background:var(--amber);color:var(--ink);
+  text-decoration:none;font-family:'Oswald',sans-serif;font-size:17px;letter-spacing:.05em;
+  text-transform:uppercase;font-weight:600;cursor:pointer;transition:.2s;line-height:1.2}
+.btn:hover{background:var(--amber-d);border-color:var(--amber-d)}
+.btn-ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.45)}
+.btn-ghost:hover{background:#fff;color:var(--ink);border-color:#fff}
+.btn-dark{background:var(--ink);border-color:var(--ink);color:#fff}
+.btn-dark:hover{background:var(--ink-3);border-color:var(--ink-3)}
+
+.hdr{position:fixed;top:0;left:0;right:0;z-index:60;padding:16px 0;transition:.3s;color:#fff}
+.hdr.solid{background:rgba(18,22,28,.96);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);padding:10px 0}
+.hrow{display:flex;align-items:center;justify-content:space-between;gap:24px}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none;color:#fff}
+.logo .mk{width:42px;height:42px;background:var(--amber);border-radius:5px;display:flex;
+  align-items:center;justify-content:center;flex:none}
+.logo .mk svg{width:24px;height:24px;color:var(--ink)}
+.logo b{font-family:'Oswald',sans-serif;font-size:19px;text-transform:uppercase;font-weight:600;line-height:1.05;display:block}
+.logo span{display:block;font-size:11px;letter-spacing:.12em;color:var(--steel);text-transform:uppercase;margin-top:2px}
+.nav{display:flex;gap:26px}
+.nav a{text-decoration:none;font-size:15px;opacity:.85;transition:.2s;white-space:nowrap}
+.nav a:hover{opacity:1;color:var(--amber)}
+.hdr .btn{padding:12px 22px;font-size:14px}
+
+.hero{position:relative;min-height:100vh;min-height:100svh;display:flex;flex-direction:column;
+  justify-content:flex-end;padding-top:100px;overflow:hidden;color:#fff}
+.hero-bg{position:absolute;inset:0}
+.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:50% 55%}
+.hero-bg::after{content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(18,22,28,.75) 0%,rgba(18,22,28,.42) 38%,rgba(18,22,28,.95) 100%)}
+.hero-in{position:relative;z-index:2;padding-bottom:56px}
+.hero h1{font-size:clamp(38px,7.2vw,92px);font-weight:700}
+.hero h1 em{font-style:normal;color:var(--amber);display:block}
+.hero p.lead{max-width:600px;margin:22px 0 0;font-size:18.5px;color:rgba(255,255,255,.9)}
+.hero-cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:32px}
+.hero-facts{display:grid;grid-template-columns:repeat(4,auto);gap:0 44px;margin-top:40px;
+  padding-top:24px;border-top:1px solid var(--line);justify-content:start}
+.hero-facts b{display:block;font-family:'Oswald',sans-serif;font-size:34px;font-weight:600;line-height:1;color:var(--amber)}
+.hero-facts span{font-size:12.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--steel)}
+
+section{padding:100px 0}
+.sec-head{max-width:740px;margin-bottom:52px}
+.sec-head h2{font-size:clamp(32px,4.8vw,58px);margin-top:14px}
+.sec-head p{color:#4A5566;margin:18px 0 0;font-size:18px}
+.center{margin-left:auto;margin-right:auto;text-align:center}
+.dark{background:var(--ink);color:#fff}
+.dark .sec-head p{color:var(--steel)}
+
+/* главный аргумент */
+.trust{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+.trust-img{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.trust-img img{border-radius:6px;height:210px;width:100%;object-fit:cover}
+.tlist{list-style:none;padding:0;margin:26px 0 0}
+.tlist li{display:flex;gap:16px;padding:18px 0;border-bottom:1px solid var(--line)}
+.tlist svg{width:24px;height:24px;color:var(--amber);flex:none;margin-top:2px}
+.tlist b{display:block;font-family:'Oswald',sans-serif;font-size:19px;text-transform:uppercase;margin-bottom:4px}
+.tlist p{margin:0;color:var(--steel);font-size:16px}
+
+/* работы */
+.works{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line-d);border:1px solid var(--line-d)}
+.works article{background:var(--white);padding:30px 26px 32px}
+.works h3{font-size:21px;margin-bottom:8px;color:var(--ink)}
+.works p{margin:0;color:#4A5566;font-size:16px}
+
+/* объекты */
+.obj{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.obj div{background:var(--ink-2);border-radius:6px;padding:20px 20px 22px;border-left:3px solid var(--amber)}
+.obj b{display:block;font-family:'Oswald',sans-serif;font-size:17px;text-transform:uppercase;margin-bottom:4px}
+.obj span{font-size:14.5px;color:var(--steel)}
+
+/* галерея */
+.gal{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.gal figure{margin:0;border-radius:6px;overflow:hidden;height:240px;background:var(--ink-3)}
+.gal figure:first-child{grid-column:span 2;grid-row:span 2;height:492px}
+.gal img{width:100%;height:100%;object-fit:cover;transition:.5s}
+.gal figure:hover img{transform:scale(1.04)}
+
+/* этапы */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.step .n{width:52px;height:52px;border-radius:4px;background:var(--amber);color:var(--ink);
+  display:flex;align-items:center;justify-content:center;font-family:'Oswald',sans-serif;
+  font-size:24px;font-weight:600;margin-bottom:18px}
+.step h3{font-size:20px;margin-bottom:8px}
+.step p{margin:0;color:var(--steel);font-size:16px}
+
+/* заявка */
+.book-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+.info{list-style:none;padding:0;margin:28px 0 0}
+.info li{display:flex;gap:15px;padding:17px 0;border-bottom:1px solid var(--line-d)}
+.info svg{width:22px;height:22px;color:var(--amber);flex:none;margin-top:3px}
+.info b{display:block;font-size:12px;letter-spacing:.13em;text-transform:uppercase;color:#7A8698;
+  font-weight:600;margin-bottom:3px;font-family:'Oswald',sans-serif}
+.info a{text-decoration:none;border-bottom:1px solid var(--line-d)}
+form{background:var(--white);border-radius:8px;padding:36px 32px 38px;box-shadow:0 24px 60px -40px rgba(18,22,28,.55)}
+form h3{font-size:26px;margin-bottom:8px}
+form>p{margin:0 0 20px;color:#4A5566;font-size:16px}
+label{display:block;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#7A8698;
+  margin:16px 0 7px;font-weight:600;font-family:'Oswald',sans-serif}
+input,select{width:100%;padding:15px 17px;border:1.5px solid var(--line-d);background:var(--paper);
+  font-family:inherit;font-size:16px;color:var(--ink);border-radius:4px}
+input:focus,select:focus{outline:0;border-color:var(--amber)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:13px}
+form .btn{width:100%;margin-top:24px}
+form .fine{font-size:13.5px;color:#7A8698;margin:14px 0 0;text-align:center}
+.done{display:none;text-align:center;padding:24px 0}
+.done svg{width:50px;height:50px;color:var(--amber);margin:0 auto 16px}
+.done h3{font-size:24px;margin-bottom:8px}
+.done p{color:#4A5566;margin:0;font-size:16px}
+.is-sent form>*:not(.done){display:none}
+.is-sent .done{display:block}
+
+footer{background:var(--ink);color:var(--steel);padding:52px 0 90px;font-size:15.5px}
+.f-grid{display:flex;justify-content:space-between;gap:34px;flex-wrap:wrap}
+footer a{text-decoration:none}
+footer a:hover{color:#fff}
+
+.bar{display:none;position:fixed;left:0;right:0;bottom:0;z-index:70;gap:10px;
+  background:rgba(18,22,28,.97);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
+  padding:10px 12px calc(10px + env(safe-area-inset-bottom));border-top:1px solid var(--line)}
+.bar .btn{flex:1;padding:15px 6px;font-size:14px}
+
+@media(max-width:1000px){
+  .trust,.book-grid{grid-template-columns:1fr;gap:40px}
+  .works,.steps{grid-template-columns:1fr 1fr}
+  .obj{grid-template-columns:1fr 1fr}
+  .gal{grid-template-columns:1fr 1fr}
+  .gal figure:first-child{grid-column:span 2;grid-row:auto;height:280px}
+  .nav{display:none}
+}
+@media(max-width:640px){
+  section{padding:70px 0}
+  .wrap{padding:0 18px}
+  body{padding-bottom:calc(74px + env(safe-area-inset-bottom))}
+  .hdr .btn{display:none}
+  .bar{display:flex}
+  .hero{padding-top:84px}
+  .hero-in{padding-bottom:42px}
+  .hero-facts{grid-template-columns:1fr 1fr;gap:18px 20px}
+  .hero-cta .btn{width:100%}
+  .works,.steps,.obj,.gal,.two,.trust-img{grid-template-columns:1fr}
+  .gal figure,.gal figure:first-child{height:230px;grid-column:auto}
+  form{padding:28px 22px 30px}
+}
+</style>
+</head>
+<body>
+
+<header class="hdr" id="hdr">
+  <div class="wrap hrow">
+    <a class="logo" href="#top">
+      <span class="mk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21V9l9-6 9 6v12M9 21v-7h6v7"/></svg></span>
+      <span><b>Ремонт квартир</b><span>Казань · под ключ</span></span>
+    </a>
+    <nav class="nav">
+      <a href="#trust">Почему мы</a>
+      <a href="#works">Что делаем</a>
+      <a href="#obj">Объекты</a>
+      <a href="#gal">Фото работ</a>
+      <a href="#book">Вызвать замерщика</a>
+    </nav>
+    <a class="btn" href="#book">Рассчитать ремонт</a>
+  </div>
+</header>
+
+<div id="top"></div>
+<section class="hero">
+  <div class="hero-bg"><img src="assets/hero.jpg" alt="Готовый ремонт квартиры в Казани"></div>
+  <div class="hero-in">
+    <div class="wrap">
+      <p class="eyebrow">Казань и пригород · ремонт под ключ</p>
+      <h1>Ремонт квартир,<em>который видно каждый день</em></h1>
+      <p class="lead">Мы фотографируем каждый этап работ — от демонтажа до последней розетки.
+        Вы видите, что происходит на объекте, даже если приехать некогда. Полный цикл:
+        перепланировка, полы, стены, потолки, электрика, сантехника.</p>
+      <div class="hero-cta">
+        <a class="btn" href="#book">Вызвать замерщика бесплатно</a>
+        <a class="btn btn-ghost" href="#gal">Смотреть работы</a>
+      </div>
+      <div class="hero-facts">
+        <div><b>27</b><span>объектов сдано</span></div>
+        <div><b>1173</b><span>фото с работ</span></div>
+        <div><b>5%</b><span>скидка на все работы</span></div>
+        <div><b>4900+</b><span>подписчиков</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="dark" id="trust">
+  <div class="wrap trust">
+    <div>
+      <p class="eyebrow">Главное отличие</p>
+      <h2 style="font-size:clamp(32px,4.8vw,58px);margin-top:14px">Вы не остаётесь<br>в неведении</h2>
+      <p style="color:var(--steel);margin-top:18px;max-width:520px">Главный страх в ремонте —
+        отдать деньги и не понимать, что происходит за закрытой дверью. У нас на каждый объект
+        заведён фотоальбом: демонтаж, разводка, стяжка, штукатурка, плитка, чистовая. Всё видно.</p>
+      <ul class="tlist">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="6" width="18" height="14" rx="2"/><circle cx="12" cy="13" r="3.5"/><path d="M8 6l1.5-2h5L16 6"/></svg>
+          <div><b>Фотоотчёт по каждому этапу</b><p>27 объектов отсняты целиком — можно открыть любой и посмотреть весь процесс от начала до конца.</p></div></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 7h16M4 12h16M4 17h10"/></svg>
+          <div><b>Полный цикл одной бригадой</b><p>Не надо искать отдельно электрика, плиточника и сантехника. Всё делают наши, ответственность одна.</p></div></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3l8 4v6c0 4.5-3.2 7.6-8 8.9C7.2 20.6 4 17.5 4 13V7z"/><path d="M9 12.5l2 2 4-4.5"/></svg>
+          <div><b>Опытные рабочие</b><p>Люди с большим стажем, а не случайная бригада на один объект. Гарантируем сроки и качество.</p></div></li>
+      </ul>
+    </div>
+    <div class="trust-img">
+      <img src="assets/proc0.jpg" alt="Процесс ремонта">
+      <img src="assets/proc1.jpg" alt="Процесс ремонта">
+      <img src="assets/proc2.jpg" alt="Процесс ремонта">
+      <img src="assets/proc3.jpg" alt="Процесс ремонта">
+    </div>
+  </div>
+</section>
+
+<section id="works">
+  <div class="wrap">
+    <div class="sec-head center">
+      <p class="eyebrow">Что делаем</p>
+      <h2>Полный цикл ремонта</h2>
+      <p>От голых стен до готовой квартиры. Можно взять всё под ключ, можно отдельные работы.</p>
+    </div>
+    <div class="works">
+      <article><h3>Перепланировка</h3><p>Демонтажные и монтажные работы, перенос перегородок, конструкции из гипсокартона.</p></article>
+      <article><h3>Полы</h3><p>Стяжка, наливные полы, ламинат, линолеум, плитка и керамогранит.</p></article>
+      <article><h3>Стены</h3><p>Выравнивание, шпаклёвка, обои, покраска, плитка, декоративные покрытия.</p></article>
+      <article><h3>Потолки</h3><p>Выравнивание, гипсокартон, покраска, натяжные потолки любой сложности.</p></article>
+      <article><h3>Электрика под ключ</h3><p>Разводка, розетки, освещение, щиток, перенос коммуникаций.</p></article>
+      <article><h3>Сантехника под ключ</h3><p>Водопровод, канализация, установка сантехники и радиаторов, перенос стояков.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="dark" id="obj">
+  <div class="wrap">
+    <div class="sec-head center">
+      <p class="eyebrow">Сделано</p>
+      <h2>Наши объекты в Казани</h2>
+      <p>Реальные адреса и жилые комплексы. По каждому есть полный фотоотчёт.</p>
+    </div>
+    <div class="obj">
+      <div><b>ЖК Арт Сити</b><span>трёхкомнатная, под ключ</span></div>
+      <div><b>ЖК Победа</b><span>трёхкомнатная, под ключ</span></div>
+      <div><b>ЖК Станция Спортивная</b><span>двухкомнатная</span></div>
+      <div><b>ЖК Спутник</b><span>Чуйкова, 62</span></div>
+      <div><b>Даурская, 28</b><span>трёхкомнатная</span></div>
+      <div><b>Столярова, 15А</b><span>двухкомнатная под ключ</span></div>
+      <div><b>Широкая, 2</b><span>двухкомнатная</span></div>
+      <div><b>Завойского, 17</b><span>студия под ключ</span></div>
+      <div><b>Рихарда Зорге, 19</b><span>хрущёвка 46 м², под ключ</span></div>
+      <div><b>Ибрагимова</b><span>однокомнатная</span></div>
+      <div><b>Краснококшайская</b><span>двухкомнатная</span></div>
+      <div><b>Камая, 8</b><span>двухкомнатная</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="gal">
+  <div class="wrap">
+    <div class="sec-head center">
+      <p class="eyebrow">Фото работ</p>
+      <h2>Как выглядит результат</h2>
+    </div>
+    <div class="gal">
+      <figure><img src="assets/done1.jpg" alt="Готовая комната после ремонта"></figure>
+      <figure><img src="assets/done2.jpg" alt="Комната с фотообоями"></figure>
+      <figure><img src="assets/bath.jpg" alt="Готовая ванная комната"></figure>
+      <figure><img src="assets/done3.jpg" alt="Готовый интерьер"></figure>
+      <figure><img src="assets/hero.jpg" alt="Гостиная после ремонта"></figure>
+    </div>
+  </div>
+</section>
+
+<section class="dark">
+  <div class="wrap">
+    <div class="sec-head center">
+      <p class="eyebrow">Как работаем</p>
+      <h2>Четыре шага</h2>
+    </div>
+    <div class="steps">
+      <div class="step"><div class="n">1</div><h3>Замер</h3><p>Приезжаем на объект бесплатно, смотрим состояние, слушаем что нужно.</p></div>
+      <div class="step"><div class="n">2</div><h3>Смета</h3><p>Считаем работы и материалы по позициям. Вы видите, за что платите.</p></div>
+      <div class="step"><div class="n">3</div><h3>Ремонт</h3><p>Работаем по этапам и снимаем каждый. Отчёт приходит вам, приезжать не обязательно.</p></div>
+      <div class="step"><div class="n">4</div><h3>Сдача</h3><p>Принимаете работу, проверяете каждую позицию сметы. Убираем за собой.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="book">
+  <div class="wrap book-grid">
+    <div>
+      <p class="eyebrow">Заявка</p>
+      <h2 style="font-size:clamp(32px,4.8vw,58px);margin-top:14px">Вызвать замерщика</h2>
+      <p style="color:#4A5566;margin-top:18px;max-width:430px">Замер и смета — бесплатно и ни к чему
+        не обязывают. Посмотрим квартиру, посчитаем по позициям, скажем честный срок.</p>
+      <ul class="info">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 4h4l2 5-2.5 1.5a12 12 0 0 0 5 5L15 13l5 2v4a1 1 0 0 1-1.1 1A16 16 0 0 1 4 5.1 1 1 0 0 1 5 4z"/></svg>
+          <div><b>Телефон</b><a href="tel:+79662409439">+7 966 240-94-39</a></div></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="18" height="16" rx="4"/><path d="M7 10c.6 3.2 2.4 4.6 4.4 4.6V10m0 4.6h1.2c1.6 0 2.6-1.4 3.8-3"/></svg>
+          <div><b>ВКонтакте</b><a href="https://vk.com/remkazan116" target="_blank" rel="noopener">vk.com/remkazan116</a></div></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s7-6 7-11a7 7 0 1 0-14 0c0 5 7 11 7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>
+          <div><b>Работаем</b>Казань и пригород</div></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20 12V7H4v10h9"/><path d="M16 17l2 2 4-4"/></svg>
+          <div><b>Скидка</b>5% на все работы</div></li>
+      </ul>
+    </div>
+    <form id="f" novalidate>
+      <h3>Рассчитать ремонт</h3>
+      <p>Перезвоним и договоримся о замере.</p>
+      <div class="two">
+        <div><label for="n">Ваше имя</label><input id="n" name="name" placeholder="Имя" required></div>
+        <div><label for="p">Телефон</label><input id="p" name="phone" type="tel" placeholder="+7 ___ ___ __ __" required></div>
+      </div>
+      <div class="two">
+        <div><label for="t">Тип квартиры</label>
+          <select id="t"><option>Студия</option><option>Однокомнатная</option><option>Двухкомнатная</option><option>Трёхкомнатная</option><option>Больше</option></select></div>
+        <div><label for="v">Что нужно</label>
+          <select id="v"><option>Ремонт под ключ</option><option>Косметический ремонт</option><option>Только ванная и санузел</option><option>Отдельные работы</option><option>Пока не решил</option></select></div>
+      </div>
+      <label for="a">Адрес или ЖК</label>
+      <input id="a" placeholder="Чтобы понимать, куда ехать на замер">
+      <button class="btn" type="submit">Вызвать замерщика</button>
+      <p class="fine">Замер и смета бесплатно. Ни к чему не обязывает.</p>
+      <div class="done">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9.5"/><path d="M8 12.4l2.6 2.6L16 9.6"/></svg>
+        <h3>Заявка принята</h3>
+        <p>Перезвоним и договоримся о времени замера.</p>
+      </div>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap f-grid">
+    <div style="max-width:330px">
+      <a class="logo" href="#top" style="margin-bottom:14px">
+        <span class="mk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21V9l9-6 9 6v12M9 21v-7h6v7"/></svg></span>
+        <span><b>Ремонт квартир</b><span>Казань · под ключ</span></span>
+      </a>
+      <p style="margin:14px 0 0">Перепланировка, полы, стены, потолки, электрика и сантехника
+        под ключ. Фотоотчёт по каждому этапу.</p>
+    </div>
+    <div>
+      <p style="margin:0 0 8px"><a href="tel:+79662409439">+7 966 240-94-39</a></p>
+      <p style="margin:0 0 8px"><a href="https://vk.com/remkazan116" target="_blank" rel="noopener">vk.com/remkazan116</a></p>
+      <p style="margin:0 0 8px">Казань и пригород</p>
+      <p style="margin:0">Скидка 5% на все работы</p>
+    </div>
+  </div>
+</footer>
+
+<div class="bar">
+  <a class="btn" href="#book">Замер бесплатно</a>
+  <a class="btn btn-ghost" href="tel:+79662409439">Позвонить</a>
+</div>
+
+<script>
+var hdr=document.getElementById('hdr');
+function onScroll(){hdr.classList.toggle('solid',window.scrollY>60)}
+onScroll();addEventListener('scroll',onScroll,{passive:true});
+document.getElementById('f').addEventListener('submit',function(e){
+  e.preventDefault();
+  if(!this.name.value.trim()){this.name.focus();return}
+  if(this.phone.value.replace(/\D/g,'').length<10){this.phone.focus();return}
+  this.classList.add('is-sent');
+});
+</script>
+</body>
+</html>
