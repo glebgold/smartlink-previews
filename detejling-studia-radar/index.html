@@ -3,6 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+   (function(m,e,t,r,i,k,a){
+       m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+       m[i].l=1*new Date();
+       for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+       k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+   })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=111360976', 'ym');
+   ym(111360976, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/111360976" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
 <title>Детейлинг-студия «Радар» — Донецк · Керамика, полировка, химчистка</title>
 <meta name="description" content="Детейлинг-студия «Радар» в Донецке на Горностаевской, 1А. Керамическое покрытие, восстановительная полировка кузова, химчистка салона. Возвращаем авто вид как из салона. Ежедневно 8:00–18:00.">
 <meta name="theme-color" content="#08090b">
@@ -10,7 +22,9 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="Детейлинг-студия «Радар» — Донецк">
 <meta property="og:description" content="Керамика, полировка и химчистка. Возвращаем автомобилю вид как из салона.">
-<meta property="og:image" content="https://glebgold.github.io/smartlink-previews/detejling-studia-radar/assets/hero1.jpg">
+<link rel="canonical" href="https://radar-detailing.ru/">
+<meta property="og:url" content="https://radar-detailing.ru/">
+<meta property="og:image" content="https://radar-detailing.ru/assets/hero1.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <!-- шрифты грузим НЕ блокируя отрисовку: если Google недоступен (бывает в РФ/ДНР), сайт всё равно
@@ -957,10 +971,17 @@ body.nav-open .mobile-menu{transform:translateY(0)}
   if(form){
     form.addEventListener('submit', function(e){
       e.preventDefault();
+      if(window.ym) ym(111360976, 'reachGoal', 'lead_form');   // цель Метрики: оставление заявки
       form.style.display='none';
       document.getElementById('formSuccess').classList.add('on');
     });
   }
+
+  /* Яндекс.Метрика — цель "phone_click": клик по любому номеру телефона */
+  document.addEventListener('click', function(e){
+    var t = e.target.closest ? e.target.closest('a[href^="tel:"]') : null;
+    if(t && window.ym) ym(111360976, 'reachGoal', 'phone_click');
+  }, true);
 
   /* reels */
   (function(){
