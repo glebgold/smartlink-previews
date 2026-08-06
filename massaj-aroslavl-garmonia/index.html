@@ -1,394 +1,538 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ru">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Массаж Ярославль | Гармония — Ярославль</title>
-<meta name="description" content="Профессиональный массаж и косметология для женщин в Ярославле">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Студия массажа «Гармония» — массаж тела и лица в Ярославле, ул. Нахимсона 21А</title>
+<meta name="description" content="Студия массажа тела и лица «Гармония» в Ярославле. Только для женщин. Классический, антицеллюлитный, медовый, SKETCH-массаж, массаж лица и косметология. Скидка 30% на первое посещение. Запись: +7 920 106-80-35.">
+<meta property="og:title" content="Студия массажа «Гармония» — Ярославль">
+<meta property="og:description" content="Массаж тела и лица только для женщин. Ул. Нахимсона, 21А. Скидка 30% на первое посещение.">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Забудьте о боли и стрессе — Массаж Ярославль | Гармония">
-<meta property="og:description" content="Профессиональный массаж и косметология для женщин в Ярославле">
-<meta property="og:image" content="assets/cover.jpg">
-<meta name="theme-color" content="#b03a6e">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Golos+Text:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{
-  --accent:#b03a6e;
-  --ink:#191a1c; --ink-soft:#5f6165; --line:#dcd7cd;
-  --bg:#f6f3ec; --card:#fdfcf9; --dark:#191a1c;
+  --cream:#FAF3EA;        /* фон с её логотипа */
+  --cream-2:#F3E8DA;
+  --paper:#FFFCF8;
+  --gold:#B4986B;         /* золото с её логотипа */
+  --gold-d:#9A7F53;
+  --rose:#C97B6A;         /* пыльная роза — шторы и кушетка в её студии */
+  --rose-l:#E7CDC4;
+  --rose-p:#F6E7E1;
+  --ink:#332C26;
+  --ink-2:#5A4F45;
+  --muted:#8B7E71;
+  --line:rgba(51,44,38,.13);
+  --shadow:0 26px 64px -34px rgba(90,70,55,.45);
 }
-*{box-sizing:border-box;margin:0;padding:0}
+*{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
-  color:var(--ink);background:var(--bg);line-height:1.58;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-.serif{font-family:"Georgia","Times New Roman","PT Serif",serif;font-weight:400}
-img{display:block;max-width:100%}
-a{color:inherit;text-decoration:none}
-.wrap{max-width:1150px;margin:0 auto;padding:0 28px}
-.cap{font-size:12px;letter-spacing:.26em;text-transform:uppercase;font-weight:700;color:var(--ink-soft)}
-.cap b{color:var(--accent)}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:16px 34px;border-radius:2px;
-  font-weight:600;font-size:15px;letter-spacing:.04em;transition:.3s;cursor:pointer;border:0}
-.btn-ink{background:var(--ink);color:#fff}
-.btn-ink:hover{background:var(--accent);transform:translateY(-2px)}
-.btn-line{background:transparent;color:var(--ink);border:1px solid var(--ink)}
-.btn-line:hover{background:var(--ink);color:#fff}
+body{margin:0;background:var(--cream);color:var(--ink);
+  font-family:'Golos Text',system-ui,-apple-system,sans-serif;
+  font-size:17.5px;line-height:1.68;-webkit-font-smoothing:antialiased;overflow-x:hidden;
+  font-variant-numeric:lining-nums;font-feature-settings:"lnum" 1}
+img{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3,.serif{font-family:'Cormorant Garamond',Georgia,serif;font-weight:400;margin:0;letter-spacing:.005em}
+.wrap{max-width:1160px;margin:0 auto;padding:0 26px}
+.eyebrow{font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);font-weight:600}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;
+  padding:17px 34px;border-radius:100px;border:1.5px solid var(--rose);
+  background:var(--rose);color:#fff;text-decoration:none;font-size:15.5px;font-weight:500;
+  cursor:pointer;transition:.25s;font-family:inherit;line-height:1.3;text-align:center;min-height:56px}
+.btn:hover{background:#B36A5A;border-color:#B36A5A}
+.btn-ghost{background:transparent;color:var(--ink);border-color:var(--gold)}
+.btn-ghost:hover{background:var(--gold);color:#fff;border-color:var(--gold)}
+.btn-gold{background:var(--gold);border-color:var(--gold);color:#fff}
+.btn-gold:hover{background:var(--gold-d);border-color:var(--gold-d)}
 
-/* header */
-header{position:fixed;top:0;left:0;right:0;z-index:50;transition:.35s}
-.hd{display:flex;align-items:center;justify-content:space-between;height:78px}
-.brand{display:flex;align-items:center;gap:13px}
-.brand img{height:42px;width:42px;border-radius:50%;object-fit:cover;box-shadow:0 0 0 1px var(--line)}
-.brand .mark{height:42px;width:42px;border-radius:50%;display:grid;place-items:center;background:var(--ink);color:#fff;font-size:19px}
-.brand b{font-size:15.5px;letter-spacing:.01em;max-width:250px;line-height:1.2}
-header.solid{background:color-mix(in srgb,var(--bg) 92%,#fff);box-shadow:0 1px 0 var(--line)}
-.nav-tel{font-size:14.5px;font-weight:600;letter-spacing:.03em;border-bottom:1px solid var(--ink);padding-bottom:2px;transition:.25s}
-.nav-tel:hover{color:var(--accent);border-color:var(--accent)}
+.rule{display:flex;align-items:center;gap:14px;margin-top:18px}
+.rule i{height:1px;background:var(--line);flex:1;max-width:70px}
+.rule svg{width:20px;height:20px;color:var(--gold)}
 
-/* hero — журнальная обложка */
-.hero{position:relative;padding:150px 0 0}
-.hero-rule{display:flex;align-items:center;gap:16px}
-.hero-rule::after{content:"";flex:1;height:1px;background:var(--line)}
-.hero h1{font-family:Georgia,"Times New Roman",serif;font-weight:400;letter-spacing:-.015em;
-  font-size:clamp(44px,7vw,92px);line-height:1.02;margin:30px 0 0;max-width:16ch}
-.hero h1 em{font-style:italic;color:var(--accent)}
-.hero-cols{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:end;margin-top:40px}
-.hero .sub{font-size:clamp(16px,1.6vw,19px);color:var(--ink-soft);max-width:46ch}
-.hero-actions{display:flex;flex-wrap:wrap;gap:13px;justify-content:flex-end}
-.hero-media{margin-top:64px;position:relative}
-.hero-media .frame{aspect-ratio:21/9;overflow:hidden;background:var(--dark)}
-.hero-media .frame img{width:100%;height:100%;object-fit:cover;filter:saturate(1.05)}
-.hero-media .frame.plain{display:grid;place-items:center;background:
-  radial-gradient(700px 320px at 30% 20%,color-mix(in srgb,var(--accent) 45%,var(--dark)),var(--dark))}
-.hero-media .frame.plain span{font-family:Georgia,serif;font-size:110px;color:rgba(255,255,255,.92)}
-.hero-media .plate{position:absolute;right:40px;bottom:-34px;background:var(--card);border:1px solid var(--line);
-  padding:22px 28px;box-shadow:0 30px 60px -30px rgba(25,26,28,.35);max-width:330px}
-.hero-media .plate b{font-family:Georgia,serif;font-size:19px;font-weight:400;display:block;line-height:1.3}
-.hero-media .plate span{display:block;color:var(--ink-soft);font-size:13.5px;margin-top:6px}
+/* шапка */
+.hdr{position:fixed;top:0;left:0;right:0;z-index:60;padding:14px 0;transition:.35s}
+.hdr.solid{background:rgba(250,243,234,.95);-webkit-backdrop-filter:blur(14px);
+  backdrop-filter:blur(14px);box-shadow:0 1px 0 var(--line);padding:9px 0}
+.hrow{display:flex;align-items:center;justify-content:space-between;gap:24px}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.logo img{width:52px;height:52px;border-radius:50%;flex:none;object-fit:cover}
+.logo b{font-family:'Cormorant Garamond',serif;font-size:23px;font-weight:600;
+  letter-spacing:.16em;text-transform:uppercase;display:block;line-height:1.1}
+.logo span{display:block;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.nav{display:flex;gap:26px}
+.nav a{text-decoration:none;font-size:15px;color:var(--ink-2);transition:.2s;white-space:nowrap}
+.nav a:hover{color:var(--rose)}
+.hdr .btn{padding:12px 24px;font-size:14px;min-height:auto}
 
-/* лента фактов */
-.facts{margin-top:96px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--card)}
-.facts-in{display:grid;grid-template-columns:repeat(3,1fr)}
-.fact{padding:30px 26px;text-align:center;position:relative}
-.fact+.fact::before{content:"";position:absolute;left:0;top:22%;height:56%;width:1px;background:var(--line)}
-.fact b{font-family:Georgia,serif;font-weight:400;font-size:clamp(30px,3.6vw,44px);letter-spacing:-.02em}
-.fact b i{font-style:italic;color:var(--accent)}
-.fact span{display:block;font-size:13px;color:var(--ink-soft);margin-top:4px;letter-spacing:.05em}
+/* герой */
+.hero{padding:132px 0 84px;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;top:-220px;right:-200px;width:720px;height:720px;
+  background:radial-gradient(circle,var(--rose-p) 0%,rgba(246,231,225,0) 68%);border-radius:50%;pointer-events:none}
+.hero-grid{position:relative;display:grid;grid-template-columns:1.04fr .96fr;gap:60px;align-items:center}
+.hero h1{font-size:clamp(40px,5.6vw,72px);line-height:1.06;margin:20px 0 0;font-weight:300}
+.hero h1 em{font-style:italic;color:var(--rose);display:block}
+.hero .lead{font-size:18.5px;color:var(--ink-2);margin:24px 0 0;max-width:520px}
+.hero-cta{display:flex;flex-wrap:wrap;gap:13px;margin-top:32px}
+.hero-tags{display:flex;flex-wrap:wrap;gap:9px;margin-top:30px}
+.hero-tags span{background:var(--paper);border:1px solid var(--line);border-radius:100px;
+  padding:8px 17px;font-size:14px;color:var(--ink-2)}
+.hero-photo{position:relative}
+.hero-photo img{width:100%;border-radius:220px 220px 26px 26px;box-shadow:var(--shadow);
+  object-fit:cover;aspect-ratio:3/4}
+.badge{position:absolute;left:-24px;bottom:40px;background:var(--rose);color:#fff;
+  border-radius:22px;padding:18px 24px;box-shadow:var(--shadow);max-width:210px}
+.badge b{display:block;font-family:'Cormorant Garamond',serif;font-size:40px;line-height:1;font-weight:600}
+.badge span{font-size:13.5px;line-height:1.35;display:block;margin-top:5px;color:rgba(255,255,255,.92)}
 
-/* sections */
-.sec{padding:clamp(76px,9vw,128px) 0}
-.sec-head{display:grid;grid-template-columns:auto 1fr;gap:26px;align-items:baseline;margin-bottom:52px}
-.sec-num{font-family:Georgia,serif;font-size:15px;color:var(--accent);letter-spacing:.14em}
-.sec-head h2{font-family:Georgia,serif;font-weight:400;letter-spacing:-.015em;font-size:clamp(30px,4vw,50px);line-height:1.05}
-.sec-head h2 em{font-style:italic;color:var(--accent)}
+section{padding:96px 0}
+.sec-head{max-width:680px;margin-bottom:52px}
+.sec-head h2{font-size:clamp(33px,4.6vw,54px);line-height:1.08;margin:14px 0 0;font-weight:300}
+.sec-head p{color:var(--ink-2);margin:16px 0 0;font-size:17.5px}
+.center{margin-left:auto;margin-right:auto;text-align:center}
+.center .rule{justify-content:center}
+.tint{background:var(--cream-2)}
 
-/* услуги — двухколоночный список */
-.svc-list{display:grid;grid-template-columns:1fr 1fr;gap:0 64px}
-.svc-it{padding:26px 2px;border-top:1px solid var(--line);display:grid;grid-template-columns:auto 1fr;gap:18px;transition:.3s}
-.svc-it:hover{background:var(--card);padding-left:14px}
-.svc-it .no{font-family:Georgia,serif;font-size:14px;color:var(--ink-soft);padding-top:4px}
-.svc-it h3{font-size:19px;font-weight:700;letter-spacing:-.01em}
-.svc-it p{color:var(--ink-soft);font-size:14.5px;margin-top:6px;max-width:40ch}
+/* обо мне */
+.about{display:grid;grid-template-columns:.9fr 1.1fr;gap:58px;align-items:center}
+.about img{width:100%;border-radius:26px;box-shadow:var(--shadow);aspect-ratio:3/4;object-fit:cover;object-position:50% 22%}
+.quote{background:var(--paper);border-left:3px solid var(--gold);border-radius:0 18px 18px 0;
+  padding:22px 26px;font-family:'Cormorant Garamond',serif;font-size:23px;font-style:italic;
+  line-height:1.42;color:var(--ink-2);margin:26px 0}
+.nums{display:flex;gap:14px;flex-wrap:wrap;margin-top:26px}
+.nums div{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:18px 22px;flex:1;min-width:140px}
+.nums b{display:block;font-family:'Cormorant Garamond',serif;font-size:36px;line-height:1;color:var(--rose);font-weight:600}
+.nums span{font-size:14px;color:var(--ink-2);display:block;margin-top:7px}
 
-/* процесс — вертикальная лента */
-.proc{background:var(--dark);color:#efece4}
-.proc .sec-head h2{color:#efece4}
-.proc-line{max-width:760px}
-.pr{display:grid;grid-template-columns:88px 1fr;gap:26px;padding:30px 0;border-top:1px solid rgba(255,255,255,.14);position:relative}
-.pr b{font-family:Georgia,serif;font-weight:400;font-style:italic;font-size:34px;color:var(--accent)}
-.pr h3{font-size:19px;font-weight:700}
-.pr p{color:#a4a49e;font-size:15px;margin-top:6px;max-width:52ch}
+/* результат */
+.res{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.res article{background:var(--paper);border-radius:22px;padding:30px 28px 32px;
+  box-shadow:0 14px 40px -32px rgba(90,70,55,.5)}
+.res .ic{width:46px;height:46px;border-radius:50%;background:var(--rose-p);display:flex;
+  align-items:center;justify-content:center;margin-bottom:16px}
+.res .ic svg{width:22px;height:22px;color:var(--rose)}
+.res h3{font-size:25px;margin-bottom:8px;line-height:1.22}
+.res p{margin:0;color:var(--ink-2);font-size:16.5px}
 
-/* гарантия — цитата */
-.quote{text-align:center;padding:clamp(76px,9vw,124px) 0;background:
-  radial-gradient(700px 320px at 50% 0%,color-mix(in srgb,var(--accent) 9%,transparent),transparent 70%),var(--bg)}
-.quote .qm{font-family:Georgia,serif;font-size:110px;line-height:.4;color:var(--accent);display:block;margin-bottom:34px}
-.quote blockquote{font-family:Georgia,serif;font-style:italic;font-size:clamp(24px,3.6vw,42px);line-height:1.22;
-  letter-spacing:-.01em;max-width:26ch;margin:0 auto}
-.quote .who{margin-top:26px;font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-soft)}
-.quote .btn{margin-top:36px}
+/* прайс */
+.price{max-width:860px;margin:0 auto;background:var(--paper);border-radius:26px;
+  padding:14px 34px;box-shadow:var(--shadow)}
+.price .row{display:grid;grid-template-columns:1fr auto auto;gap:20px;align-items:baseline;
+  padding:19px 0;border-bottom:1px dashed var(--line)}
+.price .row:last-child{border-bottom:0}
+.price .nm{font-size:17.5px}
+.price .dur{font-size:14.5px;color:var(--muted);white-space:nowrap}
+.price .val{font-family:'Cormorant Garamond',serif;font-size:27px;font-weight:600;
+  color:var(--rose);white-space:nowrap;min-width:96px;text-align:right}
+.pnote{max-width:860px;margin:24px auto 0;background:var(--rose-p);border-radius:20px;
+  padding:22px 28px;display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+.pnote svg{width:26px;height:26px;color:var(--rose);flex:none}
+.pnote p{margin:0;font-size:16.5px}
+.pnote b{font-family:'Cormorant Garamond',serif;font-size:21px;font-weight:600}
 
-/* галерея — паспарту */
-.works{background:var(--card);border-top:1px solid var(--line)}
-.wgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
-.wgrid a{background:#fff;border:1px solid var(--line);padding:12px;display:block;transition:.35s;
-  box-shadow:0 16px 34px -22px rgba(25,26,28,.25)}
-.wgrid a:hover{transform:translateY(-6px);box-shadow:0 28px 50px -26px rgba(25,26,28,.4)}
-.wgrid .im{aspect-ratio:4/3;overflow:hidden;background:var(--bg)}
-.wgrid img{width:100%;height:100%;object-fit:cover}
+/* косметология */
+.cosm{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.cosm div{background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:24px 24px 26px}
+.cosm b{font-family:'Cormorant Garamond',serif;font-size:24px;display:block;margin-bottom:6px}
+.cosm span{font-size:16px;color:var(--ink-2)}
 
-/* faq */
-.faq .qa{border-top:1px solid var(--line)}
-.faq .qa:last-child{border-bottom:1px solid var(--line)}
-.faq summary{list-style:none;cursor:pointer;padding:24px 2px;display:flex;justify-content:space-between;gap:20px;
-  font-size:18px;font-weight:700;letter-spacing:-.01em}
-.faq summary::-webkit-details-marker{display:none}
-.faq .pl{font-family:Georgia,serif;font-style:italic;color:var(--accent);font-size:22px;transition:.3s}
-.faq .qa[open] .pl{transform:rotate(45deg)}
-.faq .ans{padding:0 2px 24px;color:var(--ink-soft);font-size:15.5px;max-width:62ch}
-.faq-list{max-width:800px}
+/* курс */
+.course{display:grid;grid-template-columns:1fr 1fr;gap:54px;align-items:center}
+.clist{list-style:none;padding:0;margin:24px 0 0}
+.clist li{display:flex;gap:14px;padding:13px 0;border-bottom:1px solid var(--line);font-size:16.5px}
+.clist svg{width:20px;height:20px;color:var(--gold);flex:none;margin-top:4px}
+.course img{width:100%;border-radius:26px;box-shadow:var(--shadow);aspect-ratio:4/3;object-fit:cover}
 
-/* форма */
-.lead{background:var(--dark);color:#efece4}
-.lead .wrap{padding:clamp(70px,8vw,110px) 28px}
-.lead-grid{display:grid;grid-template-columns:1fr .95fr;gap:60px;align-items:center}
-.lead h2{font-family:Georgia,serif;font-weight:400;font-size:clamp(30px,4vw,50px);line-height:1.06;letter-spacing:-.015em}
-.lead h2 em{font-style:italic;color:var(--accent)}
-.lead .lp{color:#a4a49e;font-size:16.5px;margin-top:18px;max-width:44ch}
-.lead-points{list-style:none;margin:26px 0 0;display:grid;gap:13px}
-.lead-points li{display:flex;gap:14px;align-items:center;font-size:15px}
-.lead-points .tk{font-family:Georgia,serif;font-style:italic;color:var(--accent);font-size:18px}
-.lead-form{background:var(--card);color:var(--ink);padding:36px 34px;border:1px solid var(--line)}
-.lf-row{margin-bottom:16px}
-.lf-row label{display:block;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-bottom:8px;color:var(--ink-soft)}
-.lf-row input,.lf-row textarea{width:100%;border:0;border-bottom:1.5px solid var(--line);background:transparent;
-  padding:10px 2px;font:inherit;font-size:16px;transition:.25s;resize:vertical}
-.lf-row input:focus,.lf-row textarea:focus{outline:none;border-color:var(--accent)}
-.lf-btn{width:100%;margin-top:12px}
-.lf-note{display:block;text-align:center;color:#9b9b95;font-size:12px;margin-top:12px}
-.lf-ok{display:none;border:1px solid var(--accent);padding:18px;text-align:center;font-weight:600;color:var(--ink)}
-.lf-ok.show{display:block}
+/* студия */
+.gal{display:grid;grid-template-columns:1.3fr 1fr;gap:14px}
+.gal figure{margin:0;border-radius:22px;overflow:hidden;background:var(--rose-l)}
+.gal figure img{width:100%;height:100%;object-fit:cover;transition:.6s}
+.gal figure:hover img{transform:scale(1.04)}
+.gal .a{grid-row:span 2;height:566px}
+.gal .b,.gal .c{height:276px}
 
-/* footer */
-footer{background:var(--dark);color:#8f8f89;padding:0 0 40px;font-size:14px}
-footer .wrap{border-top:1px solid rgba(255,255,255,.12);padding-top:36px}
-.ft{display:flex;flex-wrap:wrap;gap:26px;justify-content:space-between}
-.ft b{color:#efece4;font-size:16px}
-.ft a:hover{color:#efece4}
-.made{margin-top:30px;opacity:.5;font-size:13px}
+/* сертификат */
+.gift{background:var(--ink);color:#fff;border-radius:28px;padding:56px 52px;
+  display:grid;grid-template-columns:1.1fr .9fr;gap:44px;align-items:center}
+.gift h2{color:#fff;font-size:clamp(30px,4vw,46px);line-height:1.1;font-weight:300}
+.gift p{color:rgba(255,255,255,.8);margin:16px 0 0}
+.gift .row2{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+.gift .row2 span{border:1px solid rgba(255,255,255,.28);border-radius:100px;padding:9px 18px;font-size:14.5px}
 
-/* mobile bar */
-.mbar{position:fixed;left:0;right:0;bottom:0;z-index:60;display:none;gap:10px;padding:12px 14px;
-  background:color-mix(in srgb,var(--bg) 96%,#fff);backdrop-filter:blur(12px);border-top:1px solid var(--line)}
-.mbar a{flex:1;text-align:center;padding:14px;border-radius:2px;font-weight:700}
-.mbar .call{background:var(--card);border:1px solid var(--line);color:var(--ink)}
-.mbar .go{background:var(--ink);color:#fff}
+/* запись */
+.book{background:var(--cream-2)}
+.book-grid{display:grid;grid-template-columns:1fr 1fr;gap:54px;align-items:start}
+.info{list-style:none;padding:0;margin:28px 0 0}
+.info li{display:flex;gap:15px;padding:17px 0;border-bottom:1px solid var(--line)}
+.info svg{width:21px;height:21px;color:var(--gold);flex:none;margin-top:4px}
+.info b{display:block;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--muted);font-weight:600;margin-bottom:3px}
+.info a{text-decoration:none;border-bottom:1px solid var(--line)}
+.info a:hover{border-bottom-color:var(--rose)}
+form{background:var(--paper);border-radius:26px;padding:36px 32px 38px;box-shadow:var(--shadow)}
+form h3{font-size:28px;margin-bottom:6px}
+form>p{margin:0 0 20px;color:var(--muted);font-size:16px}
+label{display:block;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--muted);margin:16px 0 7px;font-weight:600}
+input,select,textarea{width:100%;padding:15px 17px;border:1px solid var(--line);
+  background:var(--cream);font-family:inherit;color:var(--ink);border-radius:14px;font-size:16px}
+textarea{min-height:88px;resize:vertical}
+input:focus,select:focus,textarea:focus{outline:0;border-color:var(--rose)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:13px}
+form .btn{width:100%;margin-top:24px}
+form .fine{font-size:13px;color:var(--muted);margin:14px 0 0;text-align:center}
+.done{display:none;text-align:center;padding:24px 0}
+.done svg{width:52px;height:52px;color:var(--rose);margin:0 auto 16px}
+.done h3{font-size:27px;margin-bottom:8px}
+.done p{color:var(--muted);margin:0;font-size:16px}
+.is-sent form>*:not(.done){display:none}
+.is-sent .done{display:block}
 
-.rv{opacity:0;transform:translateY(24px);transition:.8s cubic-bezier(.2,.7,.2,1)}
-.rv.in{opacity:1;transform:none}
+footer{background:var(--ink);color:rgba(255,255,255,.66);padding:54px 0 92px;font-size:15.5px}
+.f-grid{display:flex;justify-content:space-between;gap:36px;flex-wrap:wrap}
+footer .logo b{color:#fff}
+footer .logo span{color:rgba(255,255,255,.5)}
+footer a{text-decoration:none}
+footer a:hover{color:#fff}
 
-@media(max-width:900px){
-  .hero-cols{grid-template-columns:1fr;gap:26px}
-  .hero-actions{justify-content:flex-start}
-  .svc-list{grid-template-columns:1fr}
-  .facts-in{grid-template-columns:1fr}
-  .fact+.fact::before{left:22%;top:0;height:1px;width:56%}
-  .lead-grid{grid-template-columns:1fr;gap:40px}
-  .hero-media .plate{position:static;margin-top:18px;max-width:none}
-  .wgrid{grid-template-columns:1fr 1fr}
+.bar{display:none;position:fixed;left:0;right:0;bottom:0;z-index:70;gap:10px;
+  background:rgba(250,243,234,.97);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);
+  box-shadow:0 -1px 0 var(--line);padding:10px 12px calc(10px + env(safe-area-inset-bottom))}
+.bar .btn{flex:1;padding:14px 6px;font-size:14.5px;min-height:52px}
+
+@media(max-width:1000px){
+  .hero-grid,.about,.course,.book-grid,.gift{grid-template-columns:1fr;gap:42px}
+  .hero-photo,.about img{max-width:440px;margin:0 auto}
+  .res,.cosm{grid-template-columns:1fr 1fr}
+  .gal{grid-template-columns:1fr 1fr}
+  .gal .a{grid-row:auto;height:300px}
+  .gal .b,.gal .c{height:250px}
+  .nav{display:none}
+  .gift{padding:44px 34px}
 }
-@media(max-width:820px){
-  .nav-tel{display:none}.mbar{display:flex}
-  body{padding-bottom:76px}
-  .hero{padding-top:120px}
+@media(max-width:640px){
+  body{font-size:17px;padding-bottom:calc(74px + env(safe-area-inset-bottom))}
+  section{padding:70px 0}
+  .wrap{padding:0 20px}
+  .hero{padding:110px 0 60px}
+  .hdr .btn{display:none}
+  .bar{display:flex}
+  .res,.cosm,.gal,.two{grid-template-columns:1fr}
+  .gal figure,.gal .a,.gal .b,.gal .c{height:240px}
+  .hero-cta .btn{width:100%}
+  .badge{left:10px;bottom:14px;padding:14px 18px}
+  .price{padding:8px 20px}
+  .price .row{grid-template-columns:1fr auto;gap:6px 14px}
+  .price .dur{grid-column:1;font-size:13.5px}
+  .price .val{grid-row:1;grid-column:2}
+  form{padding:28px 22px 30px}
+  .gift{padding:34px 24px;border-radius:22px}
 }
 </style>
 </head>
 <body>
 
-<header id="hdr">
-  <div class="wrap hd">
-    <a class="brand" href="#top">
-      <img src="assets/logo.jpg" alt="Массаж Ярославль | Гармония">
-      <b>Массаж Ярославль | Гармония</b>
+<header class="hdr" id="hdr">
+  <div class="wrap hrow">
+    <a class="logo" href="#top">
+      <img src="assets/logo.jpg" alt="Логотип студии Гармония">
+      <span><b>Гармония</b><span>студия массажа тела и лица</span></span>
     </a>
-    <a class="nav-tel" href="tel:+79201068035">+7 (920) 106-80-35</a>
-    
+    <nav class="nav">
+      <a href="#about">Обо мне</a>
+      <a href="#help">Чем помогу</a>
+      <a href="#prices">Цены</a>
+      <a href="#face">Лицо</a>
+      <a href="#studio">Студия</a>
+      <a href="#book">Записаться</a>
+    </nav>
+    <a class="btn" href="#book">Записаться</a>
   </div>
 </header>
 
-<a id="top"></a>
+<div id="top"></div>
 <section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">Ярославль · ул. Нахимсона, 21А · только для женщин</p>
+      <h1>Гармония тела, души<em>и внутреннего состояния</em></h1>
+      <p class="lead">Небольшая уютная студия, где нет суеты и спешки. Только вы, я и час,
+        который принадлежит вам. Массаж тела и лица, эстетическая косметология —
+        с индивидуальным подходом к каждой.</p>
+      <div class="hero-cta">
+        <a class="btn" href="#book">Записаться со скидкой 30%</a>
+        <a class="btn btn-ghost" href="#prices">Посмотреть цены</a>
+      </div>
+      <div class="hero-tags">
+        <span>Дипломированный мастер</span>
+        <span>Онлайн-запись</span>
+        <span>Подарочные сертификаты</span>
+      </div>
+    </div>
+    <div class="hero-photo">
+      <img src="assets/studio1.jpg" alt="Кабинет студии массажа Гармония в Ярославле">
+      <div class="badge">
+        <b>−30%</b>
+        <span>на первое посещение</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="tint" id="help">
   <div class="wrap">
-    <div class="hero-rule rv"><span class="cap"><b>Медицина</b> — Ярославль</span></div>
-    <h1 class="rv">Забудьте о боли и стрессе</h1>
-    <div class="hero-cols rv">
-      <p class="sub">Профессиональный массаж и косметология для женщин в Ярославле</p>
-      <div class="hero-actions">
-        <a class="btn btn-ink" href="#zayavka">Записаться на прием</a>
-        <a class="btn btn-line" href="tel:+79201068035">Позвонить</a>
-      </div>
+    <div class="sec-head center">
+      <p class="eyebrow">Что вы получите</p>
+      <h2>Зачем ко мне приходят</h2>
+      <div class="rule"><i></i>
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c-1.2 5.4-4.3 7.6-8.6 8.6 4.3 1 7.4 3.2 8.6 12.4 1.2-9.2 4.3-11.4 8.6-12.4C16.3 9.6 13.2 7.4 12 2z"/></svg>
+        <i></i></div>
     </div>
-    <div class="hero-media rv">
-      <div class="frame ">
-        <img src="assets/cover.jpg" alt="Массаж Ярославль | Гармония">
-        
-      </div>
-      <div class="plate">
-        <b>Один визит — и вы поймёте, что это именно то, чего вам не хватало</b>
-        <span>Массаж Ярославль | Гармония · Ярославль</span>
-      </div>
-    </div>
-  </div>
-  <div class="facts rv">
-    <div class="wrap facts-in">
-      <div class="fact"><b>1594<i>+</i></b><span>клиентов нам доверяют</span></div>
-      
-      <div class="fact"><b>5<i>+</i></b><span>направлений работы</span></div>
-      <div class="fact"><b>15<i> мин</i></b><span>ответ на заявку</span></div>
+    <div class="res">
+      <article>
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M6 4v7a6 6 0 0 0 12 0V4M9 20h6M12 17v3"/></svg></div>
+        <h3>Свобода движения</h3>
+        <p>Мышечные спазмы, зажимы и боли в спине уходят. Тело перестаёт быть источником
+          неудобства и снова слушается вас.</p>
+      </article>
+      <article>
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg></div>
+        <h3>Прилив сил</h3>
+        <p>Активируем кровообращение и лимфоток. После сеанса появляется энергия,
+          которой не хватало всю неделю.</p>
+      </article>
+      <article>
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 21s7-5.5 7-11a7 7 0 1 0-14 0c0 5.5 7 11 7 11z"/><circle cx="12" cy="10" r="2.4"/></svg></div>
+        <h3>Снятый груз стресса</h3>
+        <p>Глубокое расслабление для души и тела — то состояние, после которого
+          хочется улыбаться без причины.</p>
+      </article>
+      <article>
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3c3 4 6 5.5 6 9a6 6 0 0 1-12 0c0-3.5 3-5 6-9z"/></svg></div>
+        <h3>Ухоженная кожа</h3>
+        <p>Массаж лица и косметология: сияние, чёткие контуры, меньше отёчности —
+          без уколов и операций.</p>
+      </article>
     </div>
   </div>
 </section>
 
+<section id="about">
+  <div class="wrap about">
+    <img src="assets/daria.jpg" alt="Дарья — мастер студии массажа Гармония">
+    <div>
+      <p class="eyebrow">Мастер</p>
+      <h2 style="font-size:clamp(33px,4.6vw,54px);line-height:1.08;margin:14px 0 0;font-weight:300">Дарья</h2>
+      <p style="margin-top:18px;color:var(--ink-2)">Сертифицированный и дипломированный мастер
+        массажа. Моя цель — подарить вам ощущение лёгкости, гармонии и внутреннего покоя.
+        В моей небольшой, но уютной студии вы сможете по-настоящему расслабиться,
+        восстановить силы и услышать своё тело.</p>
+      <p class="quote">Здесь нет суеты и спешки. Только вы, я и атмосфера заботы.</p>
+      <p style="margin:0;color:var(--ink-2)">Хороший специалист никогда не перестаёт учиться.
+        Поэтому я регулярно прохожу обучения — например, мастер-класс ARAVIA Professional
+        «Путь мастера: массажные техники по лицу» — и применяю современные методики в работе.</p>
+      <div class="nums">
+        <div><b>13</b><span>видов массажа тела и лица</span></div>
+        <div><b>6</b><span>процедур эстетической косметологии</span></div>
+        <div><b>1700</b><span>подписчиц в сообществе</span></div>
+      </div>
+    </div>
+  </div>
+</section>
 
-<section class="sec" id="services">
+<section class="tint" id="prices">
   <div class="wrap">
-    <div class="sec-head rv"><span class="sec-num">№ 01</span><h2>Чем мы можем <em>быть полезны</em></h2></div>
-    <div class="svc-list">
-      
-      <div class="svc-it rv" style="transition-delay:0ms">
-        <span class="no">01</span>
-        <div><h3>Лечебный массаж спины</h3><p>Избавляет от спазмов, зажимов и боли в спине</p></div>
-      </div>
-      
-      <div class="svc-it rv" style="transition-delay:45ms">
-        <span class="no">02</span>
-        <div><h3>Релаксирующий массаж</h3><p>Глубокое расслабление, снятие стресса и напряжения</p></div>
-      </div>
-      
-      <div class="svc-it rv" style="transition-delay:90ms">
-        <span class="no">03</span>
-        <div><h3>Энергизирующий массаж</h3><p>Активирует кровообращение, дарит прилив сил и энергии</p></div>
-      </div>
-      
-      <div class="svc-it rv" style="transition-delay:135ms">
-        <span class="no">04</span>
-        <div><h3>Эстетическая косметология</h3><p>Подчеркивает красоту, дарит коже сияние и ухоженный вид</p></div>
-      </div>
-      
-      <div class="svc-it rv" style="transition-delay:180ms">
-        <span class="no">05</span>
-        <div><h3>Восстановительные процедуры</h3><p>Возвращает свободу движения и легкость в теле</p></div>
-      </div>
-      
+    <div class="sec-head center">
+      <p class="eyebrow">Прайс-лист</p>
+      <h2>Массаж тела и лица</h2>
+      <p>Забота о теле — путь к гармонии внутри.</p>
+    </div>
+    <div class="price">
+      <div class="row"><span class="nm">Sketch-массаж (вибрационный)</span><span class="dur">30 мин</span><span class="val">800 ₽</span></div>
+      <div class="row"><span class="nm">Антицеллюлитный массаж</span><span class="dur">30 мин</span><span class="val">1 000 ₽</span></div>
+      <div class="row"><span class="nm">Антицеллюлитный массаж</span><span class="dur">1 час</span><span class="val">2 000 ₽</span></div>
+      <div class="row"><span class="nm">Классический массаж тела</span><span class="dur">1 час</span><span class="val">1 500 ₽</span></div>
+      <div class="row"><span class="nm">Общий массаж всего тела</span><span class="dur">1 час 30 мин</span><span class="val">2 200 ₽</span></div>
+      <div class="row"><span class="nm">Массаж спины + ШВЗ</span><span class="dur">45 мин</span><span class="val">1 200 ₽</span></div>
+      <div class="row"><span class="nm">Массаж головы и шеи (антистресс)</span><span class="dur">30 мин</span><span class="val">1 000 ₽</span></div>
+      <div class="row"><span class="nm">Классический массаж лица</span><span class="dur">45 мин</span><span class="val">1 000 ₽</span></div>
+      <div class="row"><span class="nm">Медовый массаж (руки, живот)</span><span class="dur">45 мин</span><span class="val">1 000 ₽</span></div>
+      <div class="row"><span class="nm">Медовый массаж (ягодицы, бёдра)</span><span class="dur">45 мин</span><span class="val">1 000 ₽</span></div>
+      <div class="row"><span class="nm">Спортивный массаж</span><span class="dur">1 час</span><span class="val">2 000 ₽</span></div>
+      <div class="row"><span class="nm">Детский массаж</span><span class="dur">30 мин</span><span class="val">1 000 ₽</span></div>
+    </div>
+    <div class="pnote">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c-1.2 5.4-4.3 7.6-8.6 8.6 4.3 1 7.4 3.2 8.6 12.4 1.2-9.2 4.3-11.4 8.6-12.4C16.3 9.6 13.2 7.4 12 2z"/></svg>
+      <p><b>Скидка 30% на первое посещение.</b> Приходите познакомиться — попробуете
+        процедуру и решите, подходит ли вам.</p>
     </div>
   </div>
 </section>
 
-
-
-<section class="sec proc">
+<section id="face">
   <div class="wrap">
-    <div class="sec-head rv"><span class="sec-num">№ 02</span><h2>Как строится <em>работа</em></h2></div>
-    <div class="proc-line">
-      
-      <div class="pr rv" style="transition-delay:0ms">
-        <b>01</b>
-        <div><h3>Запишитесь на прием</h3><p>Позвоните или оставьте заявку на удобное время</p></div>
-      </div>
-      
-      <div class="pr rv" style="transition-delay:60ms">
-        <b>02</b>
-        <div><h3>Консультация специалиста</h3><p>Обсудим ваши проблемы и подберем нужную процедуру</p></div>
-      </div>
-      
-      <div class="pr rv" style="transition-delay:120ms">
-        <b>03</b>
-        <div><h3>Процедура в спокойствии</h3><p>Расслабляетесь в атмосфере гармонии и профессионализма</p></div>
-      </div>
-      
-      <div class="pr rv" style="transition-delay:180ms">
-        <b>04</b>
-        <div><h3>Результат и рекомендации</h3><p>Уходите с легкостью в теле и желанием вернуться</p></div>
-      </div>
-      
+    <div class="sec-head center">
+      <p class="eyebrow">Эстетическая косметология</p>
+      <h2>Уход за лицом</h2>
+      <p>Кожа, как и тело, отвечает на регулярную заботу.</p>
+    </div>
+    <div class="cosm">
+      <div><b>Массаж лица</b><span>Улучшает цвет, снимает напряжение мышц, повышает упругость, уменьшает мелкие морщинки.</span></div>
+      <div><b>Маски</b><span>Подбираю под состояние кожи — увлажнение, питание, восстановление после стресса.</span></div>
+      <div><b>Пилинги</b><span>Мягкое обновление кожи: ровный тон, гладкость и здоровое сияние.</span></div>
+      <div><b>Комбинированная чистка</b><span>Глубокое очищение пор без травмы кожи, с восстановительным уходом.</span></div>
+      <div><b>RF-лифтинг</b><span>Аппаратное подтягивание контуров и повышение плотности кожи.</span></div>
+      <div><b>Фонофорез</b><span>Ультразвуковое введение активных составов — работают глубже обычного крема.</span></div>
     </div>
   </div>
 </section>
 
-
-<section class="quote">
-  <div class="wrap rv">
-    <span class="qm">“</span>
-    <blockquote>Один визит — и вы поймёте, что это именно то, чего вам не хватало</blockquote>
-    <div class="who">Массаж Ярославль | Гармония</div>
-    <a class="btn btn-ink" href="#zayavka">Записаться на прием</a>
+<section class="tint">
+  <div class="wrap course">
+    <div>
+      <p class="eyebrow">Как получить результат</p>
+      <h2 style="font-size:clamp(31px,4.4vw,50px);line-height:1.1;margin:14px 0 0;font-weight:300">
+        Один сеанс — отдых.<br>Курс — результат</h2>
+      <p style="margin-top:18px;color:var(--ink-2)">Приятную лёгкость многие замечают уже после
+        первой процедуры. Но если нужен заметный и стойкий эффект, важно пройти курс.</p>
+      <ul class="clist">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12.5l5 5L20 6.5"/></svg>Организм успевает адаптироваться к нагрузке</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12.5l5 5L20 6.5"/></svg>Постепенно уходят мышечные зажимы и напряжение</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12.5l5 5L20 6.5"/></svg>Улучшается кровообращение и лимфоток</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12.5l5 5L20 6.5"/></svg>Кожа становится более упругой и ухоженной</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12.5l5 5L20 6.5"/></svg>При антицеллюлитном курсе виден выраженный визуальный эффект</li>
+      </ul>
+      <a class="btn btn-gold" style="margin-top:26px" href="#book">Подобрать курс</a>
+    </div>
+    <img src="assets/studio2.jpg" alt="Кабинет студии Гармония">
   </div>
 </section>
 
-
-<section class="sec works">
+<section id="studio">
   <div class="wrap">
-    <div class="sec-head rv"><span class="sec-num">№ 03</span><h2>Наши <em>работы</em></h2></div>
-    <div class="wgrid rv">
-      <a href="assets/g0.jpg" target="_blank"><span class="im"><img src="assets/g0.jpg" alt="работа 1" loading="lazy"></span></a><a href="assets/g1.jpg" target="_blank"><span class="im"><img src="assets/g1.jpg" alt="работа 2" loading="lazy"></span></a><a href="assets/g2.jpg" target="_blank"><span class="im"><img src="assets/g2.jpg" alt="работа 3" loading="lazy"></span></a><a href="assets/g3.jpg" target="_blank"><span class="im"><img src="assets/g3.jpg" alt="работа 4" loading="lazy"></span></a><a href="assets/g4.jpg" target="_blank"><span class="im"><img src="assets/g4.jpg" alt="работа 5" loading="lazy"></span></a><a href="assets/g5.jpg" target="_blank"><span class="im"><img src="assets/g5.jpg" alt="работа 6" loading="lazy"></span></a>
+    <div class="sec-head center">
+      <p class="eyebrow">Пространство</p>
+      <h2>Студия на Нахимсона, 21А</h2>
+      <p>Небольшая, тихая и только ваша на время сеанса.</p>
+    </div>
+    <div class="gal">
+      <figure class="a"><img src="assets/studio1.jpg" alt="Кабинет массажа"></figure>
+      <figure class="b"><img src="assets/reception.jpg" alt="Зона ожидания и дипломы мастера"></figure>
+      <figure class="c"><img src="assets/door.jpg" alt="Вход в студию Гармония"></figure>
     </div>
   </div>
 </section>
 
-
-
-<section class="sec faq">
+<section>
   <div class="wrap">
-    <div class="sec-head rv"><span class="sec-num">№ 04</span><h2>Частые <em>вопросы</em></h2></div>
-    <div class="faq-list rv">
-      
-      <details class="qa" open>
-        <summary>Кому подходит ваш массаж?<span class="pl">+</span></summary>
-        <div class="ans">Только женщинам, которые хотят избавиться от боли, стресса и вернуть себе легкость в теле.</div>
-      </details>
-      
-      <details class="qa">
-        <summary>Какой результат я получу после первого визита?<span class="pl">+</span></summary>
-        <div class="ans">Вы почувствуете облегчение, расслабление и прилив энергии. Многие клиентки возвращаются снова и снова.</div>
-      </details>
-      
-      <details class="qa">
-        <summary>Где вы находитесь?<span class="pl">+</span></summary>
-        <div class="ans">Мы расположены в Ярославле по адресу ул. Нахимсона, 21А — в спокойном пространстве, созданном для вашего комфорта.</div>
-      </details>
-      
+    <div class="gift">
+      <div>
+        <p class="eyebrow" style="color:var(--rose-l)">Подарок</p>
+        <h2>Сертификат в «Гармонию»</h2>
+        <p>Что подарить человеку, у которого, кажется, уже всё есть? Подарите то, чего всегда
+          не хватает — время для себя, отдых и заботу. Такой подарок скажет о ваших чувствах
+          больше любых слов.</p>
+        <div class="row2">
+          <span>На любую сумму</span>
+          <span>На любую процедуру</span>
+          <span>Физический или электронный</span>
+        </div>
+      </div>
+      <div style="text-align:center">
+        <a class="btn" href="#book" style="width:100%;max-width:320px">Заказать сертификат</a>
+        <p style="color:rgba(255,255,255,.6);font-size:14.5px;margin:14px 0 0">
+          Оформим за один звонок: +7 920 106-80-35</p>
+      </div>
     </div>
   </div>
 </section>
 
-
-<section class="lead" id="zayavka">
-  <div class="wrap lead-grid">
-    <div class="rv">
-      <h2>Обсудим <em>вашу задачу?</em></h2>
-      <p class="lp">Оставьте контакты — перезвоним в течение 15 минут, ответим на вопросы и предложим решение.</p>
-      <ul class="lead-points">
-        <li><span class="tk">✦</span> Перезвоним за 15 минут</li>
-        <li><span class="tk">✦</span> Честная цена без скрытых доплат</li>
-        <li><span class="tk">✦</span> Один визит — и вы поймёте, что это именно то, чего вам не хватало</li>
+<section class="book" id="book">
+  <div class="wrap book-grid">
+    <div>
+      <p class="eyebrow">Запись</p>
+      <h2 style="font-size:clamp(33px,4.6vw,54px);line-height:1.08;margin:14px 0 0;font-weight:300">
+        Приходите в гости</h2>
+      <p style="margin-top:18px;color:var(--ink-2);max-width:420px">Позвоните, напишите или
+        запишитесь онлайн — подберу удобное время и процедуру под ваш запрос.</p>
+      <ul class="info">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 4h4l2 5-2.5 1.5a12 12 0 0 0 5 5L15 13l5 2v4a1 1 0 0 1-1.1 1A16 16 0 0 1 4 5.1 1 1 0 0 1 5 4z"/></svg>
+          <div><b>Телефон</b><a href="tel:+79201068035">+7 (920) 106-80-35</a></div></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M8 10h8M8 14h5"/></svg>
+          <div><b>Онлайн-запись</b><a href="https://dikidi.ru/2046296" target="_blank" rel="noopener">dikidi.ru/2046296</a></div></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s7-6 7-11a7 7 0 1 0-14 0c0 5 7 11 7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>
+          <div><b>Адрес</b><a href="https://yandex.ru/maps/?text=Ярославль, улица Нахимсона, 21а" target="_blank" rel="noopener">Ярославль, ул. Нахимсона, 21А</a></div></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="18" height="16" rx="4"/><path d="M7 10c.6 3.2 2.4 4.6 4.4 4.6V10m0 4.6h1.2c1.6 0 2.6-1.4 3.8-3"/></svg>
+          <div><b>ВКонтакте</b><a href="https://vk.com/studio_md_garmoniya" target="_blank" rel="noopener">studio_md_garmoniya</a></div></li>
       </ul>
     </div>
-    <form class="lead-form rv" onsubmit="return sendLead(event)">
-      <div class="lf-row"><label>Ваше имя</label><input name="name" required autocomplete="name" placeholder="Как к вам обращаться"></div>
-      <div class="lf-row"><label>Телефон</label><input name="phone" required type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (___) ___-__-__"></div>
-      <div class="lf-row"><label>Комментарий</label><textarea name="msg" rows="2" placeholder="Что вас интересует"></textarea></div>
-      <button class="btn btn-ink lf-btn" type="submit">Записаться на прием</button>
-      <div class="lf-ok" id="lfOk">Спасибо! Заявка принята — свяжемся совсем скоро.</div>
-      <small class="lf-note">Нажимая кнопку, вы соглашаетесь на обработку персональных данных</small>
+    <form id="f" novalidate>
+      <h3>Записаться на процедуру</h3>
+      <p>Перезвоню и подберу удобное время.</p>
+      <div class="two">
+        <div><label for="n">Ваше имя</label><input id="n" name="name" placeholder="Имя" required></div>
+        <div><label for="p">Телефон</label><input id="p" name="phone" type="tel" placeholder="+7 ___ ___ __ __" required></div>
+      </div>
+      <label for="s">Что вас интересует</label>
+      <select id="s">
+        <option>Классический массаж тела</option>
+        <option>Антицеллюлитный массаж</option>
+        <option>Массаж спины и шейно-воротниковой зоны</option>
+        <option>Массаж лица</option>
+        <option>Косметология: чистка, пилинг, RF-лифтинг</option>
+        <option>Sketch-массаж</option>
+        <option>Подарочный сертификат</option>
+        <option>Пока не знаю — подскажите</option>
+      </select>
+      <label for="c">Комментарий</label>
+      <textarea id="c" placeholder="Что беспокоит или когда удобно прийти"></textarea>
+      <button class="btn" type="submit">Записаться со скидкой 30%</button>
+      <p class="fine">Скидка действует на первое посещение. Перезвоню в течение дня.</p>
+      <div class="done">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9.5"/><path d="M8 12.4l2.6 2.6L16 9.6"/></svg>
+        <h3>Спасибо, записала!</h3>
+        <p>Перезвоню в течение дня и подберу удобное время.</p>
+      </div>
     </form>
   </div>
 </section>
 
 <footer>
-  <div class="wrap">
-    <div class="ft">
-      <div><b>Массаж Ярославль | Гармония</b><span style="display:block;margin-top:8px">Ярославль</span></div>
-      <div><span class="cap" style="color:#8f8f89">Телефон</span><span style="display:block;margin-top:8px"><a href="tel:+79201068035">+7 (920) 106-80-35</a></span></div>
-      <div><span class="cap" style="color:#8f8f89">Соцсети</span><span style="display:block;margin-top:8px"><a href="https://vk.com/studio_md_garmoniya" target="_blank">ВКонтакте</a></span></div>
+  <div class="wrap f-grid">
+    <div style="max-width:330px">
+      <a class="logo" href="#top" style="margin-bottom:14px">
+        <img src="assets/logo.jpg" alt="Гармония">
+        <span><b>Гармония</b><span>студия массажа тела и лица</span></span>
+      </a>
+      <p style="margin:14px 0 0">Любовь к своему телу начинается с заботы о нём.
+        Приглашаю в мир гармонии только женщин.</p>
     </div>
-    <div class="made">© Массаж Ярославль | Гармония. Сайт-макет от SmartLink.</div>
+    <div>
+      <p style="margin:0 0 8px"><a href="tel:+79201068035">+7 (920) 106-80-35</a></p>
+      <p style="margin:0 0 8px"><a href="https://dikidi.ru/2046296" target="_blank" rel="noopener">Онлайн-запись</a></p>
+      <p style="margin:0 0 8px">Ярославль, ул. Нахимсона, 21А</p>
+      <p style="margin:0"><a href="https://vk.com/studio_md_garmoniya" target="_blank" rel="noopener">Мы во ВКонтакте</a></p>
+    </div>
   </div>
 </footer>
 
-
-<div class="mbar">
-  <a class="call" href="tel:+79201068035">☎ Позвонить</a>
-  <a class="go" href="#zayavka">Записаться на прием</a>
+<div class="bar">
+  <a class="btn" href="#book">Записаться</a>
+  <a class="btn btn-ghost" href="tel:+79201068035">Позвонить</a>
 </div>
-
 
 <script>
 var hdr=document.getElementById('hdr');
-addEventListener('scroll',function(){hdr.classList.toggle('solid',scrollY>50)},{passive:true});
-var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.1});
-document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
-setTimeout(function(){document.querySelectorAll('.hero .rv,.facts.rv').forEach(function(e){e.classList.add('in')})},60);
-function sendLead(e){e.preventDefault();var f=e.target;f.querySelectorAll('.lf-row,.lf-btn,.lf-note').forEach(function(el){el.style.display='none'});document.getElementById('lfOk').classList.add('show');return false;}
+function onScroll(){hdr.classList.toggle('solid',window.scrollY>50)}
+onScroll();addEventListener('scroll',onScroll,{passive:true});
+document.getElementById('f').addEventListener('submit',function(e){
+  e.preventDefault();
+  if(!this.name.value.trim()){this.name.focus();return}
+  if(this.phone.value.replace(/\D/g,'').length<10){this.phone.focus();return}
+  this.classList.add('is-sent');
+});
 </script>
 </body>
 </html>
