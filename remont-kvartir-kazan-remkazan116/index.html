@@ -11,7 +11,7 @@
 <style>
 :root{
   --ink:#12161C; --ink-2:#1B222C; --ink-3:#28313E;
-  --amber:#F2A03D; --amber-d:#D8862A; --steel:#8794A6;
+  --amber:#E91C23; --amber-d:#C4161C; --steel:#8794A6;
   --paper:#F5F6F8; --white:#fff; --line:rgba(255,255,255,.12); --line-d:rgba(18,22,28,.13);
 }
 *{box-sizing:border-box}
@@ -27,7 +27,7 @@ h1,h2,h3,.disp{font-family:'Oswald',Impact,sans-serif;font-weight:600;text-trans
 .eyebrow{font-family:'Oswald',sans-serif;font-size:13.5px;letter-spacing:.22em;
   text-transform:uppercase;color:var(--amber);font-weight:500}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:18px 34px;
-  border-radius:4px;border:2px solid var(--amber);background:var(--amber);color:var(--ink);
+  border-radius:4px;border:2px solid var(--amber);background:var(--amber);color:#fff;
   text-decoration:none;font-family:'Oswald',sans-serif;font-size:17px;letter-spacing:.05em;
   text-transform:uppercase;font-weight:600;cursor:pointer;transition:.2s;line-height:1.2}
 .btn:hover{background:var(--amber-d);border-color:var(--amber-d)}
@@ -42,7 +42,7 @@ h1,h2,h3,.disp{font-family:'Oswald',Impact,sans-serif;font-weight:600;text-trans
 .logo{display:flex;align-items:center;gap:12px;text-decoration:none;color:#fff}
 .logo .mk{width:42px;height:42px;background:var(--amber);border-radius:5px;display:flex;
   align-items:center;justify-content:center;flex:none}
-.logo .mk svg{width:24px;height:24px;color:var(--ink)}
+.logo .mk svg{width:24px;height:24px;color:#fff}
 .logo b{font-family:'Oswald',sans-serif;font-size:19px;text-transform:uppercase;font-weight:600;line-height:1.05;display:block}
 .logo span{display:block;font-size:11px;letter-spacing:.12em;color:var(--steel);text-transform:uppercase;margin-top:2px}
 .nav{display:flex;gap:26px}
@@ -50,21 +50,31 @@ h1,h2,h3,.disp{font-family:'Oswald',Impact,sans-serif;font-weight:600;text-trans
 .nav a:hover{opacity:1;color:var(--amber)}
 .hdr .btn{padding:12px 22px;font-size:14px}
 
-.hero{position:relative;min-height:100vh;min-height:100svh;display:flex;flex-direction:column;
-  justify-content:flex-end;padding-top:100px;overflow:hidden;color:#fff}
-.hero-bg{position:absolute;inset:0}
-.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:50% 55%}
-.hero-bg::after{content:"";position:absolute;inset:0;
-  background:linear-gradient(180deg,rgba(18,22,28,.75) 0%,rgba(18,22,28,.42) 38%,rgba(18,22,28,.95) 100%)}
-.hero-in{position:relative;z-index:2;padding-bottom:56px}
-.hero h1{font-size:clamp(38px,7.2vw,92px);font-weight:700}
+/* Фото у клиента слабые — телефонные снимки бригады. Поэтому первый экран держит
+   типографика и фирменный красный, а фото идёт узкой плотно кадрированной полосой:
+   на маленькой площади оно выглядит нормально, на всю ширину — разваливается. */
+.hero{position:relative;min-height:100svh;display:grid;grid-template-columns:1.15fr .85fr;
+  background:var(--ink);color:#fff;overflow:hidden}
+.hero::before{content:"";position:absolute;left:-260px;top:-160px;width:760px;height:760px;
+  background:radial-gradient(circle,rgba(233,28,35,.22) 0%,rgba(233,28,35,0) 68%);pointer-events:none}
+.hero-in{position:relative;z-index:2;display:flex;flex-direction:column;justify-content:center;
+  padding:118px 0 52px 0}
+.hero-in .wrap{max-width:none;padding-left:max(24px,calc((100vw - 1180px)/2));padding-right:44px}
+.hero h1{font-size:clamp(36px,4.9vw,70px);font-weight:700}
 .hero h1 em{font-style:normal;color:var(--amber);display:block}
-.hero p.lead{max-width:600px;margin:22px 0 0;font-size:18.5px;color:rgba(255,255,255,.9)}
+.hero p.lead{max-width:600px;margin:20px 0 0;font-size:17.5px;color:rgba(255,255,255,.82)}
 .hero-cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:32px}
-.hero-facts{display:grid;grid-template-columns:repeat(4,auto);gap:0 44px;margin-top:40px;
-  padding-top:24px;border-top:1px solid var(--line);justify-content:start}
-.hero-facts b{display:block;font-family:'Oswald',sans-serif;font-size:34px;font-weight:600;line-height:1;color:var(--amber)}
+.hero-facts{display:grid;grid-template-columns:repeat(4,auto);gap:0 38px;margin-top:30px;
+  padding-top:20px;border-top:1px solid var(--line);justify-content:start}
+.hero-facts b{display:block;font-family:'Oswald',sans-serif;font-size:32px;font-weight:600;line-height:1;color:var(--amber)}
 .hero-facts span{font-size:12.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--steel)}
+.hero-shot{position:relative;overflow:hidden}
+.hero-shot img{width:100%;height:100%;object-fit:cover;object-position:50% 62%}
+.hero-shot::after{content:"";position:absolute;inset:0;
+  background:linear-gradient(90deg,var(--ink) 0%,rgba(18,22,28,.35) 26%,rgba(18,22,28,.08) 60%,rgba(18,22,28,.35) 100%)}
+.hero-tag{position:absolute;left:0;bottom:34px;z-index:3;background:var(--amber);color:#fff;
+  font-family:'Oswald',sans-serif;font-size:14px;letter-spacing:.14em;text-transform:uppercase;
+  padding:11px 20px;border-radius:0 4px 4px 0}
 
 section{padding:100px 0}
 .sec-head{max-width:740px;margin-bottom:52px}
@@ -105,7 +115,7 @@ section{padding:100px 0}
 
 /* этапы */
 .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
-.step .n{width:52px;height:52px;border-radius:4px;background:var(--amber);color:var(--ink);
+.step .n{width:52px;height:52px;border-radius:4px;background:var(--amber);color:#fff;
   display:flex;align-items:center;justify-content:center;font-family:'Oswald',sans-serif;
   font-size:24px;font-weight:600;margin-bottom:18px}
 .step h3{font-size:20px;margin-bottom:8px}
@@ -149,6 +159,10 @@ footer a:hover{color:#fff}
 
 @media(max-width:1000px){
   .trust,.book-grid{grid-template-columns:1fr;gap:40px}
+  .hero{grid-template-columns:1fr}
+  .hero-in .wrap{padding-left:24px;padding-right:24px}
+  .hero-shot{height:320px;order:-1}
+  .hero-tag{bottom:16px}
   .works,.steps{grid-template-columns:1fr 1fr}
   .obj{grid-template-columns:1fr 1fr}
   .gal{grid-template-columns:1fr 1fr}
@@ -161,8 +175,8 @@ footer a:hover{color:#fff}
   body{padding-bottom:calc(74px + env(safe-area-inset-bottom))}
   .hdr .btn{display:none}
   .bar{display:flex}
-  .hero{padding-top:84px}
-  .hero-in{padding-bottom:42px}
+  .hero-in{padding:96px 0 40px}
+  .hero-shot{height:230px}
   .hero-facts{grid-template-columns:1fr 1fr;gap:18px 20px}
   .hero-cta .btn{width:100%}
   .works,.steps,.obj,.gal,.two,.trust-img{grid-template-columns:1fr}
@@ -192,7 +206,6 @@ footer a:hover{color:#fff}
 
 <div id="top"></div>
 <section class="hero">
-  <div class="hero-bg"><img src="assets/hero.jpg" alt="Готовый ремонт квартиры в Казани"></div>
   <div class="hero-in">
     <div class="wrap">
       <p class="eyebrow">Казань и пригород · ремонт под ключ</p>
@@ -211,6 +224,10 @@ footer a:hover{color:#fff}
         <div><b>4900+</b><span>подписчиков</span></div>
       </div>
     </div>
+  </div>
+  <div class="hero-shot">
+    <img src="assets/room1.jpg" alt="Комната после ремонта в Казани">
+    <span class="hero-tag">Наша работа · Казань</span>
   </div>
 </section>
 
@@ -232,10 +249,10 @@ footer a:hover{color:#fff}
       </ul>
     </div>
     <div class="trust-img">
-      <img src="assets/proc0.jpg" alt="Процесс ремонта">
-      <img src="assets/proc1.jpg" alt="Процесс ремонта">
-      <img src="assets/proc2.jpg" alt="Процесс ремонта">
-      <img src="assets/proc3.jpg" alt="Процесс ремонта">
+      <img src="assets/ceiling.jpg" alt="Двухуровневый потолок с подсветкой">
+      <img src="assets/kitchen.jpg" alt="Кухня после ремонта">
+      <img src="assets/bath1.jpg" alt="Ванная после ремонта">
+      <img src="assets/kids.jpg" alt="Детская после ремонта">
     </div>
   </div>
 </section>
@@ -289,11 +306,12 @@ footer a:hover{color:#fff}
       <h2>Как выглядит результат</h2>
     </div>
     <div class="gal">
-      <figure><img src="assets/done1.jpg" alt="Готовая комната после ремонта"></figure>
-      <figure><img src="assets/done2.jpg" alt="Комната с фотообоями"></figure>
-      <figure><img src="assets/bath.jpg" alt="Готовая ванная комната"></figure>
-      <figure><img src="assets/done3.jpg" alt="Готовый интерьер"></figure>
-      <figure><img src="assets/hero.jpg" alt="Гостиная после ремонта"></figure>
+      <figure><img src="assets/ceiling.jpg" alt="Двухуровневый потолок с подсветкой"></figure>
+      <figure><img src="assets/hero.jpg" alt="Комната после ремонта"></figure>
+      <figure><img src="assets/bath2.jpg" alt="Ванная после ремонта"></figure>
+      <figure><img src="assets/kids.jpg" alt="Детская комната"></figure>
+      <figure><img src="assets/kitchen.jpg" alt="Кухня после ремонта"></figure>
+      <figure><img src="assets/room2.jpg" alt="Комната после ремонта"></figure>
     </div>
   </div>
 </section>
