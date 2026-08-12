@@ -359,6 +359,13 @@ body.nav-open .mobile-menu{transform:translateY(0)}
 .field-row{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem}
 .c-form .btn-primary{width:100%;margin-top:.6rem}
 .form-note{font-size:.78rem;color:var(--muted);margin-top:1rem;text-align:center}
+.form-consent{display:flex;gap:.7rem;align-items:flex-start;margin:.2rem 0 1.1rem;cursor:pointer;font-size:.84rem;color:var(--muted);line-height:1.5}
+.form-consent input{appearance:none;-webkit-appearance:none;flex-shrink:0;width:18px;height:18px;margin-top:1px;border:1px solid var(--line-strong);border-radius:5px;background:var(--bg);cursor:pointer;position:relative;transition:.25s var(--ease)}
+.form-consent input:checked{background:var(--acc);border-color:var(--acc)}
+.form-consent input:checked::after{content:"";position:absolute;left:5.5px;top:2px;width:5px;height:9px;border:solid #04130c;border-width:0 2px 2px 0;transform:rotate(45deg)}
+.form-consent input:focus-visible{outline:none;box-shadow:0 0 0 3px rgba(22,217,146,.2)}
+.form-consent a{color:var(--muted-2);text-decoration:underline;text-underline-offset:2px}
+.form-consent a:hover{color:var(--acc)}
 .form-note a{color:var(--muted-2);text-decoration:underline}
 .form-success{display:none;text-align:center;padding:1rem 0}
 .form-success.on{display:block;animation:rise .6s var(--ease) forwards}
@@ -761,7 +768,7 @@ body.nav-open .mobile-menu{transform:translateY(0)}
     </div>
     <div class="c-grid">
       <div class="c-form reveal">
-        <form id="bookForm">
+        <form id="bookForm" class="contact-form" data-source="Радар · Донецк — форма на сайте">
           <h3>Оставить заявку</h3>
           <p class="fsub">Перезвоним в рабочее время (8:00–18:00).</p>
           <div class="field-row">
@@ -780,9 +787,12 @@ body.nav-open .mobile-menu{transform:translateY(0)}
               <option>Не знаю — нужна консультация</option>
             </select>
           </div>
+          <label class="form-consent">
+            <input type="checkbox" required>
+            <span>Я согласен(а) на <a href="privacy.html" target="_blank" rel="noopener">обработку персональных данных</a> (152-ФЗ)</span>
+          </label>
           <button type="submit" class="btn btn-primary" data-magnetic>Отправить заявку
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
-          <p class="form-note">Нажимая кнопку, вы соглашаетесь на обработку персональных данных.</p>
         </form>
         <div class="form-success" id="formSuccess">
           <div class="ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg></div>
@@ -966,16 +976,7 @@ body.nav-open .mobile-menu{transform:translateY(0)}
     });
   }
 
-  /* booking form */
-  var form = document.getElementById('bookForm');
-  if(form){
-    form.addEventListener('submit', function(e){
-      e.preventDefault();
-      if(window.ym) ym(111360976, 'reachGoal', 'lead_form');   // цель Метрики: оставление заявки
-      form.style.display='none';
-      document.getElementById('formSuccess').classList.add('on');
-    });
-  }
+  /* booking form — отправка заявки живёт в script.js (Apps Script → Telegram + Google Sheets) */
 
   /* Яндекс.Метрика — цель "phone_click": клик по любому номеру телефона */
   document.addEventListener('click', function(e){
@@ -1030,5 +1031,6 @@ body.nav-open .mobile-menu{transform:translateY(0)}
   secs.forEach(function(id){ var el=document.getElementById(id); if(el) spy.observe(el); });
 })();
 </script>
+<script src="script.js?v=1"></script>
 </body>
 </html>
