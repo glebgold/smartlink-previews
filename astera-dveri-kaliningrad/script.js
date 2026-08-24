@@ -149,6 +149,24 @@
     }
   }
 
+
+  /* ---------- Полоса прокрутки каталога (только на телефоне) ---------- */
+  $$('.cards').forEach(function (box) {
+    var bar = box.nextElementSibling;
+    if (!bar || !bar.classList.contains('swipe')) return;
+    var seg = bar.firstElementChild;
+    var n = box.children.length;
+    seg.style.width = (100 / n) + '%';
+    var draw = function () {
+      var max = box.scrollWidth - box.clientWidth;
+      var p = max > 0 ? box.scrollLeft / max : 0;
+      seg.style.transform = 'translateX(' + (p * (n - 1) * 100) + '%)';
+    };
+    box.addEventListener('scroll', draw, { passive: true });
+    window.addEventListener('resize', draw);
+    draw();
+  });
+
   /* ==========================================================================
      РАСЧЁТ — порядок цифр, не смета
      ========================================================================== */
