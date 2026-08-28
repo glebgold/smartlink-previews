@@ -1,0 +1,46 @@
+<svg viewBox="0 0 640 440" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Одноэтажный каркасный дом с террасой">
+  <defs>
+    <linearGradient id="sky1" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#EDF4EE"/><stop offset="1" stop-color="#D6E6DA"/>
+    </linearGradient>
+    <linearGradient id="wall1" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#EFF4F0"/>
+    </linearGradient>
+  </defs>
+  <rect width="640" height="440" fill="url(#sky1)"/>
+  <!-- дальний план -->
+  <path d="M0 300 Q120 276 240 296 T480 288 T640 302 V440 H0Z" fill="#CADDCE" opacity=".65"/>
+  <!-- деревья -->
+  <g fill="#0D4228" opacity=".14">
+    <path d="M92 300c0-30 14-56 26-56s26 26 26 56z"/>
+    <path d="M556 302c0-26 12-48 22-48s22 22 22 48z"/>
+  </g>
+  <!-- терраса -->
+  <rect x="96" y="292" width="150" height="10" rx="3" fill="#B98A5E"/>
+  <g stroke="#A5794F" stroke-width="4">
+    <path d="M110 302v34M232 302v34"/>
+  </g>
+  <!-- корпус -->
+  <path d="M232 168 L404 168 L404 302 L232 302Z" fill="url(#wall1)"/>
+  <path d="M404 168 L512 190 L512 302 L404 302Z" fill="#E4EDE6"/>
+  <!-- кровля -->
+  <path d="M214 172 L318 128 L530 186 L512 194 L404 170 L232 170Z" fill="#123A26"/>
+  <path d="M214 172 L232 170 L232 178 L214 180Z" fill="#0A2A1B"/>
+  <!-- навес террасы -->
+  <path d="M88 214 L232 168 L232 178 L96 222Z" fill="#1B4A32"/>
+  <g stroke="#1B4A32" stroke-width="7" stroke-linecap="round">
+    <path d="M100 220v82M226 176v126"/>
+  </g>
+  <!-- панорамные окна -->
+  <rect x="252" y="196" width="60" height="86" rx="3" fill="#8FB8CE" opacity=".85"/>
+  <rect x="322" y="196" width="60" height="86" rx="3" fill="#7FAFC7" opacity=".85"/>
+  <rect x="252" y="196" width="130" height="86" rx="3" fill="none" stroke="#123A26" stroke-width="3"/>
+  <path d="M317 196v86" stroke="#123A26" stroke-width="3"/>
+  <!-- дверь -->
+  <rect x="428" y="212" width="42" height="90" rx="3" fill="#1B4A32"/>
+  <circle cx="462" cy="258" r="2.6" fill="#5CAC6D"/>
+  <!-- земля -->
+  <rect y="302" width="640" height="138" fill="#C7DBCB"/>
+  <path d="M0 318h640" stroke="#B6CFBB" stroke-width="2"/>
+  <ellipse cx="320" cy="322" rx="220" ry="10" fill="#0D4228" opacity=".07"/>
+</svg>
