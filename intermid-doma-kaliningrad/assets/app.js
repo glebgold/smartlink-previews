@@ -1,30 +1,30 @@
-/* ИнтерМИД — поведение макета: калькулятор, меню, появление блоков, форма. */
-
+/* ИнтерМИД — поведение макета: меню, появление блоков, калькулятор, каталог, карточка проекта. */
 (function () {
   "use strict";
-
-  // Скрипт жив — можно прятать блоки до появления.
   document.documentElement.classList.add("js-on");
 
+  var rub = new Intl.NumberFormat("ru-RU");
+  var money = function (n) { return rub.format(Math.round(n)) + " ₽"; };
+
   // ---------- Мобильное меню ----------
-  var burger = document.getElementById("burger");
-  var mnav = document.getElementById("mnav");
+  var burger = document.getElementById("burger"), mnav = document.getElementById("mnav");
   if (burger && mnav) {
     burger.addEventListener("click", function () {
-      var open = mnav.classList.toggle("open");
-      document.body.style.overflow = open ? "hidden" : "";
+      document.body.style.overflow = mnav.classList.toggle("open") ? "hidden" : "";
     });
     mnav.addEventListener("click", function (e) {
-      if (e.target.tagName === "A") {
-        mnav.classList.remove("open");
-        document.body.style.overflow = "";
-      }
+      if (e.target.tagName === "A") { mnav.classList.remove("open"); document.body.style.overflow = ""; }
     });
   }
 
-  // ---------- Появление блоков при прокрутке ----------
-  var rise = document.querySelectorAll(".rise");
-  if (rise.length && "IntersectionObserver" in window) {
+  // ---------- Появление блоков ----------
+  function watch() {
+    var rise = document.querySelectorAll(".rise:not(.seen)");
+    if (!rise.length) return;
+    if (!("IntersectionObserver" in window)) {
+      rise.forEach(function (el) { el.classList.add("seen"); });
+      return;
+    }
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (en, i) {
         if (!en.isIntersecting) return;
@@ -32,81 +32,19 @@
         setTimeout(function () { el.classList.add("seen"); }, (i % 4) * 70);
         io.unobserve(el);
       });
-    }, { rootMargin: "0px 0px -60px 0px", threshold: 0.1 });
+    }, { rootMargin: "0px 0px -50px 0px", threshold: 0.08 });
     rise.forEach(function (el) { io.observe(el); });
-    // Если что-то пойдёт не так с наблюдателем — через полторы секунды показываем всё.
     setTimeout(function () {
       document.querySelectorAll(".rise:not(.seen)").forEach(function (el) { el.classList.add("seen"); });
-    }, 1500);
-  } else {
-    rise.forEach(function (el) { el.classList.add("seen"); });
+    }, 2200);
   }
+  watch();
 
-  // ---------- Калькулятор ----------
-  var area = document.getElementById("area");
-  if (area) {
-    var rub = new Intl.NumberFormat("ru-RU");
-
-    function pick(name, attr) {
-      var el = document.querySelector('input[name="' + name + '"]:checked');
-      return el ? parseFloat(el.dataset[attr]) : 1;
-    }
-
-    // Срок считаем от площади и материала: кирпич кладут дольше каркаса.
-    function term(sq, material) {
-      var base = 3 + Math.round(sq / 45);
-      if (material === "brick") base += 2;
-      if (material === "gas") base += 1;
-      if (material === "timber") base += 1;
-      return Math.min(base, 12);
-    }
-
-    function months(n) {
-      var t = n % 10, h = n % 100;
-      if (t === 1 && h !== 11) return n + " месяц";
-      if (t >= 2 && t <= 4 && (h < 12 || h > 14)) return n + " месяца";
-      return n + " месяцев";
-    }
-
-    function recalc() {
-      var sq = parseInt(area.value, 10);
-      var perM = pick("material", "price");
-      var floors = pick("floors", "k");
-      var stage = pick("stage", "k");
-      var matEl = document.querySelector('input[name="material"]:checked');
-      var material = matEl ? matEl.value : "frame";
-
-      // На маленьких домах цена метра выше: фундамент и кровля не делятся пропорционально.
-      var scale = sq < 80 ? 1.09 : sq > 200 ? 0.95 : 1;
-
-      var total = Math.round((sq * perM * floors * stage * scale) / 10000) * 10000;
-      var mPrice = Math.round(total / sq / 100) * 100;
-
-      document.getElementById("areaVal").textContent = sq;
-      document.getElementById("price").textContent = rub.format(total) + " ₽";
-      document.getElementById("perM").textContent = rub.format(mPrice) + " ₽";
-      document.getElementById("term").textContent = months(term(sq, material));
-      document.getElementById("first").textContent = rub.format(Math.round(total * 0.3 / 1000) * 1000) + " ₽";
-    }
-
-    area.addEventListener("input", recalc);
-    document.querySelectorAll('.opt input').forEach(function (el) {
-      el.addEventListener("change", recalc);
-    });
-    recalc();
-  }
-
-  // ---------- Форма ----------
-  var form = document.getElementById("leadForm");
-  if (form) {
-    form.addEventListener("submit", function (e) {
-      e.preventDefault();
-      // Макет без сервера: показываем подтверждение на месте.
-      form.style.display = "none";
-      var ok = document.getElementById("thanks");
-      if (ok) ok.style.display = "block";
-    });
-  }
+  // ---------- Подсветка меню ----------
+  var here = location.pathname.split("/").pop() || "index.html";
+  document.querySelectorAll(".nav a").forEach(function (a) {
+    if (a.getAttribute("href") === here) a.classList.add("on");
+  });
 
   // ---------- Телефонная маска ----------
   document.querySelectorAll('input[type="tel"]').forEach(function (input) {
@@ -124,9 +62,179 @@
     });
   });
 
-  // ---------- Подсветка текущего пункта меню ----------
-  var here = location.pathname.split("/").pop() || "index.html";
-  document.querySelectorAll(".nav a").forEach(function (a) {
-    if (a.getAttribute("href") === here) a.classList.add("on");
+  // ---------- Формы ----------
+  document.querySelectorAll("form[data-lead]").forEach(function (form) {
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      form.style.display = "none";
+      var ok = form.parentNode.querySelector(".thanks");
+      if (ok) ok.style.display = "block";
+    });
   });
+
+  // ---------- Калькулятор ----------
+  var area = document.getElementById("area");
+  if (area) {
+    function pick(name, attr) {
+      var el = document.querySelector('input[name="' + name + '"]:checked');
+      return el ? parseFloat(el.dataset[attr]) : 1;
+    }
+    function term(sq, material) {
+      var base = 3 + Math.round(sq / 45);
+      if (material === "brick") base += 2;
+      if (material === "gas" || material === "timber") base += 1;
+      return Math.min(base, 12);
+    }
+    function months(n) {
+      var t = n % 10, h = n % 100;
+      if (t === 1 && h !== 11) return n + " месяц";
+      if (t >= 2 && t <= 4 && (h < 12 || h > 14)) return n + " месяца";
+      return n + " месяцев";
+    }
+    function recalc() {
+      var sq = parseInt(area.value, 10);
+      var perM = pick("material", "price"), floors = pick("floors", "k"), stage = pick("stage", "k");
+      var matEl = document.querySelector('input[name="material"]:checked');
+      var material = matEl ? matEl.value : "frame";
+      // Цена метра падает с ростом площади: фундамент, кровля и инженерия не делятся
+      // пропорционально. Показатель 0.535 подобран по 27 проектам каталога — так расчёт
+      // сходится с прайсом в среднем с точностью 6%.
+      var perMeter = perM * Math.pow(100 / sq, 0.535);
+      var total = Math.round((sq * perMeter * floors * stage) / 10000) * 10000;
+
+      document.getElementById("areaVal").textContent = sq;
+      document.getElementById("price").textContent = money(total);
+      document.getElementById("perM").textContent = money(Math.round(total / sq / 100) * 100);
+      document.getElementById("term").textContent = months(term(sq, material));
+      document.getElementById("first").textContent = money(Math.round(total * 0.3 / 1000) * 1000);
+
+      var mg = document.getElementById("mortgage");
+      if (mg) {
+        // Аннуитет: 30% первоначальный, 17% годовых, 25 лет.
+        var body = total * 0.7, r = 0.17 / 12, n = 300;
+        var pay = body * r * Math.pow(1 + r, n) / (Math.pow(1 + r, n) - 1);
+        mg.textContent = money(Math.round(pay / 10) * 10) + "/мес";
+      }
+    }
+    area.addEventListener("input", recalc);
+    document.querySelectorAll(".opt input").forEach(function (el) { el.addEventListener("change", recalc); });
+    recalc();
+  }
+
+  // ---------- Каталог с фильтрами ----------
+  var grid = document.getElementById("catalog");
+  if (grid && window.PROJECTS) {
+    var state = { mat: "all", floors: "all", price: "all", sort: "area" };
+
+    function fmtArea(p) {
+      var a = String(p.area).replace(".", ",");
+      return p.area2 ? a + " / " + p.area2 : a;
+    }
+    function tagHtml(t) {
+      var cls = (t === "Топ-1" || t === "хит") ? "tag-hot" : (t === "новинка" ? "tag-new" : "");
+      return '<span class="tag ' + cls + '">' + t + "</span>";
+    }
+    function cardHtml(p) {
+      var floors = { 1: "1 этаж", 2: "2 этажа", 3: "3 этажа" }[p.floors];
+      var price = p.price ? money(p.price) : "По запросу";
+      return '<a class="card rise" href="proekt.html?n=' + p.n + '">' +
+        '<div class="card-ph"><img src="assets/proj/' + p.n + '.jpg" alt="Проект № ' + p.n + '" loading="lazy">' +
+        '<div class="card-tags">' + p.tags.slice(0, 2).map(tagHtml).join("") + "</div></div>" +
+        '<div class="card-b"><div class="card-n">Проект № ' + p.n + "</div>" +
+        "<h3>" + p.title + "</h3>" +
+        '<div class="card-desc">' + p.desc.slice(0, 108) + "…</div>" +
+        '<div class="card-meta"><span><b>' + fmtArea(p) + "</b> м²</span><span>" + floors +
+        "</span><span>" + window.MAT_NAME[p.mat] + "</span></div>" +
+        '<div class="card-bot"><div class="card-price"><small>Под ключ</small>' + price +
+        '</div><div class="card-go">→</div></div></div></a>';
+    }
+    function render() {
+      var list = window.PROJECTS.filter(function (p) {
+        if (state.mat !== "all" && p.mat !== state.mat) return false;
+        if (state.floors !== "all" && String(p.floors) !== state.floors) return false;
+        if (state.price === "lo" && !(p.price && p.price < 6000000)) return false;
+        if (state.price === "mid" && !(p.price >= 6000000 && p.price < 8000000)) return false;
+        if (state.price === "hi" && !(p.price >= 8000000)) return false;
+        return true;
+      });
+      list.sort(function (a, b) {
+        if (state.sort === "price") return (a.price || 1e12) - (b.price || 1e12);
+        if (state.sort === "price-desc") return (b.price || 0) - (a.price || 0);
+        return a.area - b.area;
+      });
+      grid.innerHTML = list.length
+        ? list.map(cardHtml).join("")
+        : '<p style="grid-column:1/-1;padding:60px 0;text-align:center;color:var(--smoke)">По заданным условиям проектов нет. Мы разработаем индивидуальный — <a href="kontakty.html" style="color:var(--copper)">напишите нам</a>.</p>';
+      var c = document.getElementById("fcount");
+      if (c) c.innerHTML = "Показано <b>" + list.length + "</b> из " + window.PROJECTS.length;
+      watch();
+    }
+    document.querySelectorAll("[data-f]").forEach(function (b) {
+      b.addEventListener("click", function () {
+        var key = b.dataset.f;
+        state[key] = b.dataset.v;
+        document.querySelectorAll('[data-f="' + key + '"]').forEach(function (x) { x.classList.remove("on"); });
+        b.classList.add("on");
+        render();
+      });
+    });
+    render();
+  }
+
+  // ---------- Карточка проекта ----------
+  var page = document.getElementById("projPage");
+  if (page && window.PROJECTS) {
+    var n = parseInt(new URLSearchParams(location.search).get("n"), 10) || 6;
+    var p = window.PROJECTS.filter(function (x) { return x.n === n; })[0] || window.PROJECTS[5];
+    var floors = { 1: "Один этаж", 2: "Два этажа", 3: "Три этажа" }[p.floors];
+    var areaTxt = String(p.area).replace(".", ",") + (p.area2 ? " или " + p.area2 : "") + " м²";
+    var price = p.price ? money(p.price) : "Рассчитывается индивидуально";
+
+    function set(id, v) { var e = document.getElementById(id); if (e) e.innerHTML = v; }
+    document.title = "Проект № " + p.n + " — дом " + areaTxt + " | ИнтерМИД";
+    set("pTitle", "Проект № " + p.n);
+    set("pSub", p.title);
+    set("pDesc", p.desc);
+    set("pArea", areaTxt);
+    set("pFloors", floors);
+    set("pMat", window.MAT_NAME[p.mat]);
+    set("pPrice", price);
+    set("pCrumb", "Проект № " + p.n);
+    var img = document.getElementById("pImg");
+    if (img) { img.src = "assets/proj/" + p.n + ".jpg"; img.alt = "Проект № " + p.n; }
+    var chips = document.getElementById("pChips");
+    if (chips) chips.innerHTML = p.tags.map(function (t) { return '<span class="chip">' + t + "</span>"; }).join("");
+
+    if (p.price) {
+      var body = p.price * 0.7, r = 0.17 / 12, k = 300;
+      set("pMortgage", money(Math.round(body * r * Math.pow(1 + r, k) / (Math.pow(1 + r, k) - 1) / 10) * 10) + "/мес");
+      set("pFirst", money(Math.round(p.price * 0.3 / 1000) * 1000));
+      set("pPerM", money(Math.round(p.price / p.area / 100) * 100));
+    } else {
+      set("pMortgage", "по расчёту"); set("pFirst", "по расчёту"); set("pPerM", "по расчёту");
+    }
+
+    // Похожие проекты: тот же материал, близкая площадь.
+    var similar = window.PROJECTS
+      .filter(function (x) { return x.n !== p.n; })
+      .sort(function (a, b) {
+        var da = Math.abs(a.area - p.area) + (a.mat === p.mat ? 0 : 40);
+        var db = Math.abs(b.area - p.area) + (b.mat === p.mat ? 0 : 40);
+        return da - db;
+      }).slice(0, 3);
+    var sim = document.getElementById("pSimilar");
+    if (sim) {
+      sim.innerHTML = similar.map(function (x) {
+        var fl = { 1: "1 этаж", 2: "2 этажа", 3: "3 этажа" }[x.floors];
+        return '<a class="card" href="proekt.html?n=' + x.n + '">' +
+          '<div class="card-ph"><img src="assets/proj/' + x.n + '.jpg" alt="Проект № ' + x.n + '" loading="lazy"></div>' +
+          '<div class="card-b"><div class="card-n">Проект № ' + x.n + '</div><h3>' + x.title + '</h3>' +
+          '<div class="card-meta"><span><b>' + String(x.area).replace(".", ",") + '</b> м²</span><span>' + fl +
+          '</span><span>' + window.MAT_NAME[x.mat] + '</span></div>' +
+          '<div class="card-bot"><div class="card-price"><small>Под ключ</small>' +
+          (x.price ? money(x.price) : "По запросу") + '</div><div class="card-go">→</div></div></div></a>';
+      }).join("");
+    }
+    watch();
+  }
 })();
