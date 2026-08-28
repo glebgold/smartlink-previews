@@ -361,7 +361,6 @@ footer a:hover{color:var(--white)}
       <b>Мера</b>
     </a>
     <nav class="nav">
-      <a href="#open">Открытие</a>
       <a href="#dirs">Направления</a>
       <a href="#sched">Расписание</a>
       <a href="#price">Цены</a>
@@ -387,7 +386,6 @@ footer a:hover{color:var(--white)}
       </div>
       <div class="hero-facts">
         <div><b>12</b><span>направлений</span></div>
-        <div><b>289</b><span>в клубе</span></div>
         <div><b>10</b><span>этаж, панорама</span></div>
         <div><b>7 мин</b><span>от метро Динамо</span></div>
       </div>
@@ -396,37 +394,6 @@ footer a:hover{color:var(--white)}
 </section>
 
 <!-- ── открытие ──────────────────────────────────────── -->
-<section class="open" id="open">
-  <div class="wrap open-grid">
-    <div>
-      <p class="eyebrow">Событие</p>
-      <h2>День открытия<br>фитнес-студии</h2>
-      <p>8 августа, 13:00. Четыре мастер-класса подряд — можно прийти на один,
-         а можно остаться на все. Вход свободный, нужна только запись.</p>
-      <div class="mk">
-        <div><span>Мастер-класс</span>Зажигательная латина</div>
-        <div><span>Мастер-класс</span>Функциональный тренинг</div>
-        <div><span>Мастер-класс</span>Стрип пластика</div>
-        <div><span>Мастер-класс</span>Растяжка в гамаках</div>
-      </div>
-    </div>
-    <div class="open-card">
-      <div class="cd" id="cd">
-        <i><b data-d>—</b><span data-ld>дней</span></i>
-        <i><b data-h>—</b><span data-lh>часов</span></i>
-        <i><b data-m>—</b><span data-lm>минут</span></i>
-      </div>
-      <p class="eyebrow" style="color:var(--sand)">8 августа · 13:00 · Первомайская, 15</p>
-      <a class="btn btn-light" style="margin-top:18px;width:100%" href="#book">Записаться на открытие</a>
-      <div class="drinks">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" style="width:24px;flex:none">
-          <path d="M8 3h8l-1 6a3 3 0 0 1-6 0L8 3zM12 12v8M9 21h6"/>
-        </svg>
-        Игристое и закуски для всех гостей
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- ── почему ────────────────────────────────────────── -->
 <section class="why">
@@ -694,7 +661,6 @@ footer a:hover{color:var(--white)}
     </div>
     <div class="f-col">
       <b>Студия</b>
-      <p><a href="#open">День открытия</a></p>
       <p><a href="#dirs">Направления</a></p>
       <p><a href="#sched">Расписание</a></p>
       <p><a href="#price">Цены</a></p>
@@ -721,28 +687,6 @@ function onScroll(){hdr.classList.toggle('solid',window.scrollY>60)}
 onScroll();addEventListener('scroll',onScroll,{passive:true});
 
 // обратный отсчёт до открытия (Екатеринбург, UTC+5)
-var target=new Date('2026-08-08T13:00:00+05:00').getTime(),cd=document.getElementById('cd');
-function tick(){
-  var d=target-Date.now();
-  if(d<=0){cd.innerHTML='<i style="flex:1"><b style="font-size:32px">Мы открылись</b><span>приходите на пробную</span></i>';return}
-  var dd=Math.floor(d/864e5),hh=Math.floor(d%864e5/36e5),mm=Math.floor(d%36e5/6e4);
-  cd.querySelector('[data-d]').textContent=dd;
-  cd.querySelector('[data-h]').textContent=hh;
-  cd.querySelector('[data-m]').textContent=mm;
-  cd.querySelector('[data-ld]').textContent=pl(dd,['день','дня','дней']);
-  cd.querySelector('[data-lh]').textContent=pl(hh,['час','часа','часов']);
-  cd.querySelector('[data-lm]').textContent=pl(mm,['минута','минуты','минут']);
-}
-// русские склонения: «4 дней» вместо «4 дня» сразу выдаёт шаблон
-function pl(n,f){
-  var a=n%10,b=n%100;
-  if(a==1&&b!=11)return f[0];
-  if(a>1&&a<5&&(b<10||b>=20))return f[1];
-  return f[2];
-}
-tick();setInterval(tick,30000);
-
-// расписание: вкладки дней на телефоне
 var days=document.querySelectorAll('#week .day');
 document.getElementById('tabs').addEventListener('click',function(e){
   var b=e.target.closest('button');if(!b)return;
