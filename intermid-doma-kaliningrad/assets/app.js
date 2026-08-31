@@ -181,6 +181,37 @@
     render();
   }
 
+  // ---------- Таблица платежей по семейной ипотеке ----------
+  var mrows = document.getElementById("mortgageRows");
+  if (mrows && window.PROJECTS) {
+    var LIMIT = 6000000, FAM = 0.06, MKT = 0.17, DOWN = 0.2;
+    function ann(sum, rate, years) {
+      var r = rate / 12, n = years * 12;
+      return sum * r * Math.pow(1 + r, n) / (Math.pow(1 + r, n) - 1);
+    }
+    // До лимита — льготная ставка, остаток — по рыночной.
+    function pay(price) {
+      var credit = price * (1 - DOWN);
+      var fam = Math.min(credit, LIMIT), rest = Math.max(0, credit - LIMIT);
+      return ann(fam, FAM, 30) + (rest ? ann(rest, MKT, 30) : 0);
+    }
+    var rows = window.PROJECTS.filter(function (p) { return p.price; })
+      .sort(function (a, b) { return a.price - b.price; })
+      .map(function (p) {
+        var m = pay(p.price), cheap = m <= 36000;
+        var area = String(p.area).replace(".", ",") + (p.area2 ? " / " + p.area2 : "");
+        return '<tr style="border-top:1px solid var(--line)">' +
+          '<td style="padding:14px 20px"><a href="proekt.html?n=' + p.n + '" style="font-weight:700;color:var(--copper)">№ ' + p.n + '</a>' +
+          '<div style="font-size:13px;color:var(--smoke);margin-top:2px">' + window.MAT_NAME[p.mat] + '</div></td>' +
+          '<td style="padding:14px 20px">' + area + ' м²</td>' +
+          '<td style="padding:14px 20px;text-align:right">' + money(p.price) + '</td>' +
+          '<td style="padding:14px 20px;text-align:right;color:var(--smoke)">' + money(p.price * DOWN) + '</td>' +
+          '<td style="padding:14px 20px;text-align:right;font-weight:800;font-family:var(--font-h);' +
+          (cheap ? 'color:var(--copper)' : '') + '">' + money(m) + '</td></tr>';
+      }).join("");
+    mrows.innerHTML = rows;
+  }
+
   // ---------- Карточка проекта ----------
   var page = document.getElementById("projPage");
   if (page && window.PROJECTS) {
