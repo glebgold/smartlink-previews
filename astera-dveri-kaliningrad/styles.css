@@ -285,6 +285,8 @@ section[id],footer{ scroll-margin-top:84px; }
 .price b{ font:400 1.14rem/1 var(--disp); letter-spacing:-.01em; color:var(--fg); }
 .price i{ font-style:normal; font-family:var(--mono); font-size:.7rem; }
 
+.card__go{ align-self:flex-start; margin-top:2px; font-size:.84rem; }
+
 .notice{
   margin-top:clamp(26px,3vw,44px); padding:clamp(20px,2.4vw,34px);
   border:1px solid var(--rule); display:flex; align-items:center; justify-content:space-between;
@@ -795,4 +797,142 @@ body{ overflow-wrap:break-word; }
 @media(max-width:390px){
   .cards .card{ flex-basis:80%; }
   .h-l{ font-size:2.05rem; }
+}
+
+/* ==========================================================================
+   22. КАРТОЧКА ДВЕРИ С КОНФИГУРАТОРОМ (dver.html)
+   ========================================================================== */
+.page-door{ padding-bottom:132px; }
+.page-door .band__main{ padding-top:104px; }
+
+.crumbs{ display:flex; flex-wrap:wrap; gap:8px; color:var(--fg-3); margin-bottom:22px; }
+.crumbs a{ color:var(--fg-3); text-decoration:none; }
+.crumbs a:hover{ color:var(--acc); }
+.crumbs b{ color:var(--fg-2); font-weight:400; }
+
+.door__title{ margin-bottom:.2em; }
+.door__lead{ margin-bottom:clamp(30px,4vw,54px); }
+
+.door{
+  display:grid; grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);
+  gap:clamp(28px,4vw,72px); align-items:start;
+}
+
+/* — сцена с дверью — */
+.door__stage{ position:sticky; top:104px; }
+.door__view{
+  background:
+    radial-gradient(120% 80% at 50% 0%, rgba(122,171,153,.10), transparent 62%),
+    var(--ink-2);
+  border:1px solid var(--rule); padding:clamp(16px,2vw,30px);
+}
+/* внутри SVG атрибут hidden браузером не применяется — гасим явно */
+.door__view svg [hidden]{ display:none; }
+.door__view svg{ display:block; width:100%; height:auto; max-height:66vh; margin-inline:auto;
+  transition:transform .45s var(--ease); }
+.door__facts{ display:grid; grid-template-columns:repeat(3,1fr); border-top:1px solid var(--rule); margin-top:-1px; }
+.door__facts li{ padding:14px 10px 16px 0; border-right:1px solid var(--rule-2); }
+.door__facts li:last-child{ border-right:0; }
+.door__facts b{ display:block; font:400 .92rem/1.2 var(--body); font-weight:500; }
+.door__facts span{ display:block; margin-top:4px; font-size:.66rem; color:var(--fg-3); }
+
+/* — поля конфигуратора — */
+.conf{ display:grid; gap:clamp(20px,2.4vw,34px); }
+.cf{ border:0; padding:0; margin:0; border-top:1px solid var(--rule); padding-top:15px; }
+.cf legend{
+  padding:0; margin-bottom:13px;
+  font:500 .66rem/1 var(--mono); letter-spacing:.15em; text-transform:uppercase; color:var(--fg-3);
+}
+.cf__hint{ margin-top:10px; color:var(--fg-3); font-size:.7rem; line-height:1.5; }
+.opts span i{ font-style:normal; font-family:var(--mono); font-size:.72em; opacity:.62; }
+
+/* — образцы цвета — */
+.sw{ display:flex; flex-wrap:wrap; gap:9px; align-items:center; margin-top:11px; }
+.sw__name{ flex-basis:100%; font:400 .7rem/1 var(--mono); font-weight:400; color:var(--fg-2); letter-spacing:.04em; margin-top:3px; }
+.sw label{ position:relative; cursor:pointer; line-height:0; }
+.sw input{ position:absolute; inset:0; width:100%; height:100%; opacity:0; margin:0; cursor:pointer; }
+.sw i{
+  display:block; width:34px; height:34px; border:1px solid rgba(128,128,128,.45);
+  box-shadow:inset 0 0 0 0 var(--bg), 0 0 0 0 var(--acc); transition:box-shadow .2s;
+}
+.sw input:checked + i{ box-shadow:inset 0 0 0 2px var(--bg), 0 0 0 2px var(--acc); }
+.sw input:focus-visible + i{ outline:2px solid var(--acc); outline-offset:3px; }
+
+/* — комплектации — */
+.packs{ display:grid; gap:9px; }
+.pack{ position:relative; cursor:pointer; display:block; }
+.pack input{ position:absolute; inset:0; width:100%; height:100%; opacity:0; margin:0; cursor:pointer; }
+.pack__b{
+  display:block; border:1px solid var(--rule); padding:15px 17px;
+  transition:border-color .2s, background .2s;
+}
+.pack:hover .pack__b{ border-color:var(--fg-3); }
+.pack input:checked + .pack__b{ border-color:var(--acc); background:rgba(122,171,153,.07); }
+.pack input:focus-visible + .pack__b{ outline:2px solid var(--acc); outline-offset:2px; }
+.pack__b b{ font:400 1.06rem/1.2 var(--disp); letter-spacing:-.01em; }
+.pack__b em{ display:block; margin-top:4px; font:400 .68rem/1.4 var(--mono); font-style:normal; color:var(--acc); }
+.pack__b i{ display:block; margin-top:9px; font-style:normal; font-size:.86rem; color:var(--fg-2); }
+
+.custom{ display:flex; gap:14px; flex-wrap:wrap; margin-top:12px; }
+.custom label{ display:flex; flex-direction:column; gap:6px; font:400 .68rem/1 var(--mono); color:var(--fg-3); }
+.custom input{
+  background:transparent; border:0; border-bottom:1px solid var(--rule);
+  padding:9px 0; width:130px; font-size:1rem; border-radius:0;
+}
+.custom input:focus{ outline:0; border-bottom-color:var(--acc); }
+
+/* — итоговая панель — */
+.total{
+  position:fixed; inset:auto 0 0; z-index:99;
+  background:rgba(18,22,21,.9); -webkit-backdrop-filter:blur(20px) saturate(1.3); backdrop-filter:blur(20px) saturate(1.3);
+  border-top:1px solid rgba(221,222,217,.16);
+}
+.total__in{
+  max-width:var(--maxw); margin-inline:auto; padding:14px var(--gut);
+  display:flex; align-items:center; gap:clamp(18px,3vw,48px);
+}
+.total__num{ font:400 clamp(1.4rem,2vw,1.9rem)/1 var(--disp); letter-spacing:-.02em; margin-top:5px; }
+.total__num em{ font-style:normal; font-size:.6em; color:var(--fg-3); }
+.total__note{ margin-top:6px; color:var(--fg-3); font-size:.66rem; }
+.total__sec{ min-width:172px; }
+.sec{ height:3px; background:rgba(221,222,217,.16); margin:9px 0 7px; }
+.sec i{ display:block; height:100%; background:var(--acc); transition:width .35s var(--ease); }
+.total__act{ margin-left:auto; display:flex; align-items:center; gap:20px; }
+.total__act .lnk{ background:none; border:0; border-bottom:1px solid currentColor; cursor:pointer; padding:0 0 4px; }
+
+@media(max-width:1000px){
+  .door{ grid-template-columns:minmax(0,1fr); }
+  .door__stage{ position:static; }
+  .door__view svg{ max-height:48vh; }
+}
+@media(max-width:720px){
+  .page-door{ padding-bottom:150px; }
+  .page-door .band__main{ padding-top:26px; }
+
+  /* дверь прилипает под шапкой: видно, что меняется, пока листаешь опции */
+  .door__stage{
+    position:sticky; top:60px; z-index:5; background:var(--bg);
+    margin-inline:calc(var(--gut) * -1); padding:0 var(--gut) 10px;
+    border-bottom:1px solid var(--rule);
+  }
+  .door__view{ border:0; padding:6px 0 0; background:none; }
+  .door__view svg{ max-height:25vh; }
+  .door__facts{ border-top:0; margin-top:4px; }
+  .door__facts li{ padding:8px 8px 2px 0; }
+  .door__facts b{ font-size:.78rem; }
+  .door__facts span{ font-size:.6rem; }
+  .door{ gap:0; }
+  .conf{ padding-top:24px; }
+
+  /* панель итога в две строки вместо четырёх */
+  .total__in{ display:grid; grid-template-columns:1fr auto; gap:6px 16px; padding:11px var(--gut) 13px; }
+  .total__sum{ grid-column:1; }
+  .total__num{ font-size:1.55rem; margin-top:3px; }
+  .total__note{ display:none; }
+  .total__sec{ grid-column:2; min-width:0; text-align:right; align-self:center; }
+  .sec{ width:96px; margin:7px 0 6px auto; }
+  .total__act{ grid-column:1/-1; margin-left:0; gap:14px; margin-top:2px; }
+  .total__act .btn{ flex:1; justify-content:center; padding:15px 18px; }
+  .total__act .lnk{ font-size:.74rem; line-height:1.25; max-width:42%; }
+  .crumbs{ font-size:.62rem; }
 }
