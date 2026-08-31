@@ -255,7 +255,7 @@
     $('#dLeaf').querySelector('rect:last-child').setAttribute('x', lx);
     $('#dLeaf').querySelector('rect:last-child').setAttribute('width', lw);
     $('#dLeafBase').setAttribute('fill', colorOf('out', S.outColor));
-    $('#dFrame').setAttribute('fill', S.pack === 'smart' ? '#202523' : '#2A2F2E');
+    $('#dFrame').setAttribute('fill', S.pack === 'smart' ? '#B3AFA5' : '#C6C3BB');
 
     $('#dPattern').innerHTML = drawPattern(lx, lw, ly, lh);
     $('#dHandle').innerHTML  = drawHandle(lx, lw, ly, lh);
