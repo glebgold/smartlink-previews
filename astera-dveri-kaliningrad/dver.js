@@ -6,12 +6,16 @@
   'use strict';
   var $  = function (s, r) { return (r || document).querySelector(s); };
   var $$ = function (s, r) { return [].slice.call((r || document).querySelectorAll(s)); };
+  var A  = window.ASTERA;
+
+  /* какую модель открыли */
+  var M = A.byId(new URLSearchParams(location.search).get('id')) || A.MODELS[0];
 
   /* ---------- 1. Модель и её опции ---------- */
   var D = {
-    name: 'Эссенс',
-    base: 46900,          // полотно с коробом
-    mount: 9600,          // установка и вывоз старой
+    name: M.t,
+    base: Math.round(M.price * 0.83 / 100) * 100,   // полотно с коробом
+    mount: M.price - Math.round(M.price * 0.83 / 100) * 100,  // установка и вывоз старой
     baseSec: 120,         // взломостойкость базовой сборки
 
     outFinish: [
@@ -292,7 +296,6 @@
   function summary() {
     var sz = sizePair();
     var parts = [
-      D.name,
       sz[0] + '×' + sz[1],
       find(D.outFinish, S.outFinish).t.toLowerCase(),
       find(D.pattern, S.pattern).t.toLowerCase(),
@@ -303,7 +306,7 @@
     if (S.casing.length) parts.push('с доборами');
     S.comfort.forEach(function (id) { parts.push(find(D.comfort, id).t.toLowerCase()); });
     S.security.forEach(function (id) { parts.push(find(D.security, id).t.toLowerCase()); });
-    return parts.join(', ') + ' — ' + fmt(money()) + ' ₽';
+    return parts.join(', ');
   }
 
   function render() {
@@ -316,7 +319,6 @@
     $('#secBar').style.width = Math.round(v / MAXSEC * 100) + '%';
     $('#sumNote').textContent = 'с установкой и вывозом старой двери · срок ' +
       (S.outFinish === 'mass' ? '25–35' : S.pack === 'smart' ? '18–25' : '10–18') + ' дней';
-    $('#ospec').value = summary();
     writeUrl();
   }
 
@@ -367,38 +369,36 @@
     else done(false);
   });
 
-  $('#toOrder').addEventListener('click', function () {
-    $('#zayavka').scrollIntoView({ behavior: 'smooth', block: 'start' });
-    setTimeout(function () { $('#oname').focus(); }, 500);
+  $('#toCart').addEventListener('click', function () {
+    CART.add({ id: M.id, t: M.t, ph: M.ph, price: money(), conf: summary() });
+    location.href = 'korzina.html';
   });
 
-  var ph = $('#ophone');
-  ph.addEventListener('input', function () {
-    var d = ph.value.replace(/\D/g, '');
-    if (d[0] === '8') d = '7' + d.slice(1);
-    if (d[0] !== '7') d = '7' + d;
-    d = d.slice(0, 11);
-    var out = '+7';
-    if (d.length > 1) out += ' (' + d.slice(1, 4);
-    if (d.length >= 5) out += ') ' + d.slice(4, 7);
-    if (d.length >= 8) out += '-' + d.slice(7, 9);
-    if (d.length >= 10) out += '-' + d.slice(9, 11);
-    ph.value = out;
-  });
-  $('#orderForm').addEventListener('submit', function (e) {
-    e.preventDefault();
-    var name = $('#oname'), ok = true;
-    [[name, name.value.trim().length >= 2], [ph, ph.value.replace(/\D/g, '').length === 11]]
-      .forEach(function (p) {
-        var bad = !p[1];
-        p[0].closest('.field').classList.toggle('is-bad', bad);
-        if (bad && ok) { p[0].focus(); ok = false; }
-      });
-    if (!ok) return;
-    /* TODO: отправка — сюда же уходит поле «Ваша сборка». См. README.md */
-    $$('.field, .form__foot', this).forEach(function (el) { el.hidden = true; });
-    $('#orderOk').hidden = false;
-  });
+  /* шапка карточки и хлебные крошки */
+  function fillHead() {
+    $('#mName').textContent = M.t;
+    $('#mLead').textContent = M.d + ' Соберите свою — цена пересчитается сразу.';
+    var ph = $('#realPh');
+    ph.src = A.photo(M.ph, 880); ph.alt = 'Дверь ' + M.t;
+    var c = A.cat(M.cat);
+    var sub = null;
+    if (M.sub) { c.subs.forEach(function (s) { if (s.id === M.sub) sub = s; }); }
+    var parts = ['<a href="index.html">Главная</a><span>/</span>',
+                 '<a href="katalog.html">Каталог</a><span>/</span>',
+                 '<a href="' + c.page + '">' + c.t + '</a><span>/</span>'];
+    if (sub) parts.push('<a href="' + c.page + '">' + sub.t + '</a><span>/</span>');
+    parts.push('<b>' + M.t + '</b>');
+    $('#crumbs').innerHTML = parts.join('');
+    document.title = M.t + ' — ' + c.t.toLowerCase() + ' · Астера';
+  }
+  fillHead();
+
+  /* похожие модели того же раздела */
+  var similar = A.MODELS.filter(function (x) {
+    return x.cat === M.cat && x.sub === M.sub && x.id !== M.id;
+  }).slice(0, 3);
+  if (!similar.length) similar = A.MODELS.filter(function (x) { return x.cat === M.cat && x.id !== M.id; }).slice(0, 3);
+  renderCards($('#similar'), similar);
 
   readUrl();
   build();

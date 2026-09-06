@@ -13,7 +13,7 @@
 
 <link rel="stylesheet" href="assets/fonts.css">
 <!-- после правки styles.css поднимите номер версии, иначе браузер покажет старую -->
-<link rel="stylesheet" href="styles.css?v=23">
+<link rel="stylesheet" href="styles.css?v=31">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23F7F6F3'/%3E%3Crect x='7' y='5' width='18' height='22' fill='none' stroke='%23191A1C' stroke-width='1.6'/%3E%3Ccircle cx='11' cy='16' r='1.3' fill='%23C0A276'/%3E%3C/svg%3E">
 </head>
 <body>
@@ -22,23 +22,39 @@
 
 <header class="hdr">
   <div class="wrap hdr__in">
-    <a class="logo" href="#top" aria-label="Астера — двери, на главную">
+    <a class="logo" href="index.html" aria-label="Астера — двери, на главную">
       <span class="logo__m" aria-hidden="true"></span>
       <span class="logo__t">Астера<span>Двери в Калининграде</span></span>
     </a>
     <nav class="nav" aria-label="Разделы сайта">
-      <a href="#katalog">Каталог</a>
-      <a href="#tseny">Что входит в цену</a>
-      <a href="#kak">Как работаем</a>
-      <a href="#raboty">Работы</a>
-      <a href="#kontakty">Контакты</a>
+      <a href="katalog.html">Каталог</a>
+      <a href="vhodnye.html">Входные</a>
+      <a href="mezhkomnatnye.html">Межкомнатные</a>
+      <a href="dizaineram.html">Дизайнерам</a>
+      <a href="zastroyshchikam.html">Застройщикам</a>
+      <a href="kontakty.html">Контакты</a>
     </nav>
     <div class="hdr__act">
+      <a class="hdr__cart" href="korzina.html" aria-label="Заявка">Заявка<span class="cart-count" hidden>0</span></a>
       <a class="hdr__tel" href="tel:+74012000000">+7 (4012) 00-00-00</a>
-      <a class="btn btn--sm" href="#zayavka">Бесплатный замер</a>
+      <a class="btn btn--sm" href="#zayavka">Замер</a>
+      <button class="burger" type="button" aria-label="Меню" aria-expanded="false"><i></i><i></i><i></i></button>
     </div>
   </div>
 </header>
+
+<nav class="mnav" aria-label="Меню">
+  <div class="mnav__in">
+    <a href="katalog.html">Каталог</a>
+    <a href="vhodnye.html">Входные</a>
+    <a href="mezhkomnatnye.html">Межкомнатные</a>
+    <a href="dizaineram.html">Дизайнерам</a>
+    <a href="zastroyshchikam.html">Застройщикам</a>
+    <a href="kontakty.html">Контакты</a>
+    <a href="o-nas.html">О компании</a>
+    <a class="mnav__tel" href="tel:+74012000000">+7 (4012) 00-00-00</a>
+  </div>
+</nav>
 
 <main id="main">
 
@@ -59,7 +75,7 @@
     </div>
     <div class="hero__ph">
       <!-- СЛОТ: hero -->
-      <img data-slot="hero" src="assets/img/hero-1800.jpg?v=2" alt="Входная дверь в современном доме" srcset="assets/img/hero-900.jpg?v=2 900w, assets/img/hero-1800.jpg?v=2 1800w" sizes="(max-width:760px) 92vw, (max-width:1100px) 46vw, 30vw" decoding="async">
+      <img data-slot="hero" src="assets/img/hero-1800.jpg?v=3" alt="Входная дверь в современном доме" srcset="assets/img/hero-900.jpg?v=3 900w, assets/img/hero-1800.jpg?v=3 1800w" sizes="(max-width:760px) 92vw, (max-width:1100px) 46vw, 30vw" decoding="async">
     </div>
   </div>
 </section>
@@ -81,31 +97,31 @@
     </div>
 
     <div class="grid grid--3">
-      <a class="card" href="dver.html">
+      <a class="card" href="vhodnye.html">
         <div class="card__ph"><!-- СЛОТ: входные-1 -->
-          <img data-slot="vhod-1" loading="lazy" src="assets/img/vhod-1-820.jpg?v=2" alt="Входная дверь в квартиру" srcset="assets/img/vhod-1-440.jpg?v=2 440w, assets/img/vhod-1-820.jpg?v=2 820w" sizes="(max-width:760px) 92vw, (max-width:1100px) 46vw, 30vw" decoding="async"></div>
+          <img data-slot="vhod-1" loading="lazy" src="assets/img/vhod-1-880.jpg?v=3" alt="Входная дверь в квартиру" srcset="assets/img/vhod-1-440.jpg?v=3 440w, assets/img/vhod-1-880.jpg?v=3 880w" sizes="(max-width:760px) 92vw, (max-width:1100px) 46vw, 30vw" decoding="async"></div>
         <div class="card__b">
           <h3>Входные в квартиру</h3>
           <p>Тёплые, с двумя контурами уплотнения и терморазрывом. Для панельки, где лестница выстывает за ночь.</p>
           <div class="card__price"><b>от 34 900 ₽</b><span>с установкой</span></div>
-          <span class="card__go">Собрать и узнать цену</span>
+          <span class="card__go">Смотреть модели</span>
         </div>
       </a>
 
-      <a class="card" href="dver.html">
+      <a class="card" href="vhodnye.html">
         <div class="card__ph"><!-- СЛОТ: входные-2 -->
-          <img data-slot="vhod-2" loading="lazy" src="assets/img/vhod-2-820.jpg?v=2" alt="Входная дверь в частный дом" srcset="assets/img/vhod-2-440.jpg?v=2 440w, assets/img/vhod-2-820.jpg?v=2 820w" sizes="(max-width:760px) 92vw, (max-width:1100px) 46vw, 30vw" decoding="async"></div>
+          <img data-slot="vhod-2" loading="lazy" src="assets/img/vhod-2-880.jpg?v=3" alt="Входная дверь в частный дом" srcset="assets/img/vhod-2-440.jpg?v=3 440w, assets/img/vhod-2-880.jpg?v=3 880w" sizes="(max-width:760px) 92vw, (max-width:1100px) 46vw, 30vw" decoding="async"></div>
         <div class="card__b">
           <h3>Входные в дом</h3>
           <p>Терморазрыв по всему контуру, влагостойкая отделка, порог из нержавейки. Для Гурьевска и всего, что стоит на ветру.</p>
           <div class="card__price"><b>от 72 400 ₽</b><span>с установкой</span></div>
-          <span class="card__go">Собрать и узнать цену</span>
+          <span class="card__go">Смотреть модели</span>
         </div>
       </a>
 
-      <a class="card" href="dver.html">
+      <a class="card" href="mezhkomnatnye.html">
         <div class="card__ph"><!-- СЛОТ: межкомнатные-1 -->
-          <img data-slot="mezh-1" loading="lazy" src="assets/img/mezh-1-820.jpg?v=2" alt="Межкомнатные двери в коридоре" srcset="assets/img/mezh-1-440.jpg?v=2 440w, assets/img/mezh-1-820.jpg?v=2 820w" sizes="(max-width:760px) 92vw, (max-width:1100px) 46vw, 30vw" decoding="async"></div>
+          <img data-slot="mezh-1" loading="lazy" src="assets/img/mezh-1-880.jpg?v=3" alt="Межкомнатные двери в коридоре" srcset="assets/img/mezh-1-440.jpg?v=3 440w, assets/img/mezh-1-880.jpg?v=3 880w" sizes="(max-width:760px) 92vw, (max-width:1100px) 46vw, 30vw" decoding="async"></div>
         <div class="card__b">
           <h3>Межкомнатные</h3>
           <p>Эмаль, шпон дуба, скрытый монтаж в уровень стены. Подбираем в тон полу и стыкуем рисунок между дверями.</p>
@@ -122,48 +138,11 @@
   <div class="wrap">
     <div class="head">
       <span class="rule"></span>
-      <h2>Популярные модели</h2>
+      <h2>Чаще всего заказывают</h2>
       <p>Цена указана за дверь под ключ: полотно, короб, фурнитура и установка.</p>
     </div>
-
-    <div class="grid grid--4">
-      <a class="card" href="dver.html">
-        <div class="card__ph"><!-- СЛОТ: модель-1 -->
-          <img data-slot="mezh-2" loading="lazy" src="assets/img/mezh-2-820.jpg?v=2" alt="Дверь Эссенс" srcset="assets/img/mezh-2-440.jpg?v=2 440w, assets/img/mezh-2-820.jpg?v=2 820w" sizes="(max-width:760px) 92vw, (max-width:1100px) 46vw, 30vw" decoding="async"></div>
-        <div class="card__b">
-          <h3>Эссенс</h3>
-          <p>Вертикальная фрезеровка, скрытые петли.</p>
-          <div class="card__price"><b>от 56 500 ₽</b></div>
-        </div>
-      </a>
-      <a class="card" href="dver.html">
-        <div class="card__ph"><!-- СЛОТ: модель-2 -->
-          <img data-slot="vhod-3" loading="lazy" src="assets/img/vhod-3-820.jpg?v=2" alt="Дверь Кант" srcset="assets/img/vhod-3-440.jpg?v=2 440w, assets/img/vhod-3-820.jpg?v=2 820w" sizes="(max-width:760px) 92vw, (max-width:1100px) 46vw, 30vw" decoding="async"></div>
-        <div class="card__b">
-          <h3>Кант</h3>
-          <p>Филёнки, массив дуба, латунная фурнитура.</p>
-          <div class="card__price"><b>от 84 000 ₽</b></div>
-        </div>
-      </a>
-      <a class="card" href="dver.html">
-        <div class="card__ph"><!-- СЛОТ: модель-3 -->
-          <img data-slot="mezh-3" loading="lazy" src="assets/img/mezh-3-820.jpg?v=2" alt="Дверь Сельма" srcset="assets/img/mezh-3-440.jpg?v=2 440w, assets/img/mezh-3-820.jpg?v=2 820w" sizes="(max-width:760px) 92vw, (max-width:1100px) 46vw, 30vw" decoding="async"></div>
-        <div class="card__b">
-          <h3>Сельма</h3>
-          <p>Гладкое полотно, эмаль по RAL, скоба 1200 мм.</p>
-          <div class="card__price"><b>от 61 200 ₽</b></div>
-        </div>
-      </a>
-      <a class="card" href="dver.html">
-        <div class="card__ph"><!-- СЛОТ: модель-4 -->
-          <img data-slot="work-4" loading="lazy" src="assets/img/work-4-920.jpg?v=2" alt="Дверь Амалиенау" srcset="assets/img/work-4-460.jpg?v=2 460w, assets/img/work-4-920.jpg?v=2 920w" sizes="(max-width:760px) 92vw, (max-width:1100px) 46vw, 30vw" decoding="async"></div>
-        <div class="card__b">
-          <h3>Амалиенау</h3>
-          <p>Под старый фонд: арка, нестандартная высота.</p>
-          <div class="card__price"><b>от 92 000 ₽</b></div>
-        </div>
-      </a>
-    </div>
+    <div class="grid grid--3" id="hits"></div>
+    <p style="margin-top:28px"><a class="link" href="katalog.html">Весь каталог — 21 модель →</a></p>
   </div>
 </section>
 
@@ -189,7 +168,7 @@
   <div class="wrap">
     <div class="inside">
       <div class="inside__ph"><!-- СЛОТ: разрез -->
-        <img data-slot="inside" loading="lazy" src="assets/img/inside-920.jpg?v=2" alt="Фактура дверного полотна" srcset="assets/img/inside-460.jpg?v=2 460w, assets/img/inside-920.jpg?v=2 920w" sizes="(max-width:760px) 92vw, (max-width:1100px) 46vw, 30vw" decoding="async"></div>
+        <img data-slot="inside" loading="lazy" src="assets/img/inside-880.jpg?v=3" alt="Фактура дверного полотна" srcset="assets/img/inside-440.jpg?v=3 440w, assets/img/inside-880.jpg?v=3 880w" sizes="(max-width:760px) 92vw, (max-width:1100px) 46vw, 30vw" decoding="async"></div>
       <div>
         <span class="rule"></span>
         <h2>Что внутри тёплой двери</h2>
@@ -237,23 +216,23 @@
     </div>
     <div class="works">
       <figure class="work work--wide"><!-- СЛОТ: работа-1 -->
-        <img data-slot="work-1" loading="lazy" src="assets/img/work-1-1400.jpg?v=2" alt="Входная дверь в немецком доме" srcset="assets/img/work-1-560.jpg?v=2 560w, assets/img/work-1-1400.jpg?v=2 1400w" sizes="(max-width:760px) 92vw, (max-width:1100px) 46vw, 30vw" decoding="async">
+        <img data-slot="work-1" loading="lazy" src="assets/img/work-1-880.jpg?v=3" alt="Входная дверь в немецком доме" srcset="assets/img/work-1-440.jpg?v=3 440w, assets/img/work-1-880.jpg?v=3 880w" sizes="(max-width:760px) 92vw, (max-width:1100px) 46vw, 30vw" decoding="async">
         <figcaption><b>ул. Кутузова, Амалиенау</b><span>входная в немецкий дом, арочный проём 2 380 мм</span></figcaption>
       </figure>
       <figure class="work work--wide"><!-- СЛОТ: работа-2 -->
-        <img data-slot="work-2" loading="lazy" src="assets/img/work-2-1400.jpg?v=2" alt="Межкомнатные двери в квартире" srcset="assets/img/work-2-560.jpg?v=2 560w, assets/img/work-2-1400.jpg?v=2 1400w" sizes="(max-width:760px) 92vw, (max-width:1100px) 46vw, 30vw" decoding="async">
+        <img data-slot="work-2" loading="lazy" src="assets/img/work-2-880.jpg?v=3" alt="Межкомнатные двери в квартире" srcset="assets/img/work-2-440.jpg?v=3 440w, assets/img/work-2-880.jpg?v=3 880w" sizes="(max-width:760px) 92vw, (max-width:1100px) 46vw, 30vw" decoding="async">
         <figcaption><b>ЖК «Сельма»</b><span>6 межкомнатных, эмаль RAL 7016</span></figcaption>
       </figure>
       <figure class="work"><!-- СЛОТ: работа-3 -->
-        <img data-slot="work-3" loading="lazy" src="assets/img/work-3-920.jpg?v=2" alt="Уличная дверь с терморазрывом" srcset="assets/img/work-3-460.jpg?v=2 460w, assets/img/work-3-920.jpg?v=2 920w" sizes="(max-width:760px) 92vw, (max-width:1100px) 46vw, 30vw" decoding="async">
+        <img data-slot="work-3" loading="lazy" src="assets/img/work-3-880.jpg?v=3" alt="Уличная дверь с терморазрывом" srcset="assets/img/work-3-440.jpg?v=3 440w, assets/img/work-3-880.jpg?v=3 880w" sizes="(max-width:760px) 92vw, (max-width:1100px) 46vw, 30vw" decoding="async">
         <figcaption><b>Гурьевск, ИЖС</b><span>уличная с терморазрывом, 3 контура</span></figcaption>
       </figure>
       <figure class="work"><!-- СЛОТ: работа-4 -->
-        <img data-slot="work-4" loading="lazy" src="assets/img/work-4-920.jpg?v=2" alt="Входная дверь со шпоном дуба" srcset="assets/img/work-4-460.jpg?v=2 460w, assets/img/work-4-920.jpg?v=2 920w" sizes="(max-width:760px) 92vw, (max-width:1100px) 46vw, 30vw" decoding="async">
+        <img data-slot="work-4" loading="lazy" src="assets/img/work-4-880.jpg?v=3" alt="Входная дверь со шпоном дуба" srcset="assets/img/work-4-440.jpg?v=3 440w, assets/img/work-4-880.jpg?v=3 880w" sizes="(max-width:760px) 92vw, (max-width:1100px) 46vw, 30vw" decoding="async">
         <figcaption><b>Зеленоградск, ул. Ленина</b><span>входная в квартиру, шпон дуба</span></figcaption>
       </figure>
       <figure class="work"><!-- СЛОТ: работа-5 -->
-        <img data-slot="work-5" loading="lazy" src="assets/img/work-5-920.jpg?v=2" alt="Скрытые двери под покраску" srcset="assets/img/work-5-460.jpg?v=2 460w, assets/img/work-5-920.jpg?v=2 920w" sizes="(max-width:760px) 92vw, (max-width:1100px) 46vw, 30vw" decoding="async">
+        <img data-slot="work-5" loading="lazy" src="assets/img/work-5-880.jpg?v=3" alt="Скрытые двери под покраску" srcset="assets/img/work-5-440.jpg?v=3 440w, assets/img/work-5-880.jpg?v=3 880w" sizes="(max-width:760px) 92vw, (max-width:1100px) 46vw, 30vw" decoding="async">
         <figcaption><b>Московский район</b><span>скрытый монтаж, 4 полотна под покраску</span></figcaption>
       </figure>
     </div>
@@ -348,7 +327,7 @@
   <div class="wrap">
     <div class="about">
       <div class="about__ph"><!-- СЛОТ: портрет -->
-        <img data-slot="portrait" loading="lazy" src="assets/img/portrait-820.jpg?v=2" alt="Ростислав, мастер компании «Астера»" srcset="assets/img/portrait-440.jpg?v=2 440w, assets/img/portrait-820.jpg?v=2 820w" sizes="(max-width:760px) 92vw, (max-width:1100px) 46vw, 30vw" decoding="async"></div>
+        <img data-slot="portrait" loading="lazy" src="assets/img/portrait-880.jpg?v=3" alt="Ростислав, мастер компании «Астера»" srcset="assets/img/portrait-440.jpg?v=3 440w, assets/img/portrait-880.jpg?v=3 880w" sizes="(max-width:760px) 92vw, (max-width:1100px) 46vw, 30vw" decoding="async"></div>
       <div>
         <span class="rule"></span>
         <h2>Меня зовут Ростислав</h2>
@@ -436,18 +415,19 @@
       <div>
         <h4>Разделы</h4>
         <p class="ftr__nav">
-          <a href="#katalog">Каталог</a>
-          <a href="#tseny">Что входит в цену</a>
-          <a href="#vnutri">Что внутри двери</a>
-          <a href="#kak">Как работаем</a>
-          <a href="#raboty">Работы</a>
-          <a href="#raschet">Расчёт</a>
+          <a href="katalog.html">Каталог</a>
+          <a href="vhodnye.html">Входные двери</a>
+          <a href="mezhkomnatnye.html">Межкомнатные</a>
+          <a href="dizaineram.html">Дизайнерам</a>
+          <a href="zastroyshchikam.html">Застройщикам</a>
+          <a href="o-nas.html">О компании</a>
+          <a href="kontakty.html">Контакты</a>
         </p>
       </div>
     </div>
     <div class="ftr__base">
       <span>«Астера» · ИП Иванов Р. · ИНН 000000000000 · © 2026</span>
-      <span>Цены на сайте — ориентир, не оферта · сборка L1</span>
+      <span>Цены на сайте — ориентир, не оферта · сборка M1</span>
     </div>
   </div>
 </footer>
@@ -457,6 +437,9 @@
   <a class="btn btn--sm" href="#zayavka">Записаться на замер</a>
 </div>
 
-<script src="script.js?v=20"></script>
+<script src="catalog.js?v=30"></script>
+<script src="site.js?v=30"></script>
+<script src="script.js?v=30"></script>
+<script>renderCards(document.getElementById("hits"), window.ASTERA.hits());</script>
 </body>
 </html>

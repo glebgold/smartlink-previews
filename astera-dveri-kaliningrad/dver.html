@@ -3,17 +3,17 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Эссенс — входная дверь в квартиру · Астера</title>
-<meta name="description" content="Входная дверь Эссенс: соберите комплектацию — отделка, цвет, размер, фурнитура, замки. Цена считается сразу.">
+<title>Дверь — Астера, Калининград</title>
+<meta name="description" content="Соберите дверь под свой проём: отделка, цвет, размер, фурнитура и замки. Цена считается сразу.">
 <meta name="theme-color" content="#F7F6F3">
 <meta name="robots" content="noindex, follow">
 <link rel="stylesheet" href="assets/fonts.css">
-<link rel="stylesheet" href="styles.css?v=23">
+<link rel="stylesheet" href="styles.css?v=31">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23F7F6F3'/%3E%3Crect x='7' y='5' width='18' height='22' fill='none' stroke='%23191A1C' stroke-width='1.6'/%3E%3Ccircle cx='11' cy='16' r='1.3' fill='%23C0A276'/%3E%3C/svg%3E">
 </head>
 <body class="page-door">
 
-<a class="skip" href="#conf">К конфигуратору</a>
+<a class="skip" href="#main">К содержанию</a>
 
 <header class="hdr">
   <div class="wrap hdr__in">
@@ -22,30 +22,40 @@
       <span class="logo__t">Астера<span>Двери в Калининграде</span></span>
     </a>
     <nav class="nav" aria-label="Разделы сайта">
-      <a href="index.html#katalog">Каталог</a>
-      <a href="index.html#tseny">Что входит в цену</a>
-      <a href="index.html#kak">Как работаем</a>
-      <a href="index.html#raboty">Работы</a>
+      <a href="katalog.html" class="is-here">Каталог</a>
+      <a href="vhodnye.html">Входные</a>
+      <a href="mezhkomnatnye.html">Межкомнатные</a>
+      <a href="dizaineram.html">Дизайнерам</a>
+      <a href="zastroyshchikam.html">Застройщикам</a>
+      <a href="kontakty.html">Контакты</a>
     </nav>
     <div class="hdr__act">
+      <a class="hdr__cart" href="korzina.html" aria-label="Заявка">Заявка<span class="cart-count" hidden>0</span></a>
       <a class="hdr__tel" href="tel:+74012000000">+7 (4012) 00-00-00</a>
-      <a class="btn btn--sm" href="#zayavka">Бесплатный замер</a>
+      <a class="btn btn--sm" href="kontakty.html#zayavka">Замер</a>
+      <button class="burger" type="button" aria-label="Меню" aria-expanded="false"><i></i><i></i><i></i></button>
     </div>
   </div>
 </header>
 
+<nav class="mnav" aria-label="Меню">
+  <div class="mnav__in">
+    <a href="katalog.html" class="is-here">Каталог</a>
+    <a href="vhodnye.html">Входные</a>
+    <a href="mezhkomnatnye.html">Межкомнатные</a>
+    <a href="dizaineram.html">Дизайнерам</a>
+    <a href="zastroyshchikam.html">Застройщикам</a>
+    <a href="kontakty.html">Контакты</a>
+    <a href="o-nas.html">О компании</a>
+    <a class="mnav__tel" href="tel:+74012000000">+7 (4012) 00-00-00</a>
+  </div>
+</nav>
+
 <main id="main">
 <section class="wrap section section--tight">
+  <nav class="crumbs" id="crumbs" aria-label="Хлебные крошки"></nav>
 
-  <nav class="crumbs" aria-label="Хлебные крошки">
-    <a href="index.html">Главная</a><span>/</span>
-    <a href="index.html#katalog">Каталог</a><span>/</span>
-    <a href="index.html#katalog">Входные в квартиру</a><span>/</span>
-    <b>Эссенс</b>
-  </nav>
-
-  <div class="door" id="conf-top">
-    <!-- ── ЖИВОЙ РИСУНОК ДВЕРИ ── -->
+  <div class="door">
     <div class="door__stage">
       <div class="door__view">
         <svg viewBox="0 0 320 660" role="img" aria-labelledby="doorAlt" id="doorSvg">
@@ -85,120 +95,109 @@
         <li><b id="fSide">правая, внутрь</b><span>открывание</span></li>
         <li><b id="fThick">90 мм</b><span>толщина полотна</span></li>
       </ul>
+      <figure class="door__real">
+        <img id="realPh" alt="" loading="lazy">
+        <figcaption>Фото модели. Схема слева показывает вашу сборку.</figcaption>
+      </figure>
     </div>
 
-    <!-- ── КОНФИГУРАТОР ── -->
     <div>
-      <h1 class="h1 door__title">Эссенс</h1>
-      <p class="lead door__lead">
-        Входная дверь в квартиру: сталь 1,5 мм, базальт 80 мм, терморазрыв.
-        Соберите свою — цена пересчитается сразу.
-      </p>
+      <h1 class="h1 door__title" id="mName">Модель</h1>
+      <p class="lead door__lead" id="mLead"></p>
 
       <form class="conf" id="conf">
-        <fieldset class="cf">
-          <legend>Отделка с улицы</legend>
+        <fieldset class="cf"><legend>Отделка с улицы</legend>
           <div class="opts" data-g="outFinish"></div>
           <div class="sw" data-g="outColor" role="radiogroup" aria-label="Цвет снаружи"></div>
-          <p class="cf__hint" id="hintOut">—</p>
-        </fieldset>
-
-        <fieldset class="cf">
-          <legend>Рисунок полотна</legend>
-          <div class="opts" data-g="pattern"></div>
-        </fieldset>
-
-        <fieldset class="cf">
-          <legend>Отделка внутри, со стороны квартиры</legend>
+          <p class="cf__hint" id="hintOut">—</p></fieldset>
+        <fieldset class="cf"><legend>Рисунок полотна</legend>
+          <div class="opts" data-g="pattern"></div></fieldset>
+        <fieldset class="cf"><legend>Отделка внутри, со стороны квартиры</legend>
           <div class="opts" data-g="inFinish"></div>
-          <div class="sw" data-g="inColor" role="radiogroup" aria-label="Цвет внутри"></div>
-        </fieldset>
-
-        <fieldset class="cf">
-          <legend>Размер проёма</legend>
+          <div class="sw" data-g="inColor" role="radiogroup" aria-label="Цвет внутри"></div></fieldset>
+        <fieldset class="cf"><legend>Размер проёма</legend>
           <div class="opts" data-g="size"></div>
           <div class="custom" id="customSize" hidden>
             <label>Ширина, мм <input type="number" id="cw" value="880" min="600" max="1400" step="10"></label>
             <label>Высота, мм <input type="number" id="ch" value="2090" min="1800" max="2600" step="10"></label>
-          </div>
-        </fieldset>
-
-        <fieldset class="cf">
-          <legend>Открывание</legend>
+          </div></fieldset>
+        <fieldset class="cf"><legend>Открывание</legend>
           <div class="opts" data-g="side"></div>
-          <div class="opts" data-g="swing" style="margin-top:9px"></div>
-        </fieldset>
-
-        <fieldset class="cf">
-          <legend>Комплектация</legend>
-          <div class="packs" data-g="pack"></div>
-        </fieldset>
-
-        <fieldset class="cf">
-          <legend>Фурнитура</legend>
+          <div class="opts" data-g="swing" style="margin-top:9px"></div></fieldset>
+        <fieldset class="cf"><legend>Комплектация</legend>
+          <div class="packs" data-g="pack"></div></fieldset>
+        <fieldset class="cf"><legend>Фурнитура</legend>
           <div class="opts" data-g="handle"></div>
-          <div class="sw" data-g="handleColor" role="radiogroup" aria-label="Цвет фурнитуры"></div>
-        </fieldset>
-
-        <fieldset class="cf">
-          <legend>Доборы и наличники</legend>
+          <div class="sw" data-g="handleColor" role="radiogroup" aria-label="Цвет фурнитуры"></div></fieldset>
+        <fieldset class="cf"><legend>Доборы и наличники</legend>
           <div class="opts" data-g="casing"></div>
-          <p class="cf__hint">Цвет доборов повторяет внутреннюю панель.</p>
-        </fieldset>
-
-        <fieldset class="cf">
-          <legend>Для удобства</legend>
-          <div class="opts" data-g="comfort"></div>
-        </fieldset>
-
-        <fieldset class="cf" style="margin-bottom:0">
-          <legend>Взломостойкость</legend>
-          <div class="opts" data-g="security"></div>
-        </fieldset>
+          <p class="cf__hint">Цвет доборов повторяет внутреннюю панель.</p></fieldset>
+        <fieldset class="cf"><legend>Для удобства</legend>
+          <div class="opts" data-g="comfort"></div></fieldset>
+        <fieldset class="cf" style="margin-bottom:0"><legend>Взломостойкость</legend>
+          <div class="opts" data-g="security"></div></fieldset>
       </form>
     </div>
   </div>
 </section>
 
-<!-- ── ЗАЯВКА ── -->
-<section class="section section--white" id="zayavka">
+<section class="section section--white section--tight">
   <div class="wrap">
-    <div class="head">
-      <span class="rule"></span>
-      <h2>Оставьте сборку и телефон</h2>
-      <p>Перезвоним в течение часа, уточним проём и назовём точную цену. Оплаты на сайте нет — сначала замер.</p>
-    </div>
-    <form class="form" id="orderForm" novalidate>
-      <div class="field">
-        <label for="oname">Как к вам обращаться</label>
-        <input id="oname" type="text" autocomplete="name" placeholder="Имя" required>
-      </div>
-      <div class="field">
-        <label for="ophone">Телефон</label>
-        <input id="ophone" type="tel" autocomplete="tel" inputmode="tel" placeholder="+7 (___) ___-__-__" required>
-      </div>
-      <div class="field">
-        <label for="ospec">Ваша сборка</label>
-        <input id="ospec" type="text" readonly>
-      </div>
-      <div class="field field--wide form__foot">
-        <button class="btn" type="submit">Отправить</button>
-        <p class="fine">Сборка уйдёт вместе с заявкой — не придётся пересказывать по телефону.</p>
-      </div>
-      <p class="form__ok" id="orderOk" hidden role="status">Заявка со сборкой ушла. Перезвоним в течение часа.</p>
-    </form>
+    <div class="head"><span class="rule"></span><h2>Похожие модели</h2></div>
+    <div class="grid grid--3" id="similar"></div>
   </div>
 </section>
 </main>
 
 <footer class="ftr">
-  <div class="wrap ftr__base" style="margin-top:0;border:0;padding-top:0">
-    <span>«Астера» · демонстрационный каталог · сборка L1</span>
-    <span><a href="index.html">← на главную</a></span>
+  <div class="wrap">
+    <div class="ftr__grid">
+      <div>
+        <a class="logo" href="index.html" style="margin-bottom:18px">
+          <span class="logo__m" aria-hidden="true"></span><span class="logo__t">Астера</span>
+        </a>
+        <a class="ftr__tel" href="tel:+74012000000">+7 (4012) 00-00-00</a>
+        <p class="ftr__ms">
+          <a href="https://wa.me/74012000000">WhatsApp</a>
+          <a href="https://t.me/">Telegram</a>
+          <a href="mailto:pochta@example.ru">Почта</a>
+        </p>
+      </div>
+      <div>
+        <h4>Где</h4>
+        <p>Калининград, шоурум по записи<br>ул. Примерная, 1, офис 4</p>
+        <p>Выезд: город, область, Куршская коса</p>
+      </div>
+      <div>
+        <h4>Когда</h4>
+        <p>Звонки — ежедневно 9:00–21:00</p>
+        <p>Замер — с 8:00, включая субботу</p>
+      </div>
+      <div>
+        <h4>Разделы</h4>
+        <p class="ftr__nav">
+          <a href="katalog.html">Каталог</a>
+          <a href="vhodnye.html">Входные двери</a>
+          <a href="mezhkomnatnye.html">Межкомнатные</a>
+          <a href="dizaineram.html">Дизайнерам</a>
+          <a href="zastroyshchikam.html">Застройщикам</a>
+          <a href="o-nas.html">О компании</a>
+          <a href="kontakty.html">Контакты</a>
+        </p>
+      </div>
+    </div>
+    <div class="ftr__base">
+      <span>«Астера» · ИП Иванов Р. · ИНН 000000000000 · © 2026</span>
+      <span>Цены на сайте — ориентир, не оферта · сборка M1</span>
+    </div>
   </div>
 </footer>
 
-<!-- ── ИТОГ ── -->
+<div class="dock">
+  <a class="btn btn--ghost btn--sm" href="tel:+74012000000">Позвонить</a>
+  <a class="btn btn--sm" href="kontakty.html#zayavka">Записаться на замер</a>
+</div>
+
 <div class="total" id="total">
   <div class="wrap total__in">
     <div class="total__sum">
@@ -212,12 +211,16 @@
       <p class="small"><b id="secNum">120</b> из <span id="secMax">440</span></p>
     </div>
     <div class="total__act">
-      <button class="btn" type="button" id="toOrder">В заявку</button>
+      <button class="btn" type="button" id="toCart">В заявку</button>
       <button class="link" type="button" id="share">Скопировать ссылку на сборку</button>
     </div>
   </div>
 </div>
 
-<script src="dver.js?v=20"></script>
+<script src="catalog.js?v=30"></script>
+<script src="site.js?v=30"></script>
+<script src="dver.js?v=30"></script>
+
+
 </body>
 </html>
