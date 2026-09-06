@@ -1,407 +1,239 @@
 /* ==========================================================================
-   Астера · карточка двери с конфигуратором
-   Данные модели лежат в D — их и правит менеджер, когда приходит прайс.
+   Астера · страница модели. Burkovsky — конфигуратор входной двери,
+   LORD — выбор отделки из вариантов фабрики.
    ========================================================================== */
 (function () {
   'use strict';
+  var A  = window.ASTERA;
   var $  = function (s, r) { return (r || document).querySelector(s); };
   var $$ = function (s, r) { return [].slice.call((r || document).querySelectorAll(s)); };
-  var A  = window.ASTERA;
-
-  /* какую модель открыли */
   var M = A.byId(new URLSearchParams(location.search).get('id')) || A.MODELS[0];
+  var fmt = function (n) { return A.money(Math.round(n)); };
+  var find = function (arr, id) { for (var i = 0; i < arr.length; i++) if (arr[i].id === id) return arr[i]; return arr[0]; };
 
-  /* ---------- 1. Модель и её опции ---------- */
-  var D = {
-    name: M.t,
-    base: Math.round(M.price * 0.83 / 100) * 100,   // полотно с коробом
-    mount: M.price - Math.round(M.price * 0.83 / 100) * 100,  // установка и вывоз старой
-    baseSec: 120,         // взломостойкость базовой сборки
+  /* ---------- шапка страницы ---------- */
+  var c = A.cat(M.cat), sub = null;
+  if (M.sub) c.subs.forEach(function (s) { if (s.id === M.sub) sub = s; });
+  $('#pBg').src = A.hero(M); $('#pBg').alt = M.t;
+  $('#pName').textContent = M.t;
+  $('#pBrand').textContent = (M.brand === 'lord' ? 'LORD · ' + styleName(M.style) : 'BURKOVSKY · ' + M.coll);
+  $('#pPrice').innerHTML = A.priceText(M) + '<small>' + (M.brand === 'lord' ? 'полотно с коробом, установка отдельно' : 'цена фабрики, доставка и установка в Калининграде — наши') + '</small>';
+  var parts = ['<a href="index.html">Главная</a><span>/</span>', '<a href="katalog.html">Каталог</a><span>/</span>',
+               '<a href="' + c.page + '">' + c.t + '</a><span>/</span>'];
+  if (sub) parts.push('<a href="' + c.page + '?sub=' + sub.id + '">' + sub.t + '</a><span>/</span>');
+  parts.push('<b>' + M.t + '</b>');
+  $('#crumbs').innerHTML = parts.join('');
+  document.title = M.t + ' — ' + (M.brand === 'lord' ? 'межкомнатная дверь LORD' : 'входная дверь BURKOVSKY') + ' · Астера';
+  $('#pDesc').textContent = M.d || '';
+  var spec = $('#pSpec');
+  spec.innerHTML = Object.keys(M.spec || {}).map(function (k) { return '<div><dt>' + k + '</dt><dd>' + M.spec[k] + '</dd></div>'; }).join('');
 
-    outFinish: [
-      { id:'mdf',  t:'МДФ, эмаль',   p:0,     hint:'Ровный матовый цвет по RAL. Держит геометрию, не ведёт.' },
-      { id:'oak',  t:'Шпон дуба',    p:11400, hint:'Живой рисунок, тонировка по вашему образцу.' },
-      { id:'mass', t:'Массив дуба',  p:26800, hint:'Для дома и парадных входов. Срок дольше на две недели.' }
-    ],
-    outColor: {
-      mdf:  [['graphite','Графит','#33393A'],['anthracite','Антрацит','#1F2427'],['warmgrey','Тёплый серый','#6B6A63'],['emerald','Изумрудный графит','#2C3A36'],['white','Белый','#DEDCD5']],
-      oak:  [['nat','Дуб натуральный','#A9855C'],['mocha','Дуб мокко','#6F5540'],['grph','Дуб графит','#4A4442'],['wenge','Венге','#3A302B']],
-      mass: [['gold','Дуб золотой','#B08A55'],['dark','Дуб тёмный','#5B4632'],['nut','Орех','#4E362A']]
-    },
+  /* ---------- галерея ---------- */
+  var main = $('#galMain'), mainImg = $('#galImg'), thumbs = $('#galThumbs'), cap = $('#galCap');
+  var shots = M.brand === 'lord'
+    ? [{ s: A.prev(M, 900), t: M.t + ' в интерьере', cover: true }].concat((M.variants || []).map(function (v) { return { s: A.img(v.f), t: v.t, cover: false }; }))
+    : [{ s: A.prev(M, 900), t: 'Полотно ' + M.t, cover: false }, { s: A.hero(M), t: 'В проёме', cover: true }]
+        .concat((M.gal || []).map(function (g) { return { s: A.img(g, 'jpg'), t: 'Деталь', cover: true }; }));
+  function show(i) {
+    var sh = shots[i]; mainImg.src = sh.s; mainImg.alt = sh.t; cap.textContent = sh.t;
+    main.classList.toggle('gal__main--cover', !!sh.cover);
+    $$('.gal__t', thumbs).forEach(function (b, n) { b.classList.toggle('is-on', n === i); });
+  }
+  thumbs.innerHTML = shots.map(function (sh, i) {
+    return '<button type="button" class="gal__t" data-i="' + i + '" aria-label="' + sh.t + '"><img loading="lazy" src="' + sh.s + '" alt=""></button>';
+  }).join('');
+  thumbs.addEventListener('click', function (e) { var b = e.target.closest('.gal__t'); if (b) show(+b.dataset.i); });
+  show(0);
 
-    pattern: [
-      { id:'flat',   t:'Гладкое',            p:0 },
-      { id:'lines',  t:'Вертикальные фрезы', p:3200 },
-      { id:'panels', t:'Филёнки',            p:5400 },
-      { id:'geo',    t:'Геометрия',          p:6900 }
-    ],
+  /* ---------- состояние и цена ---------- */
+  var S, D, MAXSEC = 0;
+  var confBox = $('#conf');
 
-    inFinish: [
-      { id:'mdf',    t:'МДФ, эмаль',  p:0 },
-      { id:'oak',    t:'Шпон дуба',   p:8900 },
-      { id:'mirror', t:'С зеркалом',  p:14500 }
-    ],
-    inColor: {
-      mdf:    [['white','Белый матовый','#E9E7E1'],['lgrey','Светло-серый','#C3C4BF'],['grph','Графит','#3A3F3E'],['milk','Дуб молочный','#D6C6AE']],
-      oak:    [['nat','Дуб натуральный','#A9855C'],['milk','Дуб молочный','#D6C6AE'],['grph','Дуб графит','#4A4442']],
-      mirror: [['silver','Зеркало серебро','#9FA6A5'],['smoke','Зеркало графит','#5A6160']]
-    },
-
-    size: [
-      { id:'860x2050', t:'860 × 2050', p:0 },
-      { id:'900x2050', t:'900 × 2050', p:0 },
-      { id:'950x2100', t:'950 × 2100', p:0 },
-      { id:'980x2100', t:'980 × 2100', p:0 },
-      { id:'1000x2100',t:'1000 × 2100',p:0 },
-      { id:'custom',   t:'Свой размер', p:7500 }
-    ],
-    side:  [ { id:'right', t:'Правая', p:0 }, { id:'left', t:'Левая', p:0 } ],
-    swing: [ { id:'in', t:'Открывается внутрь', p:0 }, { id:'out', t:'Наружу', p:0 } ],
-
-    pack: [
-      { id:'base',  t:'Базовая', p:0, sec:0,
-        d:'Два замка разных типов, броненакладка, глазок, два контура уплотнения.' },
-      { id:'warm',  t:'Тепло +', p:14200, sec:60,
-        d:'Терморазрыв по всему контуру, третий контур уплотнения, порог из нержавейки. Для первого этажа и торца дома.' },
-      { id:'smart', t:'Умная',   p:38600, sec:120,
-        d:'Электромеханический замок, вход по отпечатку и с телефона, подсветка притвора с датчиком движения, скрытый доводчик.' }
-    ],
-
-    handle: [
-      { id:'lever',  t:'Нажимная',        p:0 },
-      { id:'bar800', t:'Скоба 800 мм',    p:6400 },
-      { id:'bar1200',t:'Скоба 1200 мм',   p:9800 }
-    ],
-    handleColor: [['black','Чёрный матовый','#23262A'],['bronze','Бронза','#7A5C36'],['steel','Нержавейка','#9BA2A3'],['brass','Латунь','#A98A4B']],
-
-    casing:  [ { id:'casing', t:'Доборы и наличники', p:5900 } ],
-    comfort: [
-      { id:'plate',    t:'Номерок',            p:1400 },
-      { id:'plateLit', t:'Номерок с подсветкой',p:3900 },
-      { id:'closer',   t:'Скрытый доводчик',   p:6200 }
-    ],
-    security:[
-      { id:'bolt',  t:'Задвижка изнутри',       p:3800,  sec:40 },
-      { id:'armor', t:'Магнитная броненакладка',p:7400,  sec:60 },
-      { id:'cyl',   t:'Цилиндр EVVA MCS',       p:12900, sec:100 }
-    ]
-  };
-
-  var MAXSEC = D.baseSec + 120 + 40 + 60 + 100;
-
-  /* ---------- 2. Состояние ---------- */
-  var S = {
-    outFinish:'mdf', outColor:'graphite', pattern:'lines',
-    inFinish:'mdf',  inColor:'white',
-    size:'900x2050', cw:880, ch:2090,
-    side:'right', swing:'in',
-    pack:'warm', handle:'bar800', handleColor:'black',
-    casing:[], comfort:['plate'], security:['bolt']
-  };
-
-  var fmt = function (n) { return String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g, ' '); };
-  var find = function (arr, id) { for (var i=0;i<arr.length;i++) if (arr[i].id===id) return arr[i]; return arr[0]; };
-
-  /* ---------- 3. Отрисовка полей ---------- */
   function radios(box, list, group) {
     box.innerHTML = list.map(function (o) {
-      return '<label><input type="radio" name="'+group+'" value="'+o.id+'"'+
-             (S[group]===o.id?' checked':'')+'><span>'+o.t+
-             (o.p?' <i>+'+fmt(o.p)+' ₽</i>':'')+'</span></label>';
+      return '<label><input type="radio" name="' + group + '" value="' + o.id + '"' + (S[group] === o.id ? ' checked' : '') + '><span>' + o.t + (o.p ? ' <i>+' + fmt(o.p) + ' ₽</i>' : '') + '</span></label>';
     }).join('');
   }
   function checks(box, list, group) {
     box.innerHTML = list.map(function (o) {
-      return '<label><input type="checkbox" name="'+group+'" value="'+o.id+'"'+
-             (S[group].indexOf(o.id)>-1?' checked':'')+'><span>'+o.t+
-             ' <i>+'+fmt(o.p)+' ₽'+(o.sec?' · +'+o.sec:'')+'</i></span></label>';
+      return '<label><input type="checkbox" name="' + group + '" value="' + o.id + '"' + (S[group].indexOf(o.id) > -1 ? ' checked' : '') + '><span>' + o.t + ' <i>+' + fmt(o.p) + ' ₽' + (o.sec ? ' · +' + o.sec : '') + '</i></span></label>';
     }).join('');
   }
   function swatches(box, list, group) {
     box.innerHTML = list.map(function (c) {
-      return '<label title="'+c[1]+'"><input type="radio" name="'+group+'" value="'+c[0]+'"'+
-             (S[group]===c[0]?' checked':'')+'><i style="background:'+c[2]+'"></i></label>';
-    }).join('') + '<b class="sw__name" data-for="'+group+'"></b>';
+      return '<label title="' + c[1] + '"><input type="radio" name="' + group + '" value="' + c[0] + '"' + (S[group] === c[0] ? ' checked' : '') + '><i style="background:' + c[2] + '"></i></label>';
+    }).join('') + '<b class="sw__name" data-for="' + group + '"></b>';
   }
-  /* подпись выбранного цвета — отдельной строкой под образцами */
-  function paintNames() {
-    $$('.sw__name').forEach(function (el) {
-      var g = el.dataset.for;
-      var list = g === 'outColor' ? D.outColor[S.outFinish]
-               : g === 'inColor'  ? D.inColor[S.inFinish] : D.handleColor;
-      for (var i = 0; i < list.length; i++) {
-        if (list[i][0] === S[g]) { el.textContent = list[i][1]; return; }
-      }
-      el.textContent = '';
-    });
-  }
-  function packs(box) {
-    box.innerHTML = D.pack.map(function (o) {
-      return '<label class="pack"><input type="radio" name="pack" value="'+o.id+'"'+
-             (S.pack===o.id?' checked':'')+'>'+
-             '<span class="pack__b"><b>'+o.t+'</b>'+
-             '<em>'+(o.p?'+'+fmt(o.p)+' ₽':'в базе')+(o.sec?' · взлом +'+o.sec:'')+'</em>'+
-             '<i>'+o.d+'</i></span></label>';
+  function fieldset(legend, inner, extra) { return '<fieldset class="cf"><legend>' + legend + '</legend>' + inner + (extra || '') + '</fieldset>'; }
+
+  /* ===== BURKOVSKY: входная дверь ===== */
+  function initSteel() {
+    D = {
+      base: M.price, mount: 0, baseSec: 160,
+      outFinish: [{ id:'mdf', t:'МДФ, эмаль', p:0, hint:'Ровный матовый цвет по RAL.' }, { id:'oak', t:'Шпон дуба', p:38000, hint:'Живой рисунок, тонировка по образцу.' }, { id:'mass', t:'Массив дуба', p:96000, hint:'Для парадных входов. Срок дольше на три недели.' }],
+      outColor: { mdf:[['graphite','Графит','#33393A'],['anthracite','Антрацит','#1F2427'],['warmgrey','Тёплый серый','#6B6A63'],['emerald','Изумрудный графит','#2C3A36'],['white','Белый','#DEDCD5']],
+                  oak:[['nat','Дуб натуральный','#A9855C'],['mocha','Дуб мокко','#6F5540'],['grph','Дуб графит','#4A4442'],['wenge','Венге','#3A302B']],
+                  mass:[['gold','Дуб золотой','#B08A55'],['dark','Дуб тёмный','#5B4632'],['nut','Орех','#4E362A']] },
+      inFinish: [{ id:'mdf', t:'МДФ, эмаль', p:0 }, { id:'oak', t:'Шпон дуба', p:29000 }, { id:'mirror', t:'С зеркалом', p:44000 }],
+      inColor: { mdf:[['white','Белый матовый','#E9E7E1'],['lgrey','Светло-серый','#C3C4BF'],['grph','Графит','#3A3F3E'],['milk','Дуб молочный','#D6C6AE']],
+                 oak:[['nat','Дуб натуральный','#A9855C'],['milk','Дуб молочный','#D6C6AE'],['grph','Дуб графит','#4A4442']],
+                 mirror:[['silver','Зеркало серебро','#9FA6A5'],['smoke','Зеркало графит','#5A6160']] },
+      size: [{ id:'860x2050', t:'860 × 2050', p:0 }, { id:'900x2050', t:'900 × 2050', p:0 }, { id:'950x2100', t:'950 × 2100', p:0 }, { id:'1000x2100', t:'1000 × 2100', p:0 }, { id:'custom', t:'Свой размер', p:24000 }],
+      side: [{ id:'right', t:'Правая', p:0 }, { id:'left', t:'Левая', p:0 }],
+      swing: [{ id:'in', t:'Открывается внутрь', p:0 }, { id:'out', t:'Наружу', p:0 }],
+      pack: [{ id:'base', t:'Базовая', p:0, sec:0, d:'Замок CISA цилиндровый, броненакладка, глазок, два контура уплотнения, скрытые петли.' },
+             { id:'intouch', t:'INTOUCH', p:78000, sec:80, d:'Система INTOUCH 2.0: подсветка притвора с датчиком движения, аккумулятор в полотне, скрытый доводчик GEZE.' },
+             { id:'techno', t:'TECHNO', p:146000, sec:160, d:'Электромеханический замок ISEO, отпечаток пальца Ekey, приложение для телефона, магнитная броненакладка DiSec.' }],
+      handle: [{ id:'lever', t:'Нажимная', p:0 }, { id:'bar800', t:'Скоба 800 мм', p:18000 }, { id:'bar1200', t:'Скоба 1200 мм', p:27000 }],
+      handleColor: [['black','Чёрный матовый','#23262A'],['bronze','Бронза','#7A5C36'],['steel','Нержавейка','#9BA2A3'],['brass','Латунь','#A98A4B']],
+      casing: [{ id:'casing', t:'Доборы и наличники', p:19000 }],
+      comfort: [{ id:'plate', t:'Номерок', p:6500 }, { id:'plateLit', t:'Номерок с подсветкой', p:12500 }, { id:'closer', t:'Скрытый доводчик', p:21000 }],
+      security: [{ id:'bolt', t:'Задвижка Securemme', p:14000, sec:40 }, { id:'armor', t:'Броненакладка DiSec', p:24000, sec:60 }, { id:'cyl', t:'Цилиндр EVVA MCS', p:39000, sec:100 }]
+    };
+    MAXSEC = D.baseSec + 160 + 200;
+    S = { outFinish:'mdf', outColor:'graphite', inFinish:'mdf', inColor:'white', size:'900x2050', cw:880, ch:2090, side:'right', swing:'in', pack:'base', handle:'lever', handleColor:'black', casing:[], comfort:[], security:[] };
+
+    confBox.innerHTML =
+      fieldset('Отделка с улицы', '<div class="opts" data-g="outFinish"></div><div class="sw" data-g="outColor" role="radiogroup" aria-label="Цвет снаружи"></div><p class="cf__hint" id="hintOut"></p>') +
+      fieldset('Отделка внутри, со стороны квартиры', '<div class="opts" data-g="inFinish"></div><div class="sw" data-g="inColor" role="radiogroup" aria-label="Цвет внутри"></div>') +
+      fieldset('Размер проёма', '<div class="opts" data-g="size"></div><div class="custom" id="customSize" hidden><label>Ширина, мм <input type="number" id="cw" value="880" min="600" max="1400" step="10"></label><label>Высота, мм <input type="number" id="ch" value="2090" min="1800" max="2600" step="10"></label></div>') +
+      fieldset('Открывание', '<div class="opts" data-g="side"></div><div class="opts" data-g="swing" style="margin-top:9px"></div>') +
+      fieldset('Комплектация', '<div class="packs" data-g="pack"></div>') +
+      fieldset('Фурнитура', '<div class="opts" data-g="handle"></div><div class="sw" data-g="handleColor" role="radiogroup" aria-label="Цвет фурнитуры"></div>') +
+      fieldset('Доборы и наличники', '<div class="opts" data-g="casing"></div><p class="cf__hint">Цвет доборов повторяет внутреннюю панель.</p>') +
+      fieldset('Для удобства', '<div class="opts" data-g="comfort"></div>') +
+      fieldset('Взломостойкость', '<div class="opts" data-g="security"></div>');
+
+    function paintColors() {
+      var oc = D.outColor[S.outFinish]; if (!oc.some(function (c) { return c[0] === S.outColor; })) S.outColor = oc[0][0];
+      swatches($('[data-g="outColor"]'), oc, 'outColor');
+      var ic = D.inColor[S.inFinish]; if (!ic.some(function (c) { return c[0] === S.inColor; })) S.inColor = ic[0][0];
+      swatches($('[data-g="inColor"]'), ic, 'inColor');
+      $('#hintOut').textContent = find(D.outFinish, S.outFinish).hint;
+    }
+    radios($('[data-g="outFinish"]'), D.outFinish, 'outFinish'); radios($('[data-g="inFinish"]'), D.inFinish, 'inFinish');
+    radios($('[data-g="size"]'), D.size, 'size'); radios($('[data-g="side"]'), D.side, 'side'); radios($('[data-g="swing"]'), D.swing, 'swing');
+    radios($('[data-g="handle"]'), D.handle, 'handle'); swatches($('[data-g="handleColor"]'), D.handleColor, 'handleColor');
+    $('[data-g="pack"]').innerHTML = D.pack.map(function (o) {
+      return '<label class="pack"><input type="radio" name="pack" value="' + o.id + '"' + (S.pack === o.id ? ' checked' : '') + '><span class="pack__b"><b>' + o.t + '</b><em>' + (o.p ? '+' + fmt(o.p) + ' ₽' : 'в базе') + (o.sec ? ' · взлом +' + o.sec : '') + '</em><i>' + o.d + '</i></span></label>';
     }).join('');
-  }
+    checks($('[data-g="casing"]'), D.casing, 'casing'); checks($('[data-g="comfort"]'), D.comfort, 'comfort'); checks($('[data-g="security"]'), D.security, 'security');
+    paintColors();
+    $('#totalSec').hidden = false;
 
-  function paintColorGroups() {
-    var oc = D.outColor[S.outFinish];
-    if (!oc.some(function(c){return c[0]===S.outColor;})) S.outColor = oc[0][0];
-    swatches($('[data-g="outColor"]'), oc, 'outColor');
-    var ic = D.inColor[S.inFinish];
-    if (!ic.some(function(c){return c[0]===S.inColor;})) S.inColor = ic[0][0];
-    swatches($('[data-g="inColor"]'), ic, 'inColor');
-    $('#hintOut').textContent = find(D.outFinish, S.outFinish).hint;
-  }
-
-  function build() {
-    radios($('[data-g="outFinish"]'), D.outFinish, 'outFinish');
-    radios($('[data-g="pattern"]'),   D.pattern,   'pattern');
-    radios($('[data-g="inFinish"]'),  D.inFinish,  'inFinish');
-    radios($('[data-g="size"]'),      D.size,      'size');
-    radios($('[data-g="side"]'),      D.side,      'side');
-    radios($('[data-g="swing"]'),     D.swing,     'swing');
-    radios($('[data-g="handle"]'),    D.handle,    'handle');
-    swatches($('[data-g="handleColor"]'), D.handleColor, 'handleColor');
-    packs($('[data-g="pack"]'));
-    checks($('[data-g="casing"]'),   D.casing,   'casing');
-    checks($('[data-g="comfort"]'),  D.comfort,  'comfort');
-    checks($('[data-g="security"]'), D.security, 'security');
-    paintColorGroups();
-  }
-
-  /* ---------- 4. Цена и взломостойкость ---------- */
-  function money() {
-    var s = D.base + D.mount;
-    s += find(D.outFinish, S.outFinish).p;
-    s += find(D.pattern,   S.pattern).p;
-    s += find(D.inFinish,  S.inFinish).p;
-    s += find(D.size,      S.size).p;
-    s += find(D.pack,      S.pack).p;
-    s += find(D.handle,    S.handle).p;
-    ['casing','comfort','security'].forEach(function (g) {
-      S[g].forEach(function (id) { s += find(D[g], id).p; });
-    });
-    return s;
-  }
-  function secure() {
-    var v = D.baseSec + find(D.pack, S.pack).sec;
-    S.security.forEach(function (id) { v += find(D.security, id).sec; });
-    return v;
-  }
-
-  /* ---------- 5. Рисунок двери ---------- */
-  function colorOf(group, id) {
-    var list = group === 'out' ? D.outColor[S.outFinish]
-             : group === 'in'  ? D.inColor[S.inFinish] : D.handleColor;
-    for (var i=0;i<list.length;i++) if (list[i][0]===id) return list[i][2];
-    return list[0][2];
-  }
-  function sizePair() {
-    if (S.size === 'custom') return [S.cw, S.ch];
-    var p = S.size.split('x'); return [+p[0], +p[1]];
-  }
-
-  function drawPattern(x, w, y, h) {
-    var g = '';
-    if (S.pattern === 'lines') {
-      for (var i = x + 16; i < x + w - 10; i += 15)
-        g += '<rect x="'+i+'" y="'+(y+16)+'" width="2" height="'+(h-32)+'" fill="#000" opacity=".26"/>'+
-             '<rect x="'+(i+2)+'" y="'+(y+16)+'" width="1.5" height="'+(h-32)+'" fill="#fff" opacity=".10"/>';
-    } else if (S.pattern === 'panels') {
-      [0,1,2].forEach(function (n) {
-        var ph = (h - 64) / 3, py = y + 24 + n * (ph + 8);
-        g += '<rect x="'+(x+26)+'" y="'+py+'" width="'+(w-52)+'" height="'+(ph-8)+
-             '" fill="none" stroke="#000" stroke-opacity=".3" stroke-width="3"/>'+
-             '<rect x="'+(x+30)+'" y="'+(py+4)+'" width="'+(w-60)+'" height="'+(ph-16)+
-             '" fill="none" stroke="#fff" stroke-opacity=".09" stroke-width="1.5"/>';
+    window.__money = function () {
+      var s = D.base + D.mount + find(D.outFinish, S.outFinish).p + find(D.inFinish, S.inFinish).p + find(D.size, S.size).p + find(D.pack, S.pack).p + find(D.handle, S.handle).p;
+      ['casing','comfort','security'].forEach(function (g) { S[g].forEach(function (id) { s += find(D[g], id).p; }); });
+      return s;
+    };
+    window.__secure = function () { var v = D.baseSec + find(D.pack, S.pack).sec; S.security.forEach(function (id) { v += find(D.security, id).sec; }); return v; };
+    window.__summary = function () {
+      var sz = S.size === 'custom' ? S.cw + '×' + S.ch : S.size.replace('x', '×');
+      var p = [sz, find(D.outFinish, S.outFinish).t.toLowerCase() + ' снаружи', find(D.inFinish, S.inFinish).t.toLowerCase() + ' внутри', 'комплектация ' + find(D.pack, S.pack).t, find(D.handle, S.handle).t.toLowerCase(), S.side === 'right' ? 'правая' : 'левая'];
+      if (S.casing.length) p.push('с доборами');
+      S.comfort.concat(S.security).forEach(function (id) { var o = find(D.comfort.concat(D.security), id); if (o) p.push(o.t.toLowerCase()); });
+      return p.join(', ');
+    };
+    window.__paintNames = function () {
+      $$('.sw__name').forEach(function (el) {
+        var g = el.dataset.for, list = g === 'outColor' ? D.outColor[S.outFinish] : g === 'inColor' ? D.inColor[S.inFinish] : D.handleColor;
+        el.textContent = (list.filter(function (c) { return c[0] === S[g]; })[0] || list[0])[1];
       });
-    } else if (S.pattern === 'geo') {
-      [[0,.34],[.40,.22],[.66,.30]].forEach(function (b) {
-        var by = y + 20 + b[0] * (h - 40), bh = b[1] * (h - 40);
-        g += '<rect x="'+(x+22)+'" y="'+by+'" width="'+(w-44)+'" height="'+bh+
-             '" fill="#000" opacity=".16"/>'+
-             '<rect x="'+(x+22)+'" y="'+by+'" width="'+(w-44)+'" height="2" fill="#fff" opacity=".12"/>';
-      });
-    }
-    return g;
+    };
+    window.__onChange = function (el, g) { if (g === 'outFinish' || g === 'inFinish') paintColors(); if (g === 'size') $('#customSize').hidden = el.value !== 'custom'; };
+    window.__note = function () { return 'цена фабрики без монтажа · срок ' + (S.outFinish === 'mass' ? '75–90' : '45–60') + ' дней'; };
   }
 
-  function drawHandle(x, w, y, h) {
-    var c = colorOf('h', S.handleColor);
-    var right = S.side === 'right';
-    var hx = right ? x + w - 26 : x + 26;      // ручка со стороны, противоположной петлям
-    var g = '';
-    if (S.handle === 'lever') {
-      g += '<rect x="'+(hx-16)+'" y="'+(y+h*0.46)+'" width="32" height="86" rx="2" fill="'+c+'" opacity=".92"/>';
-      g += '<rect x="'+(right?hx-46:hx+14)+'" y="'+(y+h*0.46+30)+'" width="34" height="7" rx="3.5" fill="'+c+'"/>';
-    } else {
-      var bh = S.handle === 'bar1200' ? h * 0.56 : h * 0.38;
-      var by = y + (h - bh) / 2;
-      g += '<rect x="'+(hx-4)+'" y="'+by+'" width="8" height="'+bh+'" rx="4" fill="'+c+'"/>';
-      g += '<rect x="'+(hx-4)+'" y="'+by+'" width="3" height="'+bh+'" rx="1.5" fill="#fff" opacity=".2"/>';
-      g += '<rect x="'+(hx-7)+'" y="'+(by-9)+'" width="14" height="9" rx="2" fill="'+c+'" opacity=".8"/>';
-      g += '<rect x="'+(hx-7)+'" y="'+(by+bh)+'" width="14" height="9" rx="2" fill="'+c+'" opacity=".8"/>';
-    }
-    return g;
+  /* ===== LORD: межкомнатная дверь ===== */
+  function initInterior() {
+    var vs = M.variants || [];
+    D = {
+      base: M.price,
+      size: [{ id:'600x2000', t:'600 × 2000', p:0 }, { id:'700x2000', t:'700 × 2000', p:0 }, { id:'800x2000', t:'800 × 2000', p:0 }, { id:'900x2000', t:'900 × 2000', p:0 }, { id:'custom', t:'Свой размер', p:4900 }],
+      side: [{ id:'right', t:'Правая', p:0 }, { id:'left', t:'Левая', p:0 }],
+      frame: [{ id:'telescope', t:'Короб Telescope', p:0, d:'Классический короб с телескопическим наличником — ставится в любой проём.' }, { id:'coplanar', t:'Компланарная система', p:9800, d:'Полотно в уровень стены, без наличников. Красится вместе со стеной.' }],
+      hinge: [{ id:'std', t:'Обычные петли', p:0 }, { id:'hidden', t:'Скрытые петли', p:3900 }],
+      extra: [{ id:'mount', t:'Установка', p:4500 }, { id:'handle', t:'Ручка и замок', p:2900 }, { id:'demo', t:'Демонтаж старой', p:1200 }]
+    };
+    S = { variant: vs.length ? vs[0].f : '', size:'800x2000', cw:850, ch:2050, side:'right', frame:'telescope', hinge:'std', extra:['mount'] };
+    confBox.innerHTML =
+      (vs.length ? fieldset('Отделка — ' + vs.length + ' ' + plural(vs.length, 'вариант', 'варианта', 'вариантов') + ' фабрики',
+        '<div class="vars">' + vs.map(function (v) { return '<label class="var"><input type="radio" name="variant" value="' + v.f + '"' + (S.variant === v.f ? ' checked' : '') + '><img loading="lazy" src="' + A.img(v.f) + '" alt=""><b>' + v.t + '</b></label>'; }).join('') + '</div>',
+        '<p class="cf__hint">' + (M.cover ? 'Покрытие: ' + M.cover + '. ' : '') + 'Образец отделки привезём на замер.</p>') : '') +
+      fieldset('Размер полотна', '<div class="opts" data-g="size"></div><div class="custom" id="customSize" hidden><label>Ширина, мм <input type="number" id="cw" value="850" min="400" max="1100" step="10"></label><label>Высота, мм <input type="number" id="ch" value="2050" min="1500" max="2300" step="10"></label></div>') +
+      fieldset('Открывание', '<div class="opts" data-g="side"></div>') +
+      fieldset('Проём', '<div class="packs" data-g="frame"></div>') +
+      fieldset('Петли', '<div class="opts" data-g="hinge"></div>') +
+      fieldset('Дополнительно', '<div class="opts" data-g="extra"></div>');
+    radios($('[data-g="size"]'), D.size, 'size'); radios($('[data-g="side"]'), D.side, 'side'); radios($('[data-g="hinge"]'), D.hinge, 'hinge');
+    $('[data-g="frame"]').innerHTML = D.frame.map(function (o) {
+      return '<label class="pack"><input type="radio" name="frame" value="' + o.id + '"' + (S.frame === o.id ? ' checked' : '') + '><span class="pack__b"><b>' + o.t + '</b><em>' + (o.p ? '+' + fmt(o.p) + ' ₽' : 'в базе') + '</em><i>' + o.d + '</i></span></label>';
+    }).join('');
+    checks($('[data-g="extra"]'), D.extra, 'extra');
+    $('#totalSec').hidden = true;
+
+    window.__money = function () {
+      var s = D.base + find(D.size, S.size).p + find(D.frame, S.frame).p + find(D.hinge, S.hinge).p;
+      S.extra.forEach(function (id) { s += find(D.extra, id).p; });
+      return s;
+    };
+    window.__secure = null;
+    window.__summary = function () {
+      var v = vs.filter(function (x) { return x.f === S.variant; })[0];
+      var sz = S.size === 'custom' ? S.cw + '×' + S.ch : S.size.replace('x', '×');
+      var p = [v ? v.t.toLowerCase() : '', sz, find(D.frame, S.frame).t.toLowerCase(), find(D.hinge, S.hinge).t.toLowerCase(), S.side === 'right' ? 'правая' : 'левая'];
+      S.extra.forEach(function (id) { p.push(find(D.extra, id).t.toLowerCase()); });
+      return p.filter(Boolean).join(', ');
+    };
+    window.__paintNames = function () {};
+    window.__onChange = function (el, g) {
+      if (g === 'size') $('#customSize').hidden = el.value !== 'custom';
+      if (g === 'variant') { var i = shots.findIndex(function (sh) { return sh.s === A.img(el.value); }); if (i > -1) show(i); }
+    };
+    window.__note = function () { return 'полотно и короб · срок 20–30 дней'; };
   }
 
-  function draw() {
-    var sz = sizePair();
-    var lw = Math.max(232, Math.min(292, 232 + (sz[0] - 860) * 0.42));
-    var lx = (320 - lw) / 2, ly = 28, lh = 608;
+  if (M.brand === 'lord') initInterior(); else initSteel();
 
-    $('#dFrame').setAttribute('x', lx - 14);
-    $('#dFrame').setAttribute('width', lw + 28);
-    $('#dLeafBase').setAttribute('x', lx);
-    $('#dLeafBase').setAttribute('width', lw);
-    $('#dLeaf').querySelector('rect:last-child').setAttribute('x', lx);
-    $('#dLeaf').querySelector('rect:last-child').setAttribute('width', lw);
-    $('#dLeafBase').setAttribute('fill', colorOf('out', S.outColor));
-    $('#dFrame').setAttribute('fill', S.pack === 'smart' ? '#B3AFA5' : '#C6C3BB');
-
-    $('#dPattern').innerHTML = drawPattern(lx, lw, ly, lh);
-    $('#dHandle').innerHTML  = drawHandle(lx, lw, ly, lh);
-
-    var eye = $('#dEye');
-    eye.setAttribute('cx', lx + lw / 2);
-    eye.style.display = S.pack === 'smart' ? 'none' : '';
-
-    /* у SVG-элементов нет свойства hidden — только атрибут */
-    var plate = $('#dPlate');
-    var hasPlate = S.comfort.indexOf('plate') > -1 || S.comfort.indexOf('plateLit') > -1;
-    plate.toggleAttribute('hidden', !hasPlate);
-    if (hasPlate) plate.setAttribute('transform', 'translate(' + (lx + lw / 2 - 160) + ',0)');
-
-    var glow = $('#dGlow');
-    var lit = S.pack === 'smart' || S.comfort.indexOf('plateLit') > -1;
-    glow.toggleAttribute('hidden', !lit);
-    if (lit) {
-      var gx = S.side === 'right' ? lx - 9 : lx + lw + 1;
-      glow.setAttribute('x', gx); glow.setAttribute('y', ly);
-      glow.setAttribute('width', 8); glow.setAttribute('height', lh);
-    }
-
-    var cas = $('#dCasing'), hasCas = S.casing.indexOf('casing') > -1;
-    cas.toggleAttribute('hidden', !hasCas);
-    if (hasCas) cas.querySelector('rect').setAttribute('stroke', colorOf('in', S.inColor));
-
-    $('#fSize').textContent  = sz[0] + ' × ' + sz[1];
-    $('#fSide').textContent  = (S.side === 'right' ? 'правая' : 'левая') + ', ' + (S.swing === 'in' ? 'внутрь' : 'наружу');
-    $('#fThick').textContent = S.pack === 'base' ? '80 мм' : (S.pack === 'warm' ? '90 мм' : '105 мм');
-  }
-
-  /* ---------- 6. Сводка ---------- */
-  function summary() {
-    var sz = sizePair();
-    var parts = [
-      sz[0] + '×' + sz[1],
-      find(D.outFinish, S.outFinish).t.toLowerCase(),
-      find(D.pattern, S.pattern).t.toLowerCase(),
-      'комплектация «' + find(D.pack, S.pack).t + '»',
-      find(D.handle, S.handle).t.toLowerCase(),
-      (S.side === 'right' ? 'правая' : 'левая')
-    ];
-    if (S.casing.length) parts.push('с доборами');
-    S.comfort.forEach(function (id) { parts.push(find(D.comfort, id).t.toLowerCase()); });
-    S.security.forEach(function (id) { parts.push(find(D.security, id).t.toLowerCase()); });
-    return parts.join(', ');
-  }
-
+  /* ---------- общие обработчики ---------- */
   function render() {
-    draw();
-    paintNames();
-    $('#sum').textContent = fmt(money());
-    var v = secure();
-    $('#secNum').textContent = v;
-    $('#secMax').textContent = MAXSEC;
-    $('#secBar').style.width = Math.round(v / MAXSEC * 100) + '%';
-    $('#sumNote').textContent = 'с установкой и вывозом старой двери · срок ' +
-      (S.outFinish === 'mass' ? '25–35' : S.pack === 'smart' ? '18–25' : '10–18') + ' дней';
-    writeUrl();
-  }
-
-  /* ---------- 7. Сборка в ссылке ---------- */
-  function writeUrl() {
-    var q = new URLSearchParams();
-    ['outFinish','outColor','pattern','inFinish','inColor','size','side','swing','pack','handle','handleColor']
-      .forEach(function (k) { q.set(k, S[k]); });
-    if (S.size === 'custom') { q.set('cw', S.cw); q.set('ch', S.ch); }
-    ['casing','comfort','security'].forEach(function (k) { if (S[k].length) q.set(k, S[k].join('.')); });
+    window.__paintNames();
+    $('#sum').textContent = fmt(window.__money());
+    if (window.__secure) { var v = window.__secure(); $('#secNum').textContent = v; $('#secMax').textContent = MAXSEC; $('#secBar').style.width = Math.round(v / MAXSEC * 100) + '%'; }
+    $('#sumNote').textContent = window.__note();
+    var q = new URLSearchParams(location.search); q.set('id', M.id);
+    Object.keys(S).forEach(function (k) { var v = S[k]; if (Array.isArray(v)) { if (v.length) q.set(k, v.join('.')); else q.delete(k); } else q.set(k, v); });
     history.replaceState(null, '', '?' + q.toString());
   }
-  function readUrl() {
+  (function readUrl() {
     var q = new URLSearchParams(location.search);
-    if (![].slice.call(q.keys()).length) return;
-    ['outFinish','outColor','pattern','inFinish','inColor','size','side','swing','pack','handle','handleColor']
-      .forEach(function (k) { if (q.get(k)) S[k] = q.get(k); });
-    if (q.get('cw')) S.cw = +q.get('cw');
-    if (q.get('ch')) S.ch = +q.get('ch');
-    ['casing','comfort','security'].forEach(function (k) { S[k] = q.get(k) ? q.get(k).split('.') : []; });
-  }
-
-  /* ---------- 8. Связывание ---------- */
-  var form = $('#conf');
-  form.addEventListener('change', function (e) {
-    var el = e.target, g = el.name;
-    if (!g) return;
-    if (el.type === 'checkbox') {
-      S[g] = $$('input[name="' + g + '"]:checked', form).map(function (i) { return i.value; });
-    } else {
-      S[g] = el.value;
-      if (g === 'outFinish' || g === 'inFinish') paintColorGroups();
-      if (g === 'size') $('#customSize').hidden = el.value !== 'custom';
-    }
+    Object.keys(S).forEach(function (k) {
+      if (!q.has(k)) return;
+      S[k] = Array.isArray(S[k]) ? q.get(k).split('.').filter(Boolean) : (typeof S[k] === 'number' ? +q.get(k) : q.get(k));
+    });
+    $$('input[type="radio"]', confBox).forEach(function (i) { if (S[i.name] === i.value) i.checked = true; });
+    $$('input[type="checkbox"]', confBox).forEach(function (i) { i.checked = (S[i.name] || []).indexOf(i.value) > -1; });
+    var cs = $('#customSize'); if (cs) cs.hidden = S.size !== 'custom';
+    if (S.variant) { var i = shots.findIndex(function (sh) { return sh.s === A.img(S.variant); }); if (i > -1) show(i); }
+  })();
+  confBox.addEventListener('change', function (e) {
+    var el = e.target, g = el.name; if (!g) return;
+    if (el.type === 'checkbox') S[g] = $$('input[name="' + g + '"]:checked', confBox).map(function (i) { return i.value; });
+    else { S[g] = el.value; window.__onChange(el, g); }
     render();
   });
-  ['cw','ch'].forEach(function (id) {
-    $('#' + id).addEventListener('input', function () { S[id] = +this.value || S[id]; render(); });
-  });
-
+  ['cw', 'ch'].forEach(function (id) { var el = $('#' + id); if (el) el.addEventListener('input', function () { S[id] = +this.value || S[id]; render(); }); });
   $('#share').addEventListener('click', function () {
-    var btn = this;
-    var done = function (ok) {
-      btn.textContent = ok ? 'Ссылка скопирована' : location.href;
-      setTimeout(function () { btn.textContent = 'Скопировать ссылку на сборку'; }, 2600);
-    };
-    if (navigator.clipboard) navigator.clipboard.writeText(location.href).then(function(){done(true);}, function(){done(false);});
-    else done(false);
+    var btn = this, done = function (ok) { btn.textContent = ok ? 'Ссылка скопирована' : location.href; setTimeout(function () { btn.textContent = 'Скопировать ссылку на сборку'; }, 2600); };
+    if (navigator.clipboard) navigator.clipboard.writeText(location.href).then(function () { done(true); }, function () { done(false); }); else done(false);
   });
-
   $('#toCart').addEventListener('click', function () {
-    CART.add({ id: M.id, t: M.t, ph: M.ph, price: money(), conf: summary() });
+    CART.add({ id: M.id, t: M.t, prev: A.prev(M, 440), price: window.__money(), conf: window.__summary(), brand: M.brand });
     location.href = 'korzina.html';
   });
-
-  /* шапка карточки и хлебные крошки */
-  function fillHead() {
-    $('#mName').textContent = M.t;
-    $('#mLead').textContent = M.d + ' Соберите свою — цена пересчитается сразу.';
-    var ph = $('#realPh');
-    ph.src = A.photo(M.ph, 880); ph.alt = 'Дверь ' + M.t;
-    var c = A.cat(M.cat);
-    var sub = null;
-    if (M.sub) { c.subs.forEach(function (s) { if (s.id === M.sub) sub = s; }); }
-    var parts = ['<a href="index.html">Главная</a><span>/</span>',
-                 '<a href="katalog.html">Каталог</a><span>/</span>',
-                 '<a href="' + c.page + '">' + c.t + '</a><span>/</span>'];
-    if (sub) parts.push('<a href="' + c.page + '">' + sub.t + '</a><span>/</span>');
-    parts.push('<b>' + M.t + '</b>');
-    $('#crumbs').innerHTML = parts.join('');
-    document.title = M.t + ' — ' + c.t.toLowerCase() + ' · Астера';
-  }
-  fillHead();
-
-  /* похожие модели того же раздела */
-  var similar = A.MODELS.filter(function (x) {
-    return x.cat === M.cat && x.sub === M.sub && x.id !== M.id;
-  }).slice(0, 3);
-  if (!similar.length) similar = A.MODELS.filter(function (x) { return x.cat === M.cat && x.id !== M.id; }).slice(0, 3);
+  /* похожие */
+  var similar = A.MODELS.filter(function (x) { return x.cat === M.cat && x.sub === M.sub && (M.brand !== 'burkovsky' || x.coll === M.coll) && x.id !== M.id; }).slice(0, 4);
+  if (similar.length < 4) similar = similar.concat(A.MODELS.filter(function (x) { return x.cat === M.cat && x.id !== M.id && similar.indexOf(x) < 0; }).slice(0, 4 - similar.length));
   renderCards($('#similar'), similar);
-
-  readUrl();
-  build();
-  $('#customSize').hidden = S.size !== 'custom';
   render();
 })();
