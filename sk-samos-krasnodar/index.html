@@ -117,7 +117,7 @@ h3{font-size:clamp(17px,1.5vw,21px);line-height:1.35;font-weight:600}
 /* photo band */
 .band{position:relative;overflow:hidden;background:#000}
 .band > img{width:100%;height:clamp(300px,44vw,600px);object-fit:cover;opacity:.8}
-.band .cap{position:absolute;left:0;right:0;bottom:0;padding:26px 0 30px;background:linear-gradient(0deg,rgba(6,7,9,.9),rgba(6,7,9,0))}
+.band .cap{position:absolute;left:0;right:0;bottom:0;padding:56px 0 30px;background:linear-gradient(0deg,rgba(6,7,9,.97) 0%,rgba(6,7,9,.88) 45%,rgba(6,7,9,0) 100%)}
 .band .cap span{display:inline-block;padding-left:16px;border-left:2px solid var(--red);color:var(--soft);font-size:13px;letter-spacing:.06em;font-weight:300}
 
 /* directions */
@@ -328,6 +328,8 @@ h3{font-size:clamp(17px,1.5vw,21px);line-height:1.35;font-weight:600}
   .docgrid{grid-template-columns:1fr}
   .docgrid img{aspect-ratio:16/10}
   .band > img{height:250px}
+  .band .cap{padding:44px 0 22px}
+  .band .cap span{font-size:12.5px;line-height:1.5}
   .dl{padding:24px}
   .regions{justify-content:flex-start}
   .tscroll{overflow:visible;border-top:0}
