@@ -1,0 +1,953 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>СК «Самос»</title>
+<meta name="description" content="ООО «СК «Самос», Краснодар — генеральный подрядчик и технический заказчик. Промышленное и гражданское строительство, реконструкция, капитальный ремонт. Член СРО «МАС», допуск на особо опасные и технически сложные объекты, работа по 44-ФЗ.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{
+  --bg:#FFFFFF;--alt:#F4F4F2;--ink:#121417;--text:#2A2E34;--muted:#5C6370;--faint:#8B919B;
+  --line:#E3E5E8;--line-2:#CDD1D6;--dark:#0B0C0F;--dark-2:#15171B;
+  --red:#C8102E;--red-2:#A50D26;
+  --f:'IBM Plex Sans','Helvetica Neue',Arial,sans-serif;
+  --wrap:1360px;--gut:clamp(20px,3.5vw,48px);
+  --e:cubic-bezier(.2,.6,.2,1);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;background:var(--bg)}
+body{margin:0;background:var(--bg);color:var(--text);font:400 17px/1.6 var(--f);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block;height:auto}
+a{color:inherit}
+h1,h2,h3,h4{margin:0;color:var(--ink);font-weight:500;letter-spacing:-.02em;text-wrap:balance}
+p,ul,ol,dl,figure,table{margin:0}
+ul,ol{padding:0;list-style:none}
+table{border-collapse:collapse;width:100%}
+.wrap{max-width:var(--wrap);margin-inline:auto;padding-inline:var(--gut)}
+.skip{position:absolute;left:-999px;top:8px;background:var(--red);color:#fff;padding:10px 14px;z-index:200;text-decoration:none}
+.skip:focus{left:8px}
+:focus-visible{outline:2px solid var(--red);outline-offset:3px}
+.sym{position:absolute;width:0;height:0;overflow:hidden}
+.num{font-variant-numeric:tabular-nums}
+
+/* type utilities */
+.label{font-size:12px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.label b{color:var(--red);font-weight:500;margin-right:10px}
+h2{font-size:clamp(30px,3.3vw,46px);line-height:1.12}
+h3{font-size:clamp(20px,1.7vw,24px);line-height:1.3}
+.lead{font-size:clamp(18px,1.45vw,21px);line-height:1.5;color:var(--ink)}
+.muted{color:var(--muted)}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:52px;padding:0 28px;font:500 15px/1 var(--f);text-decoration:none;border:1px solid transparent;cursor:pointer;transition:background .25s,color .25s,border-color .25s;white-space:nowrap;letter-spacing:.01em}
+.btn-red{background:var(--red);color:#fff}
+.btn-red:hover{background:var(--red-2)}
+.btn-ink{background:var(--ink);color:#fff}
+.btn-ink:hover{background:#2A2E34}
+.btn-line{border-color:var(--line-2);color:var(--ink);background:transparent}
+.btn-line:hover{border-color:var(--ink)}
+.btn-white{border-color:rgba(255,255,255,.5);color:#fff;background:transparent}
+.btn-white:hover{background:#fff;color:var(--ink);border-color:#fff}
+.btn-sm{height:44px;padding:0 20px;font-size:14px}
+
+/* header */
+.top{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,.96);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.top-in{display:flex;align-items:center;gap:40px;height:76px}
+.brand{display:block;flex:none}
+.brand img{height:34px;width:auto}
+.nav{display:flex;gap:28px;margin-left:auto;font-size:14.5px;font-weight:500}
+.nav a{text-decoration:none;color:var(--text);padding:6px 0;position:relative;white-space:nowrap;transition:color .2s}
+.nav a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--ink);transform:scaleX(0);transform-origin:left;transition:transform .3s var(--e)}
+.nav a:hover{color:var(--ink)}
+.nav a:hover::after{transform:scaleX(1)}
+.top-cta{display:flex;align-items:center;gap:22px;margin-left:auto}
+.nav + .top-cta{margin-left:0}
+.phone{font-weight:500;color:var(--ink);text-decoration:none;white-space:nowrap;font-size:15px}
+.phone:hover{color:var(--red)}
+.burger{display:none;background:none;border:1px solid var(--line-2);color:var(--ink);font:500 13px var(--f);padding:10px 14px;cursor:pointer}
+
+/* hero */
+.hero{position:relative;margin-top:76px;min-height:min(82vh,820px);display:flex;align-items:flex-end;background:var(--dark);overflow:hidden;isolation:isolate}
+.hero-bg{position:absolute;inset:0;z-index:-2}
+.hero-bg img{width:100%;height:100%;object-fit:cover;transform:scale(1.06);animation:kb 22s ease-out forwards}
+@keyframes kb{to{transform:scale(1)}}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(11,12,15,.28) 0%,rgba(11,12,15,.1) 35%,rgba(11,12,15,.78) 100%),linear-gradient(90deg,rgba(11,12,15,.55) 0%,rgba(11,12,15,.1) 60%)}
+.hero-in{position:relative;width:100%;padding:120px 0 64px;display:grid;grid-template-columns:repeat(12,1fr);gap:0 24px;align-items:end;color:#fff}
+.hero .label{grid-column:1/-1;color:rgba(255,255,255,.75);margin-bottom:28px}
+.hero .label b{color:#fff}
+.hero h1{grid-column:1/9;font-size:clamp(36px,4.8vw,68px);line-height:1.06;color:#fff;font-weight:500;letter-spacing:-.025em}
+.hero-side{grid-column:9/13;padding-bottom:6px}
+.hero-side p{font-size:16px;line-height:1.6;color:rgba(255,255,255,.82);max-width:30em}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+.anim .hero-in > *{opacity:0;transform:translateY(18px);animation:rise .9s var(--e) forwards}
+.anim .hero-in > *:nth-child(2){animation-delay:.15s}
+.anim .hero-in > *:nth-child(3){animation-delay:.3s}
+@keyframes rise{to{opacity:1;transform:none}}
+
+/* facts */
+.facts{background:var(--dark);color:#fff}
+.facts-in{display:grid;grid-template-columns:repeat(4,1fr)}
+.fact{padding:34px 28px 36px 0;border-right:1px solid rgba(255,255,255,.14)}
+.fact + .fact{padding-left:28px}
+.fact:last-child{border-right:0;padding-right:0}
+.fact b{display:block;font-size:clamp(28px,2.3vw,36px);font-weight:500;line-height:1.1;letter-spacing:-.025em;color:#fff}
+.fact span{display:block;margin-top:10px;font-size:14px;line-height:1.5;color:rgba(255,255,255,.62)}
+
+/* sections */
+.sec{padding:clamp(72px,8vw,128px) 0}
+.sec.alt{background:var(--alt)}
+.sec-top{display:flex;justify-content:space-between;align-items:center;gap:24px;padding-bottom:22px;border-bottom:1px solid var(--line);margin-bottom:clamp(40px,4.5vw,64px)}
+.sec-top .right{font-size:14px;color:var(--faint)}
+.g12{display:grid;grid-template-columns:repeat(12,1fr);gap:0 24px}
+.head-row{margin-bottom:clamp(40px,4.5vw,64px)}
+.head-row h2{grid-column:1/7}
+.head-row p{grid-column:7/13;color:var(--muted);font-size:16.5px;align-self:end;max-width:40em}
+
+/* about */
+.about h2{grid-column:1/6}
+.about-copy{grid-column:6/13}
+.about-copy .body{margin-top:22px;color:var(--muted);font-size:16.5px}
+.about-copy .body p + p{margin-top:14px}
+.regions{margin-top:28px;display:flex;flex-wrap:wrap;gap:8px 28px;font-size:14px;font-weight:500;color:var(--ink)}
+.regions li{position:relative;padding-left:16px}
+.regions li::before{content:"";position:absolute;left:0;top:9px;width:6px;height:6px;background:var(--red)}
+.cardfile{margin-top:clamp(48px,5vw,72px);border-top:1px solid var(--ink);display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 48px}
+.cardfile .r{display:grid;grid-template-columns:minmax(150px,auto) 1fr;gap:0 24px;padding:15px 0;border-bottom:1px solid var(--line)}
+.cardfile dt{font-size:14px;color:var(--muted)}
+.cardfile dd{font-size:15px;color:var(--ink);font-weight:500;line-height:1.5}
+
+/* photo band */
+.band{position:relative;overflow:hidden;background:var(--dark)}
+.band img{width:100%;height:clamp(320px,46vw,620px);object-fit:cover;display:block}
+.band .cap{position:absolute;left:0;right:0;bottom:0;padding:22px 0;background:linear-gradient(0deg,rgba(11,12,15,.7),rgba(11,12,15,0));color:rgba(255,255,255,.85);font-size:13.5px}
+.band .cap span{display:inline-block;padding-left:14px;border-left:2px solid var(--red)}
+
+/* directions */
+.dirs{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--ink)}
+.dir{padding:34px 32px 40px 0;border-right:1px solid var(--line)}
+.dir + .dir{padding-left:32px}
+.dir:last-child{border-right:0;padding-right:0}
+.dir .n{display:block;font-size:13px;font-weight:500;color:var(--red);letter-spacing:.08em;margin-bottom:22px}
+.dir h3{font-size:clamp(21px,1.8vw,26px)}
+.dir p{margin-top:14px;font-size:15.5px;color:var(--muted);line-height:1.6}
+.dir-img{margin-top:28px;overflow:hidden;background:var(--alt)}
+.dir-img img{width:100%;aspect-ratio:16/10;object-fit:cover;transition:transform 1.4s var(--e)}
+.dir:hover .dir-img img{transform:scale(1.04)}
+
+/* works */
+.works{display:grid;grid-template-columns:repeat(4,1fr);gap:0 32px;margin-top:clamp(56px,6vw,88px);border-top:1px solid var(--ink)}
+.wcol{padding-top:24px}
+.wcol h3{font-size:16px;font-weight:600;display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding-bottom:12px;border-bottom:1px solid var(--line)}
+.wcol h3 em{font-style:normal;font-size:13px;color:var(--faint);font-weight:400}
+.wcol li{font-size:14.5px;line-height:1.5;padding:9px 0;border-bottom:1px solid var(--line);color:var(--text)}
+.wcol .sub{margin-top:26px}
+
+/* projects */
+.proj{display:grid;grid-template-columns:repeat(12,1fr);gap:0 24px;padding:clamp(40px,4.5vw,64px) 0;border-top:1px solid var(--line)}
+.proj:first-child{border-top:1px solid var(--ink);padding-top:0;margin-top:clamp(28px,3vw,40px)}
+.proj:first-child .proj-media,.proj:first-child .proj-body{margin-top:clamp(40px,4.5vw,64px)}
+.proj-media{grid-column:1/8;grid-row:1;position:relative;overflow:hidden;background:var(--alt)}
+.proj-media > img{width:100%;aspect-ratio:3/2;object-fit:cover;transition:transform 1.4s var(--e)}
+.proj:hover .proj-media > img{transform:scale(1.03)}
+.proj-thumbs{grid-column:1/8;grid-row:2;display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:8px}
+.proj-thumbs img{width:100%;aspect-ratio:4/3;object-fit:cover;background:var(--alt)}
+.proj-thumbs.two{grid-template-columns:repeat(2,1fr)}
+.proj-body{grid-column:8/13;grid-row:1/3;align-self:start;display:flex;flex-direction:column}
+.proj .meta{font-size:12.5px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:16px}
+.proj .meta b{color:var(--red);font-weight:500}
+.proj h3{font-size:clamp(22px,2vw,28px);line-height:1.22}
+.proj .place{margin-top:10px;font-size:15px;color:var(--muted);line-height:1.55}
+.spec{margin-top:24px;border-top:1px solid var(--ink)}
+.spec .r{display:grid;grid-template-columns:minmax(120px,auto) 1fr;gap:0 20px;padding:12px 0;border-bottom:1px solid var(--line)}
+.spec dt{font-size:13px;color:var(--muted);padding-top:2px}
+.spec dd{font-size:15px;color:var(--ink);line-height:1.5}
+.spec dd b{font-weight:600}
+
+/* table */
+.reftable{font-size:14.5px;border-top:1px solid var(--ink)}
+.reftable th{text-align:left;font-size:12px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);padding:14px 16px 14px 0;border-bottom:1px solid var(--line);white-space:nowrap}
+.reftable td{padding:18px 16px 18px 0;border-bottom:1px solid var(--line);vertical-align:top;line-height:1.5}
+.reftable tbody tr{transition:background .2s}
+.reftable tbody tr:hover{background:var(--alt)}
+.reftable .n{width:52px;color:var(--faint);font-variant-numeric:tabular-nums}
+.reftable .obj{font-weight:500;color:var(--ink);min-width:280px}
+.reftable .obj small{display:block;font-weight:400;color:var(--muted);font-size:13.5px;margin-top:4px}
+.reftable .cust{min-width:180px;color:var(--text)}
+.reftable .work{min-width:300px;color:var(--muted);font-size:14px}
+.reftable .yr{white-space:nowrap;color:var(--ink);font-weight:500;font-variant-numeric:tabular-nums;padding-right:0}
+.tscroll{overflow-x:auto}
+.reftable{min-width:900px}
+.tablenote{margin-top:16px;font-size:13.5px;color:var(--faint);display:flex;flex-wrap:wrap;gap:8px 22px;justify-content:space-between}
+.dl{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-top:clamp(40px,4.5vw,64px);padding:28px 0;border-top:1px solid var(--ink);border-bottom:1px solid var(--line)}
+.dl b{display:block;font-size:18px;font-weight:500;color:var(--ink)}
+.dl span{display:block;font-size:14px;color:var(--muted);margin-top:4px}
+
+/* documents */
+.docs{display:grid;grid-template-columns:repeat(12,1fr);gap:0 24px}
+.docgrid{grid-column:1/7;display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-content:start}
+.docgrid a{display:block;text-decoration:none;color:var(--ink)}
+.docgrid .ph{border:1px solid var(--line);overflow:hidden;background:#fff;transition:border-color .3s}
+.docgrid a:hover .ph{border-color:var(--ink)}
+.docgrid img{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:top center}
+.docgrid span{display:block;margin-top:12px;font-size:13.5px;line-height:1.4;font-weight:500}
+.docgrid small{display:block;color:var(--muted);font-weight:400;margin-top:3px;font-size:12.5px}
+.dochint{grid-column:1/-1;font-size:13px;color:var(--faint)}
+.doclist{grid-column:7/13;border-top:1px solid var(--ink)}
+.doclist .r{display:grid;grid-template-columns:minmax(170px,auto) 1fr;gap:0 24px;padding:16px 0;border-bottom:1px solid var(--line)}
+.doclist dt{font-size:13px;color:var(--muted);padding-top:2px}
+.doclist dd{font-size:15px;color:var(--ink);line-height:1.55}
+.doclist dd em{font-style:normal;color:var(--muted);font-size:14px;display:block;margin-top:4px}
+
+/* process */
+.steps{display:grid;grid-template-columns:repeat(5,1fr);border-top:1px solid var(--ink)}
+.step{padding:28px 24px 8px 0;border-right:1px solid var(--line)}
+.step + .step{padding-left:24px}
+.step:last-child{border-right:0;padding-right:0}
+.step .n{display:block;font-size:13px;font-weight:500;color:var(--red);letter-spacing:.08em;margin-bottom:18px}
+.step h3{font-size:18px}
+.step p{margin-top:10px;font-size:14.5px;color:var(--muted);line-height:1.55}
+
+/* advantages */
+.adv{display:grid;grid-template-columns:repeat(3,1fr);gap:0 32px;border-top:1px solid var(--ink)}
+.adv li{padding:26px 0 30px;border-bottom:1px solid var(--line)}
+.adv b{display:block;font-size:17px;font-weight:500;color:var(--ink);margin-bottom:8px}
+.adv p{font-size:14.5px;color:var(--muted);line-height:1.55}
+
+/* clients */
+.clients{display:grid;grid-template-columns:repeat(5,1fr);border-top:1px solid var(--ink);border-left:1px solid var(--line)}
+.clients li{padding:26px 22px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);font-size:14.5px;font-weight:500;color:var(--ink);line-height:1.4;min-height:104px;display:flex;align-items:center}
+
+/* cta */
+.cta{position:relative;overflow:hidden;background:var(--dark);color:#fff}
+.cta > img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.28}
+.cta::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(11,12,15,.95),rgba(11,12,15,.55))}
+.cta-in{position:relative;padding:clamp(64px,7vw,104px) 0;display:grid;grid-template-columns:repeat(12,1fr);gap:0 24px;align-items:center}
+.cta h2{grid-column:1/8;color:#fff}
+.cta-side{grid-column:8/13}
+.cta-side .tel{display:block;font-size:clamp(24px,2.2vw,32px);font-weight:500;color:#fff;text-decoration:none;letter-spacing:-.02em;margin-bottom:8px}
+.cta-side .tel:hover{color:rgba(255,255,255,.75)}
+.cta-side p{color:rgba(255,255,255,.7);font-size:15px;margin-bottom:22px}
+.cta-act{display:flex;gap:12px;flex-wrap:wrap}
+
+/* contacts */
+.contact{display:grid;grid-template-columns:repeat(12,1fr);gap:0 24px}
+.form-col{grid-column:1/7}
+.info-col{grid-column:8/13}
+.form{display:grid;gap:18px;border-top:1px solid var(--ink);padding-top:28px}
+.field{display:grid;gap:8px}
+.field span{font-size:13px;font-weight:500;color:var(--ink)}
+.field input,.field textarea{width:100%;border:1px solid var(--line-2);padding:14px 16px;font:400 16px/1.4 var(--f);color:var(--ink);background:#fff;resize:vertical;border-radius:0;transition:border-color .2s}
+.field input:focus,.field textarea:focus{outline:none;border-color:var(--ink)}
+.form .btn{justify-self:start;margin-top:4px}
+.form-note{font-size:12.5px;color:var(--faint);line-height:1.5}
+.info-col .block{padding:22px 0;border-bottom:1px solid var(--line)}
+.info-col .block:first-child{border-top:1px solid var(--ink);padding-top:28px}
+.info-col .lbl{display:block;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:500;margin-bottom:10px}
+.info-col a.big{display:block;font-size:22px;font-weight:500;color:var(--ink);text-decoration:none;line-height:1.4;letter-spacing:-.015em}
+.info-col a.big:hover{color:var(--red)}
+.info-col p{font-size:16px;color:var(--text)}
+.info-col .map{display:inline-block;margin-top:8px;font-size:14px;color:var(--ink);text-decoration:underline;text-underline-offset:3px}
+.req{margin-top:32px}
+.req h4{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:500;padding-bottom:12px;border-bottom:1px solid var(--ink)}
+.req .r{display:grid;grid-template-columns:minmax(130px,auto) 1fr;gap:0 20px;padding:11px 0;border-bottom:1px solid var(--line)}
+.req dt{font-size:13.5px;color:var(--muted)}
+.req dd{font-size:14px;color:var(--ink);font-weight:500;line-height:1.45}
+
+/* footer */
+.footer{background:var(--dark);color:rgba(255,255,255,.62);padding:64px 0 32px;font-size:14.5px}
+.footer-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:0 24px}
+.fbrand{grid-column:1/5}
+.fcol{grid-column:span 2}
+.fcol.wide{grid-column:span 4}
+.footer h4{color:#fff;font-size:12px;text-transform:uppercase;letter-spacing:.12em;margin-bottom:18px;font-weight:500}
+.footer a{color:rgba(255,255,255,.62);text-decoration:none;transition:color .2s}
+.footer a:hover{color:#fff}
+.footer li{margin-bottom:10px;line-height:1.5}
+.fbrand img{height:32px;width:auto;margin-bottom:20px}
+.fbrand p{max-width:30em;line-height:1.6}
+.footer-bottom{margin-top:52px;padding-top:22px;border-top:1px solid rgba(255,255,255,.14);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px 24px;font-size:13px;color:rgba(255,255,255,.4)}
+
+/* lightbox */
+.lb{position:fixed;inset:0;background:rgba(8,9,11,.94);display:none;align-items:center;justify-content:center;padding:clamp(12px,3vw,34px);z-index:300}
+.lb.on{display:flex;animation:fade .25s ease}
+@keyframes fade{from{opacity:0}}
+.lb img{max-width:min(1060px,94vw);max-height:88vh;width:auto;background:#fff}
+.lb .close{position:absolute;top:16px;right:16px;background:#fff;color:var(--ink);border:0;padding:12px 18px;font:500 14px var(--f);cursor:pointer}
+.lb .cap{position:absolute;left:0;right:0;bottom:16px;text-align:center;color:rgba(255,255,255,.8);font-size:14px;padding:0 20px}
+
+/* reveal */
+.js [data-rv]{opacity:0;transform:translateY(16px);transition:opacity .9s var(--e),transform .9s var(--e)}
+.js [data-rv].in{opacity:1;transform:none}
+
+/* responsive */
+@media (max-width:1180px){
+  .nav{display:none}
+  .burger{display:inline-flex;margin-left:auto}
+  .nav + .top-cta{margin-left:0}
+  .nav.open{display:flex;position:absolute;left:0;right:0;top:76px;flex-direction:column;background:#fff;padding:16px var(--gut) 22px;gap:14px;font-size:16px;border-bottom:1px solid var(--line)}
+  .facts-in{grid-template-columns:repeat(2,1fr)}
+  .fact:nth-child(2n){border-right:0;padding-right:0}
+  .fact:nth-child(n+3){border-top:1px solid rgba(255,255,255,.14)}
+  .fact:nth-child(3){padding-left:0}
+  .works{grid-template-columns:repeat(2,1fr)}
+  .clients{grid-template-columns:repeat(3,1fr)}
+  .adv{grid-template-columns:repeat(2,1fr)}
+  .hero h1{grid-column:1/-1}
+  .hero-side{grid-column:1/-1;padding-top:26px}
+}
+@media (max-width:960px){
+  .head-row h2,.head-row p,.about h2,.about-copy{grid-column:1/-1}
+  .head-row p{margin-top:16px}
+  .about-copy{margin-top:26px}
+  .cardfile{grid-template-columns:1fr}
+  .dirs{grid-template-columns:1fr}
+  .dir,.dir + .dir{padding:28px 0;border-right:0;border-bottom:1px solid var(--line)}
+  .dir:last-child{border-bottom:0}
+  .proj-media,.proj-thumbs,.proj-body{grid-column:1/-1;grid-row:auto}
+  .proj-body{margin-top:26px}
+  .proj:first-child .proj-body{margin-top:26px}
+  .docgrid,.doclist{grid-column:1/-1}
+  .doclist{margin-top:40px}
+  .steps{grid-template-columns:1fr 1fr}
+  .step:nth-child(2n){border-right:0;padding-right:0}
+  .step:nth-child(n+3){border-top:1px solid var(--line)}
+  .step:nth-child(2n+1){padding-left:0}
+  .cta h2,.cta-side{grid-column:1/-1}
+  .cta-side{margin-top:30px}
+  .form-col,.info-col{grid-column:1/-1}
+  .info-col{margin-top:48px}
+  .fbrand,.fcol,.fcol.wide{grid-column:span 6}
+}
+@media (max-width:680px){
+  .top-cta .btn{display:none}
+  .top-in{gap:16px;height:66px}
+  .brand img{height:27px}
+  .phone{font-size:14.5px}
+  .nav.open{top:66px}
+  .hero{margin-top:66px;min-height:auto}
+  .hero-in{padding:88px 0 44px}
+  .hero-actions .btn{flex:1 1 auto}
+  .facts-in{grid-template-columns:1fr}
+  .fact,.fact + .fact{border-right:0;padding:22px 0}
+  .fact:nth-child(n+2){border-top:1px solid rgba(255,255,255,.14)}
+  .works,.adv{grid-template-columns:1fr}
+  .clients{grid-template-columns:1fr 1fr}
+  .clients li{min-height:80px;font-size:13.5px;padding:18px 14px}
+  .steps{grid-template-columns:1fr}
+  .step,.step + .step{border-right:0;padding:24px 0 6px}
+  .step:nth-child(n+2){border-top:1px solid var(--line)}
+  .fbrand,.fcol,.fcol.wide{grid-column:1/-1}
+  .spec .r,.cardfile .r,.doclist .r,.req .r{grid-template-columns:1fr;gap:4px}
+  .docgrid{grid-template-columns:1fr}
+  .docgrid img{aspect-ratio:16/10}
+  .band img{height:260px}
+  /* stacked table */
+  .tscroll{overflow:visible}
+  .reftable{min-width:0;border-top:0}
+  .reftable thead{position:absolute;width:0;height:0;overflow:hidden}
+  .reftable tr{display:block;border-top:1px solid var(--ink);padding:18px 0 6px;margin-bottom:6px}
+  .reftable td{display:block;border-bottom:0;padding:6px 0 10px}
+  .reftable td::before{content:attr(data-label);display:block;font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:var(--faint);font-weight:500;margin-bottom:4px}
+  .reftable td.n{color:var(--ink);font-weight:500}
+  .reftable .obj,.reftable .cust,.reftable .work{min-width:0}
+  .reftable tbody tr:hover{background:transparent}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .hero-bg img{animation:none;transform:none}
+  .anim .hero-in > *{animation:none;opacity:1;transform:none}
+  .js [data-rv]{opacity:1;transform:none;transition:none}
+  .proj-media > img,.dir-img img{transition:none}
+}
+</style>
+</head>
+<body>
+<script>document.documentElement.classList.add('js');</script>
+<a class="skip" href="#main">К содержанию</a>
+
+<header class="top" id="top">
+  <div class="wrap top-in">
+    <a class="brand" href="#top" aria-label="СК «Самос» — на главную"><img src="assets/logo.png" alt="СК Самос — строительная компания" width="640" height="146"></a>
+    <nav class="nav" id="nav" aria-label="Разделы сайта">
+      <a href="#about">О компании</a>
+      <a href="#services">Направления</a>
+      <a href="#projects">Объекты</a>
+      <a href="#reference">Референс-лист</a>
+      <a href="#docs">Документы</a>
+      <a href="#contact">Контакты</a>
+    </nav>
+    <div class="top-cta">
+      <a class="phone" href="tel:+79181885096">+7 918 188‑50‑96</a>
+      <a class="btn btn-ink btn-sm" href="#contact">Запросить расчёт</a>
+    </div>
+    <button class="burger" type="button" aria-expanded="false" aria-controls="nav">Меню</button>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="hero" aria-labelledby="h1">
+  <div class="hero-bg"><img src="assets/npz.jpg" alt="" width="1800" height="916" fetchpriority="high"></div>
+  <div class="wrap hero-in">
+    <p class="label"><b>ООО «СК «Самос»</b>Генеральный подрядчик · Краснодар · с 2015 года</p>
+    <h1 id="h1">Промышленное и гражданское строительство полного цикла</h1>
+    <div class="hero-side">
+      <p>Ведём объект от исходно-разрешительной документации до разрешения на ввод в эксплуатацию. Краснодарский край, Республика Адыгея, Крым, Московская область.</p>
+      <div class="hero-actions">
+        <a class="btn btn-red" href="#contact">Запросить расчёт</a>
+        <a class="btn btn-white" href="#reference">Референс-лист</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="facts" aria-label="Ключевые показатели">
+  <div class="wrap facts-in">
+    <div class="fact"><b class="num">19 договоров</b><span>в референс-листе компании, 2017–2023</span></div>
+    <div class="fact"><b class="num">40 000 м²</b><span>отделочных работ на объекте АО «НПП «Исток» им. Шокина»</span></div>
+    <div class="fact"><b class="num">1 800 м² за 10 месяцев</b><span>центр единоборств в Тимашевске, госконтракт по 44‑ФЗ</span></div>
+    <div class="fact"><b class="num">до 500 млн ₽</b><span>уровень ответственности по договору подряда, 2‑й уровень СРО</span></div>
+  </div>
+</div>
+
+<section class="sec" id="about" aria-labelledby="h-about">
+  <div class="wrap">
+    <div class="sec-top" data-rv><span class="label"><b>01</b>О компании</span><span class="right">Основана в 2015 году</span></div>
+    <div class="g12 about" data-rv>
+      <h2 id="h-about">Строительная компания «Самос»</h2>
+      <div class="about-copy">
+        <p class="lead">ООО «СК «Самос» — динамично развивающаяся строительная компания, основанная в 2015 году. Компания является членом Союза «СРО «Межрегиональный альянс строителей» и обладает всеми необходимыми допусками и аккредитациями, позволяющими вести общестроительные и специальные работы от этапа проектирования до сдачи готового объекта.</p>
+        <div class="body">
+          <p>Специалисты компании аттестованы и включены в Национальный реестр специалистов в области строительства, имеют большой опыт в строительстве крупных и знаковых проектов: комплекс гидрокрекинга Афипского НПЗ, парогазовые ТЭС в Севастополе и Симферополе, центр высокопрецизионной металлообработки АО «НПП «Исток» им. А. И. Шокина» во Фрязино.</p>
+          <p>На сегодняшний день командой компании реализовано и находится в стадии реализации более 30 объектов капитального строительства и реконструкции.</p>
+        </div>
+        <ul class="regions" aria-label="Регионы присутствия">
+          <li>Краснодарский край</li>
+          <li>Республика Адыгея</li>
+          <li>Крым и Севастополь</li>
+          <li>Московская область</li>
+        </ul>
+      </div>
+    </div>
+    <dl class="cardfile" data-rv>
+      <div class="r"><dt>Полное наименование</dt><dd>Общество с ограниченной ответственностью «Строительная компания «Самос»</dd></div>
+      <div class="r"><dt>Год основания</dt><dd>2015</dd></div>
+      <div class="r"><dt>ИНН / КПП</dt><dd class="num">2308223123 / 230801001</dd></div>
+      <div class="r"><dt>ОГРН</dt><dd class="num">1152308009040</dd></div>
+      <div class="r"><dt>Юридический адрес</dt><dd>350000, Краснодарский край, г. Краснодар, ул. Карасунская, д. 60, оф. 26</dd></div>
+      <div class="r"><dt>Директор</dt><dd>Епишин Константин Николаевич</dd></div>
+      <div class="r"><dt>Членство в СРО</dt><dd>Союз «СРО «Межрегиональный альянс строителей», СРО‑С‑170‑13012010. Рег. № 117230728, с 16.03.2017</dd></div>
+      <div class="r"><dt>Право работ</dt><dd>Объекты капитального строительства, включая особо опасные, технически сложные и уникальные</dd></div>
+    </dl>
+  </div>
+</section>
+
+<div class="band" data-rv>
+  <img src="assets/team.jpg" alt="Специалисты компании на строительной площадке" width="1400" height="655" loading="lazy">
+  <div class="cap"><div class="wrap"><span>Аттестованные специалисты компании включены в Национальный реестр специалистов НОСТРОЙ</span></div></div>
+</div>
+
+<section class="sec alt" id="services" aria-labelledby="h-services">
+  <div class="wrap">
+    <div class="sec-top" data-rv><span class="label"><b>02</b>Направления деятельности</span><span class="right">Три функции на объекте</span></div>
+    <div class="g12 head-row" data-rv>
+      <h2 id="h-services">Что мы выполняем</h2>
+      <p>Компания работает как исполнитель строительно-монтажных работ, генеральный подрядчик и технический заказчик на объектах промышленного и гражданского назначения.</p>
+    </div>
+    <div class="dirs" data-rv>
+      <article class="dir">
+        <span class="n">01</span>
+        <h3>Строительно-монтажные работы</h3>
+        <p>Производство СМР на объектах промышленного и гражданского назначения и объектах транспортной инфраструктуры: общестроительные работы, монтаж внутренних и наружных инженерных сетей электроснабжения, водоснабжения и водоотведения, все виды отделочных работ, благоустройство, строительство искусственных сооружений автомобильных и железных дорог.</p>
+        <div class="dir-img"><img src="assets/tunnel.jpg" alt="Монтаж металлоконструкций искусственного сооружения" loading="lazy"></div>
+      </article>
+      <article class="dir">
+        <span class="n">02</span>
+        <h3>Генеральный подряд</h3>
+        <p>Выполнение функций генерального подрядчика на объектах промышленного и гражданского назначения. Ведём работы собственной командой, координируем субподрядчиков и поставщиков, отвечаем перед заказчиком за сроки, качество и бюджет объекта.</p>
+        <div class="dir-img"><img src="assets/crane.jpg" alt="Строительная площадка с башенными кранами" loading="lazy"></div>
+      </article>
+      <article class="dir">
+        <span class="n">03</span>
+        <h3>Технический заказчик</h3>
+        <p>Сопровождение объектов капитального строительства от проектирования и получения разрешения на строительство до получения разрешения на ввод объекта в эксплуатацию.</p>
+        <div class="dir-img"><img src="assets/edin-facade.jpg" alt="Сданный в эксплуатацию объект" loading="lazy"></div>
+      </article>
+    </div>
+
+    <div class="works" data-rv>
+      <div class="wcol">
+        <h3>Строительные работы <em>14 позиций</em></h3>
+        <ul>
+          <li>Монтаж металлоконструкций</li>
+          <li>Общестроительные работы</li>
+          <li>Монтаж зданий из сэндвич-панелей</li>
+          <li>Монолитные работы</li>
+          <li>Искусственные сооружения</li>
+          <li>Устройство промышленных полов</li>
+          <li>Устройство фальшполов</li>
+          <li>Устройство кровли</li>
+          <li>Устройство ливневой канализации</li>
+          <li>Фасадные, изоляционные работы</li>
+          <li>Остекление зданий</li>
+          <li>Демонтаж зданий и сооружений</li>
+          <li>Установка промышленных ворот</li>
+          <li>Благоустройство территории</li>
+        </ul>
+      </div>
+      <div class="wcol">
+        <h3>Внутренняя отделка <em>4 позиции</em></h3>
+        <ul>
+          <li>Монтаж стен, потолков и перегородок</li>
+          <li>Облицовка стен</li>
+          <li>Покрытие лакокрасочными и декоративными материалами</li>
+          <li>Оштукатуривание</li>
+        </ul>
+      </div>
+      <div class="wcol">
+        <h3>Инженерные сети <em>5 позиций</em></h3>
+        <ul>
+          <li>Электрика</li>
+          <li>Вентиляция и кондиционирование</li>
+          <li>Отопление</li>
+          <li>Слаботочные сети</li>
+          <li>Системы комплексной безопасности и противопожарной защиты</li>
+        </ul>
+      </div>
+      <div class="wcol">
+        <h3>Пусконаладка <em>1 позиция</em></h3>
+        <ul>
+          <li>Пусконаладка оборудования</li>
+        </ul>
+        <h3 class="sub">Отдельные компетенции</h3>
+        <ul>
+          <li>Промышленные топпинговые полы</li>
+          <li>Наливные эпоксидные полы</li>
+          <li>Вентилируемые фасады</li>
+          <li>Кислотоупорная плитка</li>
+          <li>Заземление и молниезащита</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="projects" aria-labelledby="h-projects">
+  <div class="wrap">
+    <div class="sec-top" data-rv><span class="label"><b>03</b>Объекты</span><span class="right">Описание состава работ по буклету компании</span></div>
+    <div class="g12 head-row" data-rv>
+      <h2 id="h-projects">Реализованные объекты</h2>
+      <p>Ниже приведены объекты, по которым в буклете компании есть подробное описание состава работ. Полный перечень договоров — в референс-листе.</p>
+    </div>
+
+    <div class="projects">
+      <article class="proj" data-rv>
+        <div class="proj-media"><img src="assets/edin-hero.jpg" alt="Центр единоборств в Тимашевске после сдачи" width="1500" height="1125" loading="lazy"></div>
+        <div class="proj-thumbs"><img src="assets/edin-frame.jpg" alt="Металлокаркас здания" loading="lazy"><img src="assets/edin-boiler.jpg" alt="Тепловой пункт" loading="lazy"><img src="assets/edin-court.jpg" alt="Игровой зал" loading="lazy"></div>
+        <div class="proj-body">
+          <p class="meta"><b>Генеральный подряд</b> · 44‑ФЗ · 2022–2023</p>
+          <h3>Центр единоборств в г. Тимашевске</h3>
+          <p class="place">Краснодарский край, Тимашевский район</p>
+          <dl class="spec">
+            <div class="r"><dt>Заказчик</dt><dd>МКУ «УКС» МО Тимашевский район</dd></div>
+            <div class="r"><dt>Роль</dt><dd>Генеральный подрядчик, государственный контракт по 44‑ФЗ</dd></div>
+            <div class="r"><dt>Площадь</dt><dd><b>1 800 м²</b></dd></div>
+            <div class="r"><dt>Срок</dt><dd>Возведён и сдан в эксплуатацию за <b>10 месяцев</b></dd></div>
+            <div class="r"><dt>Состав работ</dt><dd>Устройство фундаментов, монтаж металлокаркаса, монтаж сэндвич-панелей, наружные и внутренние сети, отделочные работы, благоустройство территории</dd></div>
+          </dl>
+        </div>
+      </article>
+
+      <article class="proj" data-rv>
+        <div class="proj-media"><img src="assets/npz.jpg" alt="Технологические установки Афипского НПЗ" width="1800" height="916" loading="lazy"></div>
+        <div class="proj-body">
+          <p class="meta">Подрядчик · Промышленность · 2021–2023</p>
+          <h3>ООО «Афипский НПЗ». Комплекс гидрокрекинга</h3>
+          <p class="place">Комбинированная установка производства серы, линия № 1. Здание подстанции с местной аппаратной</p>
+          <dl class="spec">
+            <div class="r"><dt>Заказчик</dt><dd>АО «Промфинстрой»</dd></div>
+            <div class="r"><dt>Состав работ</dt><dd>Бетонные работы, каменные работы, монтаж сэндвич-панелей, промышленные бетонные полы, наливные (эпоксидные) полы, монтаж фальшполов, отделочные работы</dd></div>
+          </dl>
+        </div>
+      </article>
+
+      <article class="proj" data-rv>
+        <div class="proj-media"><img src="assets/istok.jpg" alt="Вентилируемый фасад центра металлообработки НПП «Исток»" width="1400" height="632" loading="lazy"></div>
+        <div class="proj-body">
+          <p class="meta">Подрядчик · Оборонная промышленность · 2018–2021</p>
+          <h3>Центр высокопрецизионной металлообработки АО «НПП «Исток» им. А. И. Шокина»</h3>
+          <p class="place">г. Фрязино, Московская область. Серийный выпуск электровакуумных и твердотельных сверхвысокочастотных приборов</p>
+          <dl class="spec">
+            <div class="r"><dt>Заказчик</dt><dd>ООО «Корпорация АК «ЭСКМ»</dd></div>
+            <div class="r"><dt>Объём</dt><dd>Все отделочные работы на площади <b>40 000 м²</b></dd></div>
+            <div class="r"><dt>Состав работ</dt><dd>Каменные работы, промышленные бетонные полы, наливные (эпоксидные) полы, монтаж фальшполов, монтаж вентилируемого фасада</dd></div>
+          </dl>
+        </div>
+      </article>
+
+      <article class="proj" data-rv>
+        <div class="proj-media"><img src="assets/tes-2.jpg" alt="Строительство главного корпуса ПГУ-ТЭС" width="1400" height="386" loading="lazy"></div>
+        <div class="proj-thumbs two"><img src="assets/tes-1a.jpg" alt="Фасад главного корпуса" loading="lazy"><img src="assets/tes-1b.jpg" alt="Корпус электростанции" loading="lazy"></div>
+        <div class="proj-body">
+          <p class="meta">Подрядчик · Энергетика · 2017–2018</p>
+          <h3>Севастопольская и Симферопольская ПГУ‑ТЭС</h3>
+          <p class="place">г. Севастополь, г. Симферополь, Республика Крым</p>
+          <dl class="spec">
+            <div class="r"><dt>Заказчик</dt><dd>ООО «Корпорация АК «ЭСКМ»</dd></div>
+            <div class="r"><dt>Состав работ</dt><dd>Бетонные работы, вентилируемый фасад, устройство фальшпола, укладка кислотоупорной плитки, отделочные работы в аккумуляторных и релейном щите, монтаж кабельных коробов и металлоконструкций на кабельных эстакадах, монтаж заземления и молниезащиты</dd></div>
+          </dl>
+        </div>
+      </article>
+
+      <article class="proj" data-rv>
+        <div class="proj-media"><img src="assets/sklad-textil.jpg" alt="Складской комплекс на улице Текстильной" width="1400" height="299" loading="lazy"></div>
+        <div class="proj-thumbs two"><img src="assets/sklad-textil-rebar.jpg" alt="Армирование фундамента" loading="lazy"><img src="assets/sklad-textil-frame.jpg" alt="Монтаж металлокаркаса" loading="lazy"></div>
+        <div class="proj-body">
+          <p class="meta"><b>Генеральный подряд</b> · Под ключ · 2017, 2019, 2021</p>
+          <h3>Складской комплекс на ул. Текстильной</h3>
+          <p class="place">г. Краснодар, Карасунский внутригородской округ, ул. Текстильная, 9/2. Три договора: склад с административно-бытовым корпусом, склад 1 540 м², капитальный ремонт склада</p>
+          <dl class="spec">
+            <div class="r"><dt>Заказчик</dt><dd>ООО «ЮжГрад»</dd></div>
+            <div class="r"><dt>Роль</dt><dd>Генеральный подрядчик, работа «под ключ»</dd></div>
+            <div class="r"><dt>Площадь</dt><dd>Склад <b>1 540 м²</b> (2019)</dd></div>
+            <div class="r"><dt>Состав работ</dt><dd>Устройство фундаментов, монтаж металлокаркаса, монтаж сэндвич-панелей, устройство промышленных (топпинговых) бетонных полов, наружные и внутренние сети, отделочные работы</dd></div>
+          </dl>
+        </div>
+      </article>
+
+      <article class="proj" data-rv>
+        <div class="proj-media"><img src="assets/sklad-abk.jpg" alt="Склад с административно-бытовым корпусом" width="1400" height="429" loading="lazy"></div>
+        <div class="proj-thumbs two"><img src="assets/sklad-abk-crane.jpg" alt="Бетонирование площадки" loading="lazy"><img src="assets/rba-int.jpg" alt="Производственное помещение" loading="lazy"></div>
+        <div class="proj-body">
+          <p class="meta"><b>Генеральный подряд</b> · Технический заказчик · 2017</p>
+          <h3>Склад непродовольственных товаров с административно-бытовым корпусом</h3>
+          <p class="place">г. Краснодар</p>
+          <dl class="spec">
+            <div class="r"><dt>Заказчик</dt><dd>ООО «ЮжГрад»</dd></div>
+            <div class="r"><dt>Роль</dt><dd>Генеральный подрядчик, все работы «под ключ»</dd></div>
+            <div class="r"><dt>Документация</dt><dd>Получение исходно-разрешительной документации, разрешения на строительство и разрешения на ввод объекта в эксплуатацию</dd></div>
+            <div class="r"><dt>Состав работ</dt><dd>Устройство фундаментов, монтаж металлокаркаса, монтаж сэндвич-панелей, промышленные (топпинговые) бетонные полы, наружные и внутренние сети, отделочные работы</dd></div>
+          </dl>
+        </div>
+      </article>
+
+      <article class="proj" data-rv>
+        <div class="proj-media"><img src="assets/enem-aero.jpg" alt="Складской комплекс в посёлке Энем с высоты" width="1400" height="245" loading="lazy"></div>
+        <div class="proj-thumbs two"><img src="assets/enem-int.jpg" alt="Реконструируемый склад изнутри" loading="lazy"><img src="assets/rba-ext.jpg" alt="Производственный корпус" loading="lazy"></div>
+        <div class="proj-body">
+          <p class="meta">Реконструкция · Три договора · 2017–2020</p>
+          <h3>Реконструкция и модернизация складов в пгт Энем</h3>
+          <p class="place">Республика Адыгея, Тахтамукайский район, пгт Энем, ул. Перова, 36/3</p>
+          <dl class="spec">
+            <div class="r"><dt>Заказчик</dt><dd>ООО «Керасоль»</dd></div>
+            <div class="r"><dt>Состав работ</dt><dd>Демонтаж стен и кровли, возведение кирпичных стен, устройство кровли, устройство промышленных полов, устройство пандусов, утепление фасада, отделка фасада сайдингом, устройство наружных стен</dd></div>
+            <div class="r"><dt>Дополнительно</dt><dd>Устройство навеса и реконструкция рампы с устройством съезда (2020), подъездные дороги</dd></div>
+          </dl>
+        </div>
+      </article>
+
+      <article class="proj" data-rv>
+        <div class="proj-media"><img src="assets/fasad.jpg" alt="Фасад спортивного комплекса из композитных кассет" width="1400" height="1050" loading="lazy"></div>
+        <div class="proj-thumbs two"><img src="assets/hall.jpg" alt="Игровой зал с паркетным покрытием" loading="lazy"><img src="assets/rail.jpg" alt="Объект транспортной инфраструктуры" loading="lazy"></div>
+        <div class="proj-body">
+          <p class="meta">Спортивный объект</p>
+          <h3>Спортивный комплекс с игровым залом</h3>
+          <p class="place">Краснодарский край</p>
+          <dl class="spec">
+            <div class="r"><dt>Состав работ</dt><dd>Вентилируемый фасад из композитных кассет, игровой зал с паркетным покрытием, освещение и инженерные системы</dd></div>
+          </dl>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="sec alt" id="reference" aria-labelledby="h-ref">
+  <div class="wrap">
+    <div class="sec-top" data-rv><span class="label"><b>04</b>Референс-лист</span><span class="right">19 договоров · 2017–2023</span></div>
+    <div class="g12 head-row" data-rv>
+      <h2 id="h-ref">Договоры компании с 2017 года</h2>
+      <p>Референт-лист строительства объектов ООО «Строительная компания «Самос», подписанный директором. Приведён полностью, без сокращений. Контакты заказчиков предоставляются по запросу.</p>
+    </div>
+    <div class="tscroll" data-rv>
+      <table class="reftable">
+        <caption class="sym">Референс-лист строительства объектов ООО «СК «Самос»</caption>
+        <thead>
+          <tr><th class="n" scope="col">№</th><th scope="col">Объект</th><th scope="col">Заказчик</th><th scope="col">Виды работ</th><th scope="col">Год</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="n" data-label="№">1</td><td class="obj" data-label="Объект">Склад непродовольственных товаров с административно-бытовым корпусом<small>г. Краснодар, Карасунский внутригородской округ, ул. Текстильная, 9/2</small></td><td class="cust" data-label="Заказчик">ООО «ЮжГрад»</td><td class="work" data-label="Виды работ">Устройство фундаментов, монтаж металлокаркаса, монтаж сэндвич-панелей, устройство промышленных (топпинговых) бетонных полов, наружные и внутренние сети, отделочные работы</td><td class="yr" data-label="Год">2017</td></tr>
+          <tr><td class="n" data-label="№">2</td><td class="obj" data-label="Объект">Реконструкция склада № 1, литер «Г1», и модернизация склада № 5<small>Республика Адыгея, Тахтамукайский район, пгт Энем, ул. Перова, 36/3</small></td><td class="cust" data-label="Заказчик">ООО «Керасоль»</td><td class="work" data-label="Виды работ">Каменные и бетонные работы, промышленные бетонные полы, устройство промышленных (топпинговых) бетонных полов, наружные и внутренние сети, отделочные работы, подъездные дороги</td><td class="yr" data-label="Год">2017</td></tr>
+          <tr><td class="n" data-label="№">3</td><td class="obj" data-label="Объект">Севастопольская ПГУ‑ТЭС<small>г. Севастополь</small></td><td class="cust" data-label="Заказчик">ООО «Корпорация АК «ЭСКМ»</td><td class="work" data-label="Виды работ">Бетонные работы, вентилируемый фасад, устройство фальшпола, укладка кислотоупорной плитки, отделочные работы в аккумуляторных и релейном щите, монтаж кабельных коробов и металлоконструкций на кабельных эстакадах, монтаж заземления и молниезащиты</td><td class="yr" data-label="Год">2017–2018</td></tr>
+          <tr><td class="n" data-label="№">4</td><td class="obj" data-label="Объект">Симферопольская ПГУ‑ТЭС<small>г. Симферополь, Республика Крым</small></td><td class="cust" data-label="Заказчик">ООО «Корпорация АК «ЭСКМ»</td><td class="work" data-label="Виды работ">Устройство фальшпола</td><td class="yr" data-label="Год">2018</td></tr>
+          <tr><td class="n" data-label="№">5</td><td class="obj" data-label="Объект">Производственный центр по продаже и обслуживанию грузового транспорта<small>Республика Адыгея, Тахтамукайский район, х. Новый Сад, ул. Дружбы, 27/б</small></td><td class="cust" data-label="Заказчик">ООО «ЮТАС‑проект»</td><td class="work" data-label="Виды работ">Бетонные работы, промышленные бетонные полы, отделочные работы</td><td class="yr" data-label="Год">2018</td></tr>
+          <tr><td class="n" data-label="№">6</td><td class="obj" data-label="Объект">Капитальный ремонт кровли и фасада здания МУК «Медведовская сельская централизованная клубная система»<small>Медведовское сельское поселение, Тимашевский район</small></td><td class="cust" data-label="Заказчик">МБУК «Межпоселенческий районный Дом культуры имени В. М. Толстых»</td><td class="work" data-label="Виды работ">Кровельные работы</td><td class="yr" data-label="Год">2018</td></tr>
+          <tr><td class="n" data-label="№">7</td><td class="obj" data-label="Объект">Строительно-монтажные работы по возведению объекта капитального строительства<small>Земельный участок 01:05:30116002:1096, общая площадь 47,51 м²</small></td><td class="cust" data-label="Заказчик">ООО «Керасоль»</td><td class="work" data-label="Виды работ">Устройство фундаментов, каменные и бетонные работы, кровельные работы, наружные и внутренние сети, отделочные работы</td><td class="yr" data-label="Год">2018</td></tr>
+          <tr><td class="n" data-label="№">8</td><td class="obj" data-label="Объект">Строительство центра высокопрецизионной металлообработки АО «НПП «Исток» им. А. И. Шокина»<small>г. Фрязино, Московская область</small></td><td class="cust" data-label="Заказчик">ООО «Корпорация АК «ЭСКМ»</td><td class="work" data-label="Виды работ">Каменные работы, промышленные бетонные полы, наливные (эпоксидные) полы, монтаж фальшполов, монтаж вентилируемого фасада, все отделочные работы на площади 40 тыс. м²</td><td class="yr" data-label="Год">2018–2021</td></tr>
+          <tr><td class="n" data-label="№">9</td><td class="obj" data-label="Объект">Капитальный ремонт кровли здания МБОУ СОШ № 1, литер А1, имени А. И. Герцена<small>Муниципальное образование Тимашевский район</small></td><td class="cust" data-label="Заказчик">МБОУ СОШ № 1 имени А. И. Герцена МО Тимашевский район</td><td class="work" data-label="Виды работ">Кровельные работы</td><td class="yr" data-label="Год">2019</td></tr>
+          <tr><td class="n" data-label="№">10</td><td class="obj" data-label="Объект">Склад непродовольственных товаров площадью 1 540 м²<small>г. Краснодар, Карасунский внутригородской округ, ул. Текстильная, 9/2</small></td><td class="cust" data-label="Заказчик">ООО «ЮжГрад»</td><td class="work" data-label="Виды работ">Устройство фундаментов, монтаж металлокаркаса, монтаж сэндвич-панелей, устройство промышленных (топпинговых) бетонных полов, наружные и внутренние сети</td><td class="yr" data-label="Год">2019</td></tr>
+          <tr><td class="n" data-label="№">11</td><td class="obj" data-label="Объект">Ремонтные работы складских помещений<small>г. Краснодар, ул. Новороссийская, 210</small></td><td class="cust" data-label="Заказчик">ЗАО «Кубаньтекстильторг»</td><td class="work" data-label="Виды работ">Демонтажные работы, отделочные работы</td><td class="yr" data-label="Год">2019</td></tr>
+          <tr><td class="n" data-label="№">12</td><td class="obj" data-label="Объект">Капитальный ремонт здания МБДОУ ДС № 42<small>Краснодарский край, Тимашевский район, г. Тимашевск, ул. Степанова, 117</small></td><td class="cust" data-label="Заказчик">МБДОУ д/с № 42 МО Тимашевский район</td><td class="work" data-label="Виды работ">Кровельные работы, отделочные работы</td><td class="yr" data-label="Год">2019</td></tr>
+          <tr><td class="n" data-label="№">13</td><td class="obj" data-label="Объект">Центр военно-патриотического воспитания Краснодарского края «Патриот». Этап 1 — посадочная площадка, ангар 2</td><td class="cust" data-label="Заказчик">ООО «Прогресс»</td><td class="work" data-label="Виды работ">Монтаж металлоконструкций, монтаж сэндвич-панелей</td><td class="yr" data-label="Год">2020</td></tr>
+          <tr><td class="n" data-label="№">14</td><td class="obj" data-label="Объект">Устройство навеса и реконструкция рампы с устройством съезда на здании склада лит. Г2, г2<small>Республика Адыгея, Тахтамукайский район, пгт Энем, ул. Перова, 36/3</small></td><td class="cust" data-label="Заказчик">ООО «Керасоль»</td><td class="work" data-label="Виды работ">Устройство фундаментов, монтаж металлоконструкций, бетонные работы, кровельные работы</td><td class="yr" data-label="Год">2020</td></tr>
+          <tr><td class="n" data-label="№">15</td><td class="obj" data-label="Объект">Строительство домов блокированной застройки для обеспечения жильём детей-сирот и детей, оставшихся без попечения родителей<small>ст. Роговская, Тимашевский район, Краснодарский край</small></td><td class="cust" data-label="Заказчик">ИП Копачев В. В.</td><td class="work" data-label="Виды работ">Устройство фундаментов, каменные и бетонные работы, кровельные работы, наружные и внутренние сети, отделочные работы, подъездные дороги, благоустройство территории</td><td class="yr" data-label="Год">2020</td></tr>
+          <tr><td class="n" data-label="№">16</td><td class="obj" data-label="Объект">Центр «Патриот». Поставка и монтаж ангара для хранения, укладки, сушки и проведения регламентных работ высотного снаряжения парашютистов</td><td class="cust" data-label="Заказчик">Фонд содействия строительству объектов социально-культурного значения «Моя Кубань»</td><td class="work" data-label="Виды работ">Монтаж металлоконструкций, монтаж сэндвич-панелей, наружные и внутренние сети, отделочные работы</td><td class="yr" data-label="Год">2021</td></tr>
+          <tr><td class="n" data-label="№">17</td><td class="obj" data-label="Объект">Капитальный ремонт склада непродовольственных товаров<small>г. Краснодар, Карасунский внутригородской округ, ул. Текстильная, 9/2</small></td><td class="cust" data-label="Заказчик">ООО «ЮжГрад»</td><td class="work" data-label="Виды работ">Монтаж металлокаркаса, монтаж сэндвич-панелей, наружные и внутренние сети</td><td class="yr" data-label="Год">2021</td></tr>
+          <tr><td class="n" data-label="№">18</td><td class="obj" data-label="Объект">ООО «Афипский НПЗ». Комплекс гидрокрекинга. Комбинированная установка производства серы, линия № 1. Здание подстанции с местной аппаратной</td><td class="cust" data-label="Заказчик">АО «Промфинстрой»</td><td class="work" data-label="Виды работ">Бетонные работы, каменные работы, монтаж сэндвич-панелей, промышленные бетонные полы, наливные (эпоксидные) полы, монтаж фальшполов, отделочные работы</td><td class="yr" data-label="Год">2021–2023</td></tr>
+          <tr><td class="n" data-label="№">19</td><td class="obj" data-label="Объект">Центр единоборств в г. Тимашевске<small>Тимашевский район, Краснодарский край</small></td><td class="cust" data-label="Заказчик">МКУ «УКС» МО Тимашевский район</td><td class="work" data-label="Виды работ">Генподряд. Устройство фундаментов, монтаж металлокаркаса, монтаж сэндвич-панелей, наружные и внутренние сети, отделочные работы</td><td class="yr" data-label="Год">2022–2023</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="tablenote"><span>Источник: референт-лист строительства объектов ООО «СК «Самос», подписан директором К. Н. Епишиным.</span><span>19 договоров · 2017–2023</span></p>
+    <div class="dl" data-rv>
+      <div>
+        <b>Буклет компании, 2024</b>
+        <span>18 страниц: направления деятельности, преимущества, объекты, документы. PDF, 2,4 МБ</span>
+      </div>
+      <a class="btn btn-ink" href="assets/samos-booklet-2024.pdf" download>Скачать буклет</a>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="docs" aria-labelledby="h-docs">
+  <div class="wrap">
+    <div class="sec-top" data-rv><span class="label"><b>05</b>Документы</span><span class="right">СРО · НОСТРОЙ · Страхование</span></div>
+    <div class="g12 head-row" data-rv>
+      <h2 id="h-docs">Допуски и ответственность</h2>
+      <p>Компания состоит в саморегулируемой организации и имеет право выполнять работы на особо опасных, технически сложных и уникальных объектах капитального строительства.</p>
+    </div>
+    <div class="docs" data-rv>
+      <div class="docgrid">
+        <a href="assets/doc-sro-1.jpg" target="_blank" rel="noopener">
+          <div class="ph"><img src="assets/doc-sro-1.jpg" alt="Выписка из реестра членов саморегулируемой организации" loading="lazy"></div>
+          <span>Выписка из реестра членов СРО<small>№ 2308223123‑20221027‑1604 от 27.10.2022</small></span>
+        </a>
+        <a href="assets/doc-nrs-1.jpg" target="_blank" rel="noopener">
+          <div class="ph"><img src="assets/doc-nrs-1.jpg" alt="Уведомление НОСТРОЙ — Копачев В. В." loading="lazy"></div>
+          <span>Уведомление НОСТРОЙ<small>Копачев В. В., № С‑23‑090756</small></span>
+        </a>
+        <a href="assets/doc-nrs-2.jpg" target="_blank" rel="noopener">
+          <div class="ph"><img src="assets/doc-nrs-2.jpg" alt="Уведомление НОСТРОЙ — Епишин К. Н." loading="lazy"></div>
+          <span>Уведомление НОСТРОЙ<small>Епишин К. Н., № С‑23‑090757</small></span>
+        </a>
+        <p class="dochint">Нажмите на документ, чтобы открыть его в полном размере.</p>
+      </div>
+      <dl class="doclist">
+        <div class="r"><dt>Саморегулируемая организация</dt><dd>Союз «Саморегулируемая организация «Межрегиональный альянс строителей», Союз «СРО «МАС»<em>350000, г. Краснодар, ул. Пашковская, д. 99, пом. 1 · mas-sro.ru</em></dd></div>
+        <div class="r"><dt>Номер в госреестре СРО</dt><dd>СРО‑С‑170‑13012010</dd></div>
+        <div class="r"><dt>Член СРО</dt><dd>Регистрационный номер 117230728<em>В реестре с 16.03.2017, статус права — действует</em></dd></div>
+        <div class="r"><dt>Право выполнения работ</dt><dd>Строительство, реконструкция, капитальный ремонт, снос объектов капитального строительства — в отношении обычных, а также особо опасных, технически сложных и уникальных объектов<em>Объекты использования атомной энергии — нет</em></dd></div>
+        <div class="r"><dt>Уровень ответственности</dt><dd>Второй уровень по компенсационному фонду возмещения вреда и по фонду обеспечения договорных обязательств<em>Стоимость работ по одному договору — не превышает 500 000 000 ₽</em></dd></div>
+        <div class="r"><dt>Национальный реестр специалистов</dt><dd>Копачев Владимир Владимирович — С‑23‑090756<br>Епишин Константин Николаевич — С‑23‑090757<em>Решение комиссии НОСТРОЙ от 05.09.2017 № 060. Организация выполнения работ по строительству, реконструкции, капитальному ремонту объектов капитального строительства</em></dd></div>
+        <div class="r"><dt>Страхование</dt><dd>Гражданская ответственность застрахована в АО «АльфаСтрахование»</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<section class="sec alt" id="process" aria-labelledby="h-process">
+  <div class="wrap">
+    <div class="sec-top" data-rv><span class="label"><b>06</b>Порядок работы</span><span class="right">Пять этапов</span></div>
+    <div class="g12 head-row" data-rv>
+      <h2 id="h-process">Как строится сотрудничество</h2>
+    </div>
+    <ol class="steps" data-rv>
+      <li class="step"><span class="n">Этап 01</span><h3>Заявка</h3><p>Принимаем заявку по телефону или с сайта, уточняем назначение объекта, площадь, участок и исходные данные.</p></li>
+      <li class="step"><span class="n">Этап 02</span><h3>Осмотр и расчёт</h3><p>Выезжаем на площадку, изучаем документацию и техническое задание, готовим предварительный расчёт стоимости и сроков.</p></li>
+      <li class="step"><span class="n">Этап 03</span><h3>Договор и график</h3><p>Фиксируем стоимость, этапы и сроки. При необходимости берём на себя исходно-разрешительную документацию и получение разрешения на строительство.</p></li>
+      <li class="step"><span class="n">Этап 04</span><h3>Производство работ</h3><p>Ведём работы аттестованной командой с допуском СРО, обеспечиваем прямые поставки материалов, контролируем качество и сроки на каждом этапе.</p></li>
+      <li class="step"><span class="n">Этап 05</span><h3>Ввод в эксплуатацию</h3><p>Сдаём объект, получаем разрешение на ввод, передаём исполнительную документацию и предоставляем долгосрочную гарантию.</p></li>
+    </ol>
+
+    <div class="sec-top" data-rv style="margin-top:clamp(64px,7vw,104px)"><span class="label"><b>07</b>Преимущества</span><span class="right">Из буклета компании</span></div>
+    <ul class="adv" data-rv>
+      <li><b>Комплексный подход</b><p>Решаем поставленные задачи целиком, в том числе за счёт тесного сотрудничества с нашими партнёрами.</p></li>
+      <li><b>Рациональное использование средств</b><p>Бережно и обоснованно расходуем финансовые ресурсы заказчика на всех этапах работ.</p></li>
+      <li><b>Работа по строгим нормам</b><p>Соблюдение международных норм позволяет добиться не только эстетического результата, но и надёжности и долговечности работ.</p></li>
+      <li><b>Прямое сотрудничество с производителями</b><p>Широкая сеть производителей и поставщиков позволяет использовать лучшие стройматериалы по минимальной стоимости.</p></li>
+      <li><b>Соблюдение сроков</b><p>Строгий контроль на каждом этапе работ позволяет эффективно соблюдать сроки без потери качества.</p></li>
+      <li><b>Гарантия качества</b><p>Уверены в качестве выполненных работ и предоставляем заказчикам долгосрочную гарантию.</p></li>
+      <li><b>Открытость</b><p>Идём навстречу партнёрам и учитываем пожелания заказчика при выполнении работ.</p></li>
+      <li><b>Повышение конкурентоспособности</b><p>Оптимизируем производственные и бизнес-процессы, повышаем качество клиентского сервиса и деловую репутацию.</p></li>
+      <li><b>Индивидуальный подход</b><p>Клиент получает полную информационную поддержку и практическую помощь на каждом этапе — от сбора разрешительной документации до ввода объекта в эксплуатацию.</p></li>
+    </ul>
+  </div>
+</section>
+
+<section class="sec" id="clients" aria-labelledby="h-clients">
+  <div class="wrap">
+    <div class="sec-top" data-rv><span class="label"><b>08</b>Заказчики</span><span class="right">По договорам из референс-листа</span></div>
+    <div class="g12 head-row" data-rv>
+      <h2 id="h-clients">С кем мы работали</h2>
+    </div>
+    <ul class="clients" data-rv>
+      <li>АО «Промфинстрой»</li>
+      <li>ООО «Корпорация АК «ЭСКМ»</li>
+      <li>ООО «ЮжГрад»</li>
+      <li>ООО «Керасоль»</li>
+      <li>ООО «ЮТАС‑проект»</li>
+      <li>МКУ «УКС» МО Тимашевский район</li>
+      <li>Фонд «Моя Кубань»</li>
+      <li>ООО «Прогресс»</li>
+      <li>ЗАО «Кубаньтекстильторг»</li>
+      <li>МБУК «Районный ДК им. В. М. Толстых»</li>
+    </ul>
+  </div>
+</section>
+
+<section class="cta" aria-labelledby="h-cta">
+  <img src="assets/tes-2.jpg" alt="" loading="lazy">
+  <div class="wrap cta-in">
+    <h2 id="h-cta" data-rv>Обсудить объект и получить предварительный расчёт</h2>
+    <div class="cta-side" data-rv>
+      <a class="tel" href="tel:+79181885096">+7 918 188‑50‑96</a>
+      <p>Выезжаем на площадку, считаем стоимость и сроки, берём объект от документации до ввода в эксплуатацию.</p>
+      <div class="cta-act">
+        <a class="btn btn-red" href="#contact">Оставить заявку</a>
+        <a class="btn btn-white" href="mailto:sk-samos@mail.ru">Написать на почту</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="contact" aria-labelledby="h-contact">
+  <div class="wrap">
+    <div class="sec-top" data-rv><span class="label"><b>09</b>Контакты</span><span class="right">Краснодар, ул. Карасунская, 60</span></div>
+    <div class="g12 head-row" data-rv>
+      <h2 id="h-contact">Заявка на расчёт</h2>
+      <p>Опишите объект — перезвоним, уточним детали и подготовим предварительный расчёт стоимости и сроков.</p>
+    </div>
+    <div class="contact">
+      <div class="form-col" data-rv>
+        <form class="form" id="lead" novalidate>
+          <label class="field"><span>Ваше имя</span><input type="text" name="name" autocomplete="name" required></label>
+          <label class="field"><span>Телефон</span><input type="tel" name="phone" autocomplete="tel" inputmode="tel" placeholder="+7" required></label>
+          <label class="field"><span>Что нужно построить</span><textarea name="task" rows="4" placeholder="Например: склад 2 000 м² на своём участке под Краснодаром, нужен генподряд под ключ"></textarea></label>
+          <button class="btn btn-red" type="submit">Отправить заявку</button>
+          <p class="form-note">Заявка отправляется письмом на sk-samos@mail.ru через вашу почтовую программу. Нажимая кнопку, вы соглашаетесь на обработку персональных данных.</p>
+        </form>
+      </div>
+      <div class="info-col" data-rv>
+        <div class="block"><span class="lbl">Телефоны</span><a class="big" href="tel:+79181885096">+7 918 188‑50‑96</a><a class="big" href="tel:+79181117180">+7 918 111‑71‑80</a></div>
+        <div class="block"><span class="lbl">Электронная почта</span><a class="big" href="mailto:sk-samos@mail.ru">sk-samos@mail.ru</a></div>
+        <div class="block"><span class="lbl">Офис</span><p>350000, г. Краснодар, ул. Карасунская, 60, офис 26</p><a class="map" href="https://yandex.ru/maps/?text=Краснодар%2C%20улица%20Карасунская%2C%2060" target="_blank" rel="noopener">Открыть на Яндекс Картах</a></div>
+        <dl class="req">
+          <h4>Реквизиты</h4>
+          <div class="r"><dt>Наименование</dt><dd>ООО «Строительная компания «Самос»</dd></div>
+          <div class="r"><dt>ИНН / КПП</dt><dd class="num">2308223123 / 230801001</dd></div>
+          <div class="r"><dt>ОГРН</dt><dd class="num">1152308009040</dd></div>
+          <div class="r"><dt>Расчётный счёт</dt><dd class="num">40702810826190000579</dd></div>
+          <div class="r"><dt>Банк</dt><dd>Филиал «Ростовский» АО «Альфа-Банк»</dd></div>
+          <div class="r"><dt>Директор</dt><dd>Епишин Константин Николаевич</dd></div>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="fbrand">
+        <img src="assets/logo-white.png" alt="СК Самос" width="640" height="146">
+        <p>ООО «Строительная компания «Самос» — генеральный подрядчик и технический заказчик промышленных и гражданских объектов. Краснодар, с 2015 года.</p>
+      </div>
+      <div class="fcol">
+        <h4>Разделы</h4>
+        <ul>
+          <li><a href="#about">О компании</a></li>
+          <li><a href="#services">Направления</a></li>
+          <li><a href="#projects">Объекты</a></li>
+          <li><a href="#reference">Референс-лист</a></li>
+          <li><a href="#docs">Документы</a></li>
+          <li><a href="#contact">Контакты</a></li>
+        </ul>
+      </div>
+      <div class="fcol">
+        <h4>Контакты</h4>
+        <ul>
+          <li><a href="tel:+79181885096">+7 918 188‑50‑96</a></li>
+          <li><a href="tel:+79181117180">+7 918 111‑71‑80</a></li>
+          <li><a href="mailto:sk-samos@mail.ru">sk-samos@mail.ru</a></li>
+        </ul>
+      </div>
+      <div class="fcol wide">
+        <h4>Реквизиты</h4>
+        <ul>
+          <li>350000, г. Краснодар, ул. Карасунская, 60, офис 26</li>
+          <li>ИНН 2308223123 · КПП 230801001 · ОГРН 1152308009040</li>
+          <li>Член Союза «СРО «МАС», рег. № 117230728</li>
+          <li><a href="assets/samos-booklet-2024.pdf" download>Скачать буклет компании, PDF</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2015–2026 ООО «СК «Самос», г. Краснодар</span>
+      <span>Информация на сайте не является публичной офертой</span>
+    </div>
+  </div>
+</footer>
+
+<div class="lb" id="lightbox" role="dialog" aria-modal="true" aria-label="Просмотр документа" hidden>
+  <button class="close" type="button">Закрыть</button>
+  <img src="" alt="">
+  <p class="cap"></p>
+</div>
+
+<script>
+(function(){
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(!reduce)document.documentElement.classList.add('anim');
+
+  var b=document.querySelector('.burger'),nav=document.getElementById('nav');
+  if(b&&nav){
+    b.addEventListener('click',function(){var o=nav.classList.toggle('open');b.setAttribute('aria-expanded',o?'true':'false');});
+    nav.addEventListener('click',function(e){if(e.target.tagName==='A'){nav.classList.remove('open');b.setAttribute('aria-expanded','false');}});
+  }
+
+  var rv=document.querySelectorAll('[data-rv]');
+  if('IntersectionObserver' in window&&!reduce){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{rootMargin:'0px 0px -6% 0px',threshold:.05});
+    rv.forEach(function(el){io.observe(el);});
+    setTimeout(function(){rv.forEach(function(el){el.classList.add('in');});},2600);
+  }else{rv.forEach(function(el){el.classList.add('in');});}
+
+  var lb=document.getElementById('lightbox');
+  if(lb){
+    var lbImg=lb.querySelector('img'),lbCap=lb.querySelector('.cap'),lastFocus=null;
+    function openLb(src,alt,cap){lastFocus=document.activeElement;lbImg.src=src;lbImg.alt=alt||'';lbCap.textContent=cap||'';lb.hidden=false;lb.classList.add('on');lb.querySelector('.close').focus();}
+    function closeLb(){lb.classList.remove('on');lb.hidden=true;lbImg.src='';if(lastFocus)lastFocus.focus();}
+    document.querySelectorAll('.docgrid a').forEach(function(a){
+      a.addEventListener('click',function(e){
+        var img=a.querySelector('img');if(!img)return;
+        e.preventDefault();
+        var sp=a.querySelector('span'),cap='';
+        if(sp){var sm=sp.querySelector('small');var t=sp.cloneNode(true);var s2=t.querySelector('small');if(s2)s2.remove();cap=t.textContent.trim()+(sm?' · '+sm.textContent.trim():'');}
+        openLb(img.getAttribute('src'),img.getAttribute('alt'),cap);
+      });
+    });
+    lb.addEventListener('click',function(e){if(e.target===lb||e.target.classList.contains('close'))closeLb();});
+    document.addEventListener('keydown',function(e){if(e.key==='Escape'&&lb.classList.contains('on'))closeLb();});
+  }
+
+  var f=document.getElementById('lead');
+  if(f){
+    f.addEventListener('submit',function(e){
+      e.preventDefault();
+      var name=f.elements.name.value.trim(),phone=f.elements.phone.value.trim(),task=f.elements.task.value.trim();
+      var note=f.querySelector('.form-note');
+      if(!name||!phone){note.textContent='Укажите имя и телефон — без них мы не сможем перезвонить.';(name?f.elements.phone:f.elements.name).focus();return;}
+      var body='Имя: '+name+'\nТелефон: '+phone+'\nЗадача: '+(task||'—')+'\n\nОтправлено с сайта СК «Самос»';
+      location.href='mailto:sk-samos@mail.ru?subject='+encodeURIComponent('Заявка с сайта — '+name)+'&body='+encodeURIComponent(body);
+      note.textContent='Открываем почтовую программу с готовым письмом. Если она не открылась — позвоните: +7 918 188-50-96.';
+    });
+  }
+})();
+</script>
+</body>
+</html>
