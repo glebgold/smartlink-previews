@@ -66,7 +66,7 @@ h3,.h3{font:400 clamp(1.18rem,1.5vw,1.4rem)/1.3 var(--disp);letter-spacing:-.01e
 .logo__m::after{content:"";position:absolute;left:3px;top:50%;width:3px;height:3px;border-radius:50%;background:var(--brass);transform:translateY(-50%)}
 .logo__t{font:400 1.22rem/1.1 var(--disp);letter-spacing:.16em;text-transform:uppercase}
 .logo__t span{display:block;font:400 .56rem/1.4 var(--body);letter-spacing:.14em;color:var(--ink-3)}
-.nav{display:flex;gap:clamp(14px,1.8vw,30px);margin-left:auto}
+.nav{display:flex;gap:clamp(12px,1.4vw,26px);margin-left:auto}
 .nav a{text-decoration:none;color:var(--ink-2);font-size:.96rem;padding:10px 0;transition:color .2s}
 @media(hover:hover){.nav a:hover{color:var(--ink)}}
 .nav a.is-here{color:var(--ink);box-shadow:inset 0 -2px 0 var(--brass)}
@@ -87,8 +87,10 @@ h3,.h3{font:400 clamp(1.18rem,1.5vw,1.4rem)/1.3 var(--disp);letter-spacing:-.01e
 /* ---------- первый экран: сцена во весь экран ---------- */
 .hero{position:relative;min-height:min(86vh,860px);display:flex;align-items:flex-end;color:var(--on-dark);background:var(--dark);overflow:hidden}
 .hero__bg{position:absolute;inset:0}
+.hero__bg picture{position:absolute;inset:0;opacity:0;transition:opacity 1.4s var(--ease)}
+.hero__bg picture.is-on{opacity:1}
 .hero__bg img{width:100%;height:100%;object-fit:cover;object-position:62% 50%}
-.hero__bg::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(10,11,12,.86) 0%,rgba(10,11,12,.45) 42%,rgba(10,11,12,.05) 80%),linear-gradient(to right,rgba(10,11,12,.55),transparent 55%)}
+.hero__bg::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(to top,rgba(10,11,12,.9) 0%,rgba(10,11,12,.55) 45%,rgba(10,11,12,.12) 82%),linear-gradient(to right,rgba(10,11,12,.72),rgba(10,11,12,.15) 62%,transparent 78%)}
 .hero__in{position:relative;padding-block:clamp(40px,6vw,88px);width:100%}
 .hero h1{max-width:12ch;margin:.25em 0 .35em;color:#fff}
 .hero__lead{max-width:34rem;color:var(--on-dark-2);margin-bottom:30px}
@@ -219,6 +221,7 @@ h3,.h3{font:400 clamp(1.18rem,1.5vw,1.4rem)/1.3 var(--disp);letter-spacing:-.01e
 .total__num{font:400 clamp(1.4rem,2vw,1.9rem)/1 var(--disp);margin-top:4px}
 .total__note{margin-top:5px;color:var(--ink-3);font-size:.86rem}
 .total__sec{min-width:168px}
+.total__lbl{display:block;margin-top:6px;font:400 1.05rem/1.2 var(--disp)}
 .sec{height:4px;border-radius:2px;background:var(--line);margin:8px 0 6px}
 .sec i{display:block;height:100%;border-radius:2px;background:var(--brass);transition:width .35s var(--ease)}
 .total__act{margin-left:auto;display:flex;align-items:center;gap:20px}
@@ -316,6 +319,8 @@ fieldset{border:0;padding:0;margin:0 0 clamp(20px,2.2vw,30px)} legend{padding:0;
 [data-rise].in{opacity:1;transform:none}
 
 /* ---------- адаптив ---------- */
+@media(max-width:1560px){.nav a[data-opt]{display:none}}
+@media(max-width:1180px){.hdr__tel{display:none}}
 @media(max-width:1100px){
   .grid--4{grid-template-columns:repeat(3,minmax(0,1fr))} .incl{grid-template-columns:repeat(2,minmax(0,1fr))}
   .steps{grid-template-columns:repeat(3,minmax(0,1fr))} .ftr__grid{grid-template-columns:repeat(2,minmax(0,1fr))}
@@ -369,3 +374,12 @@ fieldset{border:0;padding:0;margin:0 0 clamp(20px,2.2vw,30px)} legend{padding:0;
 .styles4 .ptile{aspect-ratio:3/4}
 @media(max-width:1100px){.colls{grid-template-columns:repeat(5,minmax(0,1fr))} .styles4{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:760px){.colls{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;margin-inline:calc(var(--gut) * -1);padding-inline:var(--gut);scroll-padding-inline:var(--gut)} .colls::-webkit-scrollbar{display:none} .coll{flex:0 0 118px;scroll-snap-align:start} .styles4{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px} .styles4 .ptile{aspect-ratio:3/4} .ptile__b{padding:14px} .ptile__b h3{font-size:1.15rem} .ptile__b p{display:none} .ptile__b .link{margin-top:6px;font-size:.86rem}}
+
+
+/* ---------- интерьерные решения ---------- */
+.pcard--flat{cursor:default}
+@media(hover:hover){.pcard--flat:hover{transform:none;box-shadow:none;border-color:var(--line)}
+ .pcard--flat:hover .pcard__ph img{transform:none}}
+.pcard__sp{margin-top:6px;color:var(--ink-3);font-size:.84rem}
+.chips a.chip{text-decoration:none;color:var(--ink)}
+#interer-nav{position:sticky;top:64px;z-index:60}

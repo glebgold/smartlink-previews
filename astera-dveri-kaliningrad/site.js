@@ -22,7 +22,7 @@
   }
 
   /* корзина в localStorage */
-  var KEY = 'astera_cart_v2';
+  var KEY = 'astera_cart_v3';
   function read() { try { return JSON.parse(localStorage.getItem(KEY)) || []; } catch (e) { return []; } }
   function write(v) { try { localStorage.setItem(KEY, JSON.stringify(v)); } catch (e) {} badge(); }
   function badge() { var n = read().length; $$('.cart-count').forEach(function (el) { el.textContent = n; el.hidden = n === 0; }); }
@@ -37,16 +37,16 @@
 
   /* карточка модели */
   function cardHTML(m) {
-    var cover = m.brand === 'lord';   /* у LORD превью — фото в интерьере, у Burkovsky — рендер на прозрачном */
+    var cover = m.brand === 'mid';   /* у межкомнатных превью — фото в интерьере, у входных — рендер на прозрачном */
     return '<a class="pcard" href="dver.html?id=' + m.id + '">' +
       (m.hit ? '<span class="tag">хит</span>' : '') +
       '<div class="pcard__ph' + (cover ? ' pcard__ph--cover' : '') + '"><img loading="lazy" decoding="async" alt="' + m.t + '"' +
         ' src="' + A.prev(m, 900) + '" srcset="' + A.prev(m, 440) + ' 440w, ' + A.prev(m, 900) + ' 900w"' +
         ' sizes="(max-width:760px) 46vw, (max-width:1100px) 31vw, 24vw">' +
-        (m.heroM ? '<img class="pcard__alt" data-src="' + A.heroM(m) + '" alt="">' : '') + '</div>' +
-      '<div class="pcard__b"><span class="pcard__coll">' + (m.brand === 'lord' ? 'LORD · ' + styleName(m.style) : 'Burkovsky · ' + m.coll) + '</span>' +
+        (m.brand === 'in' ? '<img class="pcard__alt" data-src="' + A.heroM(m) + '" alt="">' : '') + '</div>' +
+      '<div class="pcard__b"><span class="pcard__coll">' + m.coll + '</span>' +
         '<h3>' + m.t + '</h3><p class="pcard__d">' + (m.d || '') + '</p>' +
-        '<div class="pcard__price"><b>' + A.priceText(m) + '</b><span>' + (m.brand === 'lord' ? 'полотно' : 'дверь') + '</span></div>' +
+        '<div class="pcard__price"><b>' + A.priceText(m) + '</b><span>' + (m.brand === 'mid' ? 'полотно' : 'дверь') + '</span></div>' +
       '</div></a>';
   }
   function styleName(s) { return { modern:'Современные', classic:'Классика', neo:'Неоклассика', minimal:'Минимализм', design:'Дизайн' }[s] || s; }
@@ -61,6 +61,42 @@
       im.closest('.pcard').addEventListener('mouseenter', function () { if (!im.src) im.src = im.dataset.src; }, { once: true });
     });
   };
+
+  /* карточки интерьерных решений */
+  window.renderExtra = function (box, group) {
+    if (!box || !group) return;
+    box.innerHTML = group.items.map(function (x) {
+      var sp = Object.keys(x.spec || {}).filter(function (k) { return x.spec[k]; })
+        .map(function (k) { return x.spec[k]; }).slice(0, 3).join(' · ');
+      return '<article class="pcard pcard--flat"><div class="pcard__ph"><img loading="lazy" decoding="async" alt="' + x.t + '"' +
+        ' src="' + A.img(x.ph, 900) + '" srcset="' + A.img(x.ph, 440) + ' 440w, ' + A.img(x.ph, 900) + ' 900w"' +
+        ' sizes="(max-width:760px) 46vw, 24vw"></div><div class="pcard__b"><h3>' + x.t + '</h3>' +
+        '<p class="pcard__d">' + (x.d || '') + '</p>' + (sp ? '<p class="pcard__sp">' + sp + '</p>' : '') +
+        '<div class="pcard__price"><b>' + (x.price ? 'от ' + A.money(x.price) + ' ₽' : 'цена по запросу') + '</b><span>' + (x.unit || '') + '</span></div>' +
+      '</div></article>';
+    }).join('');
+    rise(box);
+  };
+
+  /* главный экран: сцены сменяют друг друга */
+  (function heroShow() {
+    var stage = $('.hero__bg'); if (!stage) return;
+    var slides = $$('picture', stage); if (slides.length < 2) return;
+    var i = 0, timer = null;
+    var step = function () {
+      slides[i].classList.remove('is-on');
+      i = (i + 1) % slides.length;
+      var img = $('img', slides[i]);
+      if (img && img.dataset.src) { img.src = img.dataset.src; delete img.dataset.src; }
+      var src = $('source', slides[i]);
+      if (src && src.dataset.srcset) { src.srcset = src.dataset.srcset; delete src.dataset.srcset; }
+      slides[i].classList.add('is-on');
+    };
+    var start = function () { if (!timer && !slow) timer = setInterval(step, 6500); };
+    var stop = function () { clearInterval(timer); timer = null; };
+    document.addEventListener('visibilitychange', function () { document.hidden ? stop() : start(); });
+    setTimeout(start, 2200);
+  })();
 
   /* фильтры каталога: подраздел · стиль · коллекция */
   window.initFilter = function (opts) {
