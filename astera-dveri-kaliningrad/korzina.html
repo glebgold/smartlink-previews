@@ -8,7 +8,7 @@
 <meta name="robots" content="noindex, follow">
 <meta name="theme-color" content="#16181A">
 <link rel="stylesheet" href="assets/fonts.css">
-<link rel="stylesheet" href="styles.css?v=44">
+<link rel="stylesheet" href="styles.css?v=45">
 </head>
 <body>
 <a class="skip" href="#main">К содержимому</a>
@@ -60,7 +60,7 @@
   </div>
 </footer>
 <div class="dock"><a class="btn btn--ghost" href="tel:+79637386555">Позвонить</a><a class="btn" href="kontakty.html#zayavka">Замер и консультация</a></div>
-<script src="catalog.js?v=44"></script><script src="site.js?v=44"></script><script>
+<script src="catalog.js?v=45"></script><script src="site.js?v=45"></script><script>
 (function(){var A=window.ASTERA,box=document.getElementById('cartBox'),sum=document.getElementById('cartSum');
 function draw(){var v=CART.all();if(!v.length){box.innerHTML='<div class="empty"><h3>Пока ничего не собрано</h3><p class="muted">Откройте модель в каталоге, соберите дверь под свой проём и нажмите «В заявку».</p><a class="btn" href="katalog.html">В каталог</a></div>';sum.hidden=true;return;}
 box.innerHTML='<div class="cart__list">'+v.map(function(x,i){return '<div class="cart__i"><img src="'+x.prev+'" alt=""><div><b>'+x.t+'</b><span>'+x.conf+'</span></div><div class="cart__p">'+A.money(x.price)+' ₽</div><button class="cart__x" type="button" data-i="'+i+'" aria-label="Убрать">×</button></div>';}).join('')+'</div>';
