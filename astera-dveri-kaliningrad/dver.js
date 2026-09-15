@@ -32,8 +32,9 @@
   var main = $('#galMain'), mainImg = $('#galImg'), thumbs = $('#galThumbs'), cap = $('#galCap');
   var shots = isMid
     ? [{ s: A.prev(M, 900), t: M.t + ' в интерьере', cover: true }].concat((M.variants || []).map(function (v) { return { s: A.img(v.f), t: v.t, cover: false }; }))
-    : [{ s: A.prev(M, 900), t: 'Полотно', cover: false }, { s: A.hero(M), t: 'В проёме', cover: true }]
-        .concat(A.gal(M).map(function (g) { return { s: g, t: 'Деталь', cover: true }; }));
+    /* крупные кадры фабрики (A.gal) не показываем: на части из них остались номера домов и клейма */
+    : [{ s: A.prev(M, 900), t: 'Полотно', cover: false }, { s: A.hero(M), t: 'В проёме', cover: true },
+       { s: A.heroM(M), t: 'Вблизи', cover: true }];
   function show(i) {
     var sh = shots[i]; mainImg.src = sh.s; mainImg.alt = sh.t; cap.textContent = sh.t;
     main.classList.toggle('gal__main--cover', !!sh.cover);
