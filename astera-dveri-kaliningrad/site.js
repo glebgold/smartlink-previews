@@ -37,15 +37,13 @@
 
   /* карточка модели */
   function cardHTML(m) {
-    var cover = m.brand === 'mid';   /* у межкомнатных превью — фото в интерьере, у входных — рендер на прозрачном */
     return '<a class="pcard" href="dver.html?id=' + m.id + '">' +
       (m.hit ? '<span class="tag">хит</span>' : '') +
-      '<div class="pcard__ph' + (cover ? ' pcard__ph--cover' : '') + '"><img loading="lazy" decoding="async" alt="' + m.t + '"' +
+      '<div class="pcard__ph"><img loading="lazy" decoding="async" alt="' + m.t + '"' +
         ' src="' + A.prev(m, 900) + '" srcset="' + A.prev(m, 440) + ' 440w, ' + A.prev(m, 900) + ' 900w"' +
-        ' sizes="(max-width:760px) 46vw, (max-width:1100px) 31vw, 24vw">' +
-        (m.brand === 'in' ? '<img class="pcard__alt" data-src="' + A.heroM(m) + '" alt="">' : '') + '</div>' +
+        ' sizes="(max-width:760px) 46vw, (max-width:1100px) 31vw, 24vw"></div>' +
       '<div class="pcard__b"><span class="pcard__coll">' + m.coll + '</span>' +
-        '<h3>' + m.t + '</h3><p class="pcard__d">' + (m.d || '') + '</p>' +
+        '<h3>' + m.t + '</h3>' +
         '<div class="pcard__price"><b>' + A.priceText(m) + '</b><span>' + (m.brand === 'mid' ? 'полотно' : 'дверь') + '</span></div>' +
       '</div></a>';
   }
@@ -56,10 +54,6 @@
     box.innerHTML = list.length ? list.map(cardHTML).join('')
       : '<p class="muted">В этом разделе пока нет моделей. Позвоните — подберём под задачу.</p>';
     rise(box);
-    /* сцена модели подгружается только при наведении */
-    $$('.pcard__alt', box).forEach(function (im) {
-      im.closest('.pcard').addEventListener('mouseenter', function () { if (!im.src) im.src = im.dataset.src; }, { once: true });
-    });
   };
 
   /* карточки интерьерных решений */

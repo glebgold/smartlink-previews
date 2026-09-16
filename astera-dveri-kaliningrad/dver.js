@@ -24,14 +24,14 @@
   parts.push('<b>' + M.t + '</b>');
   $('#crumbs').innerHTML = parts.join('');
   document.title = M.t + ' — ' + (isMid ? 'межкомнатная дверь' : 'входная дверь') + ' · Астера';
-  $('#pDesc').textContent = M.d || '';
+  var pd = $('#pDesc'); if (pd) pd.remove();
   $('#pSpec').innerHTML = Object.keys(M.spec || {}).map(function (k) {
     return M.spec[k] ? '<div><dt>' + k + '</dt><dd>' + M.spec[k] + '</dd></div>' : ''; }).join('');
 
   /* ---------- галерея ---------- */
   var main = $('#galMain'), mainImg = $('#galImg'), thumbs = $('#galThumbs'), cap = $('#galCap');
   var shots = isMid
-    ? [{ s: A.prev(M, 900), t: M.t + ' в интерьере', cover: true }].concat((M.variants || []).map(function (v) { return { s: A.img(v.f), t: v.t, cover: false }; }))
+    ? (M.variants || []).map(function (v) { return { s: A.img(v.f), t: v.t, cover: false }; })
     /* крупные кадры фабрики (A.gal) не показываем: на части из них остались номера домов и клейма */
     : [{ s: A.prev(M, 900), t: 'Полотно', cover: false }, { s: A.hero(M), t: 'В проёме', cover: true },
        { s: A.heroM(M), t: 'Вблизи', cover: true }];
@@ -89,20 +89,21 @@
       swing: [{ id:'in', t:'Открывается внутрь', p:0 }, { id:'out', t:'Наружу', p:0 }],
       sec: [{ id:'std', t:'Стандартная', p:0, lbl:'Стандартная', d:'Цилиндр с защитой от отмычки и высверливания, броненакладка, два рубежа запирания, противосъёмные штыри. Того, что закрывает страховая, здесь уже достаточно.' },
             { id:'max', t:'Максимальная', p:79000, lbl:'Максимальная', d:'Повышенная взломостойкость: цилиндр высшего класса с перекодировкой, магнитная броненакладка, дополнительная задвижка на ригель и усиленная коробка.' }],
-      kit: [{ id:'std', t:'Стандартный', p:0, d:'Нажимная ручка на планке, глазок с широким углом, скрытые петли с регулировкой, механический замок.' },
-            { id:'prem', t:'Премиум', p:64000, d:'Скоба из нержавейки на выбор, электронный замок с отпечатком пальца, скрытый доводчик, подсветка притвора с датчиком движения.' }],
+      kit: [{ id:'std', t:'Стандартная', p:0, d:'Два контура уплотнения по периметру и минеральная плита в полотне. Отсекает разговоры на площадке и шум лифта.' },
+            { id:'plus', t:'Усиленная', p:38000, d:'Третий контур уплотнения, двойной слой минеральной плиты и порог с отсечкой. Тише примерно вдвое, берут на первые этажи и к лифту.' },
+            { id:'max', t:'Максимальная', p:76000, d:'Четыре контура, комбинированный наполнитель и виброразвязка полотна. Для квартир у шахты лифта, мусоропровода и над въездом в паркинг.' }],
       handleColor: [['black','Чёрный матовый','#23262A'],['bronze','Бронза','#7A5C36'],['steel','Нержавейка','#9BA2A3'],['brass','Латунь','#A98A4B']],
       comfort: [{ id:'casing', t:'Доборы и наличники', p:19000 }, { id:'plate', t:'Номерок на дверь', p:6500 }, { id:'closer', t:'Скрытый доводчик', p:21000 }]
     };
     S = { outFinish:'mdf', outColor:'graphite', inFinish:'mdf', inColor:'white', size:'900x2050', cw:880, ch:2090,
-          side:'right', swing:'in', sec:'std', kit:'std', handleColor:'black', comfort:[] };
+          side:'right', swing:'in', sec:'std', kit:'std', comfort:[] };
     confBox.innerHTML =
       fieldset('Отделка с улицы', '<div class="opts" data-g="outFinish"></div><div class="sw" data-g="outColor" role="radiogroup" aria-label="Цвет снаружи"></div><p class="cf__hint" id="hintOut"></p>') +
       fieldset('Отделка внутри, со стороны квартиры', '<div class="opts" data-g="inFinish"></div><div class="sw" data-g="inColor" role="radiogroup" aria-label="Цвет внутри"></div>') +
-      fieldset('Размер проёма', '<div class="opts" data-g="size"></div><div class="custom" id="customSize" hidden><label>Ширина, мм <input type="number" id="cw" value="880" min="600" max="1400" step="10"></label><label>Высота, мм <input type="number" id="ch" value="2090" min="1800" max="2600" step="10"></label></div>') +
+      fieldset('Размер двери', '<div class="opts" data-g="size"></div><div class="custom" id="customSize" hidden><label>Ширина, мм <input type="number" id="cw" value="880" min="600" max="1400" step="10"></label><label>Высота, мм <input type="number" id="ch" value="2090" min="1800" max="2600" step="10"></label></div>') +
       fieldset('Открывание', '<div class="opts" data-g="side"></div><div class="opts" data-g="swing" style="margin-top:9px"></div>') +
       fieldset('Взломостойкость', '<div class="packs" data-g="sec"></div>') +
-      fieldset('Комплект фурнитуры', '<div class="packs" data-g="kit"></div><div class="sw" data-g="handleColor" role="radiogroup" aria-label="Цвет фурнитуры"></div>') +
+      fieldset('Шумоизоляция', '<div class="packs" data-g="kit"></div>') +
       fieldset('Дополнительно', '<div class="opts" data-g="comfort"></div>');
     function paintColors() {
       var oc = D.outColor[S.outFinish]; if (!oc.some(function (c) { return c[0] === S.outColor; })) S.outColor = oc[0][0];
@@ -114,7 +115,7 @@
     radios($('[data-g="outFinish"]'), D.outFinish, 'outFinish'); radios($('[data-g="inFinish"]'), D.inFinish, 'inFinish');
     radios($('[data-g="size"]'), D.size, 'size'); radios($('[data-g="side"]'), D.side, 'side'); radios($('[data-g="swing"]'), D.swing, 'swing');
     packs($('[data-g="sec"]'), D.sec, 'sec'); packs($('[data-g="kit"]'), D.kit, 'kit');
-    swatches($('[data-g="handleColor"]'), D.handleColor, 'handleColor'); checks($('[data-g="comfort"]'), D.comfort, 'comfort');
+    checks($('[data-g="comfort"]'), D.comfort, 'comfort');
     paintColors();
     $('#totalSec').hidden = false;
     window.__money = function () {
@@ -126,7 +127,7 @@
     window.__summary = function () {
       var sz = S.size === 'custom' ? S.cw + '×' + S.ch : S.size.replace('x', '×');
       var p = [sz, find(D.outFinish, S.outFinish).t.toLowerCase() + ' снаружи', find(D.inFinish, S.inFinish).t.toLowerCase() + ' внутри',
-               'взломостойкость ' + find(D.sec, S.sec).t.toLowerCase(), 'фурнитура ' + find(D.kit, S.kit).t.toLowerCase(),
+               'взломостойкость ' + find(D.sec, S.sec).t.toLowerCase(), 'шумоизоляция ' + find(D.kit, S.kit).t.toLowerCase(),
                S.side === 'right' ? 'правая' : 'левая'];
       S.comfort.forEach(function (id) { p.push(find(D.comfort, id).t.toLowerCase()); });
       return p.join(', ');
@@ -150,8 +151,8 @@
       side: [{ id:'right', t:'Правая', p:0 }, { id:'left', t:'Левая', p:0 }],
       frame: [{ id:'telescope', t:'Телескопический короб', p:0, d:'Наличник раздвигается под толщину стены — ставится в любой проём без доборов.' },
               { id:'coplanar', t:'Компланарная система', p:9800, d:'Полотно в уровень стены, без наличников. Красится вместе со стеной.' }],
-      kit: [{ id:'std', t:'Стандартный', p:0, d:'Обычные петли, магнитная защёлка, ручка на розетке. Всё, что нужно, чтобы дверь работала.' },
-            { id:'prem', t:'Премиум', p:12700, d:'Скрытые петли с регулировкой в трёх плоскостях, магнитный замок и ручка премиум-серии. Дверь садится в стену без единой видимой детали.' }],
+      kit: [{ id:'std', t:'Стандартная', p:0, d:'Сотовый наполнитель и притвор по периметру. Для комнат, где хватает обычной двери.' },
+            { id:'plus', t:'Усиленная', p:6900, d:'Массив внутри полотна и уплотнитель по контуру. Берут в спальню, детскую и кабинет.' }],
       extra: [{ id:'mount', t:'Установка', p:4500 }, { id:'demo', t:'Демонтаж старой', p:1200 }, { id:'porog', t:'Порог или притвор', p:1900 }]
     };
     S = { variant: vs.length ? vs[0].f : '', size:'800x2000', cw:850, ch:2050, side:'right', frame:'telescope', kit:'std', extra:['mount'] };
@@ -161,8 +162,8 @@
         '<p class="cf__hint">' + (M.cover ? 'Покрытие: ' + M.cover + '. ' : '') + 'Образец отделки привезём на замер.</p>') : '') +
       fieldset('Размер полотна', '<div class="opts" data-g="size"></div><div class="custom" id="customSize" hidden><label>Ширина, мм <input type="number" id="cw" value="850" min="400" max="1100" step="10"></label><label>Высота, мм <input type="number" id="ch" value="2050" min="1500" max="2300" step="10"></label></div>') +
       fieldset('Открывание', '<div class="opts" data-g="side"></div>') +
-      fieldset('Проём', '<div class="packs" data-g="frame"></div>') +
-      fieldset('Комплект фурнитуры', '<div class="packs" data-g="kit"></div>') +
+      fieldset('Короб', '<div class="packs" data-g="frame"></div>') +
+      fieldset('Шумоизоляция', '<div class="packs" data-g="kit"></div>') +
       fieldset('Дополнительно', '<div class="opts" data-g="extra"></div>');
     radios($('[data-g="size"]'), D.size, 'size'); radios($('[data-g="side"]'), D.side, 'side');
     packs($('[data-g="frame"]'), D.frame, 'frame'); packs($('[data-g="kit"]'), D.kit, 'kit');
@@ -177,7 +178,7 @@
     window.__summary = function () {
       var v = vs.filter(function (x) { return x.f === S.variant; })[0];
       var sz = S.size === 'custom' ? S.cw + '×' + S.ch : S.size.replace('x', '×');
-      var p = [v ? v.t.toLowerCase() : '', sz, find(D.frame, S.frame).t.toLowerCase(), 'фурнитура ' + find(D.kit, S.kit).t.toLowerCase(), S.side === 'right' ? 'правая' : 'левая'];
+      var p = [v ? v.t.toLowerCase() : '', sz, find(D.frame, S.frame).t.toLowerCase(), 'шумоизоляция ' + find(D.kit, S.kit).t.toLowerCase(), S.side === 'right' ? 'правая' : 'левая'];
       S.extra.forEach(function (id) { p.push(find(D.extra, id).t.toLowerCase()); });
       return p.filter(Boolean).join(', ');
     };
