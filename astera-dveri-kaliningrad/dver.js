@@ -33,18 +33,34 @@
   var shots = isMid
     ? (M.variants || []).map(function (v) { return { s: A.img(v.f), t: v.t, cover: false }; })
     /* крупные кадры фабрики (A.gal) не показываем: на части из них остались номера домов и клейма */
-    : [{ s: A.prev(M, 900), t: 'Полотно', cover: false }, { s: A.hero(M), t: 'В проёме', cover: true },
-       { s: A.heroM(M), t: 'Вблизи', cover: true }];
+    : [{ s: A.prev(M, 900), t: 'Полотно', cover: false },
+       { s: A.hero(M), t: 'В проёме', cover: true, keep: true },
+       { s: A.heroM(M), t: 'Вблизи', cover: true, keep: true }];
   function show(i) {
-    var sh = shots[i]; mainImg.src = sh.s; mainImg.alt = sh.t; cap.textContent = sh.t;
+    var sh = shots[i]; if (!sh) return;
+    window.__shotIndex = i;
+    mainImg.src = sh.s; mainImg.alt = sh.t; cap.textContent = sh.t;
     main.classList.toggle('gal__main--cover', !!sh.cover);
     $$('.gal__t', thumbs).forEach(function (b, n) { b.classList.toggle('is-on', n === i); });
   }
-  thumbs.innerHTML = shots.map(function (sh, i) {
-    return '<button type="button" class="gal__t" data-i="' + i + '" aria-label="' + sh.t + '"><img loading="lazy" src="' + sh.s + '" alt=""></button>';
-  }).join('');
+  function drawThumbs() {
+    thumbs.innerHTML = shots.map(function (sh, i) {
+      return '<button type="button" class="gal__t" data-i="' + i + '" aria-label="' + sh.t + '"><img loading="lazy" src="' + sh.s + '" alt=""></button>';
+    }).join('');
+  }
+  drawThumbs();
   thumbs.addEventListener('click', function (e) { var b = e.target.closest('.gal__t'); if (b) show(+b.dataset.i); });
   show(0);
+  /* картинка двери пересобирается на лету при выборе отделки */
+  window.__refreshShots = function () {
+    if (!window.__view) return;
+    var live = window.__view();
+    if (!live.length) return;
+    var keep = shots.filter(function (x) { return x.keep; });
+    shots = live.concat(keep);
+    var i = Math.min(window.__shotIndex || 0, shots.length - 1);
+    drawThumbs(); show(i);
+  };
 
   /* ---------- состояние ---------- */
   var S, D;
@@ -72,8 +88,126 @@
   }
   function fieldset(legend, inner, extra) { return '<fieldset class="cf"><legend>' + legend + '</legend>' + inner + (extra || '') + '</fieldset>'; }
 
-  /* ===== входная дверь ===== */
+  /* ===== входная дверь: конфигуратор на данных фабрики ===== */
   function initSteel() {
+    var CFG = window.DOORCFG || null;
+    var C = CFG && CFG.m[M.id];
+    if (!C) { initSteelFallback(); return; }
+    var PAN = CFG.pan, EQ = CFG.eq, SZ = CFG.sz, OP = CFG.op;
+    var eqList = C.eq.map(function (i) { return EQ[i]; });
+    var szList = C.sz.map(function (i) { return SZ[i]; });
+    var opList = C.op.map(function (i) { return OP[i]; });
+    var panList = C.pan.map(function (i) { return PAN[i]; });
+    var MAXSEC = 100;
+
+    S = { ext: 0, pan: 0, inc: 0, eq: 0, sz: 0, side: 'right', swing: 'in', op: [], cw: 900, ch: 2050 };
+    /* стартуем с размера, похожего на типовой */
+    var prefer = ['900x2050', '860x2050', '900x2100', '950x2100'];
+    for (var pi = 0; pi < prefer.length; pi++) {
+      var hit = -1;
+      szList.forEach(function (z, i) { if (z.n === prefer[pi] && hit < 0) hit = i; });
+      if (hit > -1) { S.sz = hit; break; }
+    }
+
+    function money(n) { return fmt(n); }
+    function curExt() { return C.ext[S.ext] || C.ext[0]; }
+    function curPan() { return panList[S.pan] || panList[0]; }
+    function curInc() { var p = curPan(); return p && (p.c[S.inc] || p.c[0]); }
+    function curEq() { return eqList[S.eq] || eqList[0]; }
+
+    window.__money = function () {
+      var s = (curEq() ? curEq().p : M.price) + (curExt() ? curExt().p : 0) + (curInc() ? curInc().p : 0);
+      S.op.forEach(function (i) { s += opList[i].p; });
+      return s;
+    };
+    window.__secure = function () {
+      var v = curEq() ? curEq().sec : 0;
+      S.op.forEach(function (i) { v = Math.max(v, opList[i].sec || 0); });
+      return Math.min(MAXSEC, v);
+    };
+    window.__secLabel = function () {
+      var v = window.__secure();
+      return v >= 95 ? 'Максимальная' : v >= 80 ? 'Повышенная' : v >= 60 ? 'Усиленная' : 'Стандартная';
+    };
+    window.__note = function () {
+      var d = curExt() && curExt().d ? curExt().d : 45;
+      return 'цена двери без монтажа · срок ' + d + '–' + (d + 15) + ' дней';
+    };
+    window.__summary = function () {
+      var p = [szList[S.sz] ? szList[S.sz].n.replace('x', '×') : '', curExt() ? curExt().n.toLowerCase() + ' снаружи' : '',
+               curInc() ? curInc().n.toLowerCase() + ' внутри' : '', curEq() ? 'комплектация «' + curEq().n.toLowerCase() + '»' : '',
+               S.side === 'right' ? 'правая' : 'левая'];
+      S.op.forEach(function (i) { p.push(opList[i].n.toLowerCase()); });
+      return p.filter(Boolean).join(', ');
+    };
+    window.__paintNames = function () {};
+
+    /* ---------- разметка ---------- */
+    var sideList = [{ id: 'right', t: 'Правая' }, { id: 'left', t: 'Левая' }];
+    var swingList = [{ id: 'in', t: 'Внутрь' }, { id: 'out', t: 'Наружу' }];
+    confBox.innerHTML =
+      fieldset('Отделка снаружи — ' + C.ext.length + ' ' + plural(C.ext.length, 'вариант', 'варианта', 'вариантов'),
+        '<div class="sw sw--big" data-g="ext" role="radiogroup" aria-label="Отделка снаружи"></div><p class="cf__hint" id="hExt"></p>') +
+      (panList.length ? fieldset('Полотно со стороны квартиры',
+        '<div class="opts" data-g="pan"></div><div class="sw sw--big" data-g="inc" role="radiogroup" aria-label="Отделка внутри"></div><p class="cf__hint" id="hInc"></p>') : '') +
+      fieldset('Комплектация', '<div class="packs" data-g="eq"></div>') +
+      fieldset('Размер двери', '<div class="opts opts--sz" data-g="sz"></div>') +
+      fieldset('Открывание', '<div class="opts" data-g="side"></div><div class="opts" data-g="swing" style="margin-top:9px"></div>') +
+      (opList.length ? fieldset('Дополнительно', '<div class="opts" data-g="op"></div>') : '');
+
+    function swatchList(box, list, group, cur) {
+      box.innerHTML = list.map(function (o, i) {
+        var img = o.s ? A.IMG + o.s + '.webp' : '';
+        return '<label title="' + o.n + '"><input type="radio" name="' + group + '" value="' + i + '"' + (cur === i ? ' checked' : '') + '>' +
+          (img ? '<i style="background-image:url(' + img + ')"></i>' : '<i></i>') + '</label>';
+      }).join('');
+    }
+    function paint() {
+      swatchList($('[data-g="ext"]'), C.ext, 'ext', S.ext);
+      $('#hExt').textContent = curExt() ? curExt().n + (curExt().p ? ' · +' + money(curExt().p) + ' ₽' : '') : '';
+      if (panList.length) {
+        $('[data-g="pan"]').innerHTML = panList.map(function (p, i) {
+          return '<label><input type="radio" name="pan" value="' + i + '"' + (S.pan === i ? ' checked' : '') + '><span>' + p.n + '</span></label>';
+        }).join('');
+        swatchList($('[data-g="inc"]'), curPan().c, 'inc', S.inc);
+        $('#hInc').textContent = curInc() ? curInc().n + (curInc().p ? ' · +' + money(curInc().p) + ' ₽' : '') : '';
+      }
+      $('[data-g="eq"]').innerHTML = eqList.map(function (e, i) {
+        return '<label class="pack"><input type="radio" name="eq" value="' + i + '"' + (S.eq === i ? ' checked' : '') +
+          '><span class="pack__b"><b>' + e.n + '</b><em>' + money(e.p) + ' ₽</em><i>' + e.d + '</i></span></label>';
+      }).join('');
+      $('[data-g="sz"]').innerHTML = szList.map(function (z, i) {
+        return '<label><input type="radio" name="sz" value="' + i + '"' + (S.sz === i ? ' checked' : '') + '><span>' + z.n.replace('x', ' × ') + '</span></label>';
+      }).join('');
+      radios($('[data-g="side"]'), sideList.map(function (x) { return { id: x.id, t: x.t, p: 0 }; }), 'side');
+      radios($('[data-g="swing"]'), swingList.map(function (x) { return { id: x.id, t: x.t, p: 0 }; }), 'swing');
+      if (opList.length) {
+        $('[data-g="op"]').innerHTML = opList.map(function (o, i) {
+          return '<label><input type="checkbox" name="op" value="' + i + '"' + (S.op.indexOf(i) > -1 ? ' checked' : '') +
+            '><span>' + o.n + ' <i>+' + money(o.p) + ' ₽</i></span></label>';
+        }).join('');
+      }
+    }
+    paint();
+    $('#totalSec').hidden = false;
+
+    /* картинка двери меняется вместе с выбором */
+    window.__view = function () {
+      var out = curExt() && curExt().i, inn = curInc() && curInc().i;
+      var list = [];
+      if (out) list.push({ s: A.IMG + out + '.webp', t: 'Снаружи: ' + curExt().n, cover: false });
+      if (inn) list.push({ s: A.IMG + inn + '.webp', t: 'Внутри: ' + curInc().n, cover: false });
+      return list;
+    };
+    window.__onChange = function (el, g) {
+      if (g === 'pan') { S.inc = 0; }
+      if (g === 'ext' || g === 'pan' || g === 'inc') paint();
+      if (['ext', 'pan', 'inc'].indexOf(g) > -1) window.__refreshShots();
+    };
+  }
+
+  /* запасной конфигуратор, если данных по модели нет */
+  function initSteelFallback() {
     D = {
       base: M.price,
       outFinish: [{ id:'mdf', t:'МДФ, эмаль', p:0, hint:'Ровный матовый цвет по палитре RAL.' }, { id:'oak', t:'Шпон дуба', p:38000, hint:'Живой рисунок, тонировка по образцу.' }, { id:'mass', t:'Массив дуба', p:96000, hint:'Для парадных входов. Срок дольше на три недели.' }],
@@ -191,6 +325,7 @@
   }
 
   if (isMid) initInterior(); else initSteel();
+  if (window.__refreshShots) window.__refreshShots();
 
   /* ---------- общее ---------- */
   function render() {
