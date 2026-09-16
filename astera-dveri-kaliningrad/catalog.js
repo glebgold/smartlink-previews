@@ -4,7 +4,7 @@
    ========================================================================== */
 window.ASTERA=(function(){
   var IMG='assets/brand/';
-  var V='?v=53';           /* версия картинок: меняется при правке фотографий */
+  var V='?v=54';           /* версия картинок: меняется при правке фотографий */
   function img(n,w){return IMG+n+(w?'-'+w:'')+'.webp'+V;}
   function prev(m,w){return IMG+'d-'+m.id+'-'+(w||900)+'.webp'+V;}
   function hero(m){return m.brand==='mid'?prev(m,900):IMG+'sc-'+m.id+'-hero.jpg'+V;}
