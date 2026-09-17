@@ -8,7 +8,7 @@
 <meta name="robots" content="noindex, follow">
 <meta name="theme-color" content="#16181A">
 <link rel="stylesheet" href="assets/fonts.css">
-<link rel="stylesheet" href="styles.css?v=60">
+<link rel="stylesheet" href="styles.css?v=61">
 <style>/* критично: текст первого экрана всегда поверх затемнения, даже если стили пришли из кэша */
 .hero__in{position:relative;z-index:2}.hero__bg::after{z-index:auto}</style>
 </head>
@@ -21,15 +21,16 @@
     <div class="hdr__act">
       <a class="hdr__cart" href="korzina.html" aria-label="Заявка">Заявка<span class="cart-count" hidden>0</span></a>
       <a class="hdr__tel" href="tel:+79637386555">+7 (963) 738-65-55</a>
+      <a class="hdr__tel hdr__tel--short" href="tel:+74012336555">33-65-55</a>
       <a class="btn btn--sm" href="kontakty.html#zayavka">Замер</a>
       <button class="burger" type="button" aria-label="Меню" aria-expanded="false"><i></i><i></i><i></i></button>
     </div>
   </div>
 </header>
-<div class="mnav" aria-label="Меню"><div class="mnav__in"><a href="katalog.html">Каталог</a><a href="vhodnye.html">Входные</a><a href="mezhkomnatnye.html">Межкомнатные</a><a href="dizaineram.html">Дизайнерам</a><a href="zastroyshchikam.html">Застройщикам</a><a href="interer.html" class="is-here">Интерьер</a><a href="kontakty.html">Контакты</a><a href="o-nas.html">О нас</a><a class="mnav__tel" href="tel:+79637386555">+7 (963) 738-65-55</a></div></div>
+<div class="mnav" aria-label="Меню"><div class="mnav__in"><a href="katalog.html">Каталог</a><a href="vhodnye.html">Входные</a><a href="mezhkomnatnye.html">Межкомнатные</a><a href="dizaineram.html">Дизайнерам</a><a href="zastroyshchikam.html">Застройщикам</a><a href="interer.html" class="is-here">Интерьер</a><a href="kontakty.html">Контакты</a><a href="o-nas.html">О нас</a><a class="mnav__tel" href="tel:+79637386555">+7 (963) 738-65-55</a><a class="mnav__tel" href="tel:+74012336555">33-65-55 · короткий</a></div></div>
 <main id="main">
 <section class="phead phead--cat">
-  <div class="phead__bg"><img src="assets/brand/d-mozaika-900.webp?v=60" alt=""></div>
+  <div class="phead__bg"><img src="assets/brand/d-mozaika-900.webp?v=61" alt=""></div>
   <div class="wrap phead__in"><nav class="crumbs" aria-label="Вы здесь"><a href="index.html">Главная</a><span>/</span><b>Интерьер</b></nav><span class="eyebrow">К дверям</span><h1>Интерьерные решения</h1><p class="lead">Всё, что обычно ищут в пяти разных местах после того, как выбрали двери: рейки на стену, перегородки, зеркала в раме, пол и фурнитура. В одном стиле и с одним замером.</p></div>
 </section>
 
@@ -83,6 +84,7 @@
       <div>
         <a class="logo" href="index.html" style="margin-bottom:18px"><span class="logo__m"></span><span class="logo__t" style="color:#fff">Астера<span style="color:rgba(236,234,227,.6)">Входные · Межкомнатные · Калининград</span></span></a>
         <a class="ftr__tel" href="tel:+79637386555">+7 (963) 738-65-55</a>
+        <p><a class="link" href="tel:+74012336555">33-65-55</a> — короткий городской</p>
         <p>Ежедневно 9:00–21:00</p>
         <div class="ftr__ms"><a href="https://wa.me/79637386555" rel="noopener">WhatsApp</a><a href="https://t.me/+79637386555" rel="noopener">Telegram</a><a href="mailto:pochta@example.ru">Почта</a></div>
       </div>
@@ -90,11 +92,11 @@
       <div><h4>Компания</h4><nav class="ftr__nav"><a href="o-nas.html">О нас</a><a href="dizaineram.html">Дизайнерам и архитекторам</a><a href="zastroyshchikam.html">Застройщикам</a><a href="kontakty.html">Контакты</a></nav></div>
       <div><h4>Салон</h4><p>Калининград, ул. Горького, 98, 2 этаж<br>Образцы отделок, фурнитуры и замков</p><p>Ежедневно 9:00–21:00 · замер по области бесплатно</p></div>
     </div>
-    <div class="ftr__base"><span>© 2026 Астера · ИП Иванов Р. · ИНН 000000000000</span><span>Официальный дилер двух фабрик · сборка D1</span></div>
+    <div class="ftr__base"><span>© 2026 Астера · ИП Иванов Р. · ИНН 000000000000</span><span>Официальный дилер двух фабрик · сборка D2</span></div>
   </div>
 </footer>
 <div class="dock"><a class="btn btn--ghost" href="tel:+79637386555">Позвонить</a><a class="btn" href="kontakty.html#zayavka">Замер и консультация</a></div>
-<script src="catalog.js?v=60"></script><script src="site.js?v=60"></script><script>
+<script src="catalog.js?v=61"></script><script src="site.js?v=61"></script><script>
 (function(){var A=window.ASTERA;A.EXTRA.forEach(function(g){
   var box=document.querySelector('[data-grid="'+g.id+'"]');if(!box)return;renderExtra(box,g);
   var lead=document.querySelector('[data-gl="'+g.id+'"]');if(lead)lead.textContent=g.lead;
