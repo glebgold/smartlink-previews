@@ -100,7 +100,12 @@
     var panList = C.pan.map(function (i) { return PAN[i]; });
     var MAXSEC = 100;
 
-    S = { ext: 0, pan: 0, inc: 0, eq: 0, sz: 0, side: 'right', swing: 'in', op: [], cw: 900, ch: 2050 };
+    var NOISE = [
+      { n: 'Стандартная', p: 0, d: 'Два контура уплотнения по периметру и минеральная плита в полотне. Отсекает разговоры на площадке и шум лифта.' },
+      { n: 'Усиленная', p: 38000, d: 'Третий контур уплотнения, двойной слой минеральной плиты и порог с отсечкой. Тише примерно вдвое, берут на первые этажи и к лифту.' },
+      { n: 'Максимальная', p: 76000, d: 'Четыре контура, комбинированный наполнитель и виброразвязка полотна. Для квартир у шахты лифта, мусоропровода и над въездом в паркинг.' }
+    ];
+    S = { ext: 0, pan: 0, inc: 0, eq: 0, sz: 0, noise: 0, side: 'right', swing: 'in', op: [], cw: 900, ch: 2050 };
     /* стартуем с размера, похожего на типовой */
     var prefer = ['900x2050', '860x2050', '900x2100', '950x2100'];
     for (var pi = 0; pi < prefer.length; pi++) {
@@ -116,7 +121,8 @@
     function curEq() { return eqList[S.eq] || eqList[0]; }
 
     window.__money = function () {
-      var s = (curEq() ? curEq().p : M.price) + (curExt() ? curExt().p : 0) + (curInc() ? curInc().p : 0);
+      var s = (curEq() ? curEq().p : M.price) + (curExt() ? curExt().p : 0) + (curInc() ? curInc().p : 0)
+            + (NOISE[S.noise] ? NOISE[S.noise].p : 0);
       S.op.forEach(function (i) { s += opList[i].p; });
       return s;
     };
@@ -136,6 +142,7 @@
     window.__summary = function () {
       var p = [szList[S.sz] ? szList[S.sz].n.replace('x', '×') : '', curExt() ? curExt().n.toLowerCase() + ' снаружи' : '',
                curInc() ? curInc().n.toLowerCase() + ' внутри' : '', curEq() ? 'комплектация «' + curEq().n.toLowerCase() + '»' : '',
+               'шумоизоляция ' + (NOISE[S.noise] ? NOISE[S.noise].n.toLowerCase() : ''),
                S.side === 'right' ? 'правая' : 'левая'];
       S.op.forEach(function (i) { p.push(opList[i].n.toLowerCase()); });
       return p.filter(Boolean).join(', ');
@@ -151,6 +158,7 @@
       (panList.length ? fieldset('Полотно со стороны квартиры',
         '<div class="opts" data-g="pan"></div><div class="sw sw--big" data-g="inc" role="radiogroup" aria-label="Отделка внутри"></div><p class="cf__hint" id="hInc"></p>') : '') +
       fieldset('Комплектация', '<div class="packs" data-g="eq"></div>') +
+      fieldset('Шумоизоляция', '<div class="packs" data-g="noise"></div>') +
       fieldset('Размер двери', '<div class="opts opts--sz" data-g="sz"></div>') +
       fieldset('Открывание', '<div class="opts" data-g="side"></div><div class="opts" data-g="swing" style="margin-top:9px"></div>') +
       (opList.length ? fieldset('Дополнительно', '<div class="opts" data-g="op"></div>') : '');
@@ -175,6 +183,10 @@
       $('[data-g="eq"]').innerHTML = eqList.map(function (e, i) {
         return '<label class="pack"><input type="radio" name="eq" value="' + i + '"' + (S.eq === i ? ' checked' : '') +
           '><span class="pack__b"><b>' + e.n + '</b><em>' + money(e.p) + ' ₽</em><i>' + e.d + '</i></span></label>';
+      }).join('');
+      $('[data-g="noise"]').innerHTML = NOISE.map(function (o, i) {
+        return '<label class="pack"><input type="radio" name="noise" value="' + i + '"' + (S.noise === i ? ' checked' : '') +
+          '><span class="pack__b"><b>' + o.n + '</b><em>' + (o.p ? '+' + money(o.p) + ' ₽' : 'в базе') + '</em><i>' + o.d + '</i></span></label>';
       }).join('');
       $('[data-g="sz"]').innerHTML = szList.map(function (z, i) {
         return '<label><input type="radio" name="sz" value="' + i + '"' + (S.sz === i ? ' checked' : '') + '><span>' + z.n.replace('x', ' × ') + '</span></label>';
@@ -341,7 +353,8 @@
     var q = new URLSearchParams(location.search);
     Object.keys(S).forEach(function (k) {
       if (!q.has(k)) return;
-      S[k] = Array.isArray(S[k]) ? q.get(k).split('.').filter(Boolean) : (typeof S[k] === 'number' ? +q.get(k) : q.get(k));
+      S[k] = Array.isArray(S[k]) ? q.get(k).split('.').filter(Boolean).map(function (v) { return typeof S[k][0] === 'number' || /^\d+$/.test(v) ? +v : v; })
+                                 : (typeof S[k] === 'number' ? +q.get(k) : q.get(k));
     });
     $$('input[type="radio"]', confBox).forEach(function (i) { if (S[i.name] === i.value) i.checked = true; });
     $$('input[type="checkbox"]', confBox).forEach(function (i) { i.checked = (S[i.name] || []).indexOf(i.value) > -1; });
