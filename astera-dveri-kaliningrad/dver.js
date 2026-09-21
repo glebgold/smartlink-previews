@@ -45,7 +45,7 @@
   }
   function drawThumbs() {
     thumbs.innerHTML = shots.map(function (sh, i) {
-      return '<button type="button" class="gal__t" data-i="' + i + '" aria-label="' + sh.t + '"><img loading="lazy" src="' + sh.s + '" alt=""></button>';
+      return '<button type="button" class="gal__t' + (sh.cover ? ' gal__t--cover' : '') + '" data-i="' + i + '" aria-label="' + sh.t + '"><img loading="lazy" src="' + sh.s + '" alt=""></button>';
     }).join('');
   }
   drawThumbs();
