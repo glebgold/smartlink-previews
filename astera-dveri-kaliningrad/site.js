@@ -25,7 +25,11 @@
   var KEY = 'astera_cart_v3';
   function read() { try { return JSON.parse(localStorage.getItem(KEY)) || []; } catch (e) { return []; } }
   function write(v) { try { localStorage.setItem(KEY, JSON.stringify(v)); } catch (e) {} badge(); }
-  function badge() { var n = read().length; $$('.cart-count').forEach(function (el) { el.textContent = n; el.hidden = n === 0; }); }
+  function badge() {
+    var n = read().length;
+    $$('.cart-count').forEach(function (el) { el.textContent = n; el.hidden = n === 0; });
+    $$('.hdr__cart').forEach(function (el) { el.classList.toggle('is-empty', n === 0); });
+  }
   window.CART = {
     all: read,
     add: function (item) { var v = read(); v.push(item); write(v); },

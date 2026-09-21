@@ -426,3 +426,6 @@ fieldset{border:0;padding:0;margin:0 0 clamp(20px,2.2vw,30px)} legend{padding:0;
   .hdr__cart{font-size:0;padding:0 10px}
   .hdr__cart .cart-count{margin-left:0;font-size:.7rem}
 }
+@media(max-width:480px){
+  .hdr__cart.is-empty{display:none}   /* пустая кнопка заявки только мешает */
+}
