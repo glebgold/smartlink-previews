@@ -119,19 +119,18 @@ ul,ol{padding:0;list-style:none}
 .obj-works{margin-top:8px;font-size:14.5px;line-height:1.6;color:var(--soft);font-weight:300}
 
 /* допуски */
-.docs{display:grid;grid-template-columns:repeat(12,1fr);gap:0 28px}
-.docgrid{grid-column:1/7;display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-content:start;align-items:start}
-.doc{display:flex;flex-direction:column;justify-content:flex-start;width:100%;padding:0;border:0;background:none;text-align:left;color:var(--white);cursor:zoom-in}
-.doc .ph{display:block;border:1px solid var(--line);overflow:hidden;background:#fff;transition:border-color .3s}
+.docgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px;max-width:940px;margin:0 auto;align-items:start}
+.doc{display:flex;flex-direction:column;align-items:center;width:100%;padding:0;border:0;background:none;text-align:center;color:var(--white);cursor:zoom-in}
+.doc .ph{display:block;width:100%;border:1px solid var(--line);overflow:hidden;background:#fff;transition:border-color .3s}
 .doc:hover .ph{border-color:var(--red)}
 .doc img{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:top center}
-.doc .t{display:block;margin-top:14px;font-size:12.5px;line-height:1.45;font-weight:600;letter-spacing:.04em;text-transform:uppercase}
-.doc small{display:block;color:var(--muted);font-weight:300;margin-top:5px;font-size:12px;letter-spacing:0;text-transform:none}
-.doclist{grid-column:7/13;border-top:1px solid var(--line-2)}
-.doclist .r{display:grid;grid-template-columns:minmax(180px,auto) 1fr;gap:0 26px;padding:18px 0;border-bottom:1px solid var(--line)}
-.doclist dt{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);font-weight:600;padding-top:3px}
-.doclist dd{font-size:14.5px;color:var(--white);line-height:1.6;font-weight:300}
-.doclist dd em{font-style:normal;color:var(--muted);font-size:13.5px;display:block;margin-top:5px}
+.doc .t{display:block;margin-top:18px;font-size:12.5px;line-height:1.45;font-weight:600;letter-spacing:.06em;text-transform:uppercase}
+.doc small{display:block;margin-top:6px;color:var(--muted);font-weight:300;font-size:13px;line-height:1.45}
+.doclist{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 44px;margin-top:clamp(56px,6vw,88px)}
+.doclist .r{border-top:1px solid var(--line-2);padding:24px 0 32px}
+.doclist dt{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);font-weight:600;line-height:1.5;margin-bottom:12px}
+.doclist dd{font-size:15px;color:var(--white);line-height:1.6;font-weight:300}
+.doclist dd em{font-style:normal;color:var(--muted);font-size:13.5px;display:block;margin-top:6px}
 
 /* заявка */
 .contact{display:grid;grid-template-columns:repeat(12,1fr);gap:0 28px}
@@ -198,10 +197,11 @@ ul,ol{padding:0;list-style:none}
 }
 @media (max-width:980px){
   .top-cta .btn{display:none}
-  .docgrid,.doclist{grid-column:1/-1}
-  .doclist{margin-top:44px}
   .form,.info{grid-column:1/-1}
   .info{margin-top:52px}
+}
+@media (max-width:1100px){
+  .doclist{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
 @media (max-width:760px){
   .objs{grid-template-columns:1fr}
@@ -221,9 +221,10 @@ ul,ol{padding:0;list-style:none}
   .fact,.fact + .fact{border-right:0;padding:26px 0;text-align:left}
   .fact:nth-child(n+2){border-top:1px solid var(--line)}
   .band img{height:240px}
-  .docgrid{grid-template-columns:1fr}
+  .docgrid{grid-template-columns:1fr;max-width:440px;gap:36px}
   .doc img{aspect-ratio:16/10}
-  .doclist .r{grid-template-columns:1fr;gap:5px}
+  .doclist{grid-template-columns:1fr}
+  .doclist .r{padding:20px 0 24px}
   .fbrand img{height:52px}
   .footer-in{padding-block:40px}
   .fcontacts{flex-direction:column;align-items:flex-start;gap:10px}
@@ -393,30 +394,31 @@ ul,ol{padding:0;list-style:none}
 <section class="sec" id="docs" aria-labelledby="h-docs">
   <div class="wrap">
     <h2 class="sec-title" id="h-docs" data-rv>Допуски и ответственность</h2>
-    <div class="docs" data-rv>
-      <div class="docgrid">
-        <button class="doc" type="button" data-photos="assets/sro-2026-1.jpg|assets/sro-2026-2.jpg|assets/sro-2026-3.jpg|assets/sro-2026-4.jpg" data-title="Выписка из реестра членов СРО № СРО‑2308223123‑20260519‑1016 от 19.05.2026">
-          <span class="ph"><img src="assets/sro-2026-1-t.jpg" alt="Выписка из реестра членов саморегулируемой организации от 19.05.2026" width="600" height="848" loading="lazy"></span>
-          <span class="t">Выписка из реестра СРО<small>от 19.05.2026 · 4 стр.</small></span>
-        </button>
-        <button class="doc" type="button" data-photos="assets/nrs-kopachev.jpg" data-title="Уведомление НОСТРОЙ о включении в Национальный реестр специалистов — Копачев В. В.">
-          <span class="ph"><img src="assets/nrs-kopachev-t.jpg" alt="Уведомление НОСТРОЙ — Копачев В. В." width="600" height="848" loading="lazy"></span>
-          <span class="t">Уведомление НОСТРОЙ<small>Копачев В. В., С‑23‑090756</small></span>
-        </button>
-        <button class="doc" type="button" data-photos="assets/nrs-epishin.jpg" data-title="Уведомление НОСТРОЙ о включении в Национальный реестр специалистов — Епишин К. Н.">
-          <span class="ph"><img src="assets/nrs-epishin-t.jpg" alt="Уведомление НОСТРОЙ — Епишин К. Н." width="600" height="848" loading="lazy"></span>
-          <span class="t">Уведомление НОСТРОЙ<small>Епишин К. Н., С‑23‑090757</small></span>
-        </button>
-      </div>
-      <dl class="doclist">
-        <div class="r"><dt>Саморегулируемая организация</dt><dd>Союз «Саморегулируемая организация «Межрегиональный альянс строителей»<em>Номер в госреестре СРО‑С‑170‑13012010</em></dd></div>
-        <div class="r"><dt>Членство в СРО</dt><dd>Регистрационный номер 117230728<em>В реестре с 16.03.2017, право действует</em></dd></div>
-        <div class="r"><dt>Право выполнения работ</dt><dd>Строительство, реконструкция, капитальный ремонт и снос объектов капитального строительства</dd></div>
-        <div class="r"><dt>Уровень ответственности</dt><dd>Второй уровень по компенсационному фонду возмещения вреда и по фонду обеспечения договорных обязательств<em>Договоры стоимостью до 500 млн ₽</em></dd></div>
-        <div class="r"><dt>Национальный реестр специалистов</dt><dd>Копачев Владимир Владимирович — С‑23‑090756<br>Епишин Константин Николаевич — С‑23‑090757</dd></div>
-        <div class="r"><dt>Страхование</dt><dd>Гражданская ответственность застрахована в АО «АльфаСтрахование»</dd></div>
-      </dl>
+    <div class="docgrid" data-rv>
+      <button class="doc" type="button" data-photos="assets/sro-2026-1.jpg|assets/sro-2026-2.jpg|assets/sro-2026-3.jpg|assets/sro-2026-4.jpg" data-title="Выписка из реестра членов СРО № СРО‑2308223123‑20260519‑1016 от 19.05.2026">
+        <span class="ph"><img src="assets/sro-2026-1-t.jpg" alt="Выписка из реестра членов саморегулируемой организации от 19.05.2026" width="600" height="849" loading="lazy"></span>
+        <span class="t">Выписка СРО</span>
+        <small>от 19.05.2026 · 4 стр.</small>
+      </button>
+      <button class="doc" type="button" data-photos="assets/nrs-kopachev.jpg" data-title="Уведомление НОСТРОЙ о включении в Национальный реестр специалистов — Копачев В. В.">
+        <span class="ph"><img src="assets/nrs-kopachev-t.jpg" alt="Уведомление НОСТРОЙ — Копачев В. В." width="600" height="849" loading="lazy"></span>
+        <span class="t">Уведомление НОСТРОЙ</span>
+        <small>Копачев В. В., С‑23‑090756</small>
+      </button>
+      <button class="doc" type="button" data-photos="assets/nrs-epishin.jpg" data-title="Уведомление НОСТРОЙ о включении в Национальный реестр специалистов — Епишин К. Н.">
+        <span class="ph"><img src="assets/nrs-epishin-t.jpg" alt="Уведомление НОСТРОЙ — Епишин К. Н." width="600" height="849" loading="lazy"></span>
+        <span class="t">Уведомление НОСТРОЙ</span>
+        <small>Епишин К. Н., С‑23‑090757</small>
+      </button>
     </div>
+    <dl class="doclist" data-rv>
+      <div class="r"><dt>Саморегулируемая организация</dt><dd>Союз «Саморегулируемая организация «Межрегиональный альянс строителей»<em>Номер в госреестре СРО‑С‑170‑13012010</em></dd></div>
+      <div class="r"><dt>Членство в СРО</dt><dd>Регистрационный номер 117230728<em>В реестре с 16.03.2017, право действует</em></dd></div>
+      <div class="r"><dt>Право выполнения работ</dt><dd>Строительство, реконструкция, капитальный ремонт и снос объектов капитального строительства</dd></div>
+      <div class="r"><dt>Уровень ответственности</dt><dd>Второй уровень по компенсационному фонду возмещения вреда и по фонду обеспечения договорных обязательств<em>Договоры стоимостью до 500 млн ₽</em></dd></div>
+      <div class="r"><dt>Реестр специалистов НОСТРОЙ</dt><dd>Копачев Владимир Владимирович — С‑23‑090756<br>Епишин Константин Николаевич — С‑23‑090757</dd></div>
+      <div class="r"><dt>Страхование</dt><dd>Гражданская ответственность застрахована в АО «АльфаСтрахование»</dd></div>
+    </dl>
   </div>
 </section>
 
