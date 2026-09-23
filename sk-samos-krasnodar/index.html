@@ -105,12 +105,12 @@ ul,ol{padding:0;list-style:none}
 .sec{padding:clamp(72px,8vw,128px) 0;position:relative;scroll-margin-top:100px}
 .sec.alt{background:var(--bg-2)}
 .sec-title{text-align:center;font-size:clamp(24px,2.9vw,40px);line-height:1.15;text-transform:uppercase;letter-spacing:.03em;font-weight:600;margin-bottom:clamp(44px,5vw,72px)}
-.sec-title::after{content:"";display:block;width:44px;height:2px;background:var(--red);margin:22px auto 0}
+.sec-title::after{content:"";display:block;width:clamp(96px,10vw,148px);height:2px;background:var(--red);margin:24px auto 0}
 
 /* о компании */
 .about{max-width:1120px;margin-inline:auto}
-.about-lead{font-size:clamp(21px,2.3vw,33px);line-height:1.42;font-weight:400;color:var(--white)}
-.about-text{margin-top:clamp(24px,2.8vw,40px);font-size:clamp(16.5px,1.4vw,20.5px);line-height:1.72;font-weight:300;color:var(--soft)}
+.about p{font-size:clamp(21px,2.3vw,33px);line-height:1.42;font-weight:400;color:var(--white)}
+.about p+p{margin-top:clamp(24px,2.8vw,40px)}
 
 /* фото-вставка */
 .band{background:#000;overflow:hidden}
@@ -139,11 +139,10 @@ ul,ol{padding:0;list-style:none}
 .doc img{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:top center}
 .doc .t{display:block;margin-top:18px;font-size:12.5px;line-height:1.45;font-weight:600;letter-spacing:.06em;text-transform:uppercase}
 .doc small{display:block;margin-top:6px;color:var(--muted);font-weight:300;font-size:13px;line-height:1.45}
-.doclist{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 44px;margin-top:clamp(56px,6vw,88px)}
-.doclist .r{border-top:1px solid var(--line-2);padding:24px 0 32px}
-.doclist dt{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);font-weight:600;line-height:1.5;margin-bottom:12px}
-.doclist dd{font-size:15px;color:var(--white);line-height:1.6;font-weight:300}
-.doclist dd em{font-style:normal;color:var(--muted);font-size:13.5px;display:block;margin-top:6px}
+.advs{list-style:none;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 clamp(40px,5.5vw,84px);max-width:1200px;margin-inline:auto}
+.advs li{display:grid;grid-template-columns:auto 1fr;gap:0 22px;align-items:start;border-top:1px solid var(--line);padding:26px 0 32px}
+.advs .n{font-size:12.5px;font-weight:600;letter-spacing:.1em;color:var(--red);padding-top:6px;font-variant-numeric:tabular-nums}
+.advs p{font-size:clamp(16px,1.35vw,19px);line-height:1.64;font-weight:300;color:var(--soft)}
 
 /* заявка */
 .contact{display:grid;grid-template-columns:repeat(12,1fr);gap:0 28px}
@@ -171,7 +170,7 @@ ul,ol{padding:0;list-style:none}
 .footer{background:#08090B;border-top:1px solid var(--line);color:var(--muted);font-size:14px;font-weight:300}
 .footer-in{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:28px 48px;padding-block:48px}
 .fbrand{display:block;line-height:0}
-.fbrand img{height:60px;width:auto}
+.fbrand img{height:72px;width:auto}
 .fcontacts{display:flex;flex-wrap:wrap;align-items:center;gap:12px 32px}
 .fcontacts a{color:var(--soft);text-decoration:none;white-space:nowrap;transition:color .2s}
 .fcontacts a:hover{color:var(--white)}
@@ -213,8 +212,8 @@ ul,ol{padding:0;list-style:none}
   .form,.info{grid-column:1/-1}
   .info{margin-top:52px}
 }
-@media (max-width:1100px){
-  .doclist{grid-template-columns:repeat(2,minmax(0,1fr))}
+@media (max-width:860px){
+  .advs{grid-template-columns:1fr;max-width:640px}
 }
 @media (max-width:760px){
   .objs{grid-template-columns:1fr}
@@ -236,8 +235,7 @@ ul,ol{padding:0;list-style:none}
   .band img{height:240px}
   .docgrid{grid-template-columns:1fr;max-width:440px;gap:36px}
   .doc img{aspect-ratio:16/10}
-  .doclist{grid-template-columns:1fr}
-  .doclist .r{padding:20px 0 24px}
+  .advs li{padding:22px 0 26px;gap:0 16px}
   .fbrand img{height:52px}
   .footer-in{padding-block:40px}
   .fcontacts{flex-direction:column;align-items:flex-start;gap:10px}
@@ -310,13 +308,30 @@ ul,ol{padding:0;list-style:none}
   <div class="wrap">
     <h2 class="sec-title" id="h-about" data-rv>О компании</h2>
     <div class="about" data-rv>
-      <p class="about-lead">ООО «СК «Самос» — динамично развивающаяся строительная компания, основанная в 2015 году. Компания является членом Союза «СРО «Межрегиональный альянс строителей» и обладает всеми необходимыми допусками и аккредитациями, позволяющими вести общестроительные и специальные работы от этапа проектирования до сдачи готового объекта.</p>
-      <p class="about-text">Специалисты компании аттестованы и включены в Национальный реестр специалистов в области строительства, имеют большой опыт в строительстве крупных и знаковых проектов: комплекс гидрокрекинга Афипского НПЗ, парогазовые ТЭС в Севастополе и Симферополе, центр высокопрецизионной металлообработки АО «НПП «Исток» им. А. И. Шокина» во Фрязино.</p>
+      <p>ООО «СК «Самос» — динамично развивающаяся строительная компания, основанная в 2015 году. Компания является членом Союза «СРО «Межрегиональный альянс строителей» и обладает всеми необходимыми допусками и аккредитациями, позволяющими вести общестроительные и специальные работы от этапа проектирования до сдачи готового объекта.</p>
+      <p>Специалисты компании аттестованы и включены в Национальный реестр специалистов в области строительства, имеют большой опыт в строительстве крупных и знаковых проектов.</p>
     </div>
   </div>
 </section>
 
-<div class="band" aria-hidden="true"><img src="assets/team.jpg" alt="" width="1400" height="655" loading="lazy"></div>
+<section class="sec alt" id="adv" aria-labelledby="h-adv">
+  <div class="wrap">
+    <h2 class="sec-title" id="h-adv" data-rv>Наши преимущества</h2>
+    <ol class="advs" data-rv>
+      <li><span class="n">01</span><p>Использование комплексного подхода в решении поставленных задач, в том числе за счёт тесного сотрудничества с нашими партнёрами.</p></li>
+      <li><span class="n">02</span><p>Рациональное использование финансовых ресурсов заказчика.</p></li>
+      <li><span class="n">03</span><p>Работа по строгим международным нормам. Это позволяет добиться не только отличных эстетических результатов, но и надёжности и долговечности выполненных работ.</p></li>
+      <li><span class="n">04</span><p>Прямое сотрудничество с производителями. Широкая сеть производителей и поставщиков позволяет использовать лучшие стройматериалы по минимальной стоимости.</p></li>
+      <li><span class="n">05</span><p>Соблюдение сроков. Строгий контроль на каждом этапе работ позволяет эффективно соблюдать сроки без потери качества.</p></li>
+      <li><span class="n">06</span><p>Гарантия качества. Мы уверены в качестве выполненных работ и предоставляем нашим заказчикам долгосрочную гарантию.</p></li>
+      <li><span class="n">07</span><p>Открытость. Мы всегда идём навстречу нашим партнёрам и учитываем Ваши пожелания при выполнении работ.</p></li>
+      <li><span class="n">08</span><p>Повышение конкурентоспособности строительных услуг путём оптимизации производственных и бизнес-процессов, повышения качества клиентского сервиса и укрепления деловой репутации компании.</p></li>
+      <li><span class="n">09</span><p>Индивидуальный подход к каждому клиенту. Мы гибко подходим к интересам каждого нашего клиента и выбираем оптимальные схемы сотрудничества. Клиент получает полную информационную поддержку и практическую помощь на каждом этапе строительства — от сбора разрешительной документации до введения объекта в эксплуатацию.</p></li>
+    </ol>
+  </div>
+</section>
+
+<div class="band" aria-hidden="true"><img src="assets/band.jpg" alt="" width="1800" height="700" loading="lazy"></div>
 
 <section class="sec alt" id="projects" aria-labelledby="h-projects">
   <div class="wrap">
@@ -424,14 +439,6 @@ ul,ol{padding:0;list-style:none}
         <small>Епишин К. Н., С‑23‑090757</small>
       </button>
     </div>
-    <dl class="doclist" data-rv>
-      <div class="r"><dt>Саморегулируемая организация</dt><dd>Союз «Саморегулируемая организация «Межрегиональный альянс строителей»<em>Номер в госреестре СРО‑С‑170‑13012010</em></dd></div>
-      <div class="r"><dt>Членство в СРО</dt><dd>Регистрационный номер 117230728<em>В реестре с 16.03.2017, право действует</em></dd></div>
-      <div class="r"><dt>Право выполнения работ</dt><dd>Строительство, реконструкция, капитальный ремонт и снос объектов капитального строительства</dd></div>
-      <div class="r"><dt>Уровень ответственности</dt><dd>Второй уровень по компенсационному фонду возмещения вреда и по фонду обеспечения договорных обязательств<em>Договоры стоимостью до 500 млн ₽</em></dd></div>
-      <div class="r"><dt>Реестр специалистов НОСТРОЙ</dt><dd>Копачев Владимир Владимирович — С‑23‑090756<br>Епишин Константин Николаевич — С‑23‑090757</dd></div>
-      <div class="r"><dt>Страхование</dt><dd>Гражданская ответственность застрахована в АО «АльфаСтрахование»</dd></div>
-    </dl>
   </div>
 </section>
 
