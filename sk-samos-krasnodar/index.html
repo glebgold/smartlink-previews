@@ -155,6 +155,7 @@ ul,ol{padding:0;list-style:none}
 .form .btn{justify-self:start;margin-top:6px}
 .form-note{font-size:12px;color:var(--faint);line-height:1.6;font-weight:300}
 .form-note.err{color:#FF6A6F;font-weight:400}
+.hp{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
 .form-ok{border:1px solid rgba(225,27,34,.45);background:rgba(225,27,34,.08);padding:18px 20px;font-size:14.5px;line-height:1.6;color:var(--white)}
 .form-ok a{color:var(--white);font-weight:600}
 .info{grid-column:8/13}
@@ -450,8 +451,9 @@ ul,ol{padding:0;list-style:none}
         <label class="field"><span>Ваше имя</span><input type="text" name="name" autocomplete="name" required></label>
         <label class="field"><span>Телефон</span><input type="tel" name="phone" autocomplete="tel" inputmode="tel" placeholder="+7" required></label>
         <label class="field"><span>Что нужно построить</span><textarea name="task" rows="4" placeholder="Например: склад 2 000 м² на своём участке, нужен генподряд"></textarea></label>
+        <div class="hp" aria-hidden="true"><label>Не заполняйте это поле<input type="text" name="company" tabindex="-1" autocomplete="off"></label></div>
         <button class="btn btn-red" type="submit">Отправить заявку</button>
-        <p class="form-ok" role="status" hidden>Спасибо! В вашей почте открылось письмо с заявкой — осталось нажать «Отправить». Если почта не открылась, позвоните: <a href="tel:+79181885096">+7 918 188‑50‑96</a>.</p>
+        <p class="form-ok" role="status" hidden></p>
         <p class="form-note">Нажимая кнопку, вы соглашаетесь на обработку персональных данных.</p>
       </form>
       <div class="info" data-rv>
@@ -539,7 +541,7 @@ ul,ol{padding:0;list-style:none}
   lb.addEventListener('touchstart',function(e){var t=e.changedTouches[0];sx=t.clientX;sy=t.clientY;},{passive:true});
   lb.addEventListener('touchend',function(e){if(sx===null)return;var t=e.changedTouches[0],dx=t.clientX-sx,dy=t.clientY-sy;sx=null;if(items.length>1&&Math.abs(dx)>50&&Math.abs(dx)>Math.abs(dy))show(idx+(dx<0?1:-1));},{passive:true});
 
-  var f=document.getElementById('lead');
+  var f=document.getElementById('lead'),opened=Date.now();
   f.addEventListener('submit',function(e){
     e.preventDefault();
     var name=f.elements.name.value.trim(),phone=f.elements.phone.value.trim(),task=f.elements.task.value.trim();
@@ -547,9 +549,32 @@ ul,ol{padding:0;list-style:none}
     if(!name){note.textContent='Укажите, как к вам обращаться.';note.classList.add('err');f.elements.name.focus();return;}
     if(phone.replace(/\D/g,'').length<10){note.textContent='Укажите телефон полностью — не меньше 10 цифр.';note.classList.add('err');f.elements.phone.focus();return;}
     note.classList.remove('err');note.textContent='Нажимая кнопку, вы соглашаетесь на обработку персональных данных.';
-    var body='Имя: '+name+'\nТелефон: '+phone+'\nЗадача: '+(task||'—')+'\n\nЗаявка с сайта СК «Самос»';
-    ok.hidden=false;
-    window.location.href='mailto:sk-samos@mail.ru?subject='+encodeURIComponent('Заявка на расчёт — '+name)+'&body='+encodeURIComponent(body);
+    var btn=f.querySelector('button[type=submit]'),label=btn.textContent;
+    btn.disabled=true;btn.textContent='Отправляем…';
+    function done(text){
+      ok.innerHTML=text;ok.hidden=false;
+      btn.disabled=false;btn.textContent=label;
+    }
+    function byMail(){
+      var body='Имя: '+name+'\nТелефон: '+phone+'\nЗадача: '+(task||'—')+'\n\nЗаявка с сайта СК «Самос»';
+      done('Не получилось отправить заявку с сайта — сейчас откроется письмо в вашей почте, осталось нажать «Отправить». Или позвоните: <a href="tel:+79181885096">+7 918 188‑50‑96</a>.');
+      window.location.href='mailto:sk-samos@mail.ru?subject='+encodeURIComponent('Заявка на расчёт — '+name)+'&body='+encodeURIComponent(body);
+    }
+    var data=new FormData();
+    data.append('name',name);data.append('phone',phone);data.append('task',task);
+    data.append('company',f.elements.company?f.elements.company.value:'');
+    data.append('ts',String(opened));
+    fetch('send.php',{method:'POST',body:data})
+      .then(function(r){return r.json();})
+      .then(function(j){
+        if(j&&j.ok){
+          f.reset();
+          done('Спасибо! Заявка отправлена. Мы перезвоним в рабочее время. Если вопрос срочный — <a href="tel:+79181885096">+7 918 188‑50‑96</a>.');
+        }else if(j&&j.error==='often'){
+          done('Заявка с этого устройства уже отправлена — мы её получили. Если нужно срочно, позвоните: <a href="tel:+79181885096">+7 918 188‑50‑96</a>.');
+        }else{byMail();}
+      })
+      .catch(byMail);
   });
 })();
 </script>
