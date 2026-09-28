@@ -152,15 +152,17 @@
     /* ---------- разметка ---------- */
     var sideList = [{ id: 'right', t: 'Правая' }, { id: 'left', t: 'Левая' }];
     var swingList = [{ id: 'in', t: 'Внутрь' }, { id: 'out', t: 'Наружу' }];
+    /* порядок групп как в заводском конфигураторе: сначала вид двери, потом размеры,
+       открывание, и только затем начинка */
     confBox.innerHTML =
       fieldset('Отделка снаружи — ' + C.ext.length + ' ' + plural(C.ext.length, 'вариант', 'варианта', 'вариантов'),
         '<div class="sw sw--big" data-g="ext" role="radiogroup" aria-label="Отделка снаружи"></div><p class="cf__hint" id="hExt"></p>') +
       (panList.length ? fieldset('Полотно со стороны квартиры',
         '<div class="opts" data-g="pan"></div><div class="sw sw--big" data-g="inc" role="radiogroup" aria-label="Отделка внутри"></div><p class="cf__hint" id="hInc"></p>') : '') +
-      fieldset('Комплектация', '<div class="packs" data-g="eq"></div>') +
-      fieldset('Шумоизоляция', '<div class="packs" data-g="noise"></div>') +
       fieldset('Размер двери', '<div class="opts opts--sz" data-g="sz"></div>') +
       fieldset('Открывание', '<div class="opts" data-g="side"></div><div class="opts" data-g="swing" style="margin-top:9px"></div>') +
+      fieldset('Комплектация', '<div class="packs" data-g="eq"></div>') +
+      fieldset('Шумоизоляция', '<div class="packs" data-g="noise"></div>') +
       (opList.length ? fieldset('Дополнительно', '<div class="opts" data-g="op"></div>') : '');
 
     function swatchList(box, list, group, cur) {
