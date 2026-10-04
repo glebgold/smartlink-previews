@@ -131,7 +131,7 @@
   /* появление блоков */
   function rise(root) {
     if (!('IntersectionObserver' in window) || slow) return;
-    var els = $$('.head, .pcard, .ptile, .brand, .incl li, .steps li, .rev, .about, .calc, .form, .tile, .sub', root || document);
+    var els = $$('.incl li, .steps li, .rev, .tile', root || document);   /* только текст: фото и карточки видны сразу */
     var obs = new IntersectionObserver(function (rows) {
       rows.forEach(function (r) { if (!r.isIntersecting) return; r.target.classList.add('in'); obs.unobserve(r.target); });
     }, { rootMargin: '0px 0px -6% 0px', threshold: .05 });
