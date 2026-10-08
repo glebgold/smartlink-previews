@@ -2,458 +2,568 @@
 <html lang="ru">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Ольга — психолог в Калининграде и онлайн</title>
-<meta name="description" content="Профессиональный психолог в Калининграде. Индивидуальная, парная и семейная терапия. Очно и онлайн.">
+<meta name="description" content="Индивидуальная, парная и семейная терапия. Очно в Калининграде и онлайн из любого часового пояса.">
+<meta name="theme-color" content="#17302B">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Geologica:wght@200;300;400;500&family=Literata:ital,opsz,wght@1,7..72,300;1,7..72,400&family=Onest:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root{
-  --sand:#F6F0E7; --sand-2:#EFE5D6; --paper:#FBF8F3;
-  --ink:#1E2A32; --ink-2:#4A5862; --mute:#7C8890;
-  --amber:#C8862A; --amber-2:#E2A852; --amber-soft:#F3DDB8;
-  --sea:#2E4A57; --sage:#A9B8A4;
-  --r:28px;
-  --serif:'Cormorant Garamond', Georgia, serif;
-  --sans:'Manrope', system-ui, sans-serif;
+  --fog:#E6EAE7;      /* фон: балтийский туман */
+  --paper:#F4F5F2;    /* карточки */
+  --pine:#17302B;     /* текст и тёмные секции */
+  --sea:#5E7C7F;      /* второстепенный текст, линии */
+  --dune:#D8CBB8;     /* тёплая поверхность */
+  --amber:#C98A35;    /* только солнце, фокус и мелкие метки */
+  --line:rgba(23,48,43,.14);
+  --display:'Geologica',system-ui,sans-serif;
+  --serif:'Literata',Georgia,serif;
+  --body:'Onest',system-ui,sans-serif;
+  --gut:clamp(16px,4vw,56px);
+  --max:1320px;
+  --ease:cubic-bezier(.22,.8,.2,1);
 }
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{background:var(--sand);color:var(--ink);font-family:var(--sans);font-weight:400;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-img{max-width:100%;display:block}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--fog);color:var(--pine);font-family:var(--body);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
 a{color:inherit;text-decoration:none}
-.wrap{max-width:1200px;margin:0 auto;padding:0 24px}
-h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.05;letter-spacing:-.01em}
-em{font-style:italic;color:var(--amber)}
-.eyebrow{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--amber);font-weight:600}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+:focus-visible{outline:2px solid var(--amber);outline-offset:3px;border-radius:4px}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--gut)}
+.serif{font-family:var(--serif);font-style:italic;font-weight:300;letter-spacing:-.01em}
+.label{font-family:var(--display);font-size:12px;font-weight:400;letter-spacing:.14em;text-transform:uppercase;color:var(--sea)}
 
-/* grain */
-body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:100;opacity:.35;mix-blend-mode:multiply;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.4 0 0 0 0 0.33 0 0 0 0 0.25 0 0 0 .09 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+/* ---------- кнопки ---------- */
+.btn{display:inline-flex;align-items:center;gap:12px;height:56px;padding:0 28px;border-radius:999px;font-family:var(--display);font-size:15px;font-weight:400;letter-spacing:.01em;transition:background .35s var(--ease),color .35s var(--ease),border-color .35s var(--ease),transform .35s var(--ease)}
+.btn-solid{background:var(--pine);color:var(--paper)}
+.btn-solid:hover{background:#0E201C;transform:translateY(-1px)}
+.btn-line{border:1px solid var(--line);color:var(--pine)}
+.btn-line:hover{border-color:var(--pine)}
+.btn .arr{width:18px;height:1px;background:currentColor;position:relative;transition:width .35s var(--ease)}
+.btn .arr::after{content:"";position:absolute;right:0;top:-3px;width:7px;height:7px;border-top:1px solid currentColor;border-right:1px solid currentColor;transform:rotate(45deg)}
+.btn:hover .arr{width:26px}
 
-/* nav */
-.nav{position:fixed;top:0;left:0;right:0;z-index:50;transition:.4s}
-.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:78px}
-.nav.scrolled{background:rgba(246,240,231,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 1px 0 rgba(30,42,50,.06)}
-.logo{font-family:var(--serif);font-size:26px;font-weight:500;display:flex;align-items:center;gap:10px}
-.logo i{width:10px;height:10px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#F7D08A,var(--amber) 60%,#8E5A16);box-shadow:0 0 14px rgba(200,134,42,.6)}
-.menu{display:flex;gap:34px;font-size:14px;color:var(--ink-2)}
-.menu a{position:relative}
-.menu a::after{content:"";position:absolute;left:0;bottom:-4px;width:0;height:1px;background:var(--amber);transition:.3s}
-.menu a:hover::after{width:100%}
-.btn{display:inline-flex;align-items:center;gap:10px;padding:16px 28px;border-radius:100px;font-size:15px;font-weight:500;transition:.35s cubic-bezier(.2,.8,.2,1);cursor:pointer;border:0;font-family:var(--sans)}
-.btn-dark{background:var(--ink);color:var(--paper)}
-.btn-dark:hover{background:var(--amber);transform:translateY(-2px);box-shadow:0 14px 30px -10px rgba(200,134,42,.6)}
-.btn-ghost{border:1px solid rgba(30,42,50,.2);color:var(--ink)}
-.btn-ghost:hover{border-color:var(--ink);background:var(--ink);color:var(--paper)}
-.btn svg{width:16px;height:16px;transition:.3s}
-.btn:hover svg{transform:translateX(4px)}
-.nav .btn{padding:12px 22px;font-size:14px}
+/* ---------- шапка ---------- */
+.top{position:fixed;inset:0 0 auto;z-index:40;transition:background .4s,box-shadow .4s,color .4s}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:76px}
+.top.night:not(.solid){color:#EEF0EC}
+.top.night:not(.solid) .mark small{color:#9DB0B1}
+.top.night:not(.solid) .btn-solid{background:#EEF0EC;color:var(--pine)}
+.hero[data-phase="night"] .sun{background:radial-gradient(circle at 38% 36%,#F4F1E8,#D9D4C4 70%,#BDB8A8)}
+.top.solid{background:rgba(230,234,231,.86);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);box-shadow:0 1px 0 var(--line)}
+.mark{font-family:var(--display);font-weight:400;font-size:19px;letter-spacing:-.01em;display:flex;align-items:baseline;gap:10px}
+.mark small{font-size:13px;color:var(--sea);font-weight:300}
+.links{display:flex;gap:36px;font-family:var(--display);font-size:14px;font-weight:300}
+.links a{opacity:.75;transition:opacity .3s}
+.links a:hover{opacity:1}
+.top .btn{height:44px;padding:0 22px;font-size:14px}
 
-/* hero */
-.hero{min-height:100vh;position:relative;display:flex;align-items:center;padding:120px 0 80px;overflow:hidden}
-.blob{position:absolute;border-radius:50%;filter:blur(70px);opacity:.7;animation:float 18s ease-in-out infinite}
-.b1{width:520px;height:520px;background:radial-gradient(circle,#F1C27D,transparent 70%);top:-120px;right:-80px}
-.b2{width:460px;height:460px;background:radial-gradient(circle,#B9CFC9,transparent 70%);bottom:-160px;left:-120px;animation-delay:-6s}
-.b3{width:300px;height:300px;background:radial-gradient(circle,#F3DDB8,transparent 70%);top:40%;left:45%;animation-delay:-12s}
-@keyframes float{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(40px,-30px) scale(1.08)}66%{transform:translate(-30px,20px) scale(.95)}}
-.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:60px;align-items:center;position:relative;z-index:2}
-.hero h1{font-size:clamp(52px,7.4vw,108px);margin:22px 0 28px}
-.hero h1 .line{display:block;overflow:hidden}
-.hero h1 .line span{display:inline-block;transform:translateY(105%);animation:up 1.1s cubic-bezier(.2,.8,.2,1) forwards}
-.hero h1 .line:nth-child(2) span{animation-delay:.12s}
-.hero h1 .line:nth-child(3) span{animation-delay:.24s}
-@keyframes up{to{transform:none}}
-.lead{font-size:19px;color:var(--ink-2);max-width:520px;font-weight:300}
-.hero-cta{display:flex;gap:14px;margin-top:40px;flex-wrap:wrap}
-.tags{display:flex;gap:10px;flex-wrap:wrap;margin-top:44px}
-.tag{padding:9px 16px;border-radius:100px;background:rgba(255,255,255,.55);border:1px solid rgba(30,42,50,.08);font-size:13px;color:var(--ink-2);display:flex;align-items:center;gap:8px}
-.tag b{width:6px;height:6px;border-radius:50%;background:var(--amber)}
+/* ---------- hero: горизонт ---------- */
+.hero{position:relative;min-height:100svh;display:flex;flex-direction:column;overflow:hidden;
+  --sky-a:#DCE4E3;--sky-b:#EEF0EC;--sea-a:#7E989A;--sea-b:#4F6B6E;--sun:#C98A35;--sun-glow:rgba(201,138,53,.35);--lift:24vh;--sea-h:clamp(150px,26vh,300px);--ink:var(--pine);--ink-2:var(--sea)}
+.hero[data-phase="morning"]{--sky-a:#E9E2D6;--sky-b:#F3DDC3;--sea-a:#8EA2A0;--sea-b:#5D7778;--sun:#E0A35A;--sun-glow:rgba(224,163,90,.45);--lift:7vh}
+.hero[data-phase="evening"]{--sky-a:#E4D6CB;--sky-b:#EDB98A;--sea-a:#6C7F84;--sea-b:#34494F;--sun:#D9772F;--sun-glow:rgba(217,119,47,.5);--lift:-1vh}
+.hero[data-phase="night"]{--sky-a:#121F24;--sky-b:#25363D;--sea-a:#1D2E33;--sea-b:#0E191C;--sun:#E9E4D6;--sun-glow:rgba(233,228,214,.18);--lift:30vh;--ink:#EEF0EC;--ink-2:#9DB0B1}
+.sky{position:absolute;inset:0;background:linear-gradient(180deg,var(--sky-a) 0%,var(--sky-b) 62%);transition:background 1s}
+.sun{position:absolute;left:80%;bottom:calc(var(--sea-h) + var(--lift));width:clamp(90px,11vw,150px);aspect-ratio:1;border-radius:50%;background:var(--sun);box-shadow:0 0 120px 40px var(--sun-glow);transform:translate(-50%,50%);animation:sunrise 2.4s var(--ease) both;transition:bottom 1.2s var(--ease)}
+@keyframes sunrise{from{transform:translate(-50%,110%);opacity:0}to{transform:translate(-50%,50%);opacity:1}}
+.sea{position:absolute;left:0;right:0;bottom:0;height:var(--sea-h);background:linear-gradient(180deg,var(--sea-a),var(--sea-b));overflow:hidden}
+.sea svg{position:absolute;left:0;width:200%;height:100%;top:0}
+.sea .w1{animation:drift 60s linear infinite}
+.sea .w2{animation:drift 90s linear infinite reverse}
+@keyframes drift{to{transform:translateX(-50%)}}
+.glint{position:absolute;left:80%;top:0;width:clamp(60px,8vw,120px);height:100%;transform:translateX(-50%);background:repeating-linear-gradient(180deg,var(--sun) 0 2px,transparent 2px 14px);opacity:.28;-webkit-mask:linear-gradient(180deg,#000,transparent 85%);mask:linear-gradient(180deg,#000,transparent 85%)}
+.hero[data-phase="night"] .glint{opacity:.14}
 
-/* portrait card */
-.portrait{position:relative;aspect-ratio:4/5;justify-self:end;width:100%;max-width:440px}
-.arch{position:absolute;inset:0;border-radius:240px 240px 32px 32px;background:linear-gradient(170deg,#2E4A57 0%,#1E2A32 70%);overflow:hidden;box-shadow:0 40px 80px -30px rgba(30,42,50,.5)}
-.arch::before{content:"";position:absolute;width:140%;height:60%;left:-20%;bottom:-8%;border-radius:50%;background:repeating-radial-gradient(ellipse at 50% 100%,rgba(255,255,255,.07) 0 2px,transparent 2px 22px)}
-.sun{position:absolute;width:62%;aspect-ratio:1;left:19%;top:16%;border-radius:50%;background:radial-gradient(circle at 38% 32%,#FBE3B4,#E2A852 45%,#B4721E 80%);box-shadow:0 0 80px rgba(226,168,82,.55);animation:breathe 7s ease-in-out infinite}
-@keyframes breathe{50%{transform:scale(1.04);box-shadow:0 0 120px rgba(226,168,82,.75)}}
-.photo{position:absolute;width:44%;aspect-ratio:1;left:28%;top:25%;border-radius:50%;overflow:hidden;border:4px solid rgba(255,255,255,.85);box-shadow:0 20px 40px rgba(0,0,0,.25)}
-.photo img{width:100%;height:100%;object-fit:cover;transform:scale(1.22)}
-.arch-text{position:absolute;left:0;right:0;bottom:34px;text-align:center;color:var(--paper)}
-.arch-text .n{font-family:var(--serif);font-size:38px;font-style:italic}
-.arch-text .r{font-size:12px;letter-spacing:.2em;text-transform:uppercase;opacity:.7;margin-top:4px}
-.chip{position:absolute;background:var(--paper);border-radius:18px;padding:14px 18px;box-shadow:0 20px 40px -16px rgba(30,42,50,.35);font-size:13px;display:flex;align-items:center;gap:12px;animation:bob 6s ease-in-out infinite}
-.chip .ic{width:36px;height:36px;border-radius:12px;display:grid;place-items:center;background:var(--amber-soft);color:var(--amber);font-size:17px}
-.chip strong{display:block;font-weight:600;font-size:14px}
-.chip span{color:var(--mute);font-size:12px}
-.c1{left:-50px;top:18%}
-.c2{right:-30px;bottom:24%;animation-delay:-3s}
-@keyframes bob{50%{transform:translateY(-10px)}}
+.hero-in{position:relative;z-index:2;flex:1;display:flex;flex-direction:column;justify-content:flex-start;padding-top:clamp(112px,16vh,180px);padding-bottom:calc(var(--sea-h) + 48px);color:var(--ink)}
+.hero h1{font-family:var(--display);font-weight:200;font-size:clamp(44px,7.6vw,112px);line-height:.98;letter-spacing:-.045em;max-width:12.5em}
+.hero h1 .serif{font-weight:300;letter-spacing:-.03em;display:block}
+.hero h1 .ln{display:block;overflow:hidden;padding-bottom:.06em}
+.hero h1 .ln>span{display:block;text-wrap:balance;animation:rise 1.2s var(--ease) both}
+.hero h1 .ln:nth-child(2)>span{animation-delay:.12s}
+@keyframes rise{from{transform:translateY(105%)}to{transform:none}}
+.hero-sub{margin-top:32px;max-width:520px;font-size:18px;color:var(--ink-2);animation:fade 1.4s .5s var(--ease) both}
+.hero-sub b{font-weight:400;color:var(--ink)}
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:40px;animation:fade 1.4s .65s var(--ease) both}
+@keyframes fade{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.hero[data-phase="night"] .btn-solid{background:#EEF0EC;color:var(--pine)}
+.hero[data-phase="night"] .btn-line{border-color:rgba(238,240,236,.3);color:#EEF0EC}
 
-/* marquee */
-.marquee{background:var(--ink);color:var(--paper);padding:26px 0;overflow:hidden;white-space:nowrap}
-.marquee .track{display:inline-flex;animation:run 40s linear infinite}
-.marquee span{font-family:var(--serif);font-size:30px;font-style:italic;padding:0 28px;display:inline-flex;align-items:center;gap:56px}
-.marquee span::after{content:"✦";font-style:normal;font-size:16px;color:var(--amber-2)}
-@keyframes run{to{transform:translateX(-50%)}}
+.hero-foot{position:absolute;left:0;right:0;bottom:0;z-index:2;color:#EEF0EC;padding-bottom:28px}
+.hero-foot .wrap{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;font-family:var(--display);font-size:13px;font-weight:300;letter-spacing:.02em}
+.clock{display:flex;align-items:center;gap:10px}
+.clock i{width:7px;height:7px;border-radius:50%;background:var(--sun);box-shadow:0 0 0 4px rgba(255,255,255,.12)}
+.clock time{font-variant-numeric:tabular-nums}
 
-section{padding:130px 0;position:relative}
-.head{max-width:720px;margin-bottom:70px}
-.head h2{font-size:clamp(40px,5vw,68px);margin-top:16px}
-.head p{margin-top:22px;color:var(--ink-2);font-size:18px;font-weight:300}
+/* ---------- общие секции ---------- */
+.sec{padding:clamp(88px,12vw,160px) 0}
+.sec-head{display:grid;grid-template-columns:220px 1fr;gap:24px 40px;margin-bottom:clamp(48px,6vw,80px)}
+.sec-head h2{font-family:var(--display);font-weight:300;font-size:clamp(34px,4.4vw,60px);line-height:1.04;letter-spacing:-.035em;max-width:16em}
+.sec-head .label{padding-top:.9em}
 
-/* formats */
-.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-.card{background:var(--paper);border-radius:var(--r);padding:40px 34px 36px;position:relative;overflow:hidden;transition:.5s cubic-bezier(.2,.8,.2,1);border:1px solid rgba(30,42,50,.05);display:flex;flex-direction:column}
-.card:hover{transform:translateY(-8px);box-shadow:0 40px 60px -30px rgba(30,42,50,.3)}
-.card .num{font-family:var(--serif);font-size:15px;color:var(--mute);font-style:italic}
-.card .art{height:150px;margin:20px 0 26px;display:flex;align-items:center}
-.card h3{font-size:38px;margin-bottom:14px}
-.card p{color:var(--ink-2);font-size:15.5px}
-.card ul{list-style:none;margin-top:22px;padding-top:22px;border-top:1px solid rgba(30,42,50,.08);display:grid;gap:9px;font-size:14px;color:var(--ink-2)}
-.card li{display:flex;gap:10px}
-.card li::before{content:"";flex:none;width:5px;height:5px;margin-top:9px;border-radius:50%;background:var(--amber)}
-.card.dark{background:var(--sea);color:var(--paper)}
-.card.dark p,.card.dark ul,.card.dark .num{color:rgba(251,248,243,.72)}
-.card.dark ul{border-color:rgba(255,255,255,.12)}
-.art svg{height:100%;width:auto;overflow:visible}
-.card:hover .art circle{transform:translateX(var(--dx,0))}
-.art circle{transition:transform .8s cubic-bezier(.2,.8,.2,1)}
+/* манифест */
+.manifest{display:grid;grid-template-columns:220px 1fr;gap:24px 40px}
+.manifest p{font-family:var(--display);font-weight:300;font-size:clamp(26px,3.3vw,46px);line-height:1.18;letter-spacing:-.03em;max-width:23em}
+.manifest p .serif{color:var(--sea)}
+.manifest .label{padding-top:.8em}
+.manifest .note{grid-column:2;max-width:560px;color:var(--sea);font-size:17px;margin-top:8px}
 
-/* requests */
-.req{background:var(--sand-2);border-radius:48px;margin:0 16px}
-.req-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:70px;align-items:start}
-.req .head{position:sticky;top:120px;margin:0}
-.pills{display:flex;flex-wrap:wrap;gap:12px}
-.pill{padding:18px 26px;border-radius:100px;background:var(--paper);font-size:16px;transition:.35s;cursor:default;border:1px solid transparent}
-.pill:hover{background:var(--ink);color:var(--paper);transform:rotate(-1.5deg) scale(1.03)}
-.pill:nth-child(3n){background:transparent;border-color:rgba(30,42,50,.15)}
-.pill:nth-child(3n):hover{background:var(--amber);border-color:var(--amber);color:#fff}
-.quote{margin-top:50px;font-family:var(--serif);font-size:30px;font-style:italic;line-height:1.3;color:var(--sea);padding-left:28px;border-left:2px solid var(--amber)}
+/* как начинают разговор */
+.voices{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line)}
+.voice{padding:30px 28px 34px 0;border-bottom:1px solid var(--line);min-height:190px;display:flex;flex-direction:column;justify-content:space-between;gap:24px}
+.voice:not(:nth-child(4n)){border-right:1px solid var(--line)}
+.voice:not(:nth-child(4n+1)){padding-left:28px}
+.voice q{font-family:var(--serif);font-style:italic;font-weight:300;font-size:22px;line-height:1.3;quotes:"«" "»"}
+.voice span{font-family:var(--display);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--sea)}
+.voice span::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;margin-right:10px;vertical-align:2px;background:var(--dot,var(--sea))}
+.voice[data-k="pair"]{--dot:var(--amber)}
+.voice[data-k="family"]{--dot:var(--pine)}
+.voices-foot{margin-top:28px;color:var(--sea);font-size:15px;max-width:620px}
 
-/* steps */
-.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;counter-reset:s;position:relative}
-.steps::before{content:"";position:absolute;top:31px;left:32px;right:12%;height:1px;background:linear-gradient(90deg,var(--amber),rgba(200,134,42,.1))}
-.step{padding-right:30px;position:relative}
-.step .dot{width:64px;height:64px;border-radius:50%;background:var(--paper);border:1px solid rgba(200,134,42,.4);display:grid;place-items:center;font-family:var(--serif);font-size:26px;font-style:italic;color:var(--amber);margin-bottom:30px;position:relative;z-index:1;transition:.4s}
-.step:hover .dot{background:var(--amber);color:#fff;transform:scale(1.08)}
-.step h3{font-size:28px;margin-bottom:10px}
-.step p{color:var(--ink-2);font-size:15px}
+/* форматы: переключатель */
+.fmt{background:var(--paper);border-radius:32px;padding:clamp(28px,4vw,56px)}
+.switch{display:inline-flex;padding:6px;border-radius:999px;background:var(--fog);gap:4px;position:relative;margin-bottom:clamp(36px,5vw,64px);max-width:100%;overflow-x:auto}
+.switch button{position:relative;z-index:1;height:48px;padding:0 24px;border-radius:999px;font-family:var(--display);font-size:15px;font-weight:300;white-space:nowrap;transition:color .35s var(--ease)}
+.switch button[aria-selected="true"]{color:var(--paper)}
+.switch .pill{position:absolute;top:6px;bottom:6px;left:0;border-radius:999px;background:var(--pine);transition:transform .5s var(--ease),width .5s var(--ease)}
+.panel{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(32px,6vw,96px)}
+.panel[hidden]{display:none}
+.panel h3{font-family:var(--display);font-weight:300;font-size:clamp(30px,3.4vw,48px);line-height:1.05;letter-spacing:-.035em;margin-bottom:22px}
+.panel h3 .serif{color:var(--sea)}
+.panel p{color:#3A4F4B;max-width:520px}
+.panel p+p{margin-top:14px}
+.panel ul{list-style:none;border-top:1px solid var(--line)}
+.panel li{padding:16px 0;border-bottom:1px solid var(--line);display:flex;gap:16px;align-items:baseline}
+.panel li::before{content:"";flex:none;width:14px;height:1px;background:var(--amber);transform:translateY(-4px)}
+.panel .facts{display:flex;gap:10px;flex-wrap:wrap;margin-top:30px}
+.panel .facts span{font-family:var(--display);font-size:13px;font-weight:300;padding:9px 16px;border-radius:999px;border:1px solid var(--line)}
+.panel.in{animation:fade .6s var(--ease) both}
 
-/* where */
-.where{display:grid;grid-template-columns:1fr 1fr;gap:22px}
-.place{border-radius:var(--r);padding:50px 44px;min-height:380px;position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end}
-.place h3{font-size:52px;margin-bottom:14px;position:relative}
-.place p{max-width:380px;position:relative;font-weight:300;font-size:16.5px}
-.place .lbl{position:absolute;top:40px;left:44px;font-size:12px;letter-spacing:.22em;text-transform:uppercase;font-weight:600}
-.off{background:linear-gradient(160deg,#E9C48A,#C8862A);color:var(--ink)}
-.off .lbl{color:rgba(30,42,50,.6)}
-.off::after{content:"";position:absolute;right:-60px;top:-60px;width:320px;height:320px;border-radius:50%;background:repeating-radial-gradient(circle,rgba(255,255,255,.22) 0 1px,transparent 1px 18px)}
-.on{background:var(--ink);color:var(--paper)}
-.on .lbl{color:var(--amber-2)}
-.on .screen{position:absolute;right:40px;top:40px;width:190px;height:130px;border-radius:16px;border:1px solid rgba(255,255,255,.15);background:linear-gradient(160deg,rgba(255,255,255,.08),rgba(255,255,255,.01));display:flex;gap:8px;padding:10px}
-.on .screen i{flex:1;border-radius:9px;background:rgba(255,255,255,.07);position:relative}
-.on .screen i::after{content:"";position:absolute;width:26px;height:26px;border-radius:50%;left:50%;top:44%;transform:translate(-50%,-50%);background:var(--amber-2);opacity:.8}
-.on .screen i:last-child::after{background:var(--sage)}
-.on .live{position:absolute;right:40px;top:186px;font-size:12px;display:flex;gap:8px;align-items:center;color:rgba(251,248,243,.6)}
-.on .live b{width:8px;height:8px;border-radius:50%;background:#7ED69B;animation:pulse 2s infinite}
-@keyframes pulse{50%{box-shadow:0 0 0 8px rgba(126,214,155,0)}0%{box-shadow:0 0 0 0 rgba(126,214,155,.6)}}
+/* как начинается работа — тёмная секция */
+.dark{background:var(--pine);color:#E6EAE7}
+.dark .label{color:#8FA7A5}
+.dark .sec-head h2 .serif{color:#A9BDBB}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;counter-reset:st}
+.step{padding:0 32px 0 0;position:relative}
+.step+.step{padding-left:32px;border-left:1px solid rgba(230,234,231,.14)}
+.step .n{font-family:var(--display);font-weight:200;font-size:64px;line-height:1;letter-spacing:-.04em;color:#8FA7A5;margin-bottom:38px}
+.step h3{font-family:var(--display);font-weight:400;font-size:20px;letter-spacing:-.01em;margin-bottom:10px}
+.step p{font-size:15.5px;color:#B5C3C1}
+.step em{font-style:normal;color:var(--amber)}
 
-/* about */
-.about{display:grid;grid-template-columns:.8fr 1.2fr;gap:80px;align-items:center}
-.about-img{position:relative;aspect-ratio:1;max-width:420px}
-.about-img .ring{position:absolute;inset:0;border-radius:50%;border:1px dashed rgba(200,134,42,.5);animation:spin 60s linear infinite}
-.about-img .ring::before{content:"";position:absolute;width:16px;height:16px;border-radius:50%;background:var(--amber);top:50%;left:-8px}
-@keyframes spin{to{transform:rotate(360deg)}}
-.about-img .inner{position:absolute;inset:12%;border-radius:50%;overflow:hidden;background:var(--sea)}
-.about-img .inner img{width:100%;height:100%;object-fit:cover;transform:scale(1.22)}
-.about h2{font-size:clamp(40px,5vw,64px);margin:16px 0 26px}
-.about p{color:var(--ink-2);font-size:17.5px;font-weight:300;margin-bottom:18px}
-.principles{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:36px}
-.principles div{background:var(--paper);border-radius:20px;padding:22px}
-.principles strong{font-family:var(--serif);font-size:24px;font-weight:500;display:block;margin-bottom:6px}
-.principles span{font-size:14px;color:var(--ink-2)}
+/* обо мне */
+.about{display:grid;grid-template-columns:220px 1fr 1fr;gap:40px;align-items:start}
+.portrait{width:132px;height:132px;border-radius:50%;overflow:hidden;background:var(--dune);box-shadow:0 0 0 6px var(--fog),0 0 0 7px var(--line)}
+.portrait img{width:100%;height:100%;object-fit:cover;transform:scale(1.2)}
+.about h2{font-family:var(--display);font-weight:300;font-size:clamp(34px,4.4vw,60px);line-height:1.04;letter-spacing:-.035em;margin-bottom:28px}
+.about .txt p{color:#3A4F4B;margin-bottom:16px;max-width:520px}
+.about .txt p:first-of-type{font-size:20px;color:var(--pine)}
+.princ{list-style:none;border-top:1px solid var(--line);margin-top:6px}
+.princ li{padding:22px 0;border-bottom:1px solid var(--line)}
+.princ b{display:block;font-family:var(--display);font-weight:400;font-size:18px;letter-spacing:-.01em;margin-bottom:4px}
+.princ span{color:var(--sea);font-size:15.5px}
 
-/* faq */
-.faq{max-width:860px}
-.q{border-bottom:1px solid rgba(30,42,50,.12)}
-.q button{width:100%;background:none;border:0;text-align:left;padding:30px 0;font-family:var(--serif);font-size:28px;color:var(--ink);display:flex;justify-content:space-between;align-items:center;gap:20px;cursor:pointer}
-.q button .pl{flex:none;width:44px;height:44px;border-radius:50%;border:1px solid rgba(30,42,50,.2);position:relative;transition:.4s}
-.q button .pl::before,.q button .pl::after{content:"";position:absolute;left:50%;top:50%;width:14px;height:1.5px;background:var(--ink);transform:translate(-50%,-50%);transition:.4s}
-.q button .pl::after{transform:translate(-50%,-50%) rotate(90deg)}
-.q.open .pl{background:var(--amber);border-color:var(--amber)}
-.q.open .pl::before,.q.open .pl::after{background:#fff}
-.q.open .pl::after{transform:translate(-50%,-50%) rotate(0)}
-.q .a{display:grid;grid-template-rows:0fr;transition:grid-template-rows .5s cubic-bezier(.2,.8,.2,1)}
-.q.open .a{grid-template-rows:1fr}
+/* где */
+.where{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.place{border-radius:28px;padding:clamp(28px,3.5vw,48px);min-height:300px;display:flex;flex-direction:column;justify-content:space-between;gap:40px}
+.place h3{font-family:var(--display);font-weight:300;font-size:clamp(30px,3vw,42px);letter-spacing:-.035em;line-height:1.05;margin-bottom:14px}
+.place p{max-width:400px;font-size:16px}
+.p-off{background:var(--dune)}
+.p-off p{color:#4E4A40}
+.p-on{background:var(--paper)}
+.p-on p{color:var(--sea)}
+.place .label{color:inherit;opacity:.6}
+
+/* вопросы */
+.faq{border-top:1px solid var(--line)}
+.q{border-bottom:1px solid var(--line)}
+.q button{width:100%;display:flex;justify-content:space-between;align-items:center;gap:24px;padding:28px 0;text-align:left;font-family:var(--display);font-weight:300;font-size:clamp(20px,2vw,26px);letter-spacing:-.02em}
+.q .pm{flex:none;width:40px;height:40px;border-radius:50%;border:1px solid var(--line);position:relative;transition:background .35s,border-color .35s}
+.q .pm::before,.q .pm::after{content:"";position:absolute;left:50%;top:50%;width:12px;height:1px;background:var(--pine);transform:translate(-50%,-50%);transition:transform .4s var(--ease),background .35s}
+.q .pm::after{transform:translate(-50%,-50%) rotate(90deg)}
+.q[data-open] .pm{background:var(--pine);border-color:var(--pine)}
+.q[data-open] .pm::before,.q[data-open] .pm::after{background:var(--paper)}
+.q[data-open] .pm::after{transform:translate(-50%,-50%)}
+.q .a{display:grid;grid-template-rows:0fr;transition:grid-template-rows .5s var(--ease)}
+.q[data-open] .a{grid-template-rows:1fr}
 .q .a>div{overflow:hidden}
-.q .a p{padding:0 70px 30px 0;color:var(--ink-2);font-size:16.5px;font-weight:300}
+.q .a p{padding:0 64px 30px 0;color:#3A4F4B;max-width:760px}
 
-/* cta */
-.cta{background:var(--ink);color:var(--paper);border-radius:48px;margin:0 16px 16px;padding:140px 0;text-align:center;overflow:hidden}
-.cta .sunset{position:absolute;width:700px;height:700px;left:50%;bottom:-480px;transform:translateX(-50%);border-radius:50%;background:radial-gradient(circle,#F1C27D 0%,#C8862A 35%,transparent 68%);opacity:.55;filter:blur(10px);animation:breathe 8s ease-in-out infinite}
-.cta h2{font-size:clamp(46px,7vw,96px);position:relative}
-.cta p{position:relative;color:rgba(251,248,243,.7);font-size:19px;font-weight:300;max-width:560px;margin:26px auto 44px}
-.cta .btns{position:relative;display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
-.cta .btn-light{background:var(--paper);color:var(--ink)}
-.cta .btn-light:hover{background:var(--amber-2);transform:translateY(-2px)}
-.cta .btn-line{border:1px solid rgba(255,255,255,.25);color:var(--paper)}
-.cta .btn-line:hover{background:rgba(255,255,255,.1)}
-.cta small{position:relative;display:block;margin-top:40px;font-size:13px;color:rgba(251,248,243,.45)}
+/* финал */
+.final{position:relative;overflow:hidden;color:#EEF0EC;background:linear-gradient(180deg,#24363C 0%,#3A4E52 55%,#E0A35A 130%)}
+.final .sun{animation:none;bottom:-70px;left:50%;transform:translateX(-50%);width:220px;background:#E0A35A;box-shadow:0 0 160px 60px rgba(224,163,90,.35)}
+.final .wrap{position:relative;z-index:1;text-align:center;padding-top:clamp(100px,14vw,180px);padding-bottom:clamp(140px,16vw,220px)}
+.final h2{font-family:var(--display);font-weight:200;font-size:clamp(44px,7vw,100px);line-height:1;letter-spacing:-.045em}
+.final h2 .serif{display:block;color:#F1D3AE}
+.final p{margin:28px auto 40px;max-width:520px;color:#C4D0CE;font-size:18px}
+.final .btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.final .btn-solid{background:#EEF0EC;color:var(--pine)}
+.final .btn-solid:hover{background:#fff}
+.final .btn-line{border-color:rgba(238,240,236,.3);color:#EEF0EC}
+.final .btn-line:hover{border-color:#EEF0EC}
+.sign{display:inline-flex;align-items:center;gap:14px;margin-top:40px;font-size:14px;color:#C4D0CE;text-align:left}
+.sign img{width:44px;height:44px;border-radius:50%;object-fit:cover;transform:scale(1)}
 
-footer{padding:40px 0 50px;font-size:13px;color:var(--mute)}
-footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+footer{background:var(--pine);color:#8FA7A5;font-size:13.5px;padding:36px 0 40px}
+footer .wrap{display:flex;justify-content:space-between;gap:16px 40px;flex-wrap:wrap}
+footer .warn{max-width:560px}
+footer b{color:#E6EAE7;font-weight:500}
 
-/* reveal */
-.rv{opacity:0;transform:translateY(40px);transition:opacity 1s cubic-bezier(.2,.8,.2,1),transform 1s cubic-bezier(.2,.8,.2,1)}
-.rv.in{opacity:1;transform:none}
-.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}
+/* мобильная кнопка */
+.dock{display:none}
 
-@media (max-width:980px){
-  .menu{display:none}
-  .hero-grid,.req-grid,.about,.where{grid-template-columns:1fr}
-  .portrait{justify-self:center;max-width:360px;margin-top:20px}
-  .c1{left:-14px}.c2{right:-10px}
-  .cards{grid-template-columns:1fr}
-  .steps{grid-template-columns:1fr 1fr;gap:40px 0}
-  .steps::before{display:none}
-  .req .head{position:static;margin-bottom:40px}
-  .about-img{max-width:300px;margin:0 auto}
-  section{padding:90px 0}
+/* появление при прокрутке */
+.rv{opacity:0;transform:translateY(28px);transition:opacity 1s var(--ease),transform 1s var(--ease)}
+.rv.on{opacity:1;transform:none}
+
+@media (max-width:1080px){
+  .voices{grid-template-columns:repeat(2,1fr)}
+  .voice:not(:nth-child(4n)){border-right:0}
+  .voice:not(:nth-child(4n+1)){padding-left:0}
+  .voice:nth-child(odd){border-right:1px solid var(--line)}
+  .voice:nth-child(even){padding-left:28px}
+  .steps{grid-template-columns:1fr 1fr;gap:56px 0}
+  .step:nth-child(3){padding-left:0;border-left:0}
+  .about{grid-template-columns:1fr 1fr}
+  .about .label{grid-column:1/-1}
+}
+@media (max-width:820px){
+  .links{display:none}
+  .sec-head,.manifest{grid-template-columns:1fr;gap:16px}
+  .sec-head .label,.manifest .label{padding-top:0}
+  .manifest .note{grid-column:1}
+  .panel{grid-template-columns:1fr}
+  .about{grid-template-columns:1fr}
+  .where{grid-template-columns:1fr}
+  .sun,.glint{left:82%}
 }
 @media (max-width:600px){
-  .wrap{padding:0 16px}
-  .nav .btn{display:none}
-  .hero{padding-top:100px}
-  .lead{font-size:17px}
-  .steps{grid-template-columns:1fr}
-  .principles{grid-template-columns:1fr}
-  .place{padding:36px 28px;min-height:340px}.place .lbl{left:28px;top:30px}
-  .on .screen{right:24px;top:70px;width:150px;height:100px}.on .live{display:none}
-  .q button{font-size:22px}.q .a p{padding-right:0}
-  .req,.cta{margin:0 8px;border-radius:32px}
-  .marquee span{font-size:22px}
-  .chip{padding:10px 14px}.chip .ic{width:30px;height:30px}
+  body{font-size:16px;padding-bottom:84px}
+  .top .btn{display:none}
+  .hero-sub{font-size:16.5px}
+  .hero-cta .btn{width:100%;justify-content:center}
+  .hero-foot .wrap{font-size:12px}
+  .voices{grid-template-columns:1fr}
+  .voice,.voice:nth-child(even){padding:24px 0 26px;border-right:0!important;min-height:0}
+  .voice q{font-size:20px}
+  .steps{grid-template-columns:1fr;gap:40px}
+  .step,.step+.step{padding:0;border-left:0}
+  .step .n{font-size:48px;margin-bottom:16px}
+  .fmt{border-radius:24px}
+  .switch{display:flex;width:100%}
+  .switch button{flex:1;padding:0 10px;font-size:14px}
+  .q .a p{padding-right:0}
+  .dock{display:flex;position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom));z-index:45;gap:8px;padding:8px;border-radius:999px;background:rgba(23,48,43,.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);transform:translateY(140%);transition:transform .5s var(--ease)}
+  .dock.show{transform:none}
+  .dock a{flex:1;height:48px;border-radius:999px;display:grid;place-items:center;font-family:var(--display);font-size:15px;color:#EEF0EC}
+  .dock a:first-child{background:#EEF0EC;color:var(--pine)}
 }
-@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}.hero h1 .line span{transform:none}}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .rv{opacity:1;transform:none}
+  html{scroll-behavior:auto}
+}
 </style>
 </head>
 <body>
 
-<header class="nav" id="nav">
+<header class="top" id="top">
   <div class="wrap">
-    <a href="#" class="logo"><i></i>Ольга</a>
-    <nav class="menu">
+    <a class="mark" href="#">Ольга <small>психолог</small></a>
+    <nav class="links" aria-label="Разделы">
+      <a href="#approach">Подход</a>
       <a href="#formats">Форматы</a>
-      <a href="#requests">Запросы</a>
-      <a href="#how">Как проходит</a>
+      <a href="#start">Как начать</a>
       <a href="#about">Обо мне</a>
       <a href="#faq">Вопросы</a>
     </nav>
-    <a href="#contact" class="btn btn-dark">Записаться</a>
+    <a class="btn btn-solid" href="#contact">Записаться</a>
   </div>
 </header>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>
-  <div class="wrap hero-grid">
-    <div>
-      <div class="eyebrow">Психолог · Калининград и онлайн</div>
+<main>
+<!-- Первый экран: небо и море меняются по времени суток в Калининграде -->
+<section class="hero" id="hero" data-phase="day">
+  <div class="sky"></div>
+  <div class="sun" aria-hidden="true"></div>
+  <div class="sea" aria-hidden="true">
+    <div class="glint"></div>
+    <svg class="w1" viewBox="0 0 2400 300" preserveAspectRatio="none"><g fill="none" stroke="rgba(255,255,255,.16)" stroke-width="1.2">
+      <path d="M0 40 Q150 30 300 40 T600 40 T900 40 T1200 40 T1500 40 T1800 40 T2100 40 T2400 40"/>
+      <path d="M0 110 Q150 96 300 110 T600 110 T900 110 T1200 110 T1500 110 T1800 110 T2100 110 T2400 110"/>
+      <path d="M0 200 Q150 182 300 200 T600 200 T900 200 T1200 200 T1500 200 T1800 200 T2100 200 T2400 200"/></g></svg>
+    <svg class="w2" viewBox="0 0 2400 300" preserveAspectRatio="none"><g fill="none" stroke="rgba(255,255,255,.09)" stroke-width="1">
+      <path d="M0 70 Q200 58 400 70 T800 70 T1200 70 T1600 70 T2000 70 T2400 70"/>
+      <path d="M0 150 Q200 134 400 150 T800 150 T1200 150 T1600 150 T2000 150 T2400 150"/>
+      <path d="M0 250 Q200 230 400 250 T800 250 T1200 250 T1600 250 T2000 250 T2400 250"/></g></svg>
+  </div>
+
+  <div class="hero-in">
+    <div class="wrap">
       <h1>
-        <span class="line"><span>Место, где</span></span>
-        <span class="line"><span>можно <em>выдохнуть</em></span></span>
-        <span class="line"><span>и разобраться</span></span>
+        <span class="ln"><span>Вы привыкли справляться сами.</span></span>
+        <span class="ln"><span class="serif">Здесь можно не справляться.</span></span>
       </h1>
-      <p class="lead">Помогаю найти опору в себе, услышать близкого человека и вернуть тепло в семью. Индивидуально, в паре или всей семьёй.</p>
+      <p class="hero-sub">Индивидуальная, парная и семейная терапия для тех, кто хочет <b>понимать, что с ними происходит,</b> — и выбирать, а не реагировать.</p>
       <div class="hero-cta">
-        <a href="#contact" class="btn btn-dark">Записаться на консультацию
-          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 8h12M9 3l5 5-5 5"/></svg></a>
-        <a href="#formats" class="btn btn-ghost">Форматы работы</a>
-      </div>
-      <div class="tags">
-        <div class="tag"><b></b>Индивидуальная</div>
-        <div class="tag"><b></b>Парная</div>
-        <div class="tag"><b></b>Семейная</div>
+        <a class="btn btn-solid" href="#contact">Записаться на первую встречу <span class="arr"></span></a>
+        <a class="btn btn-line" href="#formats">Форматы работы</a>
       </div>
     </div>
+  </div>
 
-    <div class="portrait">
-      <div class="arch">
-        <div class="sun"></div>
-        <div class="photo"><img src="assets/olga.jpg" alt="Ольга, психолог"></div>
-        <div class="arch-text">
-          <div class="n">Ольга</div>
-          <div class="r">Профессиональный психолог</div>
+  <div class="hero-foot">
+    <div class="wrap">
+      <div class="clock"><i></i><span>Калининград, <time id="kgdTime">—</time></span></div>
+      <div>Очно в Калининграде · онлайн из любого часового пояса</div>
+    </div>
+  </div>
+</section>
+
+<!-- Подход -->
+<section class="sec" id="approach">
+  <div class="wrap manifest rv">
+    <div class="label">Подход</div>
+    <p>Терапия — это не про «починить». Это регулярное время, когда можно замедлиться, <span class="serif">разобраться в своих реакциях и отношениях</span> и найти решения, которые подходят именно вам.</p>
+    <div class="note">Я не даю советов, как жить. Помогаю увидеть, что происходит, — а выбор остаётся за вами.</div>
+  </div>
+</section>
+
+<!-- Как начинают разговор -->
+<section class="sec" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="label">С чем приходят</div>
+      <h2>Так часто начинается <span class="serif">первый разговор</span></h2>
+    </div>
+    <div class="voices rv">
+      <div class="voice" data-k="me"><q>Снаружи всё получается, а внутри — пусто и тревожно</q><span>Лично</span></div>
+      <div class="voice" data-k="pair"><q>Мы ссоримся из-за одного и того же и не можем остановиться</q><span>Пара</span></div>
+      <div class="voice" data-k="me"><q>Я на пределе, но не могу позволить себе остановиться</q><span>Лично</span></div>
+      <div class="voice" data-k="family"><q>С подростком будто говорим на разных языках</q><span>Семья</span></div>
+      <div class="voice" data-k="pair"><q>Живём как соседи. Вроде всё нормально, но тепла нет</q><span>Пара</span></div>
+      <div class="voice" data-k="me"><q>Не понимаю, чего хочу на самом деле</q><span>Лично</span></div>
+      <div class="voice" data-k="pair"><q>Думаем о расставании и хотим решить это спокойно</q><span>Пара</span></div>
+      <div class="voice" data-k="family"><q>После переезда в семье всё стало напряжённо</q><span>Семья</span></div>
+    </div>
+    <p class="voices-foot rv">Чёткий запрос не обязателен. Можно прийти и с ощущением, что «так больше не хочется», — сформулируем вместе.</p>
+  </div>
+</section>
+
+<!-- Форматы -->
+<section class="sec" id="formats" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="label">Форматы</div>
+      <h2>Кто придёт <span class="serif">на встречу?</span></h2>
+    </div>
+    <div class="fmt rv">
+      <div class="switch" role="tablist" aria-label="Формат работы">
+        <span class="pill" aria-hidden="true"></span>
+        <button role="tab" id="t-me" aria-controls="p-me" aria-selected="true">Я</button>
+        <button role="tab" id="t-pair" aria-controls="p-pair" aria-selected="false" tabindex="-1">Мы вдвоём</button>
+        <button role="tab" id="t-family" aria-controls="p-family" aria-selected="false" tabindex="-1">Мы с семьёй</button>
+      </div>
+
+      <div class="panel" role="tabpanel" id="p-me" aria-labelledby="t-me">
+        <div>
+          <h3>Индивидуальная <span class="serif">терапия</span></h3>
+          <p>Работа один на один — про ваши чувства, решения и то, что давно хочется понять о себе. Темп и глубину выбираете вы.</p>
+          <p>Подходит, если хочется опоры, ясности или просто места, где можно говорить честно.</p>
+          <div class="facts"><span>Очно или онлайн</span><span>Регулярные встречи</span></div>
         </div>
+        <ul>
+          <li>Тревога, напряжение, выгорание</li>
+          <li>Самооценка, внутренний критик, границы</li>
+          <li>Решения и переходные периоды: работа, переезд, отношения</li>
+          <li>Пережить расставание или потерю</li>
+        </ul>
       </div>
-      <div class="chip c1"><div class="ic">◐</div><div><strong>Очно</strong><span>в Калининграде</span></div></div>
-      <div class="chip c2"><div class="ic">◎</div><div><strong>Онлайн</strong><span>из любой точки мира</span></div></div>
-    </div>
-  </div>
-</section>
 
-<div class="marquee"><div class="track">
-  <span>бережно</span><span>без оценок</span><span>конфиденциально</span><span>в вашем темпе</span><span>про вас и для вас</span><span>с теплом</span>
-  <span>бережно</span><span>без оценок</span><span>конфиденциально</span><span>в вашем темпе</span><span>про вас и для вас</span><span>с теплом</span>
-</div></div>
-
-<!-- FORMATS -->
-<section id="formats">
-  <div class="wrap">
-    <div class="head rv">
-      <div class="eyebrow">Форматы работы</div>
-      <h2>Один, вдвоём <em>или</em> всей семьёй</h2>
-      <p>Иногда легче начать с себя, иногда важно прийти вместе. Выберите формат — а если сомневаетесь, разберёмся на первой встрече.</p>
-    </div>
-    <div class="cards">
-      <article class="card rv">
-        <div class="num">01</div>
-        <div class="art"><svg viewBox="0 0 160 120"><circle cx="80" cy="60" r="46" fill="#F3DDB8"/><circle cx="80" cy="60" r="22" fill="#C8862A"/></svg></div>
-        <h3>Индивидуальная</h3>
-        <p>Личная работа один на один — про ваши чувства, решения и то, что давно хочется понять о себе.</p>
-        <ul><li>Тревога, стресс, усталость</li><li>Самооценка и границы</li><li>Кризисы и перемены в жизни</li></ul>
-      </article>
-      <article class="card dark rv d1">
-        <div class="num">02</div>
-        <div class="art"><svg viewBox="0 0 160 120"><circle cx="62" cy="60" r="40" fill="#E2A852" opacity=".9" style="--dx:8px"/><circle cx="98" cy="60" r="40" fill="#A9B8A4" opacity=".75" style="--dx:-8px"/></svg></div>
-        <h3>Парная</h3>
-        <p>Для пар, которые хотят снова слышать друг друга — или спокойно понять, куда двигаться дальше.</p>
-        <ul><li>Конфликты и охлаждение</li><li>Ревность, доверие, измена</li><li>Важные совместные решения</li></ul>
-      </article>
-      <article class="card rv d2">
-        <div class="num">03</div>
-        <div class="art"><svg viewBox="0 0 160 120"><circle cx="52" cy="54" r="30" fill="#2E4A57" style="--dx:-6px"/><circle cx="108" cy="54" r="30" fill="#C8862A" style="--dx:6px"/><circle cx="80" cy="84" r="20" fill="#F3DDB8"/></svg></div>
-        <h3>Семейная</h3>
-        <p>Когда напряжение чувствуют все. Помогаю семье договариваться и поддерживать друг друга.</p>
-        <ul><li>Отношения родителей и детей</li><li>Подростковый возраст</li><li>Развод, переезд, новые члены семьи</li></ul>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- REQUESTS -->
-<section id="requests" class="req">
-  <div class="wrap req-grid">
-    <div class="head rv">
-      <div class="eyebrow">С чем приходят</div>
-      <h2>Если узнаёте себя — <em>можно</em> прийти</h2>
-      <p>Не нужно ждать, пока станет «совсем плохо». Достаточно ощущения, что так, как сейчас, больше не хочется.</p>
-    </div>
-    <div class="rv d1">
-      <div class="pills">
-        <span class="pill">Постоянная тревога</span><span class="pill">Ссоры по кругу</span><span class="pill">Нет сил и радости</span>
-        <span class="pill">Не понимаю, чего хочу</span><span class="pill">Отдалились друг от друга</span><span class="pill">Сложно с ребёнком</span>
-        <span class="pill">Пережить расставание</span><span class="pill">Ревность и недоверие</span><span class="pill">Трудно сказать «нет»</span>
-        <span class="pill">Потеря близкого</span><span class="pill">Выгорание</span><span class="pill">Кризис в браке</span>
+      <div class="panel" role="tabpanel" id="p-pair" aria-labelledby="t-pair" hidden>
+        <div>
+          <h3>Парная <span class="serif">терапия</span></h3>
+          <p>Для пар, которые хотят снова слышать друг друга — или спокойно понять, куда двигаться дальше. Я не встаю ни на чью сторону: в фокусе ваши отношения.</p>
+          <p>Если партнёр пока не готов, можно начать индивидуально — это тоже меняет отношения.</p>
+          <div class="facts"><span>Очно или онлайн</span><span>Вдвоём на встрече</span></div>
+        </div>
+        <ul>
+          <li>Повторяющиеся ссоры и холод</li>
+          <li>Ревность, доверие, измена</li>
+          <li>Рождение ребёнка, переезд, кризисы</li>
+          <li>Решение остаться вместе или расстаться бережно</li>
+        </ul>
       </div>
-      <blockquote class="quote">Обратиться за помощью — это не слабость, а забота о себе и о тех, кого вы любите.</blockquote>
+
+      <div class="panel" role="tabpanel" id="p-family" aria-labelledby="t-family" hidden>
+        <div>
+          <h3>Семейная <span class="serif">терапия</span></h3>
+          <p>Когда напряжение чувствуют все. Смотрим на семью целиком — как вы договариваетесь, поддерживаете и слышите друг друга.</p>
+          <p>На встречи можно приходить в разном составе — решаем вместе, кому и когда важно быть.</p>
+          <div class="facts"><span>Очно или онлайн</span><span>Разный состав</span></div>
+        </div>
+        <ul>
+          <li>Отношения родителей и детей, подростковый возраст</li>
+          <li>Развод, новая семья, отношения с родителями</li>
+          <li>Конфликты, которые тянутся годами</li>
+          <li>Адаптация после переезда или больших перемен</li>
+        </ul>
+      </div>
     </div>
+    <!-- TODO: добавить длительность и стоимость каждого формата, когда Ольга пришлёт -->
   </div>
 </section>
 
-<!-- HOW -->
-<section id="how">
+<!-- Как начать -->
+<section class="sec dark" id="start">
   <div class="wrap">
-    <div class="head rv">
-      <div class="eyebrow">Как проходит работа</div>
-      <h2>Просто и <em>спокойно</em> — с первого шага</h2>
+    <div class="sec-head rv">
+      <div class="label">Как начать</div>
+      <h2>Первый шаг — <span class="serif">просто написать</span></h2>
     </div>
     <div class="steps">
-      <div class="step rv"><div class="dot">1</div><h3>Заявка</h3><p>Пишете в мессенджер или звоните — договариваемся о дне, времени и формате.</p></div>
-      <div class="step rv d1"><div class="dot">2</div><h3>Знакомство</h3><p>На первой встрече рассказываете, что беспокоит. Вместе формулируем запрос.</p></div>
-      <div class="step rv d2"><div class="dot">3</div><h3>Работа</h3><p>Регулярные встречи в комфортном ритме. Всё сказанное остаётся между нами.</p></div>
-      <div class="step rv d3"><div class="dot">4</div><h3>Результат</h3><p>Ясность, опора и новые способы жить и общаться — которые остаются с вами.</p></div>
+      <div class="step rv"><div class="n">1</div><h3>Сообщение</h3><p>Пара строк в Telegram или MAX: кто придёт и что беспокоит. Подробно расписывать не нужно.</p></div>
+      <div class="step rv"><div class="n">2</div><h3>Договариваемся</h3><p>Выбираем формат — очно или онлайн — и удобное время.</p></div>
+      <div class="step rv"><div class="n">3</div><h3>Первая встреча</h3><p>Знакомимся, проясняем запрос и решаем, подходим ли мы друг другу. <em>Это нормально, если нет.</em></p></div>
+      <div class="step rv"><div class="n">4</div><h3>Работа в своём ритме</h3><p>Регулярные встречи, которые вписываются в вашу жизнь, а не наоборот.</p></div>
     </div>
   </div>
 </section>
 
-<!-- WHERE -->
-<section style="padding-top:0">
-  <div class="wrap where">
-    <div class="place off rv">
-      <div class="lbl">Офлайн</div>
-      <h3>Калининград</h3>
-      <p>Очные встречи в уютном кабинете — тихо, тепло и без спешки. Для тех, кому важно живое присутствие.</p>
-    </div>
-    <div class="place on rv d1">
-      <div class="lbl">Онлайн</div>
-      <div class="screen"><i></i><i></i></div>
-      <div class="live"><b></b>на связи</div>
-      <h3>Из любого города</h3>
-      <p>Видеосессии из дома, из другой страны или в обеденный перерыв. Работает так же глубоко, как очно.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ABOUT -->
-<section id="about" style="padding-top:40px">
+<!-- Обо мне -->
+<section class="sec" id="about">
   <div class="wrap about">
-    <div class="about-img rv">
-      <div class="ring"></div>
-      <div class="inner"><img src="assets/olga.jpg" alt="Ольга"></div>
+    <div class="label rv">Обо мне</div>
+    <div class="txt rv">
+      <div class="portrait"><img src="assets/olga.jpg" alt="Ольга, психолог" width="132" height="132"></div>
+      <h2 style="margin-top:36px">Здравствуйте, <span class="serif">я Ольга</span></h2>
+      <p>Я психолог. Работаю со взрослыми людьми, с парами и с семьями — очно в Калининграде и онлайн.</p>
+      <p>Мне важно, чтобы на встрече было безопасно: можно говорить о чём угодно, не подбирая слова и не боясь оценки. Моя задача — не дать готовый ответ, а помочь вам найти свой.</p>
+      <!-- TODO: образование, методы, супервизия, стаж — добавить, когда Ольга пришлёт -->
     </div>
-    <div class="rv d1">
-      <div class="eyebrow">Обо мне</div>
-      <h2>Здравствуйте, я <em>Ольга</em></h2>
-      <p>Я профессиональный психолог. Работаю с отдельными людьми, с парами и с семьями — очно в Калининграде и онлайн.</p>
-      <p>Для меня важно, чтобы на встрече было безопасно: можно говорить о чём угодно, не подбирая слова и не боясь осуждения. Моя задача — не давать советы «как правильно», а помочь вам найти своё решение.</p>
-      <div class="principles">
-        <div><strong>Безопасность</strong><span>Полная конфиденциальность</span></div>
-        <div><strong>Бережность</strong><span>Без оценок и давления</span></div>
-        <div><strong>Ясность</strong><span>Понятная цель работы</span></div>
-      </div>
+    <ul class="princ rv">
+      <li><b>Конфиденциально</b><span>Всё, что звучит на встрече, остаётся между нами.</span></li>
+      <li><b>Без оценок</b><span>Здесь не нужно выглядеть правильно или сильно.</span></li>
+      <li><b>В вашем темпе</b><span>Глубину и скорость работы выбираете вы.</span></li>
+      <li><b>Честно</b><span>Если пойму, что вам лучше подойдёт другой специалист, — скажу об этом.</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- Где -->
+<section class="sec" style="padding-top:0">
+  <div class="wrap where">
+    <div class="place p-off rv">
+      <div class="label">Очно</div>
+      <div><h3>Калининград</h3><p>Спокойный кабинет, где можно не торопиться. Адрес пришлю при записи.</p></div>
+    </div>
+    <div class="place p-on rv">
+      <div class="label">Онлайн</div>
+      <div><h3>Где вы сейчас</h3><p>Видеосвязь из дома, из поездки или из другой страны. Нужны наушники и место, где вас никто не слышит.</p></div>
     </div>
   </div>
 </section>
 
-<!-- FAQ -->
-<section id="faq" style="padding-top:40px">
+<!-- Вопросы -->
+<section class="sec" id="faq" style="padding-top:0">
   <div class="wrap">
-    <div class="head rv">
-      <div class="eyebrow">Частые вопросы</div>
-      <h2>Что обычно <em>спрашивают</em></h2>
+    <div class="sec-head rv">
+      <div class="label">Вопросы</div>
+      <h2>О чём <span class="serif">обычно спрашивают</span></h2>
     </div>
     <div class="faq rv">
-      <div class="q open"><button>Как понять, что мне нужен психолог?<span class="pl"></span></button><div class="a"><div><p>Если что-то давно беспокоит, повторяется или забирает силы — это уже достаточный повод. Психолог нужен не только «в кризис», но и чтобы лучше понять себя и свои отношения.</p></div></div></div>
-      <div class="q"><button>Что, если партнёр не хочет идти вместе?<span class="pl"></span></button><div class="a"><div><p>Можно начать индивидуально. Изменения в одном человеке часто меняют всю систему отношений, а позже партнёр может присоединиться.</p></div></div></div>
-      <div class="q"><button>Онлайн-консультация так же эффективна?<span class="pl"></span></button><div class="a"><div><p>Да. Для многих онлайн даже комфортнее: вы в привычной обстановке и не тратите время на дорогу. Нужны только стабильный интернет и спокойное место, где вас никто не услышит.</p></div></div></div>
-      <div class="q"><button>Сколько длится встреча и сколько их нужно?<span class="pl"></span></button><div class="a"><div><p>Длительность и количество встреч зависят от формата и запроса. Иногда хватает нескольких сессий, иногда работа идёт дольше — обсудим это вместе на первой встрече.</p></div></div></div>
-      <div class="q"><button>Всё, что я расскажу, останется между нами?<span class="pl"></span></button><div class="a"><div><p>Да. Конфиденциальность — основа работы психолога. Всё, что звучит на сессии, не выходит за её пределы.</p></div></div></div>
+      <div class="q" data-open><button aria-expanded="true">Как понять, что мне нужен психолог?<span class="pm" aria-hidden="true"></span></button><div class="a"><div><p>Если что-то давно беспокоит, повторяется или забирает силы — это уже достаточный повод. Терапия нужна не только в кризис: многие приходят, чтобы лучше понимать себя и свои отношения.</p></div></div></div>
+      <div class="q"><button aria-expanded="false">Партнёр не готов идти. Можно прийти одной или одному?<span class="pm" aria-hidden="true"></span></button><div class="a"><div><p>Да. Изменения в одном человеке часто меняют всю систему отношений. Позже партнёр может присоединиться — или нет, и это тоже нормально.</p></div></div></div>
+      <div class="q"><button aria-expanded="false">Онлайн работает так же, как очно?<span class="pm" aria-hidden="true"></span></button><div class="a"><div><p>Да. Многим онлайн даже удобнее: привычная обстановка и никакой дороги. Нужны стабильный интернет, наушники и место, где вас никто не услышит.</p></div></div></div>
+      <div class="q"><button aria-expanded="false">Что, если мы не подойдём друг другу?<span class="pm" aria-hidden="true"></span></button><div class="a"><div><p>Так бывает, и об этом стоит сказать вслух. Первая встреча как раз для того, чтобы понять, комфортно ли вам. Если нет — подскажу, к кому можно обратиться.</p></div></div></div>
+      <div class="q"><button aria-expanded="false">Сколько нужно встреч?<span class="pm" aria-hidden="true"></span></button><div class="a"><div><p>Зависит от запроса. Иногда хватает нескольких встреч, иногда работа идёт дольше. Обсуждаем это вместе и периодически сверяемся, что меняется.</p></div></div></div>
+      <div class="q"><button aria-expanded="false">Всё, что я расскажу, останется между нами?<span class="pm" aria-hidden="true"></span></button><div class="a"><div><p>Да. Конфиденциальность — основа работы. Всё, что звучит на встрече, не выходит за её пределы.</p></div></div></div>
     </div>
   </div>
 </section>
 
-<!-- CTA -->
-<section id="contact" class="cta">
-  <div class="sunset"></div>
+<!-- Финал -->
+<section class="final" id="contact">
+  <div class="sun" aria-hidden="true"></div>
   <div class="wrap">
-    <div class="eyebrow" style="position:relative;color:var(--amber-2)">Запись на консультацию</div>
-    <h2 style="margin-top:18px">Давайте <em>поговорим</em></h2>
-    <p>Напишите пару слов о том, что беспокоит, — я отвечу и предложу удобное время для встречи.</p>
+    <div class="label" style="color:#A9BDBB">Запись</div>
+    <h2 style="margin-top:20px">Напишите,<span class="serif">когда будете готовы</span></h2>
+    <p>Пары строк достаточно: кто придёт и что беспокоит. Отвечу и предложу время.</p>
+    <!-- TODO: заменить ссылки на реальные контакты Ольги -->
     <div class="btns">
-      <!-- TODO: заменить ссылки на реальные контакты Ольги -->
-      <a href="#" class="btn btn-light">Написать в MAX
-        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 8h12M9 3l5 5-5 5"/></svg></a>
-      <a href="#" class="btn btn-line">Telegram</a>
-      <a href="tel:+70000000000" class="btn btn-line">+7 (000) 000-00-00</a>
+      <a class="btn btn-solid" href="#">Написать в Telegram <span class="arr"></span></a>
+      <a class="btn btn-line" href="#">Написать в MAX</a>
+      <a class="btn btn-line" href="tel:+70000000000">+7 (000) 000-00-00</a>
     </div>
-    <small>Калининград · офлайн и онлайн</small>
+    <div class="sign"><img src="assets/olga.jpg" alt="" width="44" height="44"><span>Отвечаю сама,<br>обычно в течение дня</span></div>
   </div>
 </section>
+</main>
 
-<footer><div class="wrap"><span>© 2026 Ольга — психолог</span><span>Семейный · Парный · Индивидуальный</span></div></footer>
+<footer>
+  <div class="wrap">
+    <div class="warn"><b>Я не оказываю экстренную помощь.</b> Если вам или кому-то рядом угрожает опасность, звоните 112.</div>
+    <div>© 2026 Ольга, психолог · Калининград</div>
+  </div>
+</footer>
+
+<nav class="dock" id="dock" aria-label="Быстрая запись">
+  <a href="#contact">Записаться</a>
+  <a href="#formats">Форматы</a>
+</nav>
 
 <script>
-const nav=document.getElementById('nav');
-addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>30),{passive:true});
-const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.15});
-document.querySelectorAll('.rv').forEach(el=>io.observe(el));
-document.querySelectorAll('.q button').forEach(b=>b.addEventListener('click',()=>{
-  const q=b.parentElement,open=q.classList.contains('open');
-  document.querySelectorAll('.q').forEach(x=>x.classList.remove('open'));
-  if(!open)q.classList.add('open');
-}));
+(() => {
+  // Время и «небо» в Калининграде
+  const hero = document.getElementById('hero'), t = document.getElementById('kgdTime');
+  const fmt = new Intl.DateTimeFormat('ru-RU',{timeZone:'Europe/Kaliningrad',hour:'2-digit',minute:'2-digit'});
+  const force = new URLSearchParams(location.search).get('phase');
+  function tick(){
+    const s = fmt.format(new Date()); t.textContent = s; t.setAttribute('datetime', s);
+    const h = +s.slice(0,2);
+    hero.dataset.phase = force || (h>=22||h<5 ? 'night' : h<10 ? 'morning' : h<17 ? 'day' : 'evening');
+    document.getElementById('top').classList.toggle('night', hero.dataset.phase==='night');
+  }
+  tick(); setInterval(tick, 30000);
+
+  // Шапка и мобильная кнопка
+  const top = document.getElementById('top'), dock = document.getElementById('dock'), fin = document.getElementById('contact');
+  const onScroll = () => {
+    top.classList.toggle('solid', scrollY > 40);
+    const r = fin.getBoundingClientRect();
+    dock.classList.toggle('show', scrollY > innerHeight*.8 && r.top > innerHeight);
+  };
+  addEventListener('scroll', onScroll, {passive:true}); onScroll();
+
+  // Появление
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting){ e.target.classList.add('on'); io.unobserve(e.target); } }), {threshold:.12, rootMargin:'0px 0px -40px'});
+  document.querySelectorAll('.rv').forEach(el => io.observe(el));
+
+  // Переключатель форматов
+  const tabs = [...document.querySelectorAll('[role=tab]')], pill = document.querySelector('.switch .pill');
+  function place(b){ pill.style.width = b.offsetWidth+'px'; pill.style.transform = `translateX(${b.offsetLeft}px)`; }
+  function select(b){
+    tabs.forEach(x => { const on = x===b; x.setAttribute('aria-selected',on); x.tabIndex = on?0:-1;
+      const p = document.getElementById(x.getAttribute('aria-controls')); p.hidden = !on; if(on){ p.classList.remove('in'); void p.offsetWidth; p.classList.add('in'); } });
+    place(b);
+  }
+  tabs.forEach((b,i) => {
+    b.addEventListener('click', () => select(b));
+    b.addEventListener('keydown', e => { const d = e.key==='ArrowRight'?1:e.key==='ArrowLeft'?-1:0; if(d){ const n = tabs[(i+d+tabs.length)%tabs.length]; select(n); n.focus(); } });
+  });
+  const sync = () => place(tabs.find(b => b.getAttribute('aria-selected')==='true'));
+  addEventListener('resize', sync); document.fonts && document.fonts.ready.then(sync); sync();
+
+  // Вопросы
+  document.querySelectorAll('.q button').forEach(b => b.addEventListener('click', () => {
+    const q = b.parentElement, open = q.hasAttribute('data-open');
+    document.querySelectorAll('.q').forEach(x => { x.removeAttribute('data-open'); x.querySelector('button').setAttribute('aria-expanded','false'); });
+    if (!open){ q.setAttribute('data-open',''); b.setAttribute('aria-expanded','true'); }
+  }));
+})();
 </script>
 </body>
 </html>
