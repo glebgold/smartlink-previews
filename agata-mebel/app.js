@@ -54,32 +54,7 @@
   const observe = (els) => els.forEach(el => io ? io.observe(el) : el.classList.add('in'));
   observe(revealables());
 
-  /* ---------- Первый экран: слайдшоу ---------- */
-  const hero = $('.hero');
-  if (hero) {
-    const imgs = $$('.hero-bg img', hero);
-    const word = $('.hero-word', hero), capT = $('.hero-caption b', hero), capM = $('.hero-caption span', hero);
-    const STYLES = ['modern', 'minimal', 'neo', 'classic'];
-    const WORDS = { classic: 'классика', neo: 'неоклассика', modern: 'современная', minimal: 'минимализм' };
-    const AUTO = 4500;
-    let cur = -1, timer = null;
-    function set(i) {
-      i = ((i % imgs.length) + imgs.length) % imgs.length;
-      if (i === cur) return;
-      const first = cur === -1; cur = i; const st = STYLES[i];
-      imgs.forEach((im, k) => im.classList.toggle('is-active', k === i));
-      if (first || reduce) { hero.dataset.style = st; word.textContent = WORDS[st]; }
-      else {
-        word.classList.add('is-out');
-        setTimeout(() => { hero.dataset.style = st; word.textContent = WORDS[st]; word.classList.remove('is-out'); }, 380);
-      }
-      if (capT) capT.textContent = imgs[i].dataset.title || '';
-      if (capM) capM.textContent = imgs[i].dataset.meta || '';
-    }
-    function play() { if (reduce) return; clearInterval(timer); timer = setInterval(() => set(cur + 1), AUTO); }
-    document.addEventListener('visibilitychange', () => { if (document.hidden) { clearInterval(timer); timer = null; } else if (!timer) play(); });
-    set(0); play();
-  }
+  /* ---------- Первый экран: одно фото, без слайдшоу ---------- */
 
   /* ---------- Направления: подсветка списка при скролле ---------- */
   const panels = $$('.dir-panel');
@@ -147,17 +122,18 @@
   /* ---------- Работы на главной: горизонтальная витрина ---------- */
   const strip = $('#strip'), track = $('#strip-track');
   if (strip && track && window.WORKS) {
-    const SETS = {
-      all:     ['k-taupe-1', 'k-grey-1', 'min-10', 'bath-marble-1', 'k-green-1', 'kids-room-1', 'k-blue-2', 'tv-marble-1', 'k-cream-1', 'min-6'],
-      classic: ['k-cream-1', 'ward-classic-1', 'k-paris-1', 'bath-paris-1', 'kids-desk-2', 'ward-glass-1', 'ward-white-1', 'ward-classic-3'],
-      neo:     ['k-taupe-1', 'k-blue-2', 'k-attic-2', 'bath-beige-1', 'k-taupe-3', 'k-woodclassic-1', 'k-blue-4', 'k-attic-1'],
-      modern:  ['k-grey-1', 'k-graphite-1', 'k-oak-1', 'k-bar-1', 'hall-wood-1', 'k-green-1', 'k-white-1', 'k-loft-1'],
-      minimal: ['min-2', 'min-10', 'min-6', 'min-1', 'min-8', 'min-4', 'bath-black-1', 'min-12']
+    const CURATED = ['neo-k-1','hotel-loft-2','shop-info-3','k-taupe-1','bath-marble-1','kids-room-1','min-10','shop-flow-1','neo-dress-1','k-green-1','hotel-a-1','k-grey-1'];
+    const photosFor = (cat) => {
+      if (cat === 'all') return CURATED;
+      const out = [];
+      (window.WORKS || []).filter(w => w.type.indexOf(cat) !== -1)
+        .forEach(w => w.photos.slice(0, 2).forEach(p => out.push(p)));
+      return out.slice(0, 14);
     };
     const POS = { 'k-grey-1': '40% 50%', 'k-green-1': '50% 60%', 'kids-room-1': '60% 50%' };
     const progress = $('.strip-progress i');
     function render(key) {
-      const set = SETS[key] || SETS.all;
+      const set = photosFor(key);
       track.innerHTML = set.map(p => {
         const w = byPhoto[p]; if (!w) return '';
         const st = window.AGATA_STYLES[w.style] || '';
@@ -199,12 +175,12 @@
       strip.scrollBy({ left: step * +b.dataset.dir, behavior: reduce ? 'auto' : 'smooth' });
     }));
     const setTab = (key) => {
-      const t = $$('.tabs .tab').find(x => x.dataset.style === key) || $$('.tabs .tab')[0];
+      const t = $$('.tabs .tab').find(x => x.dataset.cat === key) || $$('.tabs .tab')[0];
       if (!t || t.classList.contains('is-active')) return;
       $$('.tabs .tab').forEach(x => x.classList.toggle('is-active', x === t));
-      render(t.dataset.style);
+      render(t.dataset.cat);
     };
-    $$('.tabs .tab').forEach(t => t.addEventListener('click', () => setTab(t.dataset.style)));
+    $$('.tabs .tab').forEach(t => t.addEventListener('click', () => setTab(t.dataset.cat)));
     render('all');
   }
 
@@ -261,7 +237,7 @@
       if (agree && !agree.checked) { ok = false; msg.className = 'form-msg err'; msg.textContent = 'Поставьте галочку согласия на обработку данных.'; }
       if (!ok) { if (!msg.textContent) { msg.className = 'form-msg err'; msg.textContent = 'Проверьте имя и номер телефона.'; } return; }
       const fd = new FormData(form); fd.append('page', location.href);
-      /* Демо-показ на GitHub Pages: сервера нет, показываем подтверждение на месте */
+      /* Демо-показ: сервера нет, подтверждаем на месте */
       if (/github\.io$/.test(location.hostname) || location.protocol === 'file:') {
         form.classList.add('is-sent');
         msg.className = 'form-msg ok';

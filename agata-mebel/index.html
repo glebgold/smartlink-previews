@@ -20,8 +20,8 @@
 <meta name="theme-color" content="#F7F4EF">
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/manrope-300-cyrillic.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/inter-400-cyrillic.woff2" crossorigin>
-<link rel="preload" as="image" href="assets/img/k-grey-1-xl.webp">
-<link rel="stylesheet" href="styles.css?v=10">
+<link rel="preload" as="image" href="assets/img/neo-k-1-xl.webp">
+<link rel="stylesheet" href="styles.css?v=11">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -53,22 +53,18 @@
 </head>
 <body id="top">
 
-<div class="loader" aria-hidden="true"><img src="assets/brand/logo-mono-light.png" alt=""><div class="loader-bar"><i></i></div></div>
-<div class="grain" aria-hidden="true"></div>
-
 <header class="hdr">
   <div class="container hdr-in">
     <a class="logo" href="index.html" aria-label="Агата Мебель — на главную">
-      <img class="logo-dark" src="assets/brand/logo-onlight.png" alt="Агата Мебель" width="304" height="143">
-      <img class="logo-light" src="assets/brand/logo-light.png" alt="" aria-hidden="true" width="304" height="143">
+      <img src="assets/brand/logo-onlight.png" alt="Агата Мебель" width="304" height="143">
     </a>
     <nav class="nav" aria-label="Главное меню">
-      <a href="#cats">Направления</a>
+      <a href="#about">О компании</a>
+      <a href="#catalog">Каталог</a>
       <a href="#works">Работы</a>
       <a href="#stone">Камень</a>
       <a href="offers.html">Предложения</a>
-      <a href="calculator.html">Стоимость</a>
-      <a href="#salon">Салон</a>
+      <a href="#services">Услуги</a>
       <a href="contacts.html">Контакты</a>
     </nav>
     <div class="hdr-right">
@@ -80,88 +76,307 @@
 </header>
 
 <div class="mnav" id="mnav">
-  <a class="big" href="#cats">Направления</a>
-  <a class="big" href="#works">Работы</a>
-  <a class="big" href="#stone">Камень</a>
+  <a class="big" href="#about">О компании</a>
+  <a class="big" href="#catalog">Каталог</a>
+  <a class="big" href="#works">Наши работы</a>
+  <a class="big" href="#stone">Изделия из камня</a>
   <a class="big" href="offers.html">Предложения</a>
-  <a class="big" href="calculator.html">Стоимость</a>
-  <a class="big" href="#salon">Салон</a>
+  <a class="big" href="#services">Услуги</a>
+  <a class="big" href="#reviews">Отзывы</a>
   <a class="big" href="contacts.html">Контакты</a>
   <div class="mnav-contacts">
-    <a class="btn btn-primary" href="calculator.html" style="margin-bottom:6px">Рассчитать стоимость
+    <a class="btn btn-primary" href="calculator.html">Рассчитать стоимость
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
     <a href="tel:+79062384950">+7 (906) 238-49-50 <small>· Telegram, WhatsApp</small></a>
     <a href="mailto:agatamebel39@mail.ru">agatamebel39@mail.ru</a>
-    <p style="margin:6px 0 0;font-size:14px;color:var(--mute)">Советский проспект, 125 · ТЦ «Балтламинат», 3 этаж<br>Ежедневно 10:00–19:00</p>
+    <small>Советский проспект, 125 · ТЦ «Балтламинат», 3 этаж<br>Ежедневно 10:00–19:00</small>
   </div>
 </div>
 
 <main>
 
-<!-- ===== Первый экран ===== -->
-<section class="hero" data-style="modern">
+<section class="hero" data-style="neo">
   <div class="hero-copy">
     <div class="hero-inner">
       <p class="hero-top">Мебель на заказ · Калининград · салон в ТЦ «Балтламинат»</p>
-      <h1 class="sp"><span class="ln"><span>Мебель под </span></span><span class="ln"><span>ваш характер</span></span>
-        <span class="hero-word-wrap"><span class="hero-word">современная</span></span>
-      </h1>
-      <p class="lead rv rv-d2">Кухни, шкафы и&nbsp;гардеробные, детские, ванные и&nbsp;изделия из&nbsp;камня. Дизайнер, производство, монтаж&nbsp;— одной командой.</p>
+      <h1 class="sp"><span class="ln"><span>Мебель под </span></span><span class="ln"><span>ваш характер</span></span></h1>
+      <p class="lead rv rv-d2">Кухни, шкафы и&nbsp;гардеробные, детские, мебель для&nbsp;ванной, изделия из&nbsp;камня. Квартиры, гостиницы и&nbsp;магазины&nbsp;— от&nbsp;замера до&nbsp;монтажа.</p>
       <div class="hero-cta rv rv-d3">
         <a class="btn btn-primary" href="calculator.html">Рассчитать стоимость
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-        <a class="btn btn-ghost" href="#works">Смотреть работы</a>
+        <a class="btn btn-ghost" href="#lead">Заявка на замер</a>
       </div>
-      <div class="hero-foot rv rv-d4">
-        <div class="hero-caption"><b>Серая глянцевая кухня с витриной</b><span>Современная · кухня</span></div>
-        <div class="scroll-hint"><span>Листайте</span><i></i></div>
+      <div class="hero-mini rv rv-d4">
+        <button class="mini" type="button" data-work="neo-apt" data-index="6">
+          <span class="mini-img"><img src="assets/img/neo-wc-1-thumb.webp" alt="Санузел с лепниной" width="281" height="500" loading="lazy"></span>
+          <span class="mini-name">Санузел</span>
+        </button>
+        <button class="mini" type="button" data-work="ward-classic" data-index="0">
+          <span class="mini-img"><img src="assets/img/ward-classic-1-thumb.webp" alt="Белый шкаф с лепным декором" width="281" height="500" loading="lazy"></span>
+          <span class="mini-name">Шкаф</span>
+        </button>
+        <button class="mini" type="button" data-work="neo-apt" data-index="7">
+          <span class="mini-img"><img src="assets/img/neo-dress-1-thumb.webp" alt="Гардеробная за бронзовым стеклом" width="281" height="500" loading="lazy"></span>
+          <span class="mini-name">Гардеробная</span>
+        </button>
       </div>
     </div>
   </div>
   <div class="hero-bg" id="hero-photo" aria-hidden="true">
-    <img class="is-active" src="assets/img/k-grey-1-xl.webp" srcset="assets/img/k-grey-1-800.webp 800w, assets/img/k-grey-1-xl.webp 1600w" sizes="100vw" alt="" style="object-position:42% 50%" fetchpriority="high" data-title="Серая глянцевая кухня с витриной" data-meta="Современная · кухня">
-    <img src="assets/img/min-2-xl.webp" srcset="assets/img/min-2-800.webp 800w, assets/img/min-2-xl.webp 1600w" sizes="100vw" alt="" style="object-position:50% 50%" loading="lazy" data-title="Апартаменты в минимализме" data-meta="Минимализм · гостиная">
-    <img src="assets/img/k-taupe-1-xl.webp" srcset="assets/img/k-taupe-1-800.webp 800w, assets/img/k-taupe-1-xl.webp 1600w" sizes="100vw" alt="" style="object-position:50% 50%" loading="lazy" data-title="Кухня в тауповом глянце с латунью" data-meta="Неоклассика · кухня">
-    <img src="assets/img/k-cream-1-xl.webp" srcset="assets/img/k-cream-1-800.webp 800w, assets/img/k-cream-1-xl.webp 1600w" sizes="100vw" alt="" style="object-position:50% 58%" loading="lazy" data-title="Кремовая кухня с патиной" data-meta="Классика · кухня">
+    <img class="is-active" src="assets/img/neo-k-1-xl.webp" srcset="assets/img/neo-k-1-800.webp 800w, assets/img/neo-k-1-xl.webp 1200w" sizes="(max-width:1000px) 100vw, 48vw" alt="" style="object-position:50% 50%" fetchpriority="high" data-title="Белая кухня с островом из слэба" data-meta="Неоклассика · кухня">
   </div>
 </section>
 
-<div class="marquee" aria-hidden="true">
-  <div class="marquee-track">
-    <span>Кухни</span><span>Шкафы и гардеробные</span><span>Детские</span><span>Мебель для ванной</span><span>Гостиные и прихожие</span><span>Изделия из камня</span><span>Дизайн-проект и 3D</span><span>Монтаж своей бригадой</span>
-    <span>Кухни</span><span>Шкафы и гардеробные</span><span>Детские</span><span>Мебель для ванной</span><span>Гостиные и прихожие</span><span>Изделия из камня</span><span>Дизайн-проект и 3D</span><span>Монтаж своей бригадой</span>
+<!-- ===== О компании ===== -->
+<section class="section" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div>
+        <p class="eyebrow rv">О компании</p>
+        <h2 class="sp"><span class="ln"><span>Мастерская </span></span><span class="ln"><span><em>полного цикла</em></span></span></h2>
+      </div>
+      <div class="about-text rv rv-d1">
+        <p>«Агата Мебель»&nbsp;— мебель на&nbsp;заказ в&nbsp;Калининграде. Делаем кухни, шкафы и&nbsp;гардеробные, детские, мебель для&nbsp;ванной, гостиные и&nbsp;прихожие, изделия из&nbsp;камня.</p>
+        <p>Работаем и&nbsp;с&nbsp;частными заказчиками, и&nbsp;с&nbsp;организациями: гостиницы и&nbsp;апарт-отели, магазины и&nbsp;торговые центры, кафе и&nbsp;офисы. Один дизайнер ведёт проект от&nbsp;замера до&nbsp;монтажа, собирает своя бригада.</p>
+        <div class="about-facts">
+          <div><b>0&nbsp;₽</b><span>замер и&nbsp;дизайн-проект с&nbsp;3D</span></div>
+          <div><b>30–45</b><span>дней на&nbsp;изготовление</span></div>
+          <div><b>24</b><span>месяца гарантии</span></div>
+        </div>
+        <a class="link" href="contacts.html">Салон в&nbsp;ТЦ «Балтламинат»
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+    </div>
   </div>
-</div>
+</section>
 
-<!-- ===== Направления ===== -->
-<section class="dirs" id="cats">
+<!-- ===== Каталог ===== -->
+<section class="dirs" id="catalog">
   <div class="container dirs-grid">
     <div class="dirs-side">
-      <p class="eyebrow rv">Что мы делаем</p>
-      <h2 class="sp"><span class="ln"><span>Шесть направлений, </span></span><span class="ln"><span><em>одна мастерская</em></span></span></h2>
+      <p class="eyebrow rv">Каталог</p>
+      <h2 class="sp"><span class="ln"><span>Что мы делаем </span></span><span class="ln"><span><em>и сколько это стоит</em></span></span></h2>
       <p class="lead rv rv-d1">Цену «от» показываем сразу, чтобы вы&nbsp;понимали порядок бюджета до&nbsp;звонка. Точная смета&nbsp;— после замера и&nbsp;проекта.</p>
-      <ol class="dirs-list rv rv-d2"><li data-i="0"><a href="portfolio.html?type=kitchen"><i>01</i><b>Кухни</b><small>от 180 000 ₽</small></a></li><li data-i="1"><a href="portfolio.html?type=wardrobe"><i>02</i><b>Шкафы и гардеробные</b><small>от 65 000 ₽</small></a></li><li data-i="2"><a href="portfolio.html?type=kids"><i>03</i><b>Детские</b><small>от 95 000 ₽</small></a></li><li data-i="3"><a href="portfolio.html?type=bath"><i>04</i><b>Мебель для ванной</b><small>от 45 000 ₽</small></a></li><li data-i="4"><a href="portfolio.html?type=living"><i>05</i><b>Гостиные и прихожие</b><small>от 55 000 ₽</small></a></li><li data-i="5"><a href="portfolio.html?type=stone"><i>06</i><b>Изделия из камня</b><small>от 12 000 ₽ / пог. м</small></a></li></ol>
+      <ol class="dirs-list rv rv-d2"><li data-i="0"><a href="portfolio.html?type=kitchen"><i>01</i><b>Кухни</b><small>от 180 000 ₽</small></a></li><li data-i="1"><a href="portfolio.html?type=wardrobe"><i>02</i><b>Шкафы и гардеробные</b><small>от 65 000 ₽</small></a></li><li data-i="2"><a href="portfolio.html?type=bath"><i>03</i><b>Мебель для ванной</b><small>от 45 000 ₽</small></a></li><li data-i="3"><a href="portfolio.html?type=kids"><i>04</i><b>Детские</b><small>от 95 000 ₽</small></a></li><li data-i="4"><a href="portfolio.html?type=living"><i>05</i><b>Гостиные и прихожие</b><small>от 55 000 ₽</small></a></li><li data-i="5"><a href="portfolio.html?type=hotel"><i>06</i><b>Гостиницы</b><small>по проекту</small></a></li><li data-i="6"><a href="portfolio.html?type=shop"><i>07</i><b>Магазины</b><small>по проекту</small></a></li><li data-i="7"><a href="portfolio.html?type=stone"><i>08</i><b>Изделия из камня</b><small>от 12 000 ₽ / пог. м</small></a></li></ol>
+      <div class="dirs-cta rv rv-d3">
+        <a class="btn btn-primary" href="calculator.html">Рассчитать стоимость
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn btn-ghost" href="#lead">Заявка на замер</a>
+      </div>
     </div>
     <div class="dirs-panels">
       <a class="dir-panel" data-i="0" href="portfolio.html?type=kitchen">
-        <img src="assets/img/k-attic-2.webp" alt="Кухни" decoding="async">
+        <img src="assets/img/neo-k-3.webp" srcset="assets/img/neo-k-3-800.webp 800w, assets/img/neo-k-3.webp 1600w" sizes="(max-width:900px) 100vw, 52vw" alt="Кухни" loading="eager" decoding="async">
         <span class="dir-cap"><b>Кухни</b><span class="dir-price">от 180 000 ₽</span><span class="dir-desc">Прямые, угловые, с островом и барной стойкой. Фасады МДФ в эмали, плёнке, шпоне и пластике.</span><span class="dir-go">Смотреть работы <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span>
       </a><a class="dir-panel" data-i="1" href="portfolio.html?type=wardrobe">
-        <img src="assets/img/ward-classic-3.webp" alt="Шкафы и гардеробные" decoding="async">
+        <img src="assets/img/ward-classic-3.webp" srcset="assets/img/ward-classic-3-800.webp 800w, assets/img/ward-classic-3.webp 1600w" sizes="(max-width:900px) 100vw, 52vw" alt="Шкафы и гардеробные" loading="eager" decoding="async">
         <span class="dir-cap"><b>Шкафы и гардеробные</b><span class="dir-price">от 65 000 ₽</span><span class="dir-desc">Распашные, купе, встроенные в нишу и гардеробные комнаты. Наполнение — под ваши вещи.</span><span class="dir-go">Смотреть работы <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span>
-      </a><a class="dir-panel" data-i="2" href="portfolio.html?type=kids">
-        <img src="assets/img/kids-desk-2.webp" alt="Детские" decoding="async">
-        <span class="dir-cap"><b>Детские</b><span class="dir-price">от 95 000 ₽</span><span class="dir-desc">Кровати, столы, стеллажи и шкафы, которые растут вместе с ребёнком. Безопасные материалы, скруглённые углы.</span><span class="dir-go">Смотреть работы <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span>
-      </a><a class="dir-panel" data-i="3" href="portfolio.html?type=bath">
-        <img src="assets/img/bath-marble-1.webp" alt="Мебель для ванной" decoding="async">
+      </a><a class="dir-panel" data-i="2" href="portfolio.html?type=bath">
+        <img src="assets/img/neo-bath-1.webp" srcset="assets/img/neo-bath-1-800.webp 800w, assets/img/neo-bath-1.webp 1600w" sizes="(max-width:900px) 100vw, 52vw" alt="Мебель для ванной" loading="lazy" decoding="async">
         <span class="dir-cap"><b>Мебель для ванной</b><span class="dir-price">от 45 000 ₽</span><span class="dir-desc">Тумбы, пеналы и зеркала из влагостойких материалов, столешницы из камня под ваши раковины.</span><span class="dir-go">Смотреть работы <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span>
+      </a><a class="dir-panel" data-i="3" href="portfolio.html?type=kids">
+        <img src="assets/img/kids-room-1.webp" srcset="assets/img/kids-room-1-800.webp 800w, assets/img/kids-room-1.webp 1600w" sizes="(max-width:900px) 100vw, 52vw" alt="Детские" loading="lazy" decoding="async">
+        <span class="dir-cap"><b>Детские</b><span class="dir-price">от 95 000 ₽</span><span class="dir-desc">Кровати, столы, стеллажи и шкафы, которые растут вместе с ребёнком. Безопасные материалы.</span><span class="dir-go">Смотреть работы <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span>
       </a><a class="dir-panel" data-i="4" href="portfolio.html?type=living">
-        <img src="assets/img/hall-wood-1.webp" alt="Гостиные и прихожие" decoding="async">
-        <span class="dir-cap"><b>Гостиные и прихожие</b><span class="dir-price">от 55 000 ₽</span><span class="dir-desc">ТВ-зоны, стеллажи, шкафы до потолка и стеновые панели из шпона.</span><span class="dir-go">Смотреть работы <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span>
-      </a><a class="dir-panel" data-i="5" href="portfolio.html?type=stone">
-        <img src="assets/img/k-oakblack-1.webp" alt="Изделия из камня" decoding="async">
+        <img src="assets/img/neo-panel-1.webp" srcset="assets/img/neo-panel-1-800.webp 800w, assets/img/neo-panel-1.webp 1600w" sizes="(max-width:900px) 100vw, 52vw" alt="Гостиные и прихожие" loading="lazy" decoding="async">
+        <span class="dir-cap"><b>Гостиные и прихожие</b><span class="dir-price">от 55 000 ₽</span><span class="dir-desc">ТВ-зоны, стеллажи, шкафы до потолка и стеновые панели с лепным декором или из шпона.</span><span class="dir-go">Смотреть работы <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span>
+      </a><a class="dir-panel" data-i="5" href="portfolio.html?type=hotel">
+        <img src="assets/img/hotel-loft-2.webp" srcset="assets/img/hotel-loft-2-800.webp 800w, assets/img/hotel-loft-2.webp 1600w" sizes="(max-width:900px) 100vw, 52vw" alt="Гостиницы" loading="lazy" decoding="async">
+        <span class="dir-cap"><b>Гостиницы</b><span class="dir-price">по проекту</span><span class="dir-desc">Мебель в номера и общие зоны: изголовья, мини-кухни, тумбы, барные стойки. Серия по одному проекту.</span><span class="dir-go">Смотреть работы <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span>
+      </a><a class="dir-panel" data-i="6" href="portfolio.html?type=shop">
+        <img src="assets/img/shop-info-3.webp" srcset="assets/img/shop-info-3-800.webp 800w, assets/img/shop-info-3.webp 1600w" sizes="(max-width:900px) 100vw, 52vw" alt="Магазины" loading="lazy" decoding="async">
+        <span class="dir-cap"><b>Магазины</b><span class="dir-price">по проекту</span><span class="dir-desc">Витрины, прилавки, стеллажи и стойки информации. Торговое оборудование под размеры помещения.</span><span class="dir-go">Смотреть работы <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span>
+      </a><a class="dir-panel" data-i="7" href="portfolio.html?type=stone">
+        <img src="assets/img/k-oakblack-1.webp" srcset="assets/img/k-oakblack-1-800.webp 800w, assets/img/k-oakblack-1.webp 1600w" sizes="(max-width:900px) 100vw, 52vw" alt="Изделия из камня" loading="lazy" decoding="async">
         <span class="dir-cap"><b>Изделия из камня</b><span class="dir-price">от 12 000 ₽ / пог. м</span><span class="dir-desc">Столешницы, фартуки, подоконники и мойки из кварца, керамогранита и акрила.</span><span class="dir-go">Смотреть работы <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span>
       </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Наши работы ===== -->
+<section class="section works-sec" id="works">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow rv">Наши работы</p>
+        <h2 class="sp"><span class="ln"><span>Объекты, которые </span></span><span class="ln"><span><em>уже живут</em></span></span></h2>
+        <p class="lead rv rv-d1">Квартиры, гостиницы и&nbsp;магазины в&nbsp;Калининграде и&nbsp;области. Фотографии с&nbsp;объектов после монтажа, без рендеров.</p>
+      </div>
+      <a class="link rv" href="portfolio.html">Все работы
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+    <div class="tabs rv" role="tablist" aria-label="Категория работ"><button class="tab is-active" type="button" data-cat="all">Все</button><button class="tab" type="button" data-cat="kitchen">Кухни</button><button class="tab" type="button" data-cat="wardrobe">Шкафы и гардеробные</button><button class="tab" type="button" data-cat="bath">Мебель в ванную</button><button class="tab" type="button" data-cat="kids">Детские</button><button class="tab" type="button" data-cat="living">Гостиные и прихожие</button><button class="tab" type="button" data-cat="hotel">Гостиницы</button><button class="tab" type="button" data-cat="shop">Магазины</button><button class="tab" type="button" data-cat="stone">Камень</button></div>
+    <div class="strip" id="strip" aria-label="Галерея работ">
+      <div class="strip-track" id="strip-track"></div>
+    </div>
+    <div class="strip-foot">
+      <div class="strip-progress" aria-hidden="true"><i></i></div>
+      <span class="strip-hint">Листайте&nbsp;→</span>
+      <div class="strip-nav">
+        <button type="button" data-dir="-1" aria-label="Назад"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 5l-7 7 7 7"/></svg></button>
+        <button type="button" data-dir="1" aria-label="Вперёд"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 5l7 7-7 7"/></svg></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Видео с объекта ===== -->
+<section class="section section-tight video-sec" id="video">
+  <div class="container">
+    <div class="video-grid">
+      <div class="video-copy">
+        <p class="eyebrow rv">Живой объект</p>
+        <h2 class="sp"><span class="ln"><span>Апартаменты </span></span><span class="ln"><span><em>в минимализме</em></span></span></h2>
+        <p class="lead rv rv-d1">Орех с&nbsp;округлыми углами, кремовая кухня со&nbsp;скульптурной столешницей, изголовье кровати, встроенные шкафы и&nbsp;панели в&nbsp;коридоре. Снято на&nbsp;объекте после монтажа.</p>
+        <button class="btn btn-ghost rv rv-d3" type="button" data-work="min">Смотреть проект
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+      </div>
+      <div class="video-frame rv rv-d1">
+        <span class="video-tag"><i></i>С объекта</span>
+        <video src="assets/video/walk.mp4" poster="assets/video/walk-poster.jpg" muted loop playsinline preload="metadata" data-autoplay aria-label="Видео с объекта: апартаменты в минимализме"></video>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Мебель под ваш характер: стили ===== -->
+<section class="section styles-sec" id="styles">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow rv">Стили</p>
+        <h2 class="sp"><span class="ln"><span>Мебель под </span></span><span class="ln"><span><em>ваш характер</em></span></span></h2>
+        <p class="lead rv rv-d1">Один уровень исполнения в&nbsp;любом стиле. Подскажем, что подойдёт вашей квартире, и&nbsp;покажем похожие работы.</p>
+      </div>
+    </div>
+    <ol class="style-list">
+      <li class="rv"><i>01</i><div><b>Классика</b><p>Фрезерованные фасады, патина, пилястры и&nbsp;витрины. Лепной декор на&nbsp;стеновых панелях.</p></div><a class="link" href="portfolio.html?style=classic">Работы<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
+      <li class="rv rv-d1"><i>02</i><div><b>Неоклассика</b><p>Сдержанная фрезеровка, рифление, латунь и&nbsp;стекло. Спокойные тауповые и&nbsp;кремовые тона.</p></div><a class="link" href="portfolio.html?style=neo">Работы<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
+      <li class="rv rv-d2"><i>03</i><div><b>Современная</b><p>Гладкие фасады без ручек, эмаль и&nbsp;матовые плёнки, встроенная техника, линейная подсветка.</p></div><a class="link" href="portfolio.html?style=modern">Работы<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
+      <li class="rv rv-d3"><i>04</i><div><b>Минимализм</b><p>Шпон ореха и&nbsp;дуба, мягкие углы, скрытые ручки, ничего лишнего в&nbsp;линиях.</p></div><a class="link" href="portfolio.html?style=minimal">Работы<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ===== Изделия из камня ===== -->
+<section class="stone-sec" id="stone">
+  <div class="stone-grid">
+    <div class="stone-copy">
+      <p class="eyebrow rv">Изделия из камня</p>
+      <h2 class="sp"><span class="ln"><span>Камень —</span></span><span class="ln"><span><em>в имени и в деле</em></span></span></h2>
+      <p class="lead rv rv-d1">Столешницы, фартуки, подоконники, мойки и&nbsp;столы. Делаем сами&nbsp;— под размеры вашей кухни, с&nbsp;вырезами под технику и&nbsp;точной подгонкой на&nbsp;объекте.</p>
+      <ul class="mats rv rv-d2">
+        <li><b>Кварцевый агломерат</b><span>Плотный, не&nbsp;впитывает, не&nbsp;боится горячего. Основной выбор для кухни.</span></li>
+        <li><b>Керамогранит</b><span>Большие тонкие плиты с&nbsp;рисунком мрамора, стыки почти незаметны.</span></li>
+        <li><b>Акриловый камень</b><span>Бесшовные столешницы сложной формы, интегрированные мойки.</span></li>
+        <li><b>Натуральный камень</b><span>Мрамор и&nbsp;гранит для тех, кому важен характер природного рисунка.</span></li>
+      </ul>
+      <a class="btn btn-primary rv rv-d3" href="calculator.html?type=stone">Рассчитать столешницу
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+    <div class="stone-media"><img src="assets/img/k-stone-1-xl.webp" srcset="assets/img/k-stone-1-800.webp 800w, assets/img/k-stone-1-xl.webp 1600w" sizes="(max-width:900px) 100vw, 50vw" alt="Кухня с островом из тёмного гранита" loading="lazy"></div>
+  </div>
+</section>
+
+<!-- ===== Предложения ===== -->
+<section class="section offers-sec" id="offers">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow rv">Предложения</p>
+        <h2 class="sp"><span class="ln"><span>Что действует </span></span><span class="ln"><span><em>сейчас</em></span></span></h2>
+      </div>
+      <a class="link rv" href="offers.html">Все предложения
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+    <div class="offers">
+      <div class="offer rv">
+        <img class="agate" src="assets/brand/agate.svg" alt="" aria-hidden="true">
+        <p class="eyebrow">ЖК «Лесная сказка», Светлогорск</p>
+        <div class="offer-num">10%</div>
+        <h3>Скидка новосёлам при заказе кухни</h3>
+        <p>Для жителей жилого комплекса. Назовите номер дома при обращении.</p>
+        <p class="offer-foot">Условия уточняйте у дизайнера в салоне.</p>
+      </div>
+      <div class="offer rv rv-d1">
+        <p class="eyebrow">Перед договором</p>
+        <div class="offer-num">0 ₽</div>
+        <h3>Замер и дизайн-проект</h3>
+        <p>Выезд дизайнера по&nbsp;Калининграду и&nbsp;области, планировка и&nbsp;визуализация до&nbsp;подписания договора.</p>
+        <p class="offer-foot">Проект остаётся у&nbsp;вас.</p>
+      </div>
+      <div class="offer rv rv-d2">
+        <p class="eyebrow">Оплата</p>
+        <div class="offer-num">Рассрочка</div>
+        <h3>Платёж частями</h3>
+        <p>Предоплата при подписании договора, остаток&nbsp;— после монтажа. Возможна рассрочка на&nbsp;изделие.</p>
+        <p class="offer-foot">Срок и&nbsp;условия уточняйте у&nbsp;дизайнера.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Услуги ===== -->
+<section class="section steps-sec" id="services">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow rv">Услуги</p>
+        <h2 class="sp"><span class="ln"><span>Берём на себя </span></span><span class="ln"><span><em>всю работу</em></span></span></h2>
+      </div>
+    </div>
+    <div class="services">
+      <div class="service rv"><b>Замер на объекте</b><p>Дизайнер приезжает по&nbsp;Калининграду и&nbsp;области, снимает размеры и&nbsp;проверяет коммуникации.</p></div>
+      <div class="service rv rv-d1"><b>Дизайн-проект с 3D</b><p>Планировка, фасады, цвета и&nbsp;фурнитура на&nbsp;визуализации до&nbsp;подписания договора.</p></div>
+      <div class="service rv rv-d2"><b>Изготовление</b><p>Корпус, фасады, столешницы и&nbsp;фурнитура по&nbsp;чертежам проекта.</p></div>
+      <div class="service rv rv-d3"><b>Изделия из камня</b><p>Столешницы, фартуки, подоконники и&nbsp;мойки: раскрой, вырезы под технику, подгонка на&nbsp;месте.</p></div>
+      <div class="service rv"><b>Доставка и монтаж</b><p>Привозим, собираем, подключаем технику и&nbsp;убираем за&nbsp;собой.</p></div>
+      <div class="service rv rv-d1"><b>Мебель для бизнеса</b><p>Гостиницы, магазины, кафе и&nbsp;офисы: серийные изделия по&nbsp;одному проекту, работа по&nbsp;договору с&nbsp;юрлицом.</p></div>
+    </div>
+
+    <div class="steps" style="margin-top:clamp(48px,6vw,88px)">
+      <div class="step rv"><span class="step-n">01</span><h3>Встреча и&nbsp;замер</h3><p>Приезжаем на&nbsp;объект или встречаемся в&nbsp;салоне с&nbsp;вашим планом.</p></div>
+      <div class="step rv rv-d1"><span class="step-n">02</span><h3>Проект и&nbsp;смета</h3><p>Показываем 3D и&nbsp;фиксируем стоимость в&nbsp;договоре.</p></div>
+      <div class="step rv rv-d2"><span class="step-n">03</span><h3>Производство</h3><p>30–45 дней под контролем технолога.</p></div>
+      <div class="step rv rv-d3"><span class="step-n">04</span><h3>Монтаж</h3><p>Собираем своей бригадой и&nbsp;сдаём работу.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Гарантии ===== -->
+<section class="section section-tight" id="guarantee">
+  <div class="container">
+    <div class="about-grid">
+      <div>
+        <p class="eyebrow rv">Гарантии</p>
+        <h2 class="sp"><span class="ln"><span>Отвечаем </span></span><span class="ln"><span><em>за результат</em></span></span></h2>
+      </div>
+      <div class="guar rv rv-d1">
+        <div class="guar-item"><b>24 месяца</b><span>на изделие и&nbsp;монтаж. Приедем и&nbsp;устраним, если что-то пойдёт не&nbsp;так.</span></div>
+        <div class="guar-item"><b>Договор</b><span>Стоимость, сроки и&nbsp;комплектация зафиксированы письменно до&nbsp;начала работ.</span></div>
+        <div class="guar-item"><b>Фурнитура</b><span>Петли и&nbsp;направляющие с&nbsp;доводчиками&nbsp;— по&nbsp;гарантии производителя.</span></div>
+        <div class="guar-item"><b>Материалы</b><span>Плиты и&nbsp;фасады с&nbsp;гигиеническими сертификатами, подтверждаем документами.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Отзывы ===== -->
+<section class="section section-tight" id="reviews">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow rv">Отзывы</p>
+        <h2 class="sp"><span class="ln"><span>Что говорят </span></span><span class="ln"><span><em>заказчики</em></span></span></h2>
+        <p class="lead rv rv-d1">Собираем отзывы после сдачи объектов. Свежие истории и&nbsp;фото работ выкладываем во&nbsp;ВКонтакте.</p>
+      </div>
+      <a class="link rv" href="https://vk.com/agatamebel39" target="_blank" rel="noopener">Читать во ВКонтакте
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+    <div class="reviews-cta rv rv-d1">
+      <p>Уже заказывали у&nbsp;нас мебель? Расскажите, как она служит&nbsp;— это помогает другим выбрать мастерскую.</p>
+      <a class="btn btn-ghost" href="https://vk.com/agatamebel39" target="_blank" rel="noopener">Оставить отзыв</a>
     </div>
   </div>
 </section>
@@ -187,10 +402,10 @@
       </div>
       <div class="client rv rv-d1">
         <h3>Организациям</h3>
-        <p>Отели и&nbsp;апарт-отели, рестораны и&nbsp;кафе, офисы, салоны и&nbsp;шоурумы. Серийные изделия по&nbsp;одному проекту и&nbsp;в&nbsp;одном материале.</p>
+        <p>Гостиницы и&nbsp;апарт-отели, магазины и&nbsp;торговые центры, кафе и&nbsp;офисы. Серийные изделия по&nbsp;одному проекту и&nbsp;в&nbsp;одном материале.</p>
         <ul>
           <li>Работа по&nbsp;договору с&nbsp;юридическим лицом</li>
-          <li>Мебель в&nbsp;номера, зоны ресепшен, барные и&nbsp;кухонные группы</li>
+          <li>Номера, стойки ресепшен, витрины и&nbsp;прилавки</li>
           <li>Повторные партии в&nbsp;том&nbsp;же цвете и&nbsp;фурнитуре</li>
         </ul>
       </div>
@@ -198,124 +413,17 @@
   </div>
 </section>
 
-<!-- ===== Работы ===== -->
-<section class="section works-sec" id="works">
-  <div class="container">
-    <div class="section-head">
-      <div>
-        <p class="eyebrow rv">Работы</p>
-        <h2 class="sp"><span class="ln"><span>От классики </span></span><span class="ln"><span><em>до минимализма</em></span></span></h2>
-        <p class="lead rv rv-d1">Один уровень исполнения в&nbsp;любом стиле. Выберите характер&nbsp;— и&nbsp;посмотрите, как он&nbsp;выглядит в&nbsp;готовых интерьерах.</p>
-      </div>
-      <a class="link rv" href="portfolio.html">Все работы
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-    </div>
-    <div class="tabs rv" role="tablist" aria-label="Стиль">
-      <button class="tab is-active" type="button" data-style="all">Все</button>
-      <button class="tab" type="button" data-style="classic">Классика</button>
-      <button class="tab" type="button" data-style="neo">Неоклассика</button>
-      <button class="tab" type="button" data-style="modern">Современная</button>
-      <button class="tab" type="button" data-style="minimal">Минимализм</button>
-    </div>
-    <div class="strip" id="strip" aria-label="Галерея работ">
-      <div class="strip-track" id="strip-track"></div>
-    </div>
-    <div class="strip-foot">
-      <div class="strip-progress" aria-hidden="true"><i></i></div>
-      <span class="strip-hint">Листайте&nbsp;→</span>
-      <div class="strip-nav">
-        <button type="button" data-dir="-1" aria-label="Назад"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 5l-7 7 7 7"/></svg></button>
-        <button type="button" data-dir="1" aria-label="Вперёд"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 5l7 7-7 7"/></svg></button>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== Как мы работаем ===== -->
-<section class="section steps-sec" id="process">
-  <div class="container">
-    <div class="section-head">
-      <div>
-        <p class="eyebrow rv">Как мы работаем</p>
-        <h2 class="sp"><span class="ln"><span>Четыре шага </span></span><span class="ln"><span><em>до готовой мебели</em></span></span></h2>
-      </div>
-    </div>
-    <div class="steps">
-      <div class="step rv"><span class="step-n">01</span><h3>Встреча и&nbsp;замер</h3><p>Дизайнер приезжает на&nbsp;объект, снимает размеры и&nbsp;слушает, как вы&nbsp;живёте в&nbsp;этой комнате. Или встречаемся в&nbsp;салоне с&nbsp;вашим планом.</p></div>
-      <div class="step rv rv-d1"><span class="step-n">02</span><h3>Проект и&nbsp;3D</h3><p>Планировка, фасады, цвета и&nbsp;оттенки&nbsp;— на&nbsp;визуализации до&nbsp;запуска в&nbsp;производство. Смета фиксируется в&nbsp;договоре.</p></div>
-      <div class="step rv rv-d2"><span class="step-n">03</span><h3>Производство</h3><p>Корпус, фасады, столешница и&nbsp;фурнитура изготавливаются по&nbsp;чертежам проекта под контролем технолога.</p></div>
-      <div class="step rv rv-d3"><span class="step-n">04</span><h3>Доставка и&nbsp;монтаж</h3><p>Привозим, собираем, подключаем технику и&nbsp;убираем за&nbsp;собой. Гарантия на&nbsp;изделие и&nbsp;монтаж.</p></div>
-    </div>
-    <div class="steps-foot rv">
-      <div class="fact"><b>0&nbsp;₽</b><span>замер и&nbsp;дизайн-проект</span></div>
-      <div class="fact"><b>30–45</b><span>дней&nbsp;— изготовление</span></div>
-      <div class="fact"><b>24</b><span>месяца гарантии</span></div>
-    </div>
-    <div class="principles">
-      <div class="principle rv"><h3>Дизайнер ведёт проект</h3><p>Планировка под ваши привычки, подбор цветов и&nbsp;оттенков, ответственность за&nbsp;результат до&nbsp;монтажа.</p></div>
-      <div class="principle rv rv-d1"><h3>Фурнитура, которая не&nbsp;подведёт</h3><p>Петли и&nbsp;направляющие с&nbsp;доводчиками, ящики полного выдвижения&nbsp;— приятно спустя годы.</p></div>
-      <div class="principle rv rv-d2"><h3>Эргономика</h3><p>Высоту столешницы, глубину шкафов и&nbsp;места хранения считаем под ваш рост, вещи и&nbsp;технику.</p></div>
-      <div class="principle rv rv-d3"><h3>Экологичные материалы</h3><p>Плиты и&nbsp;фасады с&nbsp;гигиеническими сертификатами. Собираем своей бригадой, убираем за&nbsp;собой.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== Камень ===== -->
-<section class="stone-sec" id="stone">
-  <div class="stone-grid">
-    <div class="stone-copy">
-      <p class="eyebrow rv">Изделия из камня</p>
-      <h2 class="sp"><span class="ln"><span>Камень —</span></span><span class="ln"><span><em>в имени и в деле</em></span></span></h2>
-      <p class="lead rv rv-d1">Столешницы, фартуки, подоконники, мойки и&nbsp;столы. Делаем сами&nbsp;— под размеры вашей кухни, с&nbsp;вырезами под технику и&nbsp;точной подгонкой на&nbsp;объекте.</p>
-      <ul class="mats rv rv-d2">
-        <li><b>Кварцевый агломерат</b><span>Плотный, не&nbsp;впитывает, не&nbsp;боится горячего. Основной выбор для кухни.</span></li>
-        <li><b>Керамогранит</b><span>Большие тонкие плиты с&nbsp;рисунком мрамора, стыки почти незаметны.</span></li>
-        <li><b>Акриловый камень</b><span>Бесшовные столешницы сложной формы, интегрированные мойки.</span></li>
-        <li><b>Натуральный камень</b><span>Мрамор и&nbsp;гранит для тех, кому важен характер природного рисунка.</span></li>
-      </ul>
-      <a class="btn btn-primary rv rv-d3" href="calculator.html?type=stone">Рассчитать столешницу
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-    </div>
-    <div class="stone-media"><img src="assets/img/k-stone-1-xl.webp" srcset="assets/img/k-stone-1-800.webp 800w, assets/img/k-stone-1-xl.webp 1600w" sizes="(max-width:900px) 100vw, 50vw" alt="Кухня с островом из тёмного гранита" loading="lazy"></div>
-  </div>
-</section>
-
-<!-- ===== Видео с объекта ===== -->
-<section class="section video-sec" id="video">
-  <div class="container">
-    <div class="video-grid">
-      <div class="video-copy">
-        <p class="eyebrow rv">Живой объект</p>
-        <h2 class="sp"><span class="ln"><span>Апартаменты </span></span><span class="ln"><span><em>в минимализме</em></span></span></h2>
-        <p class="lead rv rv-d1">Орех с&nbsp;округлыми углами, кремовая кухня со&nbsp;скульптурной столешницей, изголовье кровати, встроенные шкафы и&nbsp;панели в&nbsp;коридоре. Снято на&nbsp;объекте после монтажа&nbsp;— без рендеров.</p>
-        <div class="video-facts rv rv-d2">
-          <div><b>14 фото</b>и видео проекта</div>
-          <div><b>Кухня, шкафы, панели</b>одной командой</div>
-          <div><b>Орех и&nbsp;эмаль</b>материалы</div>
-        </div>
-        <button class="btn btn-ghost rv rv-d3" type="button" data-work="min">Смотреть проект
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
-      </div>
-      <div class="video-frame rv rv-d1">
-        <span class="video-tag"><i></i>С объекта</span>
-        <video src="assets/video/walk.mp4" poster="assets/video/walk-poster.jpg" muted loop playsinline preload="metadata" data-autoplay aria-label="Видео с объекта: апартаменты в минимализме"></video>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== Салон ===== -->
+<!-- ===== Контакты ===== -->
 <section class="section salon-sec" id="salon">
   <div class="container">
     <div class="salon-grid">
       <div>
-        <p class="eyebrow rv">Салон</p>
+        <p class="eyebrow rv">Контакты</p>
         <h2 class="sp"><span class="ln"><span>Приходите </span></span><span class="ln"><span><em>потрогать фасады</em></span></span></h2>
         <p class="lead rv rv-d1">Образцы фасадов, столешниц и&nbsp;фурнитуры&nbsp;— в&nbsp;салоне. Дизайнер на&nbsp;месте: покажет материалы и&nbsp;прикинет бюджет по&nbsp;вашему плану.</p>
         <p class="addr rv rv-d2">Советский проспект, 125<br>ТЦ&nbsp;«Балтламинат», 3&nbsp;этаж<small>Калининград · ежедневно 10:00–19:00</small></p>
         <ul class="contact-list rv rv-d2">
           <li><small>Телефон</small><a href="tel:+79062384950">+7 (906) 238-49-50</a></li>
-          <li><small>Рабочий</small><a href="tel:+79003498311">+7 (900) 349-83-11</a></li>
           <li><small>Почта</small><a href="mailto:agatamebel39@mail.ru">agatamebel39@mail.ru</a></li>
         </ul>
         <div class="salon-cta rv rv-d3">
@@ -325,10 +433,11 @@
       </div>
       <div class="promo rv rv-d1">
         <img class="agate" src="assets/brand/agate.svg" alt="" aria-hidden="true">
-        <p class="eyebrow">ЖК «Лесная сказка»</p>
-        <div class="promo-num">10%</div>
-        <p><b>Новосёлам&nbsp;— скидка на&nbsp;мебель при заказе кухни.</b> Для жителей жилого комплекса «Лесная сказка» в&nbsp;Светлогорске. Назовите номер дома при обращении.</p>
-        <p class="promo-foot">Условия акции уточняйте у&nbsp;дизайнера в&nbsp;салоне.</p>
+        <p class="eyebrow">Заявка на замер</p>
+        <div class="promo-num">0 ₽</div>
+        <p><b>Замер и&nbsp;дизайн-проект бесплатно.</b> Оставьте номер&nbsp;— дизайнер перезвонит и&nbsp;согласует удобное время выезда.</p>
+        <a class="btn btn-primary" href="#lead" style="margin-top:22px">Оставить заявку
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
     </div>
   </div>
@@ -358,7 +467,7 @@
           </div>
           <div class="field"><label for="f-type">Что интересует</label>
             <select id="f-type" name="type">
-              <option>Кухня</option><option>Шкаф или гардеробная</option><option>Детская</option><option>Мебель для ванной</option><option>Гостиная или прихожая</option><option>Изделия из камня</option><option>Квартира под ключ</option><option>Мебель для бизнеса: отель, ресторан, офис</option><option>Другое</option>
+              <option>Кухня</option><option>Шкаф или гардеробная</option><option>Детская</option><option>Мебель для ванной</option><option>Гостиная или прихожая</option><option>Изделия из камня</option><option>Квартира под ключ</option><option>Гостиница</option><option>Магазин, торговое оборудование</option><option>Мебель для бизнеса: отель, ресторан, офис</option><option>Другое</option>
             </select></div>
           <div class="field"><label for="f-msg">Комментарий <span style="color:var(--mute);font-weight:400">— не обязательно</span></label><textarea id="f-msg" name="message" placeholder="Размеры, сроки, ссылки на понравившиеся фото"></textarea></div>
           <input type="text" name="site" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true">
@@ -393,7 +502,11 @@
       <div>
         <h4>Разделы</h4>
         <ul>
+          <li><a href="index.html#about">О компании</a></li>
           <li><a href="portfolio.html">Работы</a></li>
+          <li><a href="index.html#services">Услуги</a></li>
+          <li><a href="index.html#guarantee">Гарантии</a></li>
+          <li><a href="index.html#reviews">Отзывы</a></li>
           <li><a href="offers.html">Предложения и акции</a></li>
           <li><a href="calculator.html">Рассчитать стоимость</a></li>
           <li><a href="#stone">Изделия из камня</a></li>
@@ -408,6 +521,8 @@
           <li><a href="portfolio.html?type=kids">Детские</a></li>
           <li><a href="portfolio.html?type=bath">Мебель для ванной</a></li>
           <li><a href="portfolio.html?type=living">Гостиные и прихожие</a></li>
+          <li><a href="portfolio.html?type=hotel">Гостиницы</a></li>
+          <li><a href="portfolio.html?type=shop">Магазины</a></li>
         </ul>
       </div>
       <div>
@@ -415,7 +530,6 @@
         <ul>
           <li>Калининград, Советский пр., 125<br>ТЦ «Балтламинат», 3 этаж</li>
           <li><a href="tel:+79062384950">+7 (906) 238-49-50</a></li>
-          <li><a href="tel:+79003498311">+7 (900) 349-83-11</a></li>
           <li><a href="mailto:agatamebel39@mail.ru">agatamebel39@mail.ru</a></li>
           <li><a href="https://vk.com/agatamebel39" target="_blank" rel="noopener">vk.com/agatamebel39</a></li>
         </ul>
@@ -428,8 +542,8 @@
   </div>
 </footer>
 
-<script src="works.js?v=5"></script>
+<script src="works.js?v=11"></script>
 <script src="analytics.js?v=1"></script>
-<script src="app.js?v=7"></script>
+<script src="app.js?v=11"></script>
 </body>
 </html>

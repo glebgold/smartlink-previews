@@ -614,3 +614,60 @@ body.mbar-on{ padding-bottom:76px }
   .link{ padding-top:10px; padding-bottom:10px }
   .ftr ul a{ display:inline-block; padding:3px 0 }
 }
+
+/* ---------- Мини-фото в первом экране ---------- */
+.hero-mini{ display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:12px; margin-top:clamp(28px, 4vh, 44px); max-width:420px }
+.mini{ display:block; text-align:left; width:100%; cursor:pointer }
+.mini-img{ display:block; aspect-ratio:3/4; overflow:hidden; border-radius:var(--r); background:var(--bg-3) }
+.mini-img img{ width:100%; height:100%; object-fit:cover; transition:transform 1.2s var(--ease), filter .4s; filter:brightness(.97) }
+.mini:hover .mini-img img{ transform:scale(1.05); filter:brightness(1) }
+.mini-name{ display:block; margin-top:9px; font:500 10.5px/1 var(--f-body); letter-spacing:.14em; text-transform:uppercase; color:var(--text-2) }
+.mini:hover .mini-name{ color:var(--text) }
+@media (max-width:1000px){ .hero-mini{ max-width:none; margin-top:26px } }
+@media (max-width:420px){ .mini-name{ font-size:9.5px; letter-spacing:.06em } }
+
+/* ---------- О компании и гарантии ---------- */
+.about-grid{ display:grid; grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr); gap:clamp(32px, 5vw, 96px); align-items:start }
+.about-text p{ font-size:clamp(16px, 1.2vw, 18px); line-height:1.6; color:var(--text-2); max-width:56ch }
+.about-facts{ display:flex; flex-wrap:wrap; gap:20px 56px; margin:clamp(28px, 3vw, 42px) 0; padding-top:26px; border-top:1px solid var(--line) }
+.about-facts div{ display:flex; align-items:baseline; gap:12px }
+.about-facts b{ font-family:var(--f-display); font-weight:200; font-size:clamp(30px, 2.8vw, 44px); letter-spacing:-.04em; color:var(--text) }
+.about-facts span{ font-size:13.5px; color:var(--text-2); max-width:18ch; line-height:1.3 }
+.guar{ display:grid; grid-template-columns:1fr 1fr; gap:clamp(18px, 2vw, 30px) }
+.guar-item{ padding:22px 24px; border:1px solid var(--line); border-radius:var(--r); background:var(--bg-3) }
+.guar-item b{ display:block; font-family:var(--f-display); font-weight:400; font-size:clamp(19px, 1.6vw, 23px); letter-spacing:-.02em; margin-bottom:8px; color:var(--beige) }
+.guar-item span{ font-size:14.5px; color:var(--text-2); line-height:1.5 }
+@media (max-width:860px){ .about-grid{ grid-template-columns:1fr; gap:28px } .guar{ grid-template-columns:1fr } }
+
+/* ---------- Кнопки в каталоге ---------- */
+.dirs-cta{ display:flex; flex-wrap:wrap; gap:12px; margin-top:clamp(26px, 3vw, 38px) }
+@media (max-width:900px){ .dirs-cta{ margin-top:22px } }
+
+/* ---------- Стили без фотографий ---------- */
+.styles-sec{ background:var(--bg-2) }
+.style-list{ list-style:none; margin:0; padding:0; border-top:1px solid var(--line-2) }
+.style-list li{ display:grid; grid-template-columns:64px minmax(0,1fr) auto; align-items:center; gap:clamp(16px, 3vw, 48px); padding:clamp(22px, 2.6vw, 34px) 0; border-bottom:1px solid var(--line) }
+.style-list i{ font:500 11px/1 var(--f-body); letter-spacing:.2em; font-style:normal; color:var(--sage) }
+.style-list b{ display:block; font-family:var(--f-display); font-weight:300; font-size:clamp(26px, 2.8vw, 42px); letter-spacing:-.03em; line-height:1.1 }
+.style-list p{ margin:8px 0 0; font-size:15px; color:var(--text-2); line-height:1.5; max-width:62ch }
+.style-list .link{ white-space:nowrap }
+@media (max-width:760px){
+  .style-list li{ grid-template-columns:44px minmax(0,1fr); gap:12px 14px; padding:20px 0 }
+  .style-list .link{ grid-column:2; justify-self:start; margin-top:12px }
+}
+
+/* ---------- Услуги ---------- */
+.services{ display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:clamp(20px, 2.4vw, 36px) }
+.service{ padding-top:22px; border-top:1px solid var(--line-2); position:relative }
+.service::before{ content:""; position:absolute; left:0; top:-1px; width:40px; height:1px; background:var(--sage) }
+.service b{ display:block; font-family:var(--f-display); font-weight:400; font-size:clamp(19px, 1.6vw, 23px); letter-spacing:-.02em; margin-bottom:10px }
+.service p{ margin:0; font-size:14.5px; color:var(--text-2); line-height:1.55 }
+@media (max-width:900px){ .services{ grid-template-columns:1fr 1fr } }
+@media (max-width:560px){ .services{ grid-template-columns:1fr; gap:24px } }
+
+/* ---------- Отзывы ---------- */
+.reviews-cta{ display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:20px 32px; padding:clamp(24px, 3vw, 40px); border:1px solid var(--line); border-radius:8px; background:var(--bg-3) }
+.reviews-cta p{ margin:0; font-size:16px; color:var(--text-2); max-width:52ch }
+
+/* ---------- Предложения на главной ---------- */
+.offers-sec{ background:var(--bg-2) }
