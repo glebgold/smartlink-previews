@@ -1,37 +1,41 @@
 /* ==========================================================
-   Бриз 39 — общий скрипт сайта
+   Проф Кондиционеры — общий скрипт сайта
    ========================================================== */
 
 // ---- Настройки: поменяйте на реальные данные клиента ----
 const CONFIG = {
-  phone: '+79000000000',            // для tel: ссылок
-  phoneView: '+7 (900) 000-00-00',  // как показывать
-  whatsapp: '79000000000',          // номер для WhatsApp без +
-  telegram: 'briz39',               // username в Telegram без @
+  phone: '+79062132200',            // основной (Сергей)
+  phoneView: '+7 (906) 213-22-00',
+  phone2: '+74012694857',           // городской
+  phone2View: '+7 (4012) 69-48-57',
+  whatsapp: '79062132200',          // WhatsApp без +
+  telegram: '+79062132200',         // Telegram по номеру (t.me/+7...)
 };
 
 // Стоимость стандартного монтажа по классу (₽)
-const INSTALL = { '07': 12000, '09': 12000, '12': 14000, '18': 17000, '24': 20000 };
+const INSTALL = { '07': 14000, '08': 14000, '09': 14000, '10': 14000, '12': 16000, '18': 19000, '24': 22000 };
+// Группа мощности для фильтров и калькулятора
+const GRP = { '07': '07', '08': '09', '09': '09', '10': '09', '12': '12', '18': '18', '24': '24' };
 
 /* ---------- Каталог ---------- */
 const PRODUCTS = [
-  { id: 'ballu-edge-07', brand: 'Ballu', name: 'Olympio Edge', cls: '07', area: 20, inv: false, wifi: false, heat: -7, noise: 26, color: 'white', price: 21900, tags: ['Бюджет'] },
-  { id: 'royal-gloria-07', brand: 'Royal Clima', name: 'Gloria Inverter', cls: '07', area: 20, inv: true, wifi: false, heat: -15, noise: 22, color: 'white', price: 27900, tags: [] },
-  { id: 'aux-qlight-09', brand: 'AUX', name: 'Q Light Inverter', cls: '09', area: 25, inv: true, wifi: true, heat: -15, noise: 22, color: 'white', price: 30900, tags: [] },
-  { id: 'hisense-zoom-07', brand: 'Hisense', name: 'Zoom DC Inverter', cls: '07', area: 20, inv: true, wifi: false, heat: -15, noise: 21, color: 'white', price: 31900, tags: ['Хит'] },
-  { id: 'hisense-zoom-09', brand: 'Hisense', name: 'Zoom DC Inverter', cls: '09', area: 25, inv: true, wifi: false, heat: -15, noise: 22, color: 'white', price: 35900, tags: ['Хит'] },
-  { id: 'gree-pular-09', brand: 'Gree', name: 'Pular Inverter', cls: '09', area: 25, inv: true, wifi: true, heat: -20, noise: 22, color: 'white', price: 37900, tags: ['Хит'] },
-  { id: 'ballu-igreen-09', brand: 'Ballu', name: 'iGreen Pro DC', cls: '09', area: 25, inv: true, wifi: true, heat: -20, noise: 21, color: 'white', price: 38900, tags: [] },
-  { id: 'electrolux-skandi-09', brand: 'Electrolux', name: 'Skandi DC Inverter', cls: '09', area: 25, inv: true, wifi: true, heat: -20, noise: 21, color: 'white', price: 41900, tags: [] },
-  { id: 'hisense-zoom-12', brand: 'Hisense', name: 'Zoom DC Inverter', cls: '12', area: 35, inv: true, wifi: false, heat: -15, noise: 24, color: 'white', price: 42900, tags: [] },
-  { id: 'gree-pular-12', brand: 'Gree', name: 'Pular Inverter', cls: '12', area: 35, inv: true, wifi: true, heat: -20, noise: 24, color: 'white', price: 45900, tags: [] },
-  { id: 'hisense-expert-09', brand: 'Hisense', name: 'Expert Smart DC', cls: '09', area: 25, inv: true, wifi: true, heat: -25, noise: 19, color: 'white', price: 46900, tags: ['Тёплый'] },
-  { id: 'electrolux-fusion-12', brand: 'Electrolux', name: 'Fusion Ultra Super DC', cls: '12', area: 35, inv: true, wifi: true, heat: -25, noise: 21, color: 'white', price: 54900, tags: ['Тёплый'] },
-  { id: 'gree-pular-18', brand: 'Gree', name: 'Pular Inverter', cls: '18', area: 50, inv: true, wifi: true, heat: -20, noise: 29, color: 'white', price: 64900, tags: [] },
-  { id: 'gree-airy-09', brand: 'Gree', name: 'Airy Inverter (чёрный)', cls: '09', area: 25, inv: true, wifi: true, heat: -25, noise: 20, color: 'black', price: 79900, tags: ['Дизайн'] },
-  { id: 'ballu-igreen-24', brand: 'Ballu', name: 'iGreen Pro DC', cls: '24', area: 70, inv: true, wifi: true, heat: -20, noise: 33, color: 'white', price: 79900, tags: [] },
-  { id: 'daikin-perfera-09', brand: 'Daikin', name: 'Perfera FTXM', cls: '09', area: 25, inv: true, wifi: true, heat: -20, noise: 19, color: 'silver', price: 119900, tags: ['Премиум'] },
-  { id: 'mitsu-ln-09', brand: 'Mitsubishi Electric', name: 'Premium Inverter MSZ-LN', cls: '09', area: 25, inv: true, wifi: true, heat: -15, noise: 19, color: 'black', price: 129900, tags: ['Премиум', 'Дизайн'] },
+  { id: 'ballu-odyssey-08', brand: 'Ballu', name: 'Odyssey Pro DC', cls: '08', area: 22, inv: true, heat: -15, noise: 18, color: 'white', price: 34090, tags: ['Хит', 'Партнёр'] },
+  { id: 'ballu-odyssey-10', brand: 'Ballu', name: 'Odyssey Pro DC', cls: '10', area: 28, inv: true, heat: -15, noise: null, color: 'white', price: 35690, tags: ['Хит', 'Партнёр'] },
+  { id: 'ballu-odyssey-12', brand: 'Ballu', name: 'Odyssey Pro DC', cls: '12', area: 35, inv: true, heat: -15, noise: null, color: 'white', price: 43590, tags: ['Партнёр'] },
+  { id: 'ballu-odyssey-18', brand: 'Ballu', name: 'Odyssey Pro DC', cls: '18', area: 50, inv: true, heat: -15, noise: null, color: 'white', price: 79290, tags: ['Партнёр'] },
+  { id: 'ballu-odyssey-24', brand: 'Ballu', name: 'Odyssey Pro DC', cls: '24', area: 70, inv: true, heat: -15, noise: null, color: 'white', price: 97090, tags: ['Партнёр'] },
+  { id: 'ballu-edge-07', brand: 'Ballu', name: 'Olympio Edge', cls: '07', area: 20, inv: false, heat: -7, noise: 26, color: 'white', price: 21900, tags: ['Бюджет'] },
+  { id: 'royal-gloria-07', brand: 'Royal Clima', name: 'Gloria Inverter', cls: '07', area: 20, inv: true, heat: -15, noise: 22, color: 'white', price: 27900, tags: [] },
+  { id: 'hisense-zoom-09', brand: 'Hisense', name: 'Zoom DC Inverter', cls: '09', area: 25, inv: true, heat: -15, noise: 22, color: 'white', price: 35900, tags: [] },
+  { id: 'gree-pular-09', brand: 'Gree', name: 'Pular Inverter', cls: '09', area: 25, inv: true, heat: -20, noise: 22, color: 'white', price: 37900, tags: [] },
+  { id: 'electrolux-skandi-09', brand: 'Electrolux', name: 'Skandi DC Inverter', cls: '09', area: 25, inv: true, heat: -20, noise: 21, color: 'white', price: 41900, tags: [] },
+  { id: 'hisense-zoom-12', brand: 'Hisense', name: 'Zoom DC Inverter', cls: '12', area: 35, inv: true, heat: -15, noise: 24, color: 'white', price: 42900, tags: [] },
+  { id: 'gree-pular-12', brand: 'Gree', name: 'Pular Inverter', cls: '12', area: 35, inv: true, heat: -20, noise: 24, color: 'white', price: 45900, tags: [] },
+  { id: 'hisense-expert-09', brand: 'Hisense', name: 'Expert Smart DC', cls: '09', area: 25, inv: true, heat: -25, noise: 19, color: 'white', price: 46900, tags: ['Тёплый'] },
+  { id: 'electrolux-fusion-12', brand: 'Electrolux', name: 'Fusion Ultra Super DC', cls: '12', area: 35, inv: true, heat: -25, noise: 21, color: 'white', price: 54900, tags: ['Тёплый'] },
+  { id: 'gree-airy-09', brand: 'Gree', name: 'Airy Inverter (шампань)', cls: '09', area: 25, inv: true, heat: -25, noise: 20, color: 'silver', price: 79900, tags: ['Дизайн'] },
+  { id: 'daikin-perfera-09', brand: 'Daikin', name: 'Perfera FTXM', cls: '09', area: 25, inv: true, heat: -20, noise: 19, color: 'silver', price: 119900, tags: ['Премиум'] },
+  { id: 'mitsu-ln-09', brand: 'Mitsubishi Electric', name: 'Premium Inverter MSZ-LN', cls: '09', area: 25, inv: true, heat: -15, noise: 19, color: 'black', price: 129900, tags: ['Премиум', 'Дизайн'] },
 ];
 
 const $ = (s, r = document) => r.querySelector(s);
@@ -43,6 +47,7 @@ function applyContacts() {
   $$('[data-phone]').forEach(a => { a.href = 'tel:' + CONFIG.phone; if (!a.dataset.keep) a.textContent = CONFIG.phoneView; });
   $$('[data-wa]').forEach(a => { a.href = 'https://wa.me/' + CONFIG.whatsapp; a.target = '_blank'; a.rel = 'noopener'; });
   $$('[data-tg]').forEach(a => { a.href = 'https://t.me/' + CONFIG.telegram; a.target = '_blank'; a.rel = 'noopener'; });
+  $$('[data-phone2]').forEach(a => { a.href = 'tel:' + CONFIG.phone2; });
 }
 
 /* ---------- Шапка / меню ---------- */
@@ -71,7 +76,7 @@ function initThermo() {
   let temp = 22, mode = 'cold';
   const out = $('.thermo-temp span', t), note = $('.thermo-note', t);
   const notes = {
-    cold: 'Июль, +29° на улице. Инвертор держит 22° тихо — 21 дБ, как шёпот.',
+    cold: 'Июль, +29° на улице. Инвертор держит 22° тихо — от 18 дБ, тише шёпота.',
     heat: 'Ноябрь, +3° и ветер с залива. Тепловой насос греет в 3–4 раза дешевле обогревателя.',
   };
   const render = () => {
@@ -115,11 +120,11 @@ function initCalc() {
       return;
     }
     cls.textContent = pick[0] + ' (до ' + pick[1].toString().replace('.', ',') + ' кВт)';
-    const list = PRODUCTS.filter(p => p.cls === pick[0] && p.inv).sort((a, b) => a.price - b.price);
-    const any = list[0] || PRODUCTS.filter(p => p.cls === pick[0])[0];
+    const list = PRODUCTS.filter(p => GRP[p.cls] === pick[0] && p.inv).sort((a, b) => (b.brand === 'Ballu') - (a.brand === 'Ballu') || a.price - b.price);
+    const any = list[0] || PRODUCTS.filter(p => GRP[p.cls] === pick[0])[0];
     if (any) {
-      pr.textContent = 'от ' + rub(any.price + INSTALL[pick[0]]);
-      mdl.textContent = any.brand + ' ' + any.name;
+      pr.textContent = 'от ' + rub(any.price + INSTALL[any.cls]);
+      mdl.textContent = any.brand + ' ' + any.name + ' ' + any.cls;
     } else { pr.textContent = 'по запросу'; mdl.textContent = 'Подберём под задачу'; }
     inst.textContent = 'от ' + rub(INSTALL[pick[0]]);
     f.dataset.summary = `Площадь ${S} м², потолок ${H} м, людей ${P}. Нужно ~${kw.toFixed(1)} кВт, класс ${pick[0]}.`;
@@ -146,17 +151,16 @@ function productCard(p) {
   const tags = [
     ...p.tags.map(t => `<span class="tag ${t === 'Хит' ? 'tag-hit' : ''}">${t}</span>`),
     p.inv ? '<span class="tag tag-inv">Инвертор</span>' : '<span class="tag">On/Off</span>',
-    p.wifi ? '<span class="tag tag-wifi">Wi‑Fi</span>' : '',
   ].join('');
   const turnkey = p.price + INSTALL[p.cls];
-  return `<article class="product reveal" data-brand="${p.brand}" data-cls="${p.cls}" data-inv="${p.inv}" data-wifi="${p.wifi}">
+  return `<article class="product reveal" data-brand="${p.brand}" data-cls="${p.cls}" data-inv="${p.inv}">
     <div class="product-img"><div class="product-tags">${tags}</div>${acSVG(p.color)}</div>
     <div class="product-body">
       <div class="product-brand">${p.brand}</div>
       <h3>${p.name} ${p.cls}</h3>
       <div class="specs">
         <div><span>Площадь</span><b>до ${p.area} м²</b></div>
-        <div><span>Шум, от</span><b>${p.noise} дБ</b></div>
+        <div><span>${p.noise ? 'Шум, от' : 'Хладагент'}</span><b>${p.noise ? p.noise + ' дБ' : 'R32'}</b></div>
         <div><span>Обогрев до</span><b>${p.heat}°C</b></div>
         <div><span>Класс</span><b>${p.cls} BTU·10³</b></div>
       </div>
@@ -172,18 +176,18 @@ function initCatalog() {
   const grid = $('#catalog'); if (!grid) return;
   const limit = +grid.dataset.limit || 0;
   let items = PRODUCTS;
-  if (limit) items = PRODUCTS.filter(p => p.tags.includes('Хит') || p.tags.includes('Тёплый') || p.tags.includes('Дизайн')).slice(0, limit);
+  if (limit) items = ['ballu-odyssey-08', 'ballu-odyssey-10', 'ballu-odyssey-12', 'hisense-expert-09', 'electrolux-fusion-12', 'gree-airy-09'].map(id => PRODUCTS.find(p => p.id === id));
   grid.innerHTML = items.map(productCard).join('');
   const filters = $('#filters');
   if (filters) {
     const apply = () => {
       const brand = $('input[name=f-brand]:checked', filters).value;
       const cls = $('input[name=f-cls]:checked', filters).value;
-      const inv = $('#f-inv', filters).checked, wifi = $('#f-wifi', filters).checked;
+      const inv = $('#f-inv', filters).checked;
       const sort = $('#f-sort', filters).value;
-      let list = PRODUCTS.filter(p => (brand === 'all' || p.brand === brand) && (cls === 'all' || p.cls === cls) && (!inv || p.inv) && (!wifi || p.wifi));
+      let list = PRODUCTS.filter(p => (brand === 'all' || p.brand === brand) && (cls === 'all' || GRP[p.cls] === cls) && (!inv || p.inv));
       list = list.sort((a, b) => sort === 'desc' ? b.price - a.price : a.price - b.price);
-      grid.innerHTML = list.length ? list.map(productCard).join('') : '<div class="empty">Под такие фильтры моделей нет в витрине — но мы привезём под заказ за 2–5 дней. Напишите нам.</div>';
+      grid.innerHTML = list.length ? list.map(productCard).join('') : '<div class="empty">Под такие фильтры моделей нет в витрине — привезём под заказ за 2–5 дней. Напишите нам.</div>';
       $$('.reveal', grid).forEach(e => e.classList.add('in'));
       $('#f-count').textContent = list.length;
       bindOrders();
@@ -259,7 +263,7 @@ function initQuiz() {
 
 /* ---------- Формы → WhatsApp / Telegram ---------- */
 function formText(form) {
-  const lines = ['Здравствуйте! Заявка с сайта Бриз 39.'];
+  const lines = ['Здравствуйте, Сергей! Заявка с сайта.'];
   if (quizExtra && form.closest('#quiz')) lines.push(quizExtra);
   $$('[data-label]', form).forEach(el => {
     if ((el.type === 'radio' || el.type === 'checkbox') && !el.checked) return;
