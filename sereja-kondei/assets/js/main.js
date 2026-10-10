@@ -8,8 +8,7 @@ const CONFIG = {
   phoneView: '+7 (906) 213-22-00',
   phone2: '+74012694857',           // городской
   phone2View: '+7 (4012) 69-48-57',
-  whatsapp: '79062132200',          // WhatsApp без +
-  telegram: '+79062132200',         // Telegram по номеру (t.me/+7...)
+  max: 'https://max.ru/',           // ⚠️ заменить на ссылку профиля Сергея в MAX (Профиль → Поделиться)
 };
 
 // Стоимость стандартного монтажа по классу (₽)
@@ -45,8 +44,7 @@ const rub = n => n.toLocaleString('ru-RU').replace(/,/g, ' ') + ' ₽';
 /* ---------- Подстановка контактов ---------- */
 function applyContacts() {
   $$('[data-phone]').forEach(a => { a.href = 'tel:' + CONFIG.phone; if (!a.dataset.keep) a.textContent = CONFIG.phoneView; });
-  $$('[data-wa]').forEach(a => { a.href = 'https://wa.me/' + CONFIG.whatsapp; a.target = '_blank'; a.rel = 'noopener'; });
-  $$('[data-tg]').forEach(a => { a.href = 'https://t.me/' + CONFIG.telegram; a.target = '_blank'; a.rel = 'noopener'; });
+  $$('[data-max]').forEach(a => { a.href = CONFIG.max; a.target = '_blank'; a.rel = 'noopener'; });
   $$('[data-phone2]').forEach(a => { a.href = 'tel:' + CONFIG.phone2; });
 }
 
@@ -261,7 +259,7 @@ function initQuiz() {
   go(0);
 }
 
-/* ---------- Формы → WhatsApp / Telegram ---------- */
+/* ---------- Формы → MAX (текст копируется в буфер) ---------- */
 function formText(form) {
   const lines = ['Здравствуйте, Сергей! Заявка с сайта.'];
   if (quizExtra && form.closest('#quiz')) lines.push(quizExtra);
@@ -279,11 +277,9 @@ function initForms() {
       const phone = $('input[type=tel]', form);
       if (phone && phone.value.replace(/\D/g, '').length < 10) { phone.focus(); phone.setCustomValidity('Укажите номер телефона'); phone.reportValidity(); return; }
       phone && phone.setCustomValidity('');
-      const text = encodeURIComponent(formText(form));
-      const url = btn.dataset.send === 'tg'
-        ? `https://t.me/${CONFIG.telegram}?text=${text}`
-        : `https://wa.me/${CONFIG.whatsapp}?text=${text}`;
-      window.open(url, '_blank', 'noopener');
+      const text = formText(form);
+      try { navigator.clipboard.writeText(text); } catch (e) {}
+      window.open(CONFIG.max, '_blank', 'noopener');
       form.classList.add('sent');
     }));
   });
