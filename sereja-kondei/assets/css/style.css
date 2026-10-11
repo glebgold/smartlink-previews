@@ -628,3 +628,74 @@ h1, h2 { overflow-wrap: break-word; }
 .btn-max { background: linear-gradient(135deg, #3E7BFA, #8A4DFF); color: #fff; }
 .btn-max:hover { transform: translateY(-2px); box-shadow: 0 10px 26px rgba(110, 90, 255, .35); }
 .form-send .btn { width: 100%; }
+
+/* ==========================================================
+   БЕЛАЯ ТЕМА — по просьбе клиента: без тёмных блоков
+   ========================================================== */
+:root { --bg: #FFFFFF; --bg-2: #F2F6FA; }
+.sec-white { background: #F7FAFD; }
+
+/* верхняя строка и шапка */
+.topbar { background: #fff; color: var(--muted); border-bottom: 1px solid var(--line); }
+.topbar a:hover { color: var(--ink); }
+.header, .header.scrolled { background: rgba(255, 255, 255, .94); }
+
+/* бывшие тёмные секции */
+.sec-dark { background: #F7FAFD; color: var(--ink); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.sec-dark .muted, .sec-dark .lead, .sec-dark .stat span { color: var(--muted); }
+.sec-dark .eyebrow { color: var(--accent); }
+.climate-chart { background: #fff; border-color: var(--line); box-shadow: var(--shadow-1); }
+.climate-chart h4, .climate-facts b { color: var(--ink); }
+.climate-facts .n { background: var(--cold-soft); color: var(--cold); }
+.months-l, .legend { color: var(--muted); }
+.std-chips span { background: #fff; color: var(--ink-2); border-color: var(--line-2); }
+
+/* калькуляторы */
+.calc-result { background: #F7FAFD; color: var(--ink); border-left: 1px solid var(--line); }
+.calc-result::before { opacity: .18; }
+.res-label, .res-rows span, .res-big small, .calc-result p.small { color: var(--muted); }
+.res-rows { border-color: var(--line); }
+@media (max-width: 900px) { .calc-result { border-left: 0; border-top: 1px solid var(--line); } }
+
+/* CTA-блоки */
+.cta-box { background: #F7FAFD; color: var(--ink); border: 1px solid var(--line); }
+.cta-box::before { opacity: .25; }
+.cta-box::after { opacity: .3; }
+.cta-box h2 { color: var(--ink); }
+.cta-box .lead { color: var(--muted); }
+.cta-perks li { color: var(--ink-2); }
+.cta-perks li::before { background: #E3F6EC; color: var(--ok); }
+.form { border: 1px solid var(--line); box-shadow: var(--shadow-1); }
+
+/* плашки поверх фото */
+.hero-badge { background: #fff; color: var(--ink); border: 1px solid var(--line); }
+.hero-badge span { color: var(--muted); }
+
+/* футер */
+.footer { background: #F7FAFD; color: var(--muted); border-top: 1px solid var(--line); }
+.footer h4, .footer .logo-word, .footer-phone { color: var(--ink); }
+.footer .logo-word em { color: var(--accent); }
+.footer a:hover { color: var(--accent); }
+.footer-bottom { border-top-color: var(--line); }
+.socials a { background: #fff; border: 1px solid var(--line); color: var(--ink); }
+.socials a:hover { background: var(--bg-2); }
+.socials a.avito-link { color: var(--ink); }
+
+/* нижняя панель на телефоне */
+.mbar { background: rgba(255, 255, 255, .97); border: 1px solid var(--line); box-shadow: 0 10px 30px rgba(10, 26, 43, .14); }
+.mbar a { color: var(--ink); }
+.mbar a.main { color: #fff; }
+
+/* просмотр фото */
+.lightbox { background: rgba(255, 255, 255, .97); }
+.lightbox .lb-cap { color: var(--ink-2); }
+.lightbox button { background: var(--bg-2); color: var(--ink); }
+.lightbox button:hover { background: var(--line); }
+.modal { background: rgba(240, 245, 250, .75); }
+
+/* тёмные кнопки → фирменный синий */
+.btn-dark { background: var(--accent); color: #fff; }
+.btn-dark:hover { background: color-mix(in srgb, var(--accent) 85%, #000); }
+.filters .chip input:checked + span, .chip input:checked + span { background: var(--accent); border-color: var(--accent); }
+.nav a.active { background: var(--accent-soft); color: var(--accent); }
+.mosaic figcaption, .gallery a span, .std-photos figcaption { background: rgba(255, 255, 255, .9); color: var(--ink); }
