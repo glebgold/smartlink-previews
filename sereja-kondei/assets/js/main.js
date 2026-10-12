@@ -4,10 +4,8 @@
 
 // ---- Настройки: поменяйте на реальные данные клиента ----
 const CONFIG = {
-  phone: '+79062132200',            // основной (Сергей)
-  phoneView: '+7 (906) 213-22-00',
-  phone2: '+74012694857',           // городской
-  phone2View: '+7 (4012) 69-48-57',
+  phone: '+74012694857',            // единственный номер — городской Калининград (4012)
+  phoneView: '69-48-57',             // на сайте показываем только короткий номер
   max: 'https://max.ru/',           // ⚠️ заменить на ссылку профиля Сергея в MAX (Профиль → Поделиться)
 };
 
@@ -45,7 +43,6 @@ const rub = n => n.toLocaleString('ru-RU').replace(/,/g, ' ') + ' ₽';
 function applyContacts() {
   $$('[data-phone]').forEach(a => { a.href = 'tel:' + CONFIG.phone; if (!a.dataset.keep) a.textContent = CONFIG.phoneView; });
   $$('[data-max]').forEach(a => { a.href = CONFIG.max; a.target = '_blank'; a.rel = 'noopener'; });
-  $$('[data-phone2]').forEach(a => { a.href = 'tel:' + CONFIG.phone2; });
 }
 
 /* ---------- Шапка / меню ---------- */

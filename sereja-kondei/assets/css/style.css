@@ -699,3 +699,43 @@ h1, h2 { overflow-wrap: break-word; }
 .filters .chip input:checked + span, .chip input:checked + span { background: var(--accent); border-color: var(--accent); }
 .nav a.active { background: var(--accent-soft); color: var(--accent); }
 .mosaic figcaption, .gallery a span, .std-photos figcaption { background: rgba(255, 255, 255, .9); color: var(--ink); }
+
+/* Заголовок первого экрана: слово «Кондиционеры» не должно рваться на широких экранах */
+.hero h1 { font-size: clamp(30px, 4.3vw, 54px); }
+.hero h1, .page-hero h1, h2 { overflow-wrap: normal; }
+
+/* ---------- Шапка: после переименования логотип стал длиннее — всё должно влезать ---------- */
+.header .wrap { max-width: 1400px; gap: 20px; }
+.nav { gap: 2px; }
+.nav a { font-size: 14.5px; padding: 8px 10px; }
+.header-phone { display: flex; }
+@media (min-width: 1241px) {
+  .logo svg { width: 36px; height: 36px; }
+  .logo-word { font-size: 18px; }
+  .burger, .mobile-menu { display: none; }
+}
+@media (max-width: 1399px) { .header .btn { display: none; } }
+@media (max-width: 1240px) {
+  .nav, .header-phone, .header .btn { display: none; }
+  .burger { display: block; }
+  .mobile-menu { display: block; }
+}
+
+/* ---------- Заголовки: длинные слова («обслуживание», «Профессиональный») не рвём и не выпускаем за край ---------- */
+.faq-layout h2 { font-size: clamp(26px, 2.6vw, 36px); }
+.split h2 { font-size: clamp(26px, 3vw, 40px); }
+@media (max-width: 640px) {
+  h2, .split h2, .faq-layout h2, .sec-head h2 { font-size: min(6.6vw, 28px); }
+  .page-hero h1 { font-size: min(8vw, 32px); }
+  .hero h1 { font-size: min(8.2vw, 34px); }
+}
+@media (max-width: 374px) {
+  .logo { gap: 8px; }
+  .logo svg { width: 30px; height: 30px; }
+  .logo-word { font-size: 13.5px; }
+  .logo-sub { font-size: 9.5px; }
+  .burger { width: 42px; height: 42px; }
+  .burger span, .burger::before, .burger::after { left: 11px; right: 11px; }
+  .burger::before { top: 14px; } .burger span { top: 20px; } .burger::after { top: 26px; }
+}
+@media (max-width: 374px) { .btn { white-space: normal; text-align: center; padding: 14px 18px; } }
