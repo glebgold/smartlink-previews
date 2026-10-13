@@ -753,3 +753,67 @@ body.mbar-on{ padding-bottom:76px }
 @media (min-width:901px) and (max-height:600px){
   .dirs-side{ position:static }
 }
+
+/* ---------- Первый экран: фото фоном, текст на фото (по образцу заказчицы) ---------- */
+.hero.hero-full{ display:block; position:relative; min-height:100vh; min-height:100svh; padding:0; overflow:hidden; background:var(--bg-2); color:var(--text) }
+.hero-full .hero-bg{ position:absolute; inset:0; z-index:0; height:auto; min-height:0; background:var(--bg-2) }
+.hero-full .hero-bg img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:60% 62%; opacity:1; transform:none; transition:none }
+/* текст стоит на светлой стене кадра; под ним только едва заметная подложка, правая часть фото чистая */
+.hero-full .hero-bg::after{ content:""; position:absolute; inset:0; pointer-events:none;
+  background:linear-gradient(90deg, rgba(247,244,239,.42) 0%, rgba(247,244,239,.26) 28%, rgba(247,244,239,0) 50%) }
+.hero-full .hero-content{ position:relative; z-index:1; min-height:100vh; min-height:100svh; display:flex; flex-direction:column; justify-content:center; padding-top:calc(96px + 3vh); padding-bottom:clamp(28px, 5vh, 56px) }
+.hero-full .hero-top{ display:flex; align-items:center; gap:14px; margin:0 0 clamp(18px, 2.6vh, 30px); font:500 11px/1.5 var(--f-body); letter-spacing:.24em; text-transform:uppercase; color:#22262A }
+.hero-full .hero-top::before{ content:""; flex:none; width:26px; height:1px; background:var(--sage) }
+.hero-full h1{ font-size:clamp(46px, 6vw, 104px); margin:0 0 clamp(18px, 2.6vh, 30px); max-width:12ch; color:#15181B }
+.hero-full .lead{ max-width:42ch; color:#24282C; margin-bottom:clamp(24px, 3.6vh, 38px) }
+.hero-full .hero-cta{ display:flex; flex-wrap:wrap; gap:14px }
+.hero-full .btn-ghost{ background:rgba(247,244,239,.78); border-color:rgba(27,30,33,.18); -webkit-backdrop-filter:blur(8px); backdrop-filter:blur(8px) }
+.hero-full .hero-mini{ margin-top:clamp(26px, 4vh, 44px); max-width:380px }
+.hero-full .mini-img{ border:3px solid #fff; box-shadow:0 10px 30px rgba(27,30,33,.18) }
+.hero-full .mini-name{ color:#22262A }
+@media (max-width:1000px) and (orientation:landscape){
+  .hero-full h1{ font-size:clamp(42px, 7vw, 72px) }
+  .hero-full .hero-bg::after{ background:linear-gradient(90deg, rgba(247,244,239,.7) 0%, rgba(247,244,239,.5) 36%, rgba(247,244,239,0) 64%) }
+}
+/* невысокие экраны ноутбуков: мини-фото компактнее, чтобы всё помещалось в первый экран */
+@media (min-width:1001px) and (max-height:800px){
+  .hero-full .hero-mini{ max-width:300px; margin-top:22px }
+  .hero-full .lead{ margin-bottom:24px }
+}
+@media (orientation:landscape) and (max-height:640px){ .hero-full .hero-mini{ display:none } }
+/* телефон и планшет стоя: вертикальное фото на весь экран, заголовок сверху на светлом потолке,
+   кнопки внизу на фото, мини-фото — полосой сразу под первым экраном */
+@media (max-width:700px), (max-width:1000px) and (orientation:portrait){
+  .hero.hero-full{ display:grid; min-height:0; grid-template-columns:var(--gutter) minmax(0,1fr) var(--gutter);
+    grid-template-rows:auto auto auto minmax(26svh, 1fr) auto auto; background:var(--bg) }
+  .hero-full .hero-bg{ position:relative; inset:auto; grid-column:1 / -1; grid-row:1 / 6; min-height:100svh }
+  .hero-full .hero-bg img{ object-position:50% 40% }
+  .hero-full .hero-bg::after{ display:none }
+  .hero-full .hero-content{ display:contents }
+  .hero-full .hero-content > *{ grid-column:2; position:relative; z-index:1 }
+  .hero-full .hero-top{ grid-row:1; margin:0; padding-top:calc(76px + 20px); letter-spacing:.2em; font-size:10.5px }
+  .hero-full h1{ grid-row:2; margin:12px 0 0; font-size:clamp(40px, 11.4vw, 64px); max-width:none }
+  .hero-full .lead{ grid-row:3; margin:14px 0 0; max-width:30ch; font-size:15.5px; line-height:1.5 }
+  .hero-full .hero-cta{ grid-row:5; align-self:end; padding-bottom:22px; display:grid; grid-template-columns:1fr; gap:10px }
+  .hero-full .hero-cta .btn{ width:100%; height:54px }
+  .hero-full .hero-top, .hero-full h1, .hero-full .lead{ text-shadow:0 0 14px rgba(247,244,239,.9), 0 0 3px rgba(247,244,239,.6) }
+  .hero-full .hero-mini{ grid-row:6; grid-column:1 / -1; max-width:none; margin:0; padding:18px var(--gutter) 6px; background:var(--bg) }
+  .hero-full .mini-img{ border:0; box-shadow:none }
+  .hero-full .mini-name{ color:var(--text-2) }
+}
+@media (max-width:560px){
+  .hero-full .hero-top-salon{ display:none }
+  /* строки подзаголовка не заходят на чёрную раму витрины в кадре */
+  .hero-full .lead{ max-width:calc(70vw - 20px) }
+}
+@media (max-width:1000px) and (orientation:portrait) and (min-width:701px){
+  .hero-full .hero-top{ padding-top:calc(76px + 34px) }
+  .hero-full .lead{ font-size:18px; max-width:36ch }
+  .hero-full .hero-cta{ grid-template-columns:repeat(2, max-content); padding-bottom:40px }
+  .hero-full .hero-cta .btn{ width:auto; height:58px }
+  .hero-full .hero-mini{ max-width:none; padding-top:26px }
+}
+/* логотип заметнее */
+@media (min-width:1101px){ .logo img{ height:56px } .hdr.is-scrolled .logo img{ height:50px } }
+@media (max-width:1100px){ .logo img{ height:42px } .hdr.is-scrolled .logo img{ height:38px } }
+.logo img{ transition:height .3s var(--ease) }
