@@ -813,7 +813,14 @@ body.mbar-on{ padding-bottom:76px }
   .hero-full .hero-cta .btn{ width:auto; height:58px }
   .hero-full .hero-mini{ max-width:none; padding-top:26px }
 }
-/* логотип заметнее */
-@media (min-width:1101px){ .logo img{ height:56px } .hdr.is-scrolled .logo img{ height:50px } }
+/* логотип Анны целиком: вензель «АМ» в овале + «Агата МЕБЕЛЬ», её красный */
+@media (min-width:1101px){ .logo img{ height:54px } .hdr.is-scrolled .logo img{ height:48px } }
 @media (max-width:1100px){ .logo img{ height:42px } .hdr.is-scrolled .logo img{ height:38px } }
+@media (max-width:420px){ .logo img{ height:34px } .hdr.is-scrolled .logo img{ height:32px } .hdr-right{ gap:12px } .hdr-in{ gap:12px } }
+@media (max-width:350px){ .logo img, .hdr.is-scrolled .logo img{ height:30px } .hdr-right .btn-sm{ padding:0 16px } }
 .logo img{ transition:height .3s var(--ease) }
+.ftr-brand img{ height:clamp(96px, 9vw, 128px) }
+/* с полным логотипом шапка шире: пункты меню не переносим, на средних экранах меню компактнее, а до 1240px — в бургер (телефон остаётся) */
+.nav a{ white-space:nowrap }
+@media (min-width:1241px) and (max-width:1400px){ .nav{ gap:clamp(14px, 1.3vw, 20px); letter-spacing:.1em } .hdr-right{ gap:20px } }
+@media (min-width:1101px) and (max-width:1240px){ .nav{ display:none } .burger{ display:flex } .hdr-right{ gap:20px } }
