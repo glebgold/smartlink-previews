@@ -21,7 +21,7 @@
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/manrope-300-cyrillic.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/inter-400-cyrillic.woff2" crossorigin>
 <link rel="preload" as="image" href="assets/img/neo-k-1-xl.webp">
-<link rel="stylesheet" href="styles.css?v=12">
+<link rel="stylesheet" href="styles.css?v=13">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -56,7 +56,7 @@
 <header class="hdr">
   <div class="container hdr-in">
     <a class="logo" href="index.html" aria-label="Агата Мебель — на главную">
-      <img src="assets/brand/logo-onlight.png" alt="Агата Мебель" width="304" height="143">
+      <img src="assets/brand/logo-onlight.webp" alt="Агата Мебель" width="304" height="143">
     </a>
     <nav class="nav" aria-label="Главное меню">
       <a href="#about">О компании</a>
@@ -108,15 +108,15 @@
       </div>
       <div class="hero-mini rv rv-d4">
         <button class="mini" type="button" data-work="neo-apt" data-index="6">
-          <span class="mini-img"><img src="assets/img/neo-wc-1-thumb.webp" alt="Санузел с лепниной" width="281" height="500" loading="lazy"></span>
+          <span class="mini-img"><img src="assets/img/neo-wc-1-thumb.webp" alt="Санузел с лепниной" width="281" height="500" decoding="async"></span>
           <span class="mini-name">Санузел</span>
         </button>
         <button class="mini" type="button" data-work="ward-classic" data-index="0">
-          <span class="mini-img"><img src="assets/img/ward-classic-1-thumb.webp" alt="Белый шкаф с лепным декором" width="281" height="500" loading="lazy"></span>
+          <span class="mini-img"><img src="assets/img/ward-classic-1-thumb.webp" alt="Белый шкаф с лепным декором" width="281" height="500" decoding="async"></span>
           <span class="mini-name">Шкаф</span>
         </button>
         <button class="mini" type="button" data-work="neo-apt" data-index="7">
-          <span class="mini-img"><img src="assets/img/neo-dress-1-thumb.webp" alt="Гардеробная за бронзовым стеклом" width="281" height="500" loading="lazy"></span>
+          <span class="mini-img"><img src="assets/img/neo-dress-1-thumb.webp" alt="Гардеробная за бронзовым стеклом" width="281" height="500" decoding="async"></span>
           <span class="mini-name">Гардеробная</span>
         </button>
       </div>
@@ -176,10 +176,10 @@
     </div>
     <div class="dirs-panels">
       <a class="dir-panel" data-i="0" href="portfolio.html?type=kitchen">
-        <img src="assets/img/neo-k-3.webp" srcset="assets/img/neo-k-3-800.webp 800w, assets/img/neo-k-3.webp 1600w" sizes="(max-width:900px) 100vw, 52vw" alt="Кухни" loading="eager" decoding="async">
+        <img src="assets/img/neo-k-3.webp" srcset="assets/img/neo-k-3-800.webp 800w, assets/img/neo-k-3.webp 1600w" sizes="(max-width:900px) 100vw, 52vw" alt="Кухни" loading="lazy" decoding="async">
         <span class="dir-cap"><b>Кухни</b><span class="dir-price">от 180 000 ₽</span><span class="dir-desc">Прямые, угловые, с островом и барной стойкой. Фасады МДФ в эмали, плёнке, шпоне и пластике.</span><span class="dir-go">Смотреть работы <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span>
       </a><a class="dir-panel" data-i="1" href="portfolio.html?type=wardrobe">
-        <img src="assets/img/ward-classic-3.webp" srcset="assets/img/ward-classic-3-800.webp 800w, assets/img/ward-classic-3.webp 1600w" sizes="(max-width:900px) 100vw, 52vw" alt="Шкафы и гардеробные" loading="eager" decoding="async">
+        <img src="assets/img/ward-classic-3.webp" srcset="assets/img/ward-classic-3-800.webp 800w, assets/img/ward-classic-3.webp 1600w" sizes="(max-width:900px) 100vw, 52vw" alt="Шкафы и гардеробные" loading="lazy" decoding="async">
         <span class="dir-cap"><b>Шкафы и гардеробные</b><span class="dir-price">от 65 000 ₽</span><span class="dir-desc">Распашные, купе, встроенные в нишу и гардеробные комнаты. Наполнение — под ваши вещи.</span><span class="dir-go">Смотреть работы <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span>
       </a><a class="dir-panel" data-i="2" href="portfolio.html?type=bath">
         <img src="assets/img/neo-bath-1.webp" srcset="assets/img/neo-bath-1-800.webp 800w, assets/img/neo-bath-1.webp 1600w" sizes="(max-width:900px) 100vw, 52vw" alt="Мебель для ванной" loading="lazy" decoding="async">
@@ -244,7 +244,7 @@
       </div>
       <div class="video-frame rv rv-d1">
         <span class="video-tag"><i></i>С объекта</span>
-        <video src="assets/video/walk.mp4" poster="assets/video/walk-poster.jpg" muted loop playsinline preload="metadata" data-autoplay aria-label="Видео с объекта: гостиница в минимализме"></video>
+        <video src="assets/video/walk.mp4" poster="assets/video/walk-poster.jpg" muted loop playsinline preload="none" data-autoplay aria-label="Видео с объекта: гостиница в минимализме"></video>
       </div>
     </div>
   </div>
@@ -302,7 +302,7 @@
     </div>
     <div class="offers">
       <div class="offer rv">
-        <img class="agate" src="assets/brand/agate.svg" alt="" aria-hidden="true">
+        <img class="agate" src="assets/brand/agate.svg" alt="" aria-hidden="true" loading="lazy">
         <p class="eyebrow">ЖК «Лесная сказка», Светлогорск</p>
         <div class="offer-num">10%</div>
         <h3>Скидка новосёлам при заказе кухни</h3>
@@ -443,7 +443,7 @@
         </div>
       </div>
       <div class="promo rv rv-d1">
-        <img class="agate" src="assets/brand/agate.svg" alt="" aria-hidden="true">
+        <img class="agate" src="assets/brand/agate.svg" alt="" aria-hidden="true" loading="lazy">
         <p class="eyebrow">Заявка на замер</p>
         <div class="promo-num">0 ₽</div>
         <p><b>Замер и&nbsp;дизайн-проект бесплатно.</b> Оставьте номер&nbsp;— дизайнер перезвонит и&nbsp;согласует удобное время выезда.</p>
@@ -507,7 +507,7 @@
     <div class="ftr-big" aria-hidden="true">Агата Мебель</div>
     <div class="ftr-grid">
       <div class="ftr-brand">
-        <img src="assets/brand/logo-onlight.png" alt="Агата Мебель" width="304" height="143">
+        <img src="assets/brand/logo-onlight.webp" alt="Агата Мебель" width="304" height="143">
         <p>Мебель на&nbsp;заказ в&nbsp;Калининграде: от&nbsp;классики до&nbsp;минимализма. Кухни, шкафы, детские, ванные, камень.</p>
       </div>
       <div>
@@ -553,8 +553,8 @@
   </div>
 </footer>
 
-<script src="works.js?v=12"></script>
+<script src="works.js?v=13"></script>
 <script src="analytics.js?v=1"></script>
-<script src="app.js?v=12"></script>
+<script src="app.js?v=13"></script>
 </body>
 </html>

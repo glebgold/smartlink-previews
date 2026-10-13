@@ -141,7 +141,7 @@
         const n = w.photos.length + (w.video ? 1 : 0);
         return '<button class="frame' + (isLand(p) ? ' is-land' : '') + '" type="button" data-photo="' + p + '" aria-label="' + w.title + ' — открыть фотографии">' +
           (n > 1 ? '<span class="frame-cnt">' + n + ' фото</span>' : '<span class="frame-cnt">Открыть</span>') +
-          '<img src="' + IMG + p + '.webp" srcset="' + IMG + p + '-800.webp 800w, ' + IMG + p + '.webp 1600w" sizes="(max-width:900px) 78vw, 34vw" alt="' + w.title + '" decoding="async"' + (POS[p] ? ' style="object-position:' + POS[p] + '"' : '') + '>' +
+          '<img loading="lazy" decoding="async" src="' + IMG + p + '.webp" srcset="' + IMG + p + '-800.webp 800w, ' + IMG + p + '.webp 1600w" sizes="(max-width:900px) 78vw, 34vw" alt="' + w.title + '"' + (POS[p] ? ' style="object-position:' + POS[p] + '"' : '') + '>' +
           '<span class="frame-cap">' + w.title + '<small>' + st + '</small></span></button>';
       }).join('');
       strip.scrollTo({ left: 0 });
@@ -254,15 +254,6 @@
       } finally { btn.disabled = false; btn.innerHTML = label; }
     });
   });
-
-  /* ---------- Подгрузка фото витрины и панелей заранее (за экран до появления) ---------- */
-  if ('IntersectionObserver' in window) {
-    const eager = (root) => $$('img[loading=lazy]', root).forEach(i => { i.loading = 'eager'; });
-    const pre = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { eager(e.target); pre.unobserve(e.target); } }), { rootMargin: '900px 0px' });
-    $$('.works-sec, .dirs, .stone-sec').forEach(el => pre.observe(el));
-    const trackEl = $('#strip-track');
-    if (trackEl) new MutationObserver(() => { const r = trackEl.getBoundingClientRect(); if (r.top < window.innerHeight + 900) eager(trackEl); }).observe(trackEl, { childList: true });
-  }
 
   /* ---------- Видео по видимости ---------- */
   $$('video[data-autoplay]').forEach(v => {
