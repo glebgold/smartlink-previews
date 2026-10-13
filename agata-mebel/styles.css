@@ -276,8 +276,10 @@ body.hero-page .hdr:not(.is-scrolled) .logo-light{ display:block }
 .dirs-list li.is-active small{ opacity:1; transform:none }
 .dirs-list a:hover{ color:var(--text-2) }
 .dirs-panels{ display:grid; gap:clamp(16px, 2vw, 28px) }
-.dir-panel{ position:relative; margin:0; height:min(78vh, 760px); border-radius:6px; overflow:hidden; background:var(--bg-3); isolation:isolate; clip-path:inset(0 0 100% 0 round 6px); transition:clip-path 1.2s var(--ease-reveal) }
-.dir-panel.in{ clip-path:inset(0 0 0 0 round 6px) }
+/* Появление панели — прозрачностью и сдвигом. Не clip-path: Chrome считает обрезанный элемент
+   невидимым, IntersectionObserver не срабатывает, и панель так и остаётся скрытой. */
+.dir-panel{ position:relative; margin:0; height:min(78vh, 760px); border-radius:6px; overflow:hidden; background:var(--bg-3); isolation:isolate; opacity:0; transform:translateY(40px); transition:opacity 1s var(--ease), transform 1.2s var(--ease-reveal) }
+.dir-panel.in{ opacity:1; transform:none }
 .dir-panel img{ width:100%; height:100%; object-fit:cover; transform:scale(1.06); transition:transform 1.4s var(--ease-reveal); filter:brightness(.92) }
 .dir-panel.in img{ transform:none }
 .dir-panel::after{ content:""; position:absolute; inset:0; z-index:1; background:linear-gradient(to top, rgba(var(--scrim),.96) 0%, rgba(var(--scrim),.84) 30%, rgba(var(--scrim),.4) 58%, rgba(var(--scrim),0) 82%) }
@@ -296,7 +298,7 @@ body.hero-page .hdr:not(.is-scrolled) .logo-light{ display:block }
   .dirs-grid{ grid-template-columns:1fr; gap:34px }
   .dirs-side{ position:static }
   .dirs-list{ display:none }
-  .dir-panel{ height:auto; aspect-ratio:4/4.5; clip-path:none }
+  .dir-panel{ height:auto; aspect-ratio:4/4.5 }
   .dir-panel img{ transform:none }
   .dir-cap{ grid-template-columns:1fr; padding:20px }
   .dir-panel::after{ background:linear-gradient(to top, rgba(var(--scrim),.97) 0%, rgba(var(--scrim),.88) 36%, rgba(var(--scrim),.45) 62%, rgba(var(--scrim),0) 86%) }
@@ -547,7 +549,7 @@ body.mbar-on{ padding-bottom:76px }
 .rv.in{ opacity:1; transform:none }
 .rv-d1{ transition-delay:.12s } .rv-d2{ transition-delay:.24s } .rv-d3{ transition-delay:.36s } .rv-d4{ transition-delay:.48s }
 @media (prefers-reduced-motion:reduce){
-  .rv, .frame, .dir-panel{ opacity:1; transform:none; transition:none; clip-path:none }
+  .rv, .frame, .dir-panel{ opacity:1; transform:none; transition:none }
   .ln > span{ transform:none; transition:none }
   .hero-bg img{ transition:opacity .3s; transform:none }
   .video-tag i, .scroll-hint i::after{ animation:none }
@@ -727,3 +729,27 @@ body.mbar-on{ padding-bottom:76px }
 .about-page .about-p, .about-page .lead{ max-width:64ch }
 .about-chapter{ padding-top:clamp(40px, 5vw, 72px); margin-top:clamp(40px, 5vw, 72px); border-top:1px solid var(--line) }
 .about-chapter h2{ font-size:clamp(28px, 3vw, 44px); margin-bottom:22px }
+
+/* ---------- Каталог: залипающая колонка должна целиком помещаться в экран ---------- */
+@media (min-width:901px){
+  .dirs-side{ top:92px }
+  .dirs-side .eyebrow{ margin-bottom:16px }
+  .dirs-side h2{ font-size:clamp(28px, 2.6vw, 44px) }
+  .dirs-side .lead{ font-size:15px; line-height:1.5; margin-top:14px; max-width:44ch }
+  .dirs-list{ margin-top:clamp(16px, 1.8vw, 24px) }
+  .dirs-list a{ padding:8px 0; gap:14px; grid-template-columns:34px 1fr auto }
+  .dirs-list b{ font-size:clamp(17px, 1.35vw, 21px); line-height:1.3 }
+  .dirs-list small{ font-size:11.5px }
+  .dirs-cta{ margin-top:18px; gap:10px }
+  .dirs-cta .btn{ height:46px; padding:0 20px; font-size:11.5px; letter-spacing:.12em }
+}
+/* невысокие экраны ноутбуков — без пояснения под заголовком */
+@media (min-width:901px) and (max-height:780px){
+  .dirs-side .lead{ display:none }
+  .dirs-side h2{ font-size:clamp(26px, 2.3vw, 36px) }
+  .dirs-list a{ padding:7px 0 }
+}
+/* совсем низкие окна — колонка просто прокручивается вместе со страницей */
+@media (min-width:901px) and (max-height:600px){
+  .dirs-side{ position:static }
+}
