@@ -47,7 +47,8 @@
   }
 
   /* ---------- Появление при скролле ---------- */
-  const revealables = () => $$('.rv, .sp, .frame, .dir-panel, .steps').filter(el => !el.closest('.hero') && !el.closest('.page-hero'));
+  /* шапки внутренних страниц тоже наблюдаем: что уже на экране, проявится сразу */
+  const revealables = () => $$('.rv, .sp, .frame, .dir-panel, .steps').filter(el => !el.closest('.hero'));
   const io = ('IntersectionObserver' in window && !reduce) ? new IntersectionObserver(es => es.forEach(e => {
     if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
   }), { rootMargin: '0px 0px -6% 0px', threshold: 0.05 }) : null;
@@ -122,7 +123,7 @@
   /* ---------- Работы на главной: горизонтальная витрина ---------- */
   const strip = $('#strip'), track = $('#strip-track');
   if (strip && track && window.WORKS) {
-    const CURATED = ['neo-k-1','hotel-loft-2','shop-info-3','k-taupe-1','bath-marble-1','kids-room-1','min-10','shop-flow-1','neo-dress-1','k-green-1','hotel-a-1','k-grey-1'];
+    const CURATED = ['neo-k-1','k-carved-1','hotel-lobby-2','k-silver-3','shop-info-3','k-stone-2','bath-marble-1','hotel-a-1','kids-room-1','k-taupe-1','shop-flow-1','k-attic-3','neo-dress-1','k-grey-2'];
     const photosFor = (cat) => {
       if (cat === 'all') return CURATED;
       const out = [];
@@ -237,13 +238,10 @@
       if (agree && !agree.checked) { ok = false; msg.className = 'form-msg err'; msg.textContent = 'Поставьте галочку согласия на обработку данных.'; }
       if (!ok) { if (!msg.textContent) { msg.className = 'form-msg err'; msg.textContent = 'Проверьте имя и номер телефона.'; } return; }
       const fd = new FormData(form); fd.append('page', location.href);
-      /* Демо-показ: сервера нет, подтверждаем на месте */
       if (/github\.io$/.test(location.hostname) || location.protocol === 'file:') {
-        form.classList.add('is-sent');
-        msg.className = 'form-msg ok';
+        form.classList.add('is-sent'); msg.className = 'form-msg ok';
         msg.textContent = 'Спасибо! Это демонстрационный показ макета — на рабочем сайте заявка уйдёт менеджеру.';
-        goal('lead_sent');
-        return;
+        goal('lead_sent'); return;
       }
       btn.disabled = true; const label = btn.innerHTML; btn.textContent = 'Отправляем…';
       try {

@@ -671,3 +671,37 @@ body.mbar-on{ padding-bottom:76px }
 
 /* ---------- Предложения на главной ---------- */
 .offers-sec{ background:var(--bg-2) }
+
+/* ---------- О компании: портрет и текст ---------- */
+.about-wrap{ display:grid; grid-template-columns:minmax(0,.78fr) minmax(0,1.22fr); gap:clamp(36px, 6vw, 110px); align-items:start }
+.about-photo{ margin:0; position:sticky; top:110px }
+.about-img{ display:block; aspect-ratio:4/5; overflow:hidden; border-radius:6px; background:var(--bg-3) }
+.about-img img{ width:100%; height:100%; object-fit:cover }
+.about-photo figcaption{ display:flex; flex-direction:column; gap:4px; margin-top:16px }
+.about-photo figcaption b{ font-family:var(--f-display); font-weight:400; font-size:20px; letter-spacing:-.01em }
+.about-photo figcaption span{ font-size:13px; color:var(--mute); letter-spacing:.03em }
+.about-p{ font-size:16px; line-height:1.65; color:var(--text-2); max-width:60ch }
+.about-body .lead{ max-width:52ch }
+.reasons-title{ margin:clamp(30px, 3.4vw, 46px) 0 12px; font-size:clamp(22px, 1.9vw, 28px) }
+.reasons{ list-style:none; margin:24px 0 clamp(28px, 3vw, 40px); padding:0; display:grid; grid-template-columns:1fr 1fr; gap:24px 34px }
+.reasons li{ position:relative; padding-top:16px; border-top:1px solid var(--line-2) }
+.reasons li::before{ content:""; position:absolute; left:0; top:-1px; width:32px; height:1px; background:var(--sage) }
+.reasons b{ display:block; font-family:var(--f-display); font-weight:500; font-size:16.5px; letter-spacing:-.01em; margin-bottom:6px }
+.reasons span{ font-size:14.5px; color:var(--text-2); line-height:1.55 }
+@media (max-width:900px){
+  .about-wrap{ grid-template-columns:1fr; gap:30px }
+  .about-photo{ position:static; max-width:440px }
+  .reasons{ grid-template-columns:1fr; gap:20px }
+}
+
+/* ---------- Гарантии ---------- */
+.guar-wrap{ display:grid; grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr); gap:clamp(28px, 5vw, 96px); align-items:center; padding:clamp(28px, 3.6vw, 56px); border:1px solid var(--line); border-radius:8px; background:var(--bg-3) }
+.guar-num{ font-family:var(--f-display); font-weight:200; font-size:clamp(72px, 8vw, 128px); line-height:.9; letter-spacing:-.05em; color:var(--red-2) }
+.guar-sub{ margin:10px 0 0; font-size:14px; color:var(--text-2); letter-spacing:.02em }
+.guar-text p{ margin:0 0 26px; font-size:clamp(17px, 1.35vw, 20px); line-height:1.6; color:var(--text); max-width:52ch }
+@media (max-width:860px){ .guar-wrap{ grid-template-columns:1fr; gap:22px } }
+
+/* ---------- Страница «О компании» ---------- */
+.about-page .about-p, .about-page .lead{ max-width:64ch }
+.about-chapter{ padding-top:clamp(40px, 5vw, 72px); margin-top:clamp(40px, 5vw, 72px); border-top:1px solid var(--line) }
+.about-chapter h2{ font-size:clamp(28px, 3vw, 44px); margin-bottom:22px }
