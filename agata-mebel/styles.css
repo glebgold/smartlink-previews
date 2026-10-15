@@ -824,3 +824,21 @@ body.mbar-on{ padding-bottom:76px }
 .nav a{ white-space:nowrap }
 @media (min-width:1241px) and (max-width:1400px){ .nav{ gap:clamp(14px, 1.3vw, 20px); letter-spacing:.1em } .hdr-right{ gap:20px } }
 @media (min-width:1101px) and (max-width:1240px){ .nav{ display:none } .burger{ display:flex } .hdr-right{ gap:20px } }
+
+/* ---------- Отзывы: карточки (пока тексты-примеры, см. заглушку в index.html) ---------- */
+.reviews{ display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:clamp(16px, 2vw, 26px) }
+.review{ position:relative; margin:0; display:flex; flex-direction:column; justify-content:space-between; gap:28px; padding:clamp(26px, 3vw, 44px); border:1px solid var(--line); border-radius:8px; background:var(--bg-3) }
+.review::before{ content:"\201C"; position:absolute; top:clamp(8px, 1.2vw, 16px); right:clamp(20px, 2.4vw, 34px); font:300 clamp(72px, 7vw, 104px)/1 var(--f-display); color:var(--beige); opacity:.3; pointer-events:none }
+.review blockquote{ margin:0; max-width:48ch; font:300 clamp(17px, 1.3vw, 20px)/1.55 var(--f-display); letter-spacing:-.005em; color:var(--text) }
+.review figcaption{ display:flex; flex-direction:column; gap:7px; padding-top:20px; border-top:1px solid var(--line) }
+.review figcaption b{ font:500 15px/1.2 var(--f-body); color:var(--text) }
+.review figcaption span{ font:500 10.5px/1.45 var(--f-body); letter-spacing:.16em; text-transform:uppercase; color:var(--sage-2) }
+.reviews-note{ margin:14px 0 clamp(22px, 2.6vw, 34px); font-size:12.5px; color:var(--mute) }
+/* телефон: карточки листаются вбок, следующая выглядывает */
+@media (max-width:760px){
+  .reviews{ grid-template-columns:none; grid-auto-flow:column; grid-auto-columns:86%; gap:12px; overflow-x:auto; overscroll-behavior-x:contain; scroll-snap-type:x mandatory;
+    margin:0 calc(-1 * var(--gutter)); padding:0 var(--gutter) 4px; scroll-padding:0 var(--gutter); scrollbar-width:none; -webkit-overflow-scrolling:touch }
+  .reviews::-webkit-scrollbar{ display:none }
+  .review{ scroll-snap-align:start; gap:22px; padding:24px 22px }
+  .review::before{ font-size:72px }
+}
