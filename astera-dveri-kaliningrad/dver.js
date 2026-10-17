@@ -93,6 +93,7 @@
     var CFG = window.DOORCFG || null;
     var C = CFG && CFG.m[M.id];
     if (!C) { initSteelFallback(); return; }
+    window.__ask = !!C.q;            /* фабрика не дала цен на отделки: считаем на замере */
     var PAN = CFG.pan, EQ = CFG.eq, SZ = CFG.sz, OP = CFG.op;
     var eqList = C.eq.map(function (i) { return EQ[i]; });
     var szList = C.sz.map(function (i) { return SZ[i]; });
@@ -137,6 +138,7 @@
     };
     window.__note = function () {
       var d = curExt() && curExt().d ? curExt().d : 45;
+      if (window.__ask) return 'назовём после замера · срок ' + d + '–' + (d + 15) + ' дней';
       return 'цена двери без монтажа · срок ' + d + '–' + (d + 15) + ' дней';
     };
     window.__summary = function () {
@@ -184,7 +186,7 @@
       }
       $('[data-g="eq"]').innerHTML = eqList.map(function (e, i) {
         return '<label class="pack"><input type="radio" name="eq" value="' + i + '"' + (S.eq === i ? ' checked' : '') +
-          '><span class="pack__b"><b>' + e.n + '</b><em>' + money(e.p) + ' ₽</em><i>' + e.d + '</i></span></label>';
+          '><span class="pack__b"><b>' + e.n + '</b><em>' + (window.__ask ? 'цена по запросу' : money(e.p) + ' ₽') + '</em><i>' + e.d + '</i></span></label>';
       }).join('');
       $('[data-g="noise"]').innerHTML = NOISE.map(function (o, i) {
         return '<label class="pack"><input type="radio" name="noise" value="' + i + '"' + (S.noise === i ? ' checked' : '') +
@@ -344,7 +346,8 @@
   /* ---------- общее ---------- */
   function render() {
     window.__paintNames();
-    $('#sum').textContent = fmt(window.__money());
+    if (window.__ask) { var tn = $('.total__num'); if (tn && !tn.dataset.ask) { tn.textContent = 'Цена по запросу'; tn.dataset.ask = '1'; } }
+    else $('#sum').textContent = fmt(window.__money());
     if (window.__secLabel) $('#secLbl').textContent = window.__secLabel();
     $('#sumNote').textContent = window.__note();
     var q = new URLSearchParams(); q.set('id', M.id);
@@ -376,7 +379,7 @@
     if (navigator.clipboard) navigator.clipboard.writeText(location.href).then(function () { done(true); }, function () { done(false); }); else done(false);
   });
   $('#toCart').addEventListener('click', function () {
-    CART.add({ id: M.id, t: M.t, prev: A.prev(M, 440), price: window.__money(), conf: window.__summary(), brand: M.brand });
+    CART.add({ id: M.id, t: M.t, prev: A.prev(M, 440), price: window.__ask ? 0 : window.__money(), conf: window.__summary(), brand: M.brand });
     location.href = 'korzina.html';
   });
   var similar = A.MODELS.filter(function (x) { return x.cat === M.cat && x.sub === M.sub && x.coll === M.coll && x.id !== M.id; }).slice(0, 4);

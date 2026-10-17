@@ -71,10 +71,12 @@ h3,.h3{font:700 clamp(1.1rem,1.4vw,1.28rem)/1.32 var(--disp);letter-spacing:-.00
 
 /* ---------- шапка ---------- */
 .hdr{position:sticky;top:0;z-index:100;background:rgba(236,239,237,.93);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
-.hdr__in{display:flex;align-items:center;gap:clamp(12px,2vw,32px);padding-block:14px;min-width:0;flex-wrap:nowrap}
-.logo{--lh:40px;display:flex;align-items:center;text-decoration:none;flex:none;color:var(--ink)}
-.logo__svg{display:block;height:var(--lh);width:calc(var(--lh) * 3.6833);fill:currentColor}   /* 442×120 из _logo.py */
-.ftr .logo--ftr{--lh:66px;color:var(--on-dark);margin-bottom:24px;align-self:flex-start}
+.hdr__in{display:flex;align-items:center;gap:clamp(12px,2vw,32px);padding-block:0;min-height:84px;min-width:0;flex-wrap:nowrap}
+/* логотип: высота = 6 модулей знака; охранное поле по брендбуку — 4 модуля (2/3 высоты) со всех сторон.
+   Шапка 84 px при логотипе 36 px даёт ровно 24 px сверху и снизу. */
+.logo{--lh:36px;display:flex;align-items:center;text-decoration:none;flex:none;color:var(--ink)}
+.logo__svg{display:block;height:var(--lh);width:calc(var(--lh) * var(--lr,3.0525));fill:currentColor}
+.ftr .logo--ftr{--lh:60px;color:var(--on-dark);margin-bottom:calc(var(--lh) * 2 / 3);align-self:flex-start}
 .nav{display:flex;gap:clamp(12px,1.2vw,24px);margin-left:auto;min-width:0;flex-shrink:1;overflow:hidden}
 .nav a{text-decoration:none;color:var(--ink-2);font-size:.96rem;padding:10px 0;transition:color .2s}
 @media(hover:hover){.nav a:hover{color:var(--ink)}}
@@ -89,7 +91,7 @@ h3,.h3{font:700 clamp(1.1rem,1.4vw,1.28rem)/1.32 var(--disp);letter-spacing:-.00
 .burger{display:none;width:44px;height:44px;border:1px solid var(--line);border-radius:6px;background:var(--white);cursor:pointer;padding:0;flex-direction:column;align-items:center;justify-content:center;gap:4px}
 .burger i{display:block;width:18px;height:1.6px;background:var(--ink)}
 .mnav{display:none}
-.mnav.is-open{display:block;position:fixed;inset:0;z-index:98;background:var(--paper);padding-top:72px;overflow-y:auto}
+.mnav.is-open{display:block;position:fixed;inset:0;z-index:98;background:var(--paper);padding-top:76px;overflow-y:auto}
 .mnav__in{padding:24px var(--gut) 40px;display:flex;flex-direction:column}
 .mnav a{text-decoration:none;font:700 1.35rem/1.2 var(--disp);padding:16px 0;border-bottom:1px solid var(--line)}
 .mnav a.is-here{color:var(--brass)}
@@ -173,7 +175,7 @@ h3,.h3{font:700 clamp(1.1rem,1.4vw,1.28rem)/1.32 var(--disp);letter-spacing:-.00
 .crumbs a{color:var(--ink-3);text-decoration:none;display:inline-block;padding:9px 0;margin:-9px 0} .crumbs b{color:var(--ink);font-weight:400}
 @media(hover:hover){.crumbs a:hover{color:var(--ink)}}
 .prod{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:clamp(28px,4vw,72px);align-items:start}
-.gal{position:sticky;top:92px}
+.gal{position:sticky;top:104px}
 .gal__main{position:relative;background:var(--white);border:1px solid var(--line-2);border-radius:6px;height:clamp(340px,calc(100vh - 330px),720px);aspect-ratio:10/19;max-width:100%;margin-inline:auto;overflow:hidden}
 .gal__main img{position:absolute;top:16px;left:16px;width:calc(100% - 32px);height:calc(100% - 32px);object-fit:contain}
 .gal__main--cover img{top:0;left:0;width:100%;height:100%;object-fit:cover}
@@ -299,7 +301,7 @@ fieldset{border:0;padding:0;margin:0 0 clamp(20px,2.2vw,30px)} legend{padding:0;
 .count{display:flex;align-items:center;gap:8px}
 .count button{width:46px;height:46px;border:1px solid var(--line);border-radius:4px;background:var(--white);cursor:pointer;font-size:1.2rem}
 .count output{min-width:56px;text-align:center;font:700 1.2rem/1 var(--disp)}
-.calc__out{background:var(--white);border:1px solid var(--line);border-radius:6px;padding:clamp(22px,2.4vw,32px);position:sticky;top:96px}
+.calc__out{background:var(--white);border:1px solid var(--line);border-radius:6px;padding:clamp(22px,2.4vw,32px);position:sticky;top:108px}
 .calc__sum{font:800 clamp(1.4rem,2.2vw,1.95rem)/1.15 var(--accent);margin:8px 0 14px}
 .calc__note{color:var(--ink-2);font-size:.94rem;margin-bottom:20px;min-height:4.4em}
 .calc__fine{margin-top:12px;color:var(--ink-3);font-size:.86rem}
@@ -340,7 +342,7 @@ fieldset{border:0;padding:0;margin:0 0 clamp(20px,2.2vw,30px)} legend{padding:0;
 }
 @media(max-width:960px){
   .gal__main{height:min(66vh,560px);aspect-ratio:auto;width:100%}
-  .nav{display:none} .burger{display:flex} .hdr__act .hdr__tel,.hdr__act .btn--sm{display:none}
+  .nav{display:none} .burger{display:flex} .hdr__act{margin-left:auto} .hdr__act .hdr__tel,.hdr__act .btn--sm{display:none}
   .hdr__cart{font-size:.7rem;letter-spacing:.04em;text-transform:uppercase;height:44px;padding:0 11px;display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);border-radius:6px;background:var(--white);color:var(--ink)} .hdr__cart .cart-count{margin-left:0}
   .grid--3,.grid--4{grid-template-columns:repeat(2,minmax(0,1fr))}
   .prod,.about,.calc{grid-template-columns:minmax(0,1fr)} .gal{position:static} .calc__out{position:static}
@@ -349,7 +351,7 @@ fieldset{border:0;padding:0;margin:0 0 clamp(20px,2.2vw,30px)} legend{padding:0;
 }
 @media(max-width:760px){
   body{font-size:16.5px}
-  .hdr__act{gap:8px;margin-left:auto} .hdr__in{padding-block:12px;gap:10px} .logo{--lh:34px}
+  .hdr__act{gap:8px;margin-left:auto} .hdr__in{min-height:76px;gap:10px} .hdr__in.wrap{padding-left:max(var(--gut),22px)} .logo{--lh:32px} #interer-nav{top:76px}
   .hdr__cart{padding:0 9px;font-size:.64rem}
   .hero{min-height:78vh} .hero h1{max-width:none} .hero__cta{flex-direction:column;align-items:stretch} .hero__cta .btn{width:100%}
   .hero__meta{gap:16px 28px}
@@ -392,7 +394,7 @@ fieldset{border:0;padding:0;margin:0 0 clamp(20px,2.2vw,30px)} legend{padding:0;
  .pcard--flat:hover .pcard__ph img{transform:none}}
 .pcard__sp{margin-top:6px;color:var(--ink-3);font-size:.84rem}
 .chips a.chip{text-decoration:none;color:var(--ink)}
-#interer-nav{position:sticky;top:64px;z-index:60}
+#interer-nav{position:sticky;top:84px;z-index:60}
 
 
 /* ---------- конфигуратор: образцы отделки с картинкой ---------- */
@@ -421,7 +423,7 @@ fieldset{border:0;padding:0;margin:0 0 clamp(20px,2.2vw,30px)} legend{padding:0;
 }
 
 @media(max-width:480px){
-  .logo{--lh:31px}
+  .logo{--lh:31px} .hdr__in{min-height:74px} #interer-nav{top:74px}
   .hdr__in{gap:8px} .hdr__act{gap:6px}
   .hdr__cart{padding:0 8px;font-size:.62rem;gap:5px}
 }
@@ -494,7 +496,7 @@ fieldset{border:0;padding:0;margin:0 0 clamp(20px,2.2vw,30px)} legend{padding:0;
 @media(hover:hover){.dark .btn:not(.btn--light):not(.btn--outline):hover{background:var(--brass-l);border-color:var(--brass-l)}}
 .ptile::after{background:linear-gradient(to top,rgba(33,34,31,.86),rgba(33,34,31,.35) 48%,rgba(33,34,31,0) 70%)}
 .ptile__b .eyebrow{color:rgba(255,255,255,.78)}
-@media(max-width:760px){.ftr .logo--ftr{--lh:58px;margin-bottom:20px} .ftr__grid>div:first-child{grid-column:1/-1}}
+@media(max-width:760px){.ftr .logo--ftr{--lh:54px} .ftr__grid>div:first-child{grid-column:1/-1}}
 .btn--brand{background:var(--brass);border-color:var(--brass);color:#fff}
 @media(hover:hover){.btn--brand:hover{background:#7A7859;border-color:#7A7859}}
 .phead .eyebrow,.hero .eyebrow{color:rgba(236,239,237,.86)}
