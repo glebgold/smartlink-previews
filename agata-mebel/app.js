@@ -123,7 +123,7 @@
   /* ---------- Работы на главной: горизонтальная витрина ---------- */
   const strip = $('#strip'), track = $('#strip-track');
   if (strip && track && window.WORKS) {
-    const CURATED = ['neo-k-1','k-carved-1','hotel-lobby-2','k-silver-3','shop-info-3','k-stone-2','bath-marble-1','hotel-a-1','kids-room-1','k-taupe-1','shop-flow-1','k-attic-3','neo-dress-1','k-grey-2'];
+    const CURATED = ['neo-k-1','k-carved-1','hotel-lobby-2','k-silver-3','w-island-1','shop-info-3','k-stone-2','bath-marble-1','bath-slats-1','hotel-a-1','kids-room-1','k-taupe-1','hall-classic-1','shop-flow-1','k-attic-3','neo-dress-1','k-grey-2'];
     const photosFor = (cat) => {
       if (cat === 'all') return CURATED;
       const out = [];
