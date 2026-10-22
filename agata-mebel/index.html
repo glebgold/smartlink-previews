@@ -20,9 +20,8 @@
 <meta name="theme-color" content="#F7F4EF">
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/manrope-300-cyrillic.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/inter-400-cyrillic.woff2" crossorigin>
-<link rel="preload" as="image" href="assets/img/hero-wide-1920.webp" imagesrcset="assets/img/hero-wide-1280.webp 1280w, assets/img/hero-wide-1920.webp 1920w" imagesizes="100vw" media="(min-width:1001px), (min-width:701px) and (orientation:landscape)">
-<link rel="preload" as="image" href="assets/img/neo-k-1-xl.webp" imagesrcset="assets/img/neo-k-1-800.webp 450w, assets/img/neo-k-1-xl.webp 1200w" imagesizes="100vw" media="(max-width:700px), (max-width:1000px) and (orientation:portrait)">
-<link rel="stylesheet" href="styles.css?v=18">
+<link rel="preload" as="image" href="assets/img/neo-k-1-xl.webp" imagesrcset="assets/img/neo-k-1-800.webp 450w, assets/img/neo-k-1-xl.webp 1200w" imagesizes="(min-width:1001px) 32vw, (min-width:701px) and (orientation:landscape) 34vw, 100vw">
+<link rel="stylesheet" href="styles.css?v=19">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -98,10 +97,8 @@
 
 <section class="hero hero-full">
   <div class="hero-bg" aria-hidden="true">
-    <picture>
-      <source media="(max-width:700px), (max-width:1000px) and (orientation:portrait)" srcset="assets/img/neo-k-1-800.webp 450w, assets/img/neo-k-1-xl.webp 1200w" sizes="100vw">
-      <img src="assets/img/hero-wide-1920.webp" srcset="assets/img/hero-wide-1280.webp 1280w, assets/img/hero-wide-1920.webp 1920w" sizes="100vw" alt="" fetchpriority="high" decoding="async">
-    </picture>
+    <img class="hero-blur" src="assets/img/hero-blur.webp" alt="" decoding="async">
+    <img class="hero-photo" src="assets/img/neo-k-1-xl.webp" srcset="assets/img/neo-k-1-800.webp 450w, assets/img/neo-k-1-xl.webp 1200w" sizes="(min-width:1001px) 32vw, (min-width:701px) and (orientation:landscape) 34vw, 100vw" alt="" fetchpriority="high" decoding="async">
   </div>
   <div class="container hero-content">
     <p class="hero-top"><span>Мебель на заказ · Калининград<span class="hero-top-salon"> · салон в ТЦ «Балтламинат»</span></span></p>
@@ -113,17 +110,14 @@
       <a class="btn btn-ghost" href="#lead">Заявка на замер</a>
     </div>
     <div class="hero-mini rv rv-d4">
-        <button class="mini" type="button" data-work="neo-apt" data-index="6">
+        <button class="mini" type="button" data-work="neo-apt" data-index="6" aria-label="Санузел — открыть фото">
           <span class="mini-img"><img src="assets/img/neo-wc-1-thumb.webp" alt="Санузел с лепниной" width="281" height="500" decoding="async"></span>
-          <span class="mini-name">Санузел</span>
         </button>
-        <button class="mini" type="button" data-work="ward-classic" data-index="0">
+        <button class="mini" type="button" data-work="ward-classic" data-index="0" aria-label="Шкаф — открыть фото">
           <span class="mini-img"><img src="assets/img/ward-classic-1-thumb.webp" alt="Белый шкаф с лепным декором" width="281" height="500" decoding="async"></span>
-          <span class="mini-name">Шкаф</span>
         </button>
-        <button class="mini" type="button" data-work="neo-apt" data-index="7">
+        <button class="mini" type="button" data-work="neo-apt" data-index="7" aria-label="Гардеробная — открыть фото">
           <span class="mini-img"><img src="assets/img/neo-dress-1-thumb.webp" alt="Гардеробная за бронзовым стеклом" width="281" height="500" decoding="async"></span>
-          <span class="mini-name">Гардеробная</span>
         </button>
       </div>
   </div>

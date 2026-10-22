@@ -842,3 +842,16 @@ body.mbar-on{ padding-bottom:76px }
   .review{ scroll-snap-align:start; gap:22px; padding:24px 22px }
   .review::before{ font-size:72px }
 }
+
+/* ---------- Первый экран, компьютер: кухня целиком справа (снимок вертикальный — не режем),
+   за текстом — тот же кадр, размытый; край фото растворяется в размытии ---------- */
+.hero-full .hero-bg .hero-blur{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:50% 50%; opacity:1; transform:none }
+.hero-full .hero-bg .hero-photo{ position:absolute; top:96px; right:0; bottom:0; left:auto; width:auto; height:calc(100% - 96px); aspect-ratio:9/16; object-fit:cover; object-position:50% 50%;
+  -webkit-mask-image:linear-gradient(90deg, transparent 0, #000 15%); mask-image:linear-gradient(90deg, transparent 0, #000 15%) }
+.hero-full .hero-bg::after{ display:none }
+.hero-full .mini-img{ border-width:3px }
+.hero-full .hero-mini{ max-width:340px }
+@media (max-width:700px), (max-width:1000px) and (orientation:portrait){
+  .hero-full .hero-bg .hero-blur{ display:none }
+  .hero-full .hero-bg .hero-photo{ top:0; height:100%; width:100%; aspect-ratio:auto; object-position:50% 40%; -webkit-mask-image:none; mask-image:none }
+}
