@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Меню кухни</title>
+  <meta name="description" content="Меню кухни с фото и ценами: каши и скрэмбл до 13:00, сырники, блины, салаты, супы, горячее и боулы.">
+  <meta name="theme-color" content="#ece7df" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#1a1613" media="(prefers-color-scheme: dark)">
+  <meta name="format-detection" content="telephone=no">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Меню кухни">
+  <meta property="og:description" content="Каши, сырники, супы, салаты, горячее и боулы — с фото и ценами.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%237a5541'/%3E%3Cpath d='M13 33h38a19 19 0 0 1-38 0z' fill='%23ece7df'/%3E%3Cpath d='M26 13c-3 4 3 6 0 11M38 13c-3 4 3 6 0 11' stroke='%23ece7df' stroke-width='3.2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Ysabeau+Office:wght@400..700&display=swap">
+  <link rel="stylesheet" href="assets/styles.css">
+
+  <script src="assets/menu.js" defer></script>
+  <script src="assets/app.js" defer></script>
+</head>
+<body>
+  <header class="hero" id="hero"></header>
+
+  <nav class="nav" id="nav" aria-label="Разделы меню">
+    <div class="nav__bar">
+      <div class="nav__links" id="nav-links"></div>
+      <button class="nav__search" id="search-open" type="button" aria-label="Найти блюдо">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 5 5"/></svg>
+      </button>
+    </div>
+    <form class="search" id="search" role="search" hidden>
+      <label class="search__field">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 5 5"/></svg>
+        <input class="search__input" id="search-input" type="search" placeholder="Найти блюдо" aria-label="Найти блюдо" autocomplete="off" enterkeyhint="search" spellcheck="false">
+      </label>
+      <button class="search__cancel" id="search-cancel" type="button">Отмена</button>
+    </form>
+  </nav>
+
+  <main class="menu" id="menu"></main>
+
+  <footer class="foot" id="foot"></footer>
+
+  <dialog class="sheet" id="sheet" aria-labelledby="sheet-title">
+    <div class="sheet__inner">
+      <div class="sheet__media"><img class="sheet__photo" alt="" decoding="async"></div>
+      <span class="sheet__grab" aria-hidden="true"></span>
+      <button class="sheet__close" type="button" aria-label="Закрыть">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+      </button>
+      <div class="sheet__body">
+        <p class="sheet__cat"></p>
+        <div class="sheet__head">
+          <h2 class="sheet__title" id="sheet-title"></h2>
+          <span class="sheet__price"></span>
+        </div>
+        <p class="sheet__desc"></p>
+        <div class="sheet__extra"></div>
+        <p class="sheet__allergy"></p>
+      </div>
+    </div>
+  </dialog>
+
+  <noscript><p class="noscript">Чтобы открыть меню, включите JavaScript в браузере.</p></noscript>
+</body>
+</html>
