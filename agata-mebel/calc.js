@@ -19,16 +19,16 @@
     bath:     { unit: 'пог. м', min: 0.6, max: 4,  step: 0.1, def: 1.2, floor: 45000,
                 fronts: { ldsp: 38000, film: 48000, enamel: 62000, veneer: 75000 } },
     stone:    { unit: 'пог. м', min: 1,   max: 12, step: 0.5, def: 3,   floor: 0,
-                fronts: { acrylic: 11000, quartz: 12000, ceramic: 16000, natural: 18000 } }
+                fronts: { acrylic: 11000, quartz: 12000 } }
   };
   const HW  = { standard: 0, soft: 3000, premium: 7000 };          // за единицу размера
-  const TOP = { ldsp: 3000, acrylic: 9000, quartz: 12000, ceramic: 15000 }; // за пог. м (кухня)
+  const TOP = { ldsp: 3000, acrylic: 9000, quartz: 12000 }; // за пог. м (кухня)
   const EXTRA = { light: 8000, island: 60000 };
   const LABELS = {
     type: { kitchen: 'Кухня', wardrobe: 'Шкаф', dressing: 'Гардеробная', kids: 'Детская', bath: 'Мебель для ванной', stone: 'Изделие из камня' },
-    fronts: { ldsp: 'ЛДСП', film: 'МДФ в плёнке', enamel: 'МДФ в эмали', veneer: 'Шпон / акрил', acrylic: 'Акриловый камень', quartz: 'Кварцевый агломерат', ceramic: 'Керамогранит', natural: 'Натуральный камень' },
+    fronts: { ldsp: 'ЛДСП', film: 'МДФ в плёнке', enamel: 'МДФ в эмали', veneer: 'Шпон / акрил', acrylic: 'Акриловый камень', quartz: 'Кварцевый агломерат' },
     hw: { standard: 'стандартная', soft: 'с доводчиками', premium: 'премиум' },
-    top: { ldsp: 'ЛДСП', acrylic: 'акрил', quartz: 'кварц', ceramic: 'керамогранит' }
+    top: { ldsp: 'ЛДСП', acrylic: 'акрил', quartz: 'кварц' }
   };
 
   const typeInputs = $$('input[name=type]', form);
@@ -68,6 +68,9 @@
     return Math.max(p, r.floor);
   }
 
+  const tierNotes = $$('.tier small'); const tierDefault = tierNotes.map(n => n.textContent);
+  const TIER_STONE = ['Акриловый камень', 'По выбранному материалу', 'Кварцевый агломерат'];
+
   function calc() {
     const t = val('type'); const r = R[t];
     const s = parseFloat(size.value);
@@ -77,7 +80,8 @@
     const extras = { light: !!$('input[name=light]:checked', form), island: !!$('input[name=island]:checked', form) };
     const mine = price(t, s, fronts, hw, top, extras);
     const base = t === 'stone' ? price(t, s, 'acrylic', hw, top, extras) : price(t, s, 'ldsp', 'standard', 'ldsp', { light: false, island: extras.island });
-    const prem = t === 'stone' ? price(t, s, 'natural', hw, top, extras) : price(t, s, 'veneer', 'premium', 'quartz', { light: true, island: extras.island });
+    const prem = t === 'stone' ? price(t, s, 'quartz', hw, top, extras) : price(t, s, 'veneer', 'premium', 'quartz', { light: true, island: extras.island });
+    tierNotes.forEach((n, k) => { n.textContent = t === 'stone' ? TIER_STONE[k] : tierDefault[k]; });
     out.base.textContent = 'от ' + money(base);
     out.mine.textContent = 'от ' + money(mine);
     out.prem.textContent = 'от ' + money(prem);

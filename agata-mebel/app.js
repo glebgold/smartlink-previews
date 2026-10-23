@@ -8,11 +8,11 @@
   const goal = (name) => { try { if (window.ym && window.YM_ID) window.ym(window.YM_ID, 'reachGoal', name); } catch (e) {} };
   const IMG = 'assets/img/';
 
-  /* Ссылки на MAX. Взять в приложении: Профиль → Поделиться профилем (вид https://max.ru/u/…).
-     Пока строки пустые — кнопки MAX на сайте скрыты. */
+  /* Ссылка на MAX Анны (+7 906 238-49-50). Взять в приложении MAX: Профиль → Пригласить друзей → Скопировать ссылку
+     (вид https://max.ru/u/…). По номеру телефона MAX ссылок не даёт. Пока строка пустая — кнопки MAX скрыты,
+     а в контактах MAX указан текстом рядом с номером. */
   const MAX_LINKS = {
-    anna: '',   // личный телефон Анны  +7 (906) 238-49-50
-    work: '',   // рабочий телефон      +7 (900) 349-83-11
+    anna: '',
   };
   const DIMS = window.PHOTO_DIMS || {};
   const isLand = p => DIMS[p] ? DIMS[p][0] > DIMS[p][1] : false;
@@ -112,8 +112,7 @@
     return { open, close };
   })();
   function workItems(work) {
-    const meta = (window.AGATA_STYLES || {})[work.style] || '';
-    const list = work.photos.map(p => ({ photo: p, title: work.title, meta }));
+    const list = work.photos.map(p => ({ photo: p, title: work.title, meta: '' }));
     if (work.video) list.push({ video: 'assets/video/' + work.video + '.mp4', poster: 'assets/video/' + work.video + '-poster.jpg', title: work.title, meta: 'Видео с объекта' });
     return list;
   }
@@ -137,12 +136,11 @@
       const set = photosFor(key);
       track.innerHTML = set.map(p => {
         const w = byPhoto[p]; if (!w) return '';
-        const st = window.AGATA_STYLES[w.style] || '';
         const n = w.photos.length + (w.video ? 1 : 0);
         return '<button class="frame' + (isLand(p) ? ' is-land' : '') + '" type="button" data-photo="' + p + '" aria-label="' + w.title + ' — открыть фотографии">' +
           (n > 1 ? '<span class="frame-cnt">' + n + ' фото</span>' : '<span class="frame-cnt">Открыть</span>') +
           '<img loading="lazy" decoding="async" src="' + IMG + p + '.webp" srcset="' + IMG + p + '-800.webp 800w, ' + IMG + p + '.webp 1600w" sizes="(max-width:900px) 78vw, 34vw" alt="' + w.title + '"' + (POS[p] ? ' style="object-position:' + POS[p] + '"' : '') + '>' +
-          '<span class="frame-cap">' + w.title + '<small>' + st + '</small></span></button>';
+          '<span class="frame-cap">' + w.title + '</span></button>';
       }).join('');
       strip.scrollTo({ left: 0 });
       observe($$('.frame', track));
@@ -188,30 +186,28 @@
   /* ---------- Портфолио: фильтры ---------- */
   const gridAll = $('#grid-works');
   if (gridAll && window.WORKS) {
-    let type = 'all', style = 'all';
+    let type = 'all';
     const params = new URLSearchParams(location.search);
-    if (params.get('type')) type = params.get('type'); if (params.get('style')) style = params.get('style');
+    if (params.get('type') && window.AGATA_TYPES[params.get('type')]) type = params.get('type');
     const cnt = $('#grid-count');
     const plural = (n, f) => { const m = n % 100; if (m > 10 && m < 20) return f[2]; const k = m % 10; return k === 1 ? f[0] : (k > 1 && k < 5 ? f[1] : f[2]); };
     function render() {
-      const list = window.WORKS.filter(w => (type === 'all' || w.type.includes(type)) && (style === 'all' || w.style === style));
+      const list = window.WORKS.filter(w => type === 'all' || w.type.includes(type));
       $$('[data-type]').forEach(b => b.classList.toggle('is-active', b.dataset.type === type));
-      $$('[data-style]').forEach(b => b.classList.toggle('is-active', b.dataset.style === style));
       if (cnt) cnt.textContent = list.length ? list.length + ' ' + plural(list.length, ['проект', 'проекта', 'проектов']) : '';
       gridAll.innerHTML = list.length ? list.map(w => {
         const n = w.photos.length + (w.video ? 1 : 0);
         return '<button class="gw rv" type="button" data-id="' + w.id + '">' +
           '<span class="gw-img"><img src="' + IMG + w.photos[0] + '-800.webp" alt="' + w.title + '" loading="lazy" decoding="async">' + (n > 1 ? '<span class="gw-cnt">' + n + ' фото</span>' : '') + '</span>' +
-          '<span class="gw-body"><h3>' + w.title + '</h3><small>' + window.AGATA_STYLES[w.style] + ' · ' + w.type.map(t => window.AGATA_TYPES[t]).join(', ') + '</small></span></button>';
-      }).join('') : '<p class="grid-empty">В этом сочетании пока нет опубликованных работ — но мы такое делаем. Напишите, покажем примеры.</p>';
+          '<span class="gw-body"><h3>' + w.title + '</h3><small>' + w.type.map(t => window.AGATA_TYPES[t]).join(', ') + '</small></span></button>';
+      }).join('') : '<p class="grid-empty">В этом разделе пока нет опубликованных работ — но мы такое делаем. Напишите, покажем примеры.</p>';
       observe($$('.gw', gridAll));
       const u = new URL(location.href);
       type === 'all' ? u.searchParams.delete('type') : u.searchParams.set('type', type);
-      style === 'all' ? u.searchParams.delete('style') : u.searchParams.set('style', style);
+      u.searchParams.delete('style');
       history.replaceState(null, '', u);
     }
     $$('[data-type]').forEach(b => b.addEventListener('click', () => { type = b.dataset.type; render(); }));
-    $$('[data-style]').forEach(b => b.addEventListener('click', () => { style = b.dataset.style; render(); }));
     gridAll.addEventListener('click', e => { const b = e.target.closest('.gw'); if (!b) return; const w = window.WORKS.find(x => x.id === b.dataset.id); if (w) LB.open(workItems(w), 0); });
     render();
   }
@@ -220,6 +216,14 @@
   $$('[data-work]').forEach(el => el.addEventListener('click', e => {
     const w = (window.WORKS || []).find(x => x.id === el.dataset.work); if (!w) return;
     e.preventDefault(); LB.open(workItems(w), Number(el.dataset.index || 0));
+  }));
+
+  /* ---------- Лайтбокс для отдельных фото: рендеры дизайн-проектов, замер, фото из отзывов ---------- */
+  $$('[data-lb]').forEach(el => el.addEventListener('click', e => {
+    e.preventDefault();
+    const group = el.closest('[data-lb-group]');
+    const els = group ? $$('[data-lb]', group) : [el];
+    LB.open(els.map(b => ({ photo: b.dataset.lb, title: b.dataset.title || '', meta: b.dataset.meta || '' })), els.indexOf(el));
   }));
 
   /* ---------- Формы ---------- */

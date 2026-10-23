@@ -1,5 +1,5 @@
 /* Агата Мебель — каталог работ.
-   type: kitchen | wardrobe | kids | bath | living | stone (может быть несколько)
+   type: kitchen | wardrobe | kids | bath | living | apart | hotel | shop | stone (может быть несколько)
    style: classic | neo | modern | minimal
    photos: имена файлов из assets/img без расширения */
 window.AGATA_TYPES = {
@@ -8,6 +8,7 @@ window.AGATA_TYPES = {
   kids:     'Детские',
   bath:     'Ванные',
   living:   'Гостиные и прихожие',
+  apart:    'Апартаменты',
   hotel:    'Гостиницы',
   shop:     'Магазины',
   stone:    'Камень'
@@ -20,15 +21,15 @@ window.AGATA_STYLES = {
 };
 window.PHOTO_DIMS = {"k-carved-4":[1200,1600],"k-loft-2":[1600,1200],"ward-classic-2":[720,1280],"ward-classic-3":[720,1280],"kids-room-2":[1040,780],"k-carved-5":[1200,1600],"hotel-lobby-1":[900,1600],"hotel-lobby-3":[900,1600],"k-grey-4":[1200,1600],"k-loft-1":[1600,1200],"ward-classic-1":[720,1280],"ward-classic-0":[590,916],"kids-room-1":[1040,780],"k-taupe-4":[1200,1600],"k-grey-5":[1600,1200],"hotel-lobby-2":[900,1600],"k-grey-1":[1600,1200],"k-white-3":[1059,1280],"k-woodclassic-1":[839,557],"bath-black-1":[1280,1600],"k-carved-2":[1200,1600],"k-cream-1":[960,1280],"bath-marble-1":[960,1280],"ward-classic-4":[720,1280],"k-paris-1":[720,1280],"k-taupe-1":[1200,1600],"ward-glass-1":[1599,1200],"k-carved-3":[1600,1200],"k-white-2":[960,1190],"bath-beige-1":[960,1280],"k-grey-2":[780,1040],"k-carved-1":[1200,1600],"bath-black-2":[1024,1280],"k-taupe-3":[960,1280],"neo-dress-1":[900,1600],"k-paris-2":[720,1280],"k-taupe-2":[1200,1600],"ward-glass-2":[1599,1200],"k-white-1":[960,1190],"bath-beige-2":[960,1280],"k-grey-3":[1040,780],"hotel-lobby-4":[900,1600],"k-creamwood-1":[1264,848],"hotel-loft-4":[853,1280],"bath-grey-1":[960,1280],"k-whitestone-4":[900,1600],"neo-panel-1":[900,1600],"neo-wc-1":[900,1600],"shop-flow-5":[960,1280],"neo-bath-1":[900,1600],"shop-info-7":[900,1600],"k-isle-2":[1152,544],"min-12":[720,1280],"k-oak-2":[1600,1066],"k-bluelight-1":[1200,1504],"min-6":[1280,892],"k-cherry-2":[867,1156],"min-7":[960,1190],"min-13":[720,1280],"ward-slide-1":[1200,1599],"k-isle-3":[1152,544],"shop-info-6":[900,1600],"neo-k-4":[900,1600],"shop-flow-4":[1280,960],"hotel-loft-5":[853,1280],"hotel-loft-7":[1067,1600],"neo-panel-2":[900,1600],"shop-flow-6":[960,1280],"neo-bath-2":[900,1600],"shop-info-4":[900,1600],"ward-slide-3":[1599,1200],"k-isle-1":[1152,544],"min-11":[720,1280],"k-oak-1":[1600,1066],"min-5":[960,1190],"k-cherry-1":[867,1156],"min-4":[1280,892],"min-10":[900,1600],"ward-slide-2":[1599,1200],"shop-info-5":[900,1600],"ward-white-1":[960,1280],"neo-panel-3":[900,1600],"hotel-loft-6":[853,1280],"k-whitestone-2":[900,1600],"hotel-loft-2":[1280,853],"shop-flow-3":[1280,960],"tv-white-1":[1152,544],"neo-k-3":[900,1600],"hall-cream-1":[1152,928],"k-isle-4":[1152,544],"shop-info-1":[900,1600],"min-14":[900,1600],"hotel-a-8":[721,1280],"min-1":[960,1190],"hotel-a-9":[810,1080],"neo-k-2":[900,1600],"shop-flow-2":[960,1280],"hotel-loft-3":[853,1280],"k-whitestone-3":[900,1600],"hotel-loft-1":[853,1280],"k-whitestone-1":[900,1600],"neo-panel-4":[900,1600],"shop-info-2":[900,1600],"min-3":[960,1190],"min-2":[1280,892],"shop-info-3":[1516,1600],"neo-k-1":[900,1600],"shop-flow-1":[960,1280],"neo-panel-5":[900,1600],"k-peninsula-2":[1200,1600],"k-stone-1":[1600,1200],"kids-desk-1":[1200,1600],"k-blue-2":[1200,1600],"hotel-a-7":[992,1600],"k-bar-2":[959,1280],"hotel-a-6":[810,1080],"bath-mauve-1":[564,1280],"k-beige-1":[1200,1600],"k-blue-3":[1200,1600],"k-attic-1":[1200,1600],"bath-paris-1":[720,1280],"k-whitedrop-1":[1200,1599],"k-peninsula-1":[1200,1600],"k-attic-3":[1200,1600],"k-stone-2":[1200,1600],"k-blue-1":[960,1190],"kids-desk-2":[1200,1600],"bath-mauve-3":[574,1256],"hotel-a-4":[810,1080],"k-bar-1":[959,1280],"hotel-a-5":[810,1080],"bath-mauve-2":[564,1280],"k-beige-2":[1200,1600],"k-stone-3":[1200,1600],"k-attic-2":[960,1280],"k-whitedrop-2":[1200,1599],"k-darkwood-1":[1280,1600],"ward-grey-1":[960,1280],"k-silver-1":[960,1280],"k-blue-4":[1200,1600],"k-attic-6":[1200,1600],"k-green-1":[1600,1116],"min-9":[960,1190],"hotel-a-1":[810,1080],"min-8":[1280,892],"hotel-loft-8":[1280,853],"k-silver-2":[960,1280],"k-attic-5":[1200,1600],"hotel-a-2":[1200,1600],"hotel-a-3":[810,1080],"k-attic-4":[1200,1600],"k-silver-3":[1280,960],"hotel-loft-9":[1200,1600],"hotel-loft-10":[960,1280],"hotel-a-12":[1600,1200],"hotel-loft-11":[853,1280],"tv-marble-1":[960,1280],"hotel-a-10":[1600,1200],"shop-suv-4":[739,1600],"hotel-a-11":[900,1600],"k-oakblack-1":[1200,1600],"k-sage-1":[1599,1200],"hall-wood-2":[1600,1200],"bath-wood-1":[1024,768],"shop-suv-1":[720,1600],"k-woodtable-2":[1284,1600],"k-graphite-1":[960,1280],"k-sage-2":[1200,1599],"k-graphite-3":[1200,1600],"hall-wood-1":[1200,1600],"bath-wood-2":[853,1280],"shop-suv-3":[739,1600],"shop-suv-2":[637,684],"k-woodtable-1":[1280,1600],"k-dining-1":[1280,1600],"k-graphite-2":[1200,1600],"w-island-1":[900,1600],"w-island-2":[900,1600],"w-island-3":[900,1600],"w-island-4":[900,1600],"w-island-5":[900,1600],"w-island-6":[900,1600],"w-island-7":[900,1600],"w-island-8":[900,1600],"w-island-9":[900,1600],"w-island-10":[900,1600],"liv-green-1":[1152,864],"liv-green-2":[864,1152],"liv-green-3":[864,1152],"liv-green-4":[960,1280],"liv-green-5":[960,1280],"hall-classic-1":[1200,1488],"hall-classic-2":[1200,1488],"hall-classic-3":[1200,1488],"hall-classic-4":[1200,1488],"teen-1":[960,1280],"teen-2":[960,1280],"teen-3":[900,1600],"teen-4":[900,1600],"teen-5":[900,1600],"teen-6":[900,1600],"teen-7":[900,1600],"bath-slats-1":[960,1280],"bath-slats-2":[960,1280],"bath-slats-3":[960,1280],"bath-slats-4":[960,1280],"k-greyu-1":[960,1190],"k-greyu-2":[1200,1488],"k-greyu-3":[900,1600],"k-greyu-4":[900,1600],"k-greyu-5":[900,1600],"kids-house-1":[900,1600],"kids-house-2":[900,1600],"kids-house-3":[900,1600],"bath-blue-1":[960,1280],"bath-blue-2":[960,1280],"bath-blue-3":[960,1280],"w-stairs-1":[960,1280],"w-stairs-2":[960,1280],"w-stairs-3":[960,1280],"apt-light-1":[900,1600],"apt-light-2":[900,1600],"apt-light-3":[900,1600],"apt-light-4":[900,1600],"apt-light-5":[900,1600],"apt-light-6":[900,1600],"apt-light-7":[900,1600],"apt-light-8":[900,1600],"apt-light-9":[900,1600],"bed-wood-1":[1600,1200],"bed-wood-2":[1600,1200],"bed-wood-3":[1200,1600],"bed-wood-4":[1200,1600],"w-concrete-1":[1200,1600],"w-concrete-2":[1200,1600],"w-concrete-3":[1200,1600],"k-greyisle-1":[1024,768],"k-greyisle-2":[768,1024],"k-greyisle-3":[768,1024],"w-sage-1":[1200,1488],"w-sage-2":[1200,1488],"w-sage-3":[1200,1488],"w-sage-4":[1200,1488],"w-sage-5":[960,1190],"w-laundry-1":[1200,1488],"w-laundry-2":[1200,1488],"w-laundry-3":[1200,1488],"w-laundry-4":[1200,1488],"w-laundry-5":[1200,1488],"k-isledin-1":[900,1600],"k-isledin-2":[900,1600],"tv-niche-1":[900,1600],"tv-niche-2":[900,1600],"tv-niche-3":[900,1600],"bath-gold-1":[1040,780],"bath-gold-2":[1040,780],"w-bedgrey-1":[1600,1116],"w-bedgrey-2":[1200,1488],"w-bedgrey-3":[1200,1488],"k-beigewood-1":[1600,1200],"k-beigewood-2":[1600,1200],"k-beigewood-3":[1600,1200],"w-corridor-1":[960,1280],"w-corridor-2":[544,1152],"w-blackglass-1":[1152,864],"w-blackglass-2":[864,1152],"w-blackglass-3":[780,1040],"hall-white-1":[864,1152],"hall-white-2":[864,1152],"tv-round-1":[960,1280],"tv-round-2":[1280,960],"tv-round-3":[960,1280],"w-open-1":[768,1024],"w-open-2":[768,1024],"hall-tile-1":[960,1280],"hall-tile-2":[960,1280],"hall-led-1":[960,1280],"hall-led-2":[960,1280],"hall-beige-1":[1200,1600],"hall-beige-2":[1200,1600],"hall-beige-3":[1200,1600],"hall-beige-4":[1200,1600],"k-whitehl-1":[1600,1116],"k-whitehl-2":[1200,1488],"k-wooddark-1":[960,1280],"k-wooddark-2":[960,1280],"k-whiteblack-1":[576,1280],"k-whiteblack-2":[576,1280],"k-whiteblack-3":[575,1280],"hall-dark-1":[864,1152],"hall-dark-2":[864,1152],"hall-vanity-1":[1200,1488],"hall-vanity-2":[1200,1488],"hall-grey-1":[780,1040],"hall-grey-2":[1200,1599],"w-darkwood-1":[1200,1488],"w-darkwood-2":[1200,1488],"bath-noir-1":[750,1000],"bath-noir-2":[750,1000],"bed-vanity-1":[1200,1488],"bed-vanity-2":[1200,1488],"desk-1":[900,1600],"desk-2":[900,1600],"kids-tree-1":[1200,1488],"bath-wclassic-1":[900,1600],"hall-chester-1":[1200,1600],"hall-soft-1":[1200,1600],"hall-slats-1":[1200,1600],"hall-niche-1":[1200,1599],"hall-mirrorw-1":[960,1280],"hall-ledw-1":[900,1600],"hall-gw-1":[1200,1488],"hall-wm-1":[1600,1066],"hall-mirror-1":[1200,1600],"k-column-1":[960,1190],"bath-blackdr-1":[750,1000],"bath-dark-1":[1200,1599],"bath-terra-1":[780,1040],"bath-laundry-1":[960,1280],"bath-tall-1":[1281,1600],"bath-sage-1":[900,1600],"bookcase-1":[1200,1600],"bed-shelf-1":[900,1600],"chest-1":[1200,1600],"tv-float-1":[1200,1600],"attic-shelf-1":[1135,1600],"k-cream-2":[1280,960],"k-cream-3":[960,1280],"k-cream-4":[960,1280],"k-cream-5":[1280,960],"ward-glass-3":[1599,1200],"ward-glass-4":[1599,1200],"ward-glass-5":[1599,1200]};
 window.WORKS = [
-  { id:'neo-apt',  title:'Квартира в классике с лепниной', type:['kitchen','bath','wardrobe','living'], style:'neo',
+  { id:'neo-apt',  title:'Квартира в классике с лепниной', type:['apart','kitchen','bath','wardrobe','living'], style:'neo',
     text:'Белая кухня с островом-слэбом, санузел и ванная, гардеробная за бронзовым стеклом, стеновые панели с лепным декором по всей квартире.',
     photos:['neo-k-1','neo-k-3','neo-k-2','neo-k-4','neo-bath-1','neo-bath-2','neo-wc-1','neo-dress-1','neo-panel-1','neo-panel-2','neo-panel-3','neo-panel-4','neo-panel-5'] },
-  { id:'hotel-loft', title:'Апарт-отель в мансарде', type:['hotel','kitchen'], style:'minimal',
+  { id:'hotel-loft', title:'Апарт-отель в мансарде', type:['apart','hotel','kitchen'], style:'minimal',
     text:'Номера под скатом крыши: кровати с изголовьями из шпона, мини-кухни, барные стойки и мебель для санузлов. Одно решение, повторённое по всем номерам.',
     photos:['hotel-loft-2','hotel-loft-11','hotel-loft-4','hotel-loft-1','hotel-loft-3','hotel-loft-6','hotel-loft-7','hotel-loft-8','hotel-loft-5'] },
   { id:'hotel-a',  title:'Гостиница: номера и зоны отдыха', type:['hotel'], style:'modern',
     text:'Мебель в номера и зоны отдыха: изголовья и стеновые панели из шпона, барные стойки с подсвеченной опорой из оникса, обеденные группы, тумбы и санузлы.',
-    photos:['hotel-a-1','hotel-a-12','hotel-a-10','hotel-a-3','hotel-a-5','hotel-loft-9','hotel-a-11','hotel-a-2','hotel-a-4','hotel-a-8','hotel-loft-10','hotel-a-7','hotel-a-6','hotel-a-9'],
+    photos:['hotel-a-1','hotel-a-12','hotel-a-10','hotel-a-3','hotel-a-5','hotel-loft-9','hotel-a-11','hotel-a-2','hotel-a-4','hotel-a-8','hotel-a-7','hotel-a-6','hotel-a-9'],
     video:'hotel' },
   { id:'dressing-island', title:'Гардеробная с островом', type:['wardrobe'], style:'modern',
     text:'Гардеробная комната в тёмном дереве: стеклянные двери в бронзовом профиле, подсветка внутри секций, остров с ящиками в центре.',
@@ -52,9 +53,6 @@ window.WORKS = [
   { id:'cherry',   title:'Классическая кухня цвета вишни', type:['kitchen'], style:'classic',
     text:'Фрезерованные фасады цвета вишни, резной декор над плитой, витрины с узорным стеклом, белая плитка «кабанчик».',
     photos:['k-cherry-1','k-cherry-2'] },
-  { id:'bluelight', title:'Кухня с синими фасадами', type:['kitchen'], style:'classic',
-    text:'Нижние фасады с филёнкой в синем цвете, светлые верхние шкафы с витринами, техника в колонне.',
-    photos:['k-bluelight-1'] },
   { id:'isle',     title:'Белая кухня с островом и обеденной зоной', type:['kitchen'], style:'modern',
     text:'Белые глянцевые фасады, колонны со встроенной техникой, остров и обеденный стол в одной зоне.',
     photos:['k-isle-1','k-isle-3','k-isle-2','k-isle-4'] },
@@ -81,10 +79,10 @@ window.WORKS = [
     photos:['shop-flow-1','shop-flow-4','shop-flow-5','shop-flow-2','shop-flow-3','shop-flow-6'] },
   { id:'shop-info', title:'Стойка информации в торговом центре', type:['shop'], style:'modern',
     text:'Ресепшен с рифлёным фасадом, подсветкой по периметру и столешницей из искусственного камня.',
-    photos:['shop-info-3','shop-info-1','shop-info-2','shop-info-6','shop-info-7','shop-info-4','shop-info-5'] },
+    photos:['shop-info-3','shop-info-1','shop-info-2','shop-info-6','shop-info-7','shop-info-4'] },
   { id:'shop-suv', title:'Витрины сувенирного магазина', type:['shop'], style:'modern',
     text:'Островные витрины со стеклом и подсветкой, торцевые прилавки и накопители для торгового зала.',
-    photos:['shop-suv-2','shop-suv-1','shop-suv-3','shop-suv-4'] },
+    photos:['shop-suv-2','shop-suv-1','shop-suv-3'] },
   { id:'taupe',    title:'Кухня в тауповом глянце с латунью', type:['kitchen'], style:'neo',
     text:'Рифлёные вставки, витрины с подсветкой и латунный профиль по всему периметру. Столешница и фартук — под мрамор.',
     photos:['k-taupe-1','k-taupe-2','k-taupe-3','k-taupe-4'] },
@@ -100,18 +98,12 @@ window.WORKS = [
   { id:'bath-marble', title:'Ванная с двумя раковинами', type:['bath','stone'], style:'classic',
     text:'Подвесная тумба с латунными ручками, столешница из камня, зеркала в нишах.',
     photos:['bath-marble-1'] },
-  { id:'paris',    title:'Кухня в парижской классике', type:['kitchen'], style:'classic',
-    text:'Белые фасады с фрезеровкой, лепной декор на стенах, стол из слэба.',
-    photos:['k-paris-1','k-paris-2'] },
   { id:'bath-paris', title:'Ванная с лепниной', type:['bath'], style:'classic',
     text:'Белая тумба под раковину, встроенные ниши, зеркало с подсветкой.',
     photos:['bath-paris-1'] },
   { id:'blue',     title:'Синяя кухня в неоклассике', type:['kitchen'], style:'neo',
     text:'Фасады с фрезеровкой, витрины, купол вытяжки, хрустальная люстра.',
     photos:['k-blue-2','k-blue-1','k-blue-4','k-blue-3'] },
-  { id:'ward-classic', title:'Шкафы с лепным декором', type:['wardrobe'], style:'classic',
-    text:'Белые распашные шкафы с резными накладками и вставкой из чёрного стекла.',
-    photos:['ward-classic-1','ward-classic-3','ward-classic-2','ward-classic-4','ward-classic-0'] },
   { id:'kids-desk', title:'Детская с письменным столом', type:['kids'], style:'classic',
     text:'Белый стол с рифлёным фасадом на латунных ножках, навесной шкаф и витрина для коллекции.',
     photos:['kids-desk-2','kids-desk-1'] },
@@ -210,7 +202,7 @@ window.WORKS = [
   { id:'ward-stairs', title:'Классические шкафы у лестницы', type:['wardrobe'], style:'classic',
     text:'Белые филёнчатые шкафы до потолка с ящиками внизу, встроены вдоль лестницы.',
     photos:['w-stairs-1','w-stairs-2','w-stairs-3'] },
-  { id:'apt-light', title:'Квартира в светлых тонах', type:['kitchen','wardrobe','living','bath'], style:'modern',
+  { id:'apt-light', title:'Квартира в светлых тонах', type:['apart','kitchen','wardrobe','living','bath'], style:'modern',
     text:'Кухня с верхними шкафами под дерево, шкаф в прихожей с нишей и банкеткой, белые шкафы в спальнях, подвесные консоли, перегородка в санузле.',
     photos:['apt-light-3','apt-light-1','apt-light-2','apt-light-4','apt-light-5','apt-light-6','apt-light-7','apt-light-8','apt-light-9'] },
   { id:'bed-headboard', title:'Спальня с изголовьем из дерева', type:['living','wardrobe'], style:'modern',
