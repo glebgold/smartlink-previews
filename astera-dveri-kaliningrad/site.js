@@ -8,18 +8,82 @@
   var $$ = function (s, r) { return [].slice.call((r || document).querySelectorAll(s)); };
   var slow = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  /* меню на телефоне */
-  var burger = $('.burger'), mnav = $('.mnav');
-  if (burger && mnav) {
-    burger.addEventListener('click', function () {
-      var open = mnav.classList.toggle('is-open');
-      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
-      document.body.style.overflow = open ? 'hidden' : '';
-    });
-    $$('a', mnav).forEach(function (a) { a.addEventListener('click', function () {
-      mnav.classList.remove('is-open'); burger.setAttribute('aria-expanded', 'false'); document.body.style.overflow = '';
-    }); });
+  /* шапка: над первым экраном прозрачная, при прокрутке — тёмная */
+  var top = $('#top');
+  if (top && top.classList.contains('top--over')) {
+    var solid = function () { top.classList.toggle('is-solid', window.scrollY > 30); };
+    window.addEventListener('scroll', solid, { passive: true }); solid();
   }
+
+  /* меню (как у LORD) и поиск */
+  var menu = $('#menu'), menuBtn = $('#menuBtn'), srch = $('#srch'), srchBtn = $('#srchBtn'), q = $('#srchQ'), res = $('#srchRes');
+  function setMenu(open) {
+    if (!menu) return;
+    if (open) setSearch(false);
+    menu.hidden = !open; document.body.classList.toggle('menu-open', open);
+    menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false'); menuBtn.setAttribute('aria-label', open ? 'Закрыть меню' : 'Меню');
+  }
+  function setSearch(open) {
+    if (!srch) return;
+    if (open) setMenu(false);
+    srch.hidden = !open; document.body.classList.toggle('srch-open', open);
+    srchBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    if (open) { find(); setTimeout(function () { q.focus(); }, 30); }
+  }
+  if (menuBtn) menuBtn.addEventListener('click', function () { setMenu(menu.hidden); });
+  if (srchBtn) srchBtn.addEventListener('click', function () { setSearch(srch.hidden); });
+  if (menu) $$('a', menu).forEach(function (a) { a.addEventListener('click', function () { setMenu(false); }); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') { setMenu(false); setSearch(false); } });
+  var PAGES = [['Входные двери', 'vhodnye.html'], ['Двери для дома', 'vhodnye.html#dom'], ['Межкомнатные двери', 'mezhkomnatnye.html'],
+               ['Перегородки', 'interer.html#peregorodki'], ['Стеновые панели', 'interer.html#reyki'], ['Зеркала', 'interer.html#zerkala'],
+               ['Напольные покрытия', 'interer.html#pol'], ['Замки и петли', 'interer.html#furnitura'], ['Акции', 'akcii.html'],
+               ['Где купить', 'gde-kupit.html'], ['Контакты', 'kontakty.html'], ['Замер и консультация', 'kontakty.html#zayavka']];
+  function norm(t) { return String(t).toLowerCase().replace(/ё/g, 'е').replace(/[«»"]/g, ''); }
+  function find() {
+    if (!res) return;
+    var t = norm(q.value.trim()), out = [];
+    if (!t) { res.innerHTML = PAGES.slice(0, 8).map(function (p) { return '<a href="' + p[1] + '">' + p[0] + '</a>'; }).join(''); return; }
+    PAGES.forEach(function (p) { if (norm(p[0]).indexOf(t) > -1) out.push('<a href="' + p[1] + '">' + p[0] + '</a>'); });
+    A.MODELS.forEach(function (m) {
+      var hay = norm(m.t + ' ' + m.coll + ' ' + (m.brand === 'mid' ? 'межкомнатная ' + styleName(m.style) : 'входная ' + (m.sub === 'ulica' ? 'для дома' : 'в квартиру')));
+      if (hay.indexOf(t) > -1) out.push('<a href="dver.html?id=' + m.id + '"><img src="' + A.prev(m, 400) + '" alt="" loading="lazy"><b>' + m.t + '<span>' + m.coll + '</span></b></a>');
+    });
+    res.innerHTML = out.length ? out.slice(0, 24).join('') : '<p class="srch__none">Ничего не нашли. Позвоните — подберём: <a href="tel:+79637386555">+7 963 738 65 55</a></p>';
+  }
+  if (q) q.addEventListener('input', find);
+
+  /* слайдеры: главная и баннеры разделов */
+  $$('.sl').forEach(function (sl) {
+    var slides = $$('.sl__s', sl), dots = $$('.sl__dots button', sl);
+    if (slides.length < 2) { $$('.sl__arr, .sl__dots', sl).forEach(function (x) { x.hidden = true; }); return; }
+    var i = 0, timer = null;
+    function load(s) {
+      var img = $('img', s), src = $('source', s);
+      if (img && img.dataset.src) { img.src = img.dataset.src; delete img.dataset.src; }
+      if (src && src.dataset.srcset) { src.srcset = src.dataset.srcset; delete src.dataset.srcset; }
+    }
+    function go(n) {
+      slides[i].classList.remove('is-on'); if (dots[i]) dots[i].classList.remove('is-on');
+      i = (n + slides.length) % slides.length;
+      load(slides[i]); load(slides[(i + 1) % slides.length]);
+      slides[i].classList.add('is-on'); if (dots[i]) dots[i].classList.add('is-on');
+    }
+    function start() { if (!timer && !slow) timer = setInterval(function () { go(i + 1); }, 6500); }
+    function stop() { clearInterval(timer); timer = null; }
+    function user(n) { stop(); go(n); start(); }
+    var prev = $('.sl__arr--prev', sl), next = $('.sl__arr--next', sl);
+    if (prev) prev.addEventListener('click', function () { user(i - 1); });
+    if (next) next.addEventListener('click', function () { user(i + 1); });
+    dots.forEach(function (d, n) { d.addEventListener('click', function () { user(n); }); });
+    var x0 = null;
+    sl.addEventListener('touchstart', function (e) { x0 = e.touches[0].clientX; }, { passive: true });
+    sl.addEventListener('touchend', function (e) {
+      if (x0 === null) return; var dx = e.changedTouches[0].clientX - x0; x0 = null;
+      if (Math.abs(dx) > 45) user(i + (dx < 0 ? 1 : -1));
+    });
+    document.addEventListener('visibilitychange', function () { document.hidden ? stop() : start(); });
+    setTimeout(function () { load(slides[1]); start(); }, 1800);
+  });
 
   /* корзина в localStorage */
   var KEY = 'astera_cart_v3';
@@ -28,7 +92,7 @@
   function badge() {
     var n = read().length;
     $$('.cart-count').forEach(function (el) { el.textContent = n; el.hidden = n === 0; });
-    $$('.hdr__cart').forEach(function (el) { el.classList.toggle('is-empty', n === 0); });
+    $$('.top__cart').forEach(function (el) { el.classList.toggle('is-empty', n === 0); });
   }
   window.CART = {
     all: read,
@@ -40,16 +104,14 @@
   badge();
 
   /* карточка модели */
+  /* карточка модели — та же разметка, что в каталоге (_build.py, dcard) */
   function cardHTML(m) {
-    return '<a class="pcard" href="dver.html?id=' + m.id + '">' +
-      (m.hit ? '<span class="tag">хит</span>' : '') +
-      '<div class="pcard__ph"><img loading="lazy" decoding="async" alt="' + m.t + '"' +
-        ' src="' + A.prev(m, 900) + '" srcset="' + A.prev(m, 440) + ' 440w, ' + A.prev(m, 900) + ' 900w"' +
-        ' sizes="(max-width:760px) 46vw, (max-width:1100px) 31vw, 24vw"></div>' +
-      '<div class="pcard__b"><span class="pcard__coll">' + m.coll + '</span>' +
-        '<h3>' + m.t + '</h3>' +
-        '<div class="pcard__price"><b>' + A.priceText(m) + '</b><span>' + (m.brand === 'mid' ? 'полотно' : 'дверь') + '</span></div>' +
-      '</div></a>';
+    var cls = m.brand === 'mid' ? ' dcard--mid' : (m.cover ? ' dcard--cover' : '');
+    var act = m.brand === 'mid' ? 'Выбрать отделку' : (m.cover ? 'Подробнее' : 'Собрать свою дверь');
+    return '<a class="dcard' + cls + '" href="dver.html?id=' + m.id + '"><span class="dcard__ph"><img loading="lazy" decoding="async" alt="' + m.t + '"' +
+      ' src="' + A.prev(m, 400) + '" srcset="' + A.prev(m, 400) + ' 400w, ' + A.prev(m, 900) + ' 800w" sizes="(max-width:760px) 46vw, 23vw"></span>' +
+      '<b class="dcard__t">' + m.t + '</b><span class="dcard__p">' + (m.price ? 'от ' + A.money(m.price) + ' ₽' : 'Цена по запросу') + '</span>' +
+      '<span class="dcard__l">' + act + '</span></a>';
   }
   function styleName(s) { return { modern:'Современные', classic:'Классика', neo:'Неоклассика', minimal:'Минимализм', design:'Дизайн' }[s] || s; }
   window.styleName = styleName;

@@ -12,15 +12,15 @@
   var isMid = M.brand === 'mid';
 
   /* ---------- шапка страницы ---------- */
-  var c = A.cat(M.cat), sub = null;
-  if (M.sub) c.subs.forEach(function (s) { if (s.id === M.sub) sub = s; });
-  $('#pBg').src = A.hero(M); $('#pBg').alt = M.t;
+  var c = A.cat(M.cat);
+  var pbg = $('#pBg'); if (pbg) { pbg.src = A.hero(M); pbg.alt = M.t; }
   $('#pName').textContent = M.t;
   $('#pBrand').textContent = (isMid ? 'Межкомнатная · ' + M.coll : 'Входная · ' + M.coll);
-  $('#pPrice').innerHTML = A.priceText(M) + '<small>' + (isMid ? 'полотно с коробом, установка отдельно' : 'цена двери, доставка и установка в Калининграде — наши') + '</small>';
+  $('#pPrice').innerHTML = A.priceText(M) + '<small>' + (isMid ? 'полотно с коробом' : M.price ? 'цена двери без монтажа' : 'посчитаем на замере') + '</small>';
   var parts = ['<a href="index.html">Главная</a><span>/</span>', '<a href="katalog.html">Каталог</a><span>/</span>',
                '<a href="' + c.page + '">' + c.t + '</a><span>/</span>'];
-  if (sub) parts.push('<a href="' + c.page + '?sub=' + sub.id + '">' + sub.t + '</a><span>/</span>');
+  var anchor = isMid ? M.style : (M.sub === 'ulica' ? 'dom' : 'c' + M.cn);
+  parts.push('<a href="' + c.page + '#' + anchor + '">' + M.coll + '</a><span>/</span>');
   parts.push('<b>' + M.t + '</b>');
   $('#crumbs').innerHTML = parts.join('');
   document.title = M.t + ' — ' + (isMid ? 'межкомнатная дверь' : 'входная дверь') + ' · Астера';
@@ -30,12 +30,12 @@
 
   /* ---------- галерея ---------- */
   var main = $('#galMain'), mainImg = $('#galImg'), thumbs = $('#galThumbs'), cap = $('#galCap');
+  /* входные в квартиру: снаружи и внутри — рендеры по выбранной отделке, третьим — дверь в проёме, как в каталоге;
+     двери для дома — фото фабрики; межкомнатные — все полотна модели */
   var shots = isMid
     ? (M.variants || []).map(function (v) { return { s: A.img(v.f), t: v.t, cover: false }; })
-    /* крупные кадры фабрики (A.gal) не показываем: на части из них остались номера домов и клейма */
-    : [{ s: A.prev(M, 900), t: 'Полотно', cover: false },
-       { s: A.hero(M), t: 'В проёме', cover: true, keep: true },
-       { s: A.heroM(M), t: 'Вблизи', cover: true, keep: true }];
+    : M.cover ? [{ s: A.prev(M, 900), t: M.t, cover: true }]
+    : [{ s: A.prev(M, 900), t: 'В проёме', cover: false, keep: true }];
   function show(i) {
     var sh = shots[i]; if (!sh) return;
     window.__shotIndex = i;
@@ -224,6 +224,7 @@
 
   /* запасной конфигуратор, если данных по модели нет */
   function initSteelFallback() {
+    window.__ask = !M.price;          /* фабрика считает индивидуально — цену называем на замере */
     D = {
       base: M.price,
       outFinish: [{ id:'mdf', t:'МДФ, эмаль', p:0, hint:'Ровный матовый цвет по палитре RAL.' }, { id:'oak', t:'Шпон дуба', p:38000, hint:'Живой рисунок, тонировка по образцу.' }, { id:'mass', t:'Массив дуба', p:96000, hint:'Для парадных входов. Срок дольше на три недели.' }],
@@ -289,7 +290,7 @@
       });
     };
     window.__onChange = function (el, g) { if (g === 'outFinish' || g === 'inFinish') paintColors(); if (g === 'size') $('#customSize').hidden = el.value !== 'custom'; };
-    window.__note = function () { return 'цена двери без монтажа · срок ' + (S.outFinish === 'mass' ? '75–90' : '45–60') + ' дней'; };
+    window.__note = function () { return (window.__ask ? 'назовём после замера' : 'цена двери без монтажа') + ' · срок ' + (S.outFinish === 'mass' ? '75–90' : '45–60') + ' дней'; };
   }
 
   /* ===== межкомнатная дверь ===== */
@@ -383,6 +384,7 @@
     location.href = 'korzina.html';
   });
   var similar = A.MODELS.filter(function (x) { return x.cat === M.cat && x.sub === M.sub && x.coll === M.coll && x.id !== M.id; }).slice(0, 4);
+  if (similar.length < 4) similar = similar.concat(A.MODELS.filter(function (x) { return x.cat === M.cat && x.sub === M.sub && x.id !== M.id && similar.indexOf(x) < 0; }).slice(0, 4 - similar.length));
   if (similar.length < 4) similar = similar.concat(A.MODELS.filter(function (x) { return x.cat === M.cat && x.id !== M.id && similar.indexOf(x) < 0; }).slice(0, 4 - similar.length));
   renderCards($('#similar'), similar);
   render();
