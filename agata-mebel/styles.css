@@ -1081,6 +1081,10 @@ body.mbar-on{ padding-bottom:76px }
   .hero-ds .hero-stone b{ font-weight:700 }
 }
 
+/* камень: подзаголовок «от бесшовного акрила до прочного кварца» продолжает заголовок «…эстетика монолита:» (текст Анны 30.10) */
+.stone-sub{ margin:16px 0 0; font:300 clamp(21px, 1.9vw, 30px)/1.25 var(--f-display); letter-spacing:-.02em; color:var(--beige); max-width:22ch }
+.stone-sub + .lead{ margin-top:22px }
+
 /* ===== Логотип на главной (просьба Анны 29.10): название крупнее, эмблема «АМ» под ним — над фото.
    При прокрутке и на телефоне — прежний компактный логотип ===== */
 .logo-home{ display:none }
