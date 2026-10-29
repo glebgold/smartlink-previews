@@ -1081,6 +1081,20 @@ body.mbar-on{ padding-bottom:76px }
   .hero-full .hero-text > *{ grid-column:2; position:relative; z-index:1 }
 }
 
+/* описание и строка про камень на первом экране — крупнее и плотнее, чтобы чётко читались на фото (просьба Анны) */
+.hero-ds .lead, .hero-ds .hero-stone{ -webkit-font-smoothing:auto; -moz-osx-font-smoothing:auto }
+@media (min-width:1001px), (min-width:701px) and (orientation:landscape){
+  .hero-ds .hero-sub{ margin-bottom:clamp(14px, 2vh, 22px) }
+  .hero-ds .lead{ max-width:min(680px, 54vw); margin:0 0 10px; font-size:clamp(17px, 1.3vw, 20px); line-height:1.55; font-weight:500; color:#1C1D1F }
+  .hero-ds .hero-stone{ max-width:none; margin:0 0 clamp(22px, 3.2vh, 34px); font-size:clamp(15px, 1.1vw, 17px); line-height:1.5; font-weight:500; color:#1C1D1F }
+  .hero-ds .hero-stone b{ font-weight:700 }
+}
+@media (max-width:700px), (max-width:1000px) and (orientation:portrait){
+  .hero-ds .lead{ font-size:16px; font-weight:500; color:var(--text) }
+  .hero-ds .hero-stone{ font-size:15px; font-weight:500; color:var(--text) }
+  .hero-ds .hero-stone b{ font-weight:700 }
+}
+
 /* ===== Логотип на главной (просьба Анны 29.10): название крупнее, эмблема «АМ» под ним — над фото.
    При прокрутке и на телефоне — прежний компактный логотип ===== */
 .logo-home{ display:none }
