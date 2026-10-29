@@ -26,6 +26,9 @@
 @font-face{font-family:'Inter';font-style:normal;font-weight:600;font-display:swap;src:url(assets/fonts/inter-600-cyrillic-ext.woff2) format('woff2');unicode-range:U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;}
 @font-face{font-family:'Inter';font-style:normal;font-weight:600;font-display:swap;src:url(assets/fonts/inter-600-cyrillic.woff2) format('woff2');unicode-range:U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;}
 @font-face{font-family:'Inter';font-style:normal;font-weight:600;font-display:swap;src:url(assets/fonts/inter-600-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}
+/* Cormorant — переменный шрифт (насыщенность 300–700), только для заголовка первого экрана */
+@font-face{font-family:'Cormorant';font-style:normal;font-weight:300 700;font-display:swap;src:url('assets/fonts/cormorant-var-cyrillic.woff2') format('woff2');unicode-range:U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116}
+@font-face{font-family:'Cormorant';font-style:normal;font-weight:300 700;font-display:swap;src:url('assets/fonts/cormorant-var-latin.woff2') format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
 
 :root{
   /* Светлая тёплая тема. Акценты — с досок заказчицы: бордо/красный, шалфей, бронза. */
@@ -843,18 +846,6 @@ body.mbar-on{ padding-bottom:76px }
   .review::before{ font-size:72px }
 }
 
-/* ---------- Первый экран, компьютер: кухня целиком справа (снимок вертикальный — не режем),
-   за текстом — тот же кадр, размытый; край фото растворяется в размытии ---------- */
-.hero-full .hero-bg .hero-blur{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:50% 50%; opacity:1; transform:none }
-.hero-full .hero-bg .hero-photo{ position:absolute; top:96px; right:0; bottom:0; left:auto; width:auto; height:calc(100% - 96px); aspect-ratio:9/16; object-fit:cover; object-position:50% 50%;
-  -webkit-mask-image:linear-gradient(90deg, transparent 0, #000 15%); mask-image:linear-gradient(90deg, transparent 0, #000 15%) }
-.hero-full .hero-bg::after{ display:none }
-.hero-full .mini-img{ border-width:3px }
-.hero-full .hero-mini{ max-width:340px }
-@media (max-width:700px), (max-width:1000px) and (orientation:portrait){
-  .hero-full .hero-bg .hero-blur{ display:none }
-  .hero-full .hero-bg .hero-photo{ top:0; height:100%; width:100%; aspect-ratio:auto; object-position:50% 40%; -webkit-mask-image:none; mask-image:none }
-}
 
 /* =====================================================================
    Правки Анны 23 октября
@@ -1032,4 +1023,77 @@ body.mbar-on{ padding-bottom:76px }
   .hero-full .hero-stone{ grid-row:7; margin:10px 0 0; max-width:none; text-shadow:none; color:var(--text-2) }
   .hero-full .hero-stone b{ color:var(--text) }
   .hero-full .hero-mini{ grid-row:8; padding-top:20px }
+}
+
+/* =====================================================================
+   Первый экран (выбран Анной 29.10): фото кухни фоном на весь экран, текст по центру
+   на светлой полосе (как у образца dsdreams.ru), заголовок — Cormorant прописными
+   ===================================================================== */
+.hero-ds h1{ font-family:'Cormorant', 'Times New Roman', serif; font-weight:700; text-transform:uppercase; letter-spacing:.005em; line-height:.96; color:#111214 }
+.hero-ds .hero-sub{ font-family:'Cormorant', 'Times New Roman', serif; font-weight:600; letter-spacing:.01em; color:#2E2924 }
+/* на фото тонкое сглаживание делает буквы бледными — возвращаем обычное */
+.hero-ds .hero-top, .hero-ds h1, .hero-ds .hero-sub, .hero-ds .hero-cta .btn{ -webkit-font-smoothing:auto; -moz-osx-font-smoothing:auto }
+.hero-ds .arr-long{ width:30px; height:12px; flex:none }
+.hero-ds .btn-ghost .arr-long{ display:none }
+@media (min-width:1001px), (min-width:701px) and (orientation:landscape){
+  .hero-ds .hero-bg picture{ position:absolute; inset:0 }
+  .hero-ds .hero-bg .hero-photo{ position:absolute; inset:0; width:100%; height:100%; aspect-ratio:auto; object-fit:cover; object-position:50% 50%; -webkit-mask-image:none; mask-image:none }
+  .hero-ds .hero-bg::after{ display:none }
+  .hero-ds .hero-content{ justify-content:center; padding-top:calc(96px + 2vh); padding-bottom:clamp(24px, 4vh, 48px) }
+  .hero-ds .hero-top{ font-size:12.5px; font-weight:600; letter-spacing:.2em; color:#1C1D1F; margin-bottom:clamp(14px, 2.2vh, 24px) }
+  .hero-ds h1{ white-space:nowrap; font-size:clamp(48px, 5.6vw, 96px); line-height:1; max-width:none; margin-bottom:clamp(12px, 1.8vh, 20px) }
+  .hero-ds h1 .ln{ display:inline-block; vertical-align:top }
+  .hero-ds h1 .ln + .ln{ margin-left:.24em }
+  .hero-ds .hero-sub{ font-size:clamp(26px, 2.3vw, 38px); margin-bottom:clamp(22px, 3.4vh, 36px) }
+  .hero-ds .hero-cta{ gap:16px }
+  .hero-ds .hero-cta .btn{ height:58px; padding:0 30px; gap:18px; border:1px solid #1C1D1F; color:#1C1D1F;
+    background:rgba(247,244,239,.62); -webkit-backdrop-filter:blur(6px); backdrop-filter:blur(6px);
+    font:600 clamp(19px, 1.45vw, 23px)/1 'Cormorant', 'Times New Roman', serif; letter-spacing:.01em; text-transform:none }
+  .hero-ds .hero-cta .btn::before{ background:#1C1D1F }
+  .hero-ds .hero-cta .btn:hover{ color:#F7F4EF; border-color:#1C1D1F }
+  .hero-ds .btn-ghost .arr-long{ display:block }
+  .hero-ds .hero-cta .btn svg:not(.arr-long){ display:none }
+  /* светлая полоса только под текстом, во всю ширину экрана; потолок и пол остаются чистыми */
+  .hero-ds .hero-text{ --fade:clamp(64px, 10vh, 120px); position:relative; display:flex; flex-direction:column }
+  .hero-ds .hero-text::before{ content:""; position:absolute; z-index:-1; pointer-events:none;
+    top:calc(-1 * var(--fade) - 18px); bottom:calc(-1 * var(--fade) - 18px); left:50%; width:100vw; margin-left:-50vw;
+    background:linear-gradient(180deg,
+      rgba(251,251,250,0) 0,
+      rgba(251,251,250,.11) calc(var(--fade) * .3),
+      rgba(251,251,250,.38) calc(var(--fade) * .62),
+      rgba(251,251,250,.64) var(--fade),
+      rgba(251,251,250,.64) calc(100% - var(--fade)),
+      rgba(251,251,250,.38) calc(100% - var(--fade) * .62),
+      rgba(251,251,250,.11) calc(100% - var(--fade) * .3),
+      rgba(251,251,250,0) 100%) }
+}
+@media (min-width:1001px) and (max-height:820px){
+  .hero-ds h1{ font-size:clamp(46px, 5.3vw, 90px) }
+  .hero-ds .hero-sub{ font-size:clamp(22px, 2vw, 30px) }
+}
+@media (max-width:700px), (max-width:1000px) and (orientation:portrait){
+  .hero-ds h1{ font-size:clamp(34px, 9.8vw, 58px); line-height:.98 }
+  .hero-ds .hero-sub{ font-size:clamp(21px, 5.6vw, 28px); color:#3F3221 }
+  /* светлая дымка сверху, под текстом; стол внизу чистый */
+  .hero-ds .hero-bg::after{ display:block; content:""; position:absolute; inset:0; pointer-events:none;
+    background:linear-gradient(180deg, rgba(247,244,239,.62) 0%, rgba(247,244,239,.52) 30%, rgba(247,244,239,.24) 44%, rgba(247,244,239,0) 54%) }
+  .hero-full .hero-text{ display:contents }
+  .hero-full .hero-text > *{ grid-column:2; position:relative; z-index:1 }
+}
+
+/* ===== Логотип на главной (просьба Анны 29.10): название крупнее, эмблема «АМ» под ним — над фото.
+   При прокрутке и на телефоне — прежний компактный логотип ===== */
+.logo-home{ display:none }
+@media (min-width:1001px), (min-width:701px) and (orientation:landscape){
+  .hdr-home .logo-home{ display:block; position:absolute; left:0; top:50%; transform:translateY(-50%); transition:opacity .35s var(--ease), visibility 0s }
+  .hdr.hdr-home .logo-home .logo-name{ display:block; height:72px; width:auto }
+  .hdr.hdr-home .logo-home .logo-emblem{ position:absolute; top:calc(100% + 16px); left:50%; width:124px; height:auto; transform:translateX(-50%);
+    filter:drop-shadow(0 0 10px rgba(247,244,239,.9)) }
+  .hdr-home .logo-compact{ transition:opacity .35s var(--ease), height .3s var(--ease) }
+  .hdr-home:not(.is-scrolled) .logo-compact{ opacity:0; visibility:hidden }
+  .hdr-home.is-scrolled .logo-home{ opacity:0; visibility:hidden; pointer-events:none; transition:opacity .35s var(--ease), visibility 0s .35s }
+}
+@media (min-width:1001px) and (max-width:1100px){
+  .hdr.hdr-home .logo-home .logo-name{ height:60px }
+  .hdr.hdr-home .logo-home .logo-emblem{ width:106px; top:calc(100% + 14px) }
 }

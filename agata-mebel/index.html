@@ -20,8 +20,10 @@
 <meta name="theme-color" content="#F7F4EF">
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/manrope-300-cyrillic.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/inter-400-cyrillic.woff2" crossorigin>
-<link rel="preload" as="image" href="assets/img/neo-k-1-xl.webp" imagesrcset="assets/img/neo-k-1-800.webp 450w, assets/img/neo-k-1-xl.webp 1200w" imagesizes="(min-width:1001px) 32vw, (min-width:701px) and (orientation:landscape) 34vw, 100vw">
-<link rel="stylesheet" href="styles.css?v=20">
+<link rel="preload" as="image" href="assets/img/hero-blue-1376.webp" imagesrcset="assets/img/hero-blue-1376.webp 1376w, assets/img/hero-blue-1920.webp 1920w" imagesizes="100vw" media="(min-width:1001px), (min-width:701px) and (orientation:landscape)">
+<link rel="preload" as="image" href="assets/img/neo-k-1-xl.webp" imagesrcset="assets/img/neo-k-1-800.webp 450w, assets/img/neo-k-1-xl.webp 1200w" imagesizes="100vw" media="(max-width:700px), (max-width:1000px) and (orientation:portrait)">
+<link rel="preload" as="font" type="font/woff2" href="assets/fonts/cormorant-var-cyrillic.woff2" crossorigin>
+<link rel="stylesheet" href="styles.css?v=21">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -53,10 +55,11 @@
 </head>
 <body id="top">
 
-<header class="hdr">
+<header class="hdr hdr-home">
   <div class="container hdr-in">
     <a class="logo" href="index.html" aria-label="Агата Мебель — на главную">
-      <img src="assets/brand/logo-h.webp" alt="Агата Мебель" width="637" height="180">
+      <img class="logo-compact" src="assets/brand/logo-h.webp" alt="Агата Мебель" width="637" height="180">
+      <span class="logo-home" aria-hidden="true"><img class="logo-name" src="assets/brand/logo-name.webp" alt="" width="483" height="228"><img class="logo-emblem" src="assets/brand/logo-emblem.webp" alt="" width="390" height="230"></span>
     </a>
     <nav class="nav" aria-label="Главное меню">
       <a href="#about">О компании</a>
@@ -96,33 +99,25 @@
 
 <main>
 
-<section class="hero hero-full">
+<section class="hero hero-full hero-ds hero-v-blue">
   <div class="hero-bg" aria-hidden="true">
-    <img class="hero-blur" src="assets/img/hero-blur.webp" alt="" decoding="async">
-    <img class="hero-photo" src="assets/img/neo-k-1-xl.webp" srcset="assets/img/neo-k-1-800.webp 450w, assets/img/neo-k-1-xl.webp 1200w" sizes="(min-width:1001px) 32vw, (min-width:701px) and (orientation:landscape) 34vw, 100vw" alt="" fetchpriority="high" decoding="async">
+    <picture>
+      <source media="(max-width:700px), (max-width:1000px) and (orientation:portrait)" srcset="assets/img/neo-k-1-800.webp 450w, assets/img/neo-k-1-xl.webp 1200w" sizes="100vw">
+      <img class="hero-photo" src="assets/img/hero-blue-1376.webp" srcset="assets/img/hero-blue-1376.webp 1376w, assets/img/hero-blue-1920.webp 1920w" sizes="100vw" alt="" fetchpriority="high" decoding="async">
+    </picture>
   </div>
   <div class="container hero-content">
-    <p class="hero-top"><span>Мебель на&nbsp;заказ для&nbsp;домов, квартир и&nbsp;бизнеса</span></p>
-    <h1 class="sp"><span class="ln"><span>Мебель под </span></span><span class="ln"><span>ваш характер</span></span></h1>
-    <p class="hero-sub rv rv-d1">От&nbsp;проекта до&nbsp;реализации</p>
-    <p class="lead rv rv-d2">Кухни, шкафы и&nbsp;гардеробные, детские, мебель для&nbsp;ванной, офисов, торговых и&nbsp;общественных организаций.</p>
-    <p class="hero-stone rv rv-d2"><b>Изделия из&nbsp;камня:</b> столешницы, фартуки, раковины, подоконники, ступени.</p>
-    <div class="hero-cta rv rv-d3">
-      <a class="btn btn-primary" href="calculator.html">Рассчитать стоимость
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-      <a class="btn btn-ghost" href="#lead">Заявка на замер</a>
-    </div>
-    <div class="hero-mini rv rv-d4">
-        <button class="mini" type="button" data-work="neo-apt" data-index="6" aria-label="Санузел — открыть фото">
-          <span class="mini-img"><img src="assets/img/neo-wc-1-thumb.webp" alt="Санузел с лепниной" width="281" height="500" decoding="async"></span>
-        </button>
-        <button class="mini" type="button" data-work="neo-apt" data-index="12" aria-label="Шкаф — открыть фото">
-          <span class="mini-img"><img src="assets/img/neo-panel-5-thumb.webp" alt="Белый шкаф с лепным декором" width="281" height="500" decoding="async"></span>
-        </button>
-        <button class="mini" type="button" data-work="neo-apt" data-index="7" aria-label="Гардеробная — открыть фото">
-          <span class="mini-img"><img src="assets/img/neo-dress-1-thumb.webp" alt="Гардеробная за бронзовым стеклом" width="281" height="500" decoding="async"></span>
-        </button>
+    <div class="hero-text">
+      <p class="hero-top"><span>Мебель на&nbsp;заказ для&nbsp;домов, квартир и&nbsp;бизнеса</span></p>
+      <h1 class="sp"><span class="ln"><span>Мебель под </span></span><span class="ln"><span>ваш характер</span></span></h1>
+      <p class="hero-sub rv rv-d1">От&nbsp;проекта до&nbsp;реализации</p>
+      <div class="hero-cta rv rv-d3">
+        <a class="btn btn-primary" href="calculator.html">Рассчитать стоимость
+          <svg class="arr-long" viewBox="0 0 36 12" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M0 6h34M29 1l5 5-5 5"/></svg></a>
+        <a class="btn btn-ghost" href="#lead">Заявка на замер
+          <svg class="arr-long" viewBox="0 0 36 12" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M0 6h34M29 1l5 5-5 5"/></svg></a>
       </div>
+    </div>
   </div>
 </section>
 
