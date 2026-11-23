@@ -442,11 +442,12 @@ p:last-child {
 
 .hero {
   --overlap: 240px;
+  --hero-h: clamp(540px, 86svh, 900px);
 }
 
 .hero__media {
   position: relative;
-  height: clamp(540px, 86svh, 900px);
+  height: var(--hero-h);
   overflow: hidden;
   background: var(--olive);
   color: #fff;
@@ -660,6 +661,42 @@ p:last-child {
 
   .hero__dirs {
     padding-right: calc(var(--gutter) + 420px + 48px);
+  }
+}
+
+/* Вертикальное фото на компьютере. Во всю ширину его пришлось бы сильно увеличить, и у человека
+   на фото срезались бы голова и ноги. Поэтому фото стоит слева во всю высоту и видно целиком,
+   а заголовок — справа на оливковом поле. Ширина фото — по его пропорциям (--ar из сборки),
+   но не больше половины экрана. Карточка заявки заходит на оливковое поле, а не на фото.
+   Названия направлений здесь не повторяем: они есть в шапке. */
+@media (min-width: 1000px) {
+  .hero--split .hero__media {
+    --photo: min(calc(var(--hero-h) * var(--ar, 0.75)), 50%);
+  }
+
+  .hero--split .hero__slide {
+    right: auto;
+    width: var(--photo);
+  }
+
+  .hero--split .hero__media::after,
+  .hero--split .hero__dirs {
+    display: none;
+  }
+
+  .hero--split .hero__top {
+    left: var(--photo);
+    width: auto;
+    padding-left: clamp(40px, 5vw, 88px);
+  }
+
+  .hero--split .hero__top h1 {
+    font-size: clamp(2.3rem, 0.6rem + 4vw, 5.2rem);
+    text-shadow: none;
+  }
+
+  .hero--split .hero__tag {
+    text-shadow: none;
   }
 }
 
